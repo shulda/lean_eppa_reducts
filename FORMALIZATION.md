@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-25 (CI pending):** `TwoGraphs/UnorderedTriplePermutation.lean` proves valuation triple parity is independent of the enumeration of the same three-element Finset, using adjacent-swap formulas and all six permutations. It prepares the actual unordered triple predicate.
+- [ ] **2026-10-25 (CI pending):** `TwoGraphs/UnorderedTripleRelation.lean` defines Boolean parity on arbitrary finite subsets, false unless cardinality three, and proves agreement with ordered ternary parity for distinct vertices. Four-point filter-cardinality parity and packaging as the approved `HumanTargets.TwoGraph` remain open.
+
+
+- [x] **2026-10-25 (certified at commit `5583953a4c4d7ec0dbdde90dbb13cf4872a41d75`, [CI 40223742183](https://github.com/shulda/lean_eppa_reducts/actions/runs/40223742183)):** `TwoGraphs/UnorderedTriplePermutation.lean` proves valuation triple parity is independent of the enumeration of the same three-element Finset, using adjacent-swap formulas and all six permutations. Build and allowed-axiom audit passed (207 declarations). It prepares the actual unordered triple predicate.
 
 
 - [x] **2026-10-25 (certified at commit `f33611d4d7cd3dd93cb03369cd250e14e6bc524b`, [CI 40223338045](https://github.com/shulda/lean_eppa_reducts/actions/runs/40223338045)):** `TwoGraphs/FourBoolCount.lean` proves the combinatorial equivalence between even cardinality of a filtered four-element set and the XOR of its four Boolean indicators. Build and allowed-axiom audit passed (189 declarations). The complete `HumanTargets.TwoGraph` bridge still awaits the unordered-triple reconstruction.
