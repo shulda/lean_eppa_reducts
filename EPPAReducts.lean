@@ -11,6 +11,7 @@ import EPPAReducts.TwoGraphs.QuotientFourPointParity
 import EPPAReducts.TwoGraphs.ValuationVertex
 import EPPAReducts.TwoGraphs.ValuationTernaryExtras
 import EPPAReducts.TwoGraphs.FourSubsetEnumeration
+import EPPAReducts.TwoGraphs.FourBoolCount
 import EPPAReducts.BoundedEquivalence.Basic
 import EPPAReducts.BoundedEquivalence.LabelEquiv
 import EPPAReducts.BoundedEquivalence.ExtendLabels
