@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-25 (CI pending):** `TwoGraphs/UnorderedTripleRelation.lean` defines Boolean parity on arbitrary finite subsets, false unless cardinality three, and proves agreement with ordered ternary parity for distinct vertices. Four-point filter-cardinality parity and packaging as the approved `HumanTargets.TwoGraph` remain open.
+- [ ] **2026-10-25 (CI pending):** `TwoGraphs/FourTripleDistinct.lean` supplies the six explicit pairwise inequalities between the four three-element subsets of a four-element set, needed to apply the generic certified `four_filter_even_iff_xor` lemma.
+
+
+- [x] **2026-10-25 (certified at commit `f815bfda62ad031bc291c6189feee7b806fddc73`, [CI 40224043914](https://github.com/shulda/lean_eppa_reducts/actions/runs/40224043914)):** `TwoGraphs/UnorderedTripleRelation.lean` defines Boolean parity on arbitrary finite subsets, false unless cardinality three, and proves agreement with ordered ternary parity for distinct vertices. Build and allowed-axiom audit passed (215 declarations). Four-point filter-cardinality parity and packaging as the approved `HumanTargets.TwoGraph` remain open.
 
 
 - [x] **2026-10-25 (certified at commit `5583953a4c4d7ec0dbdde90dbb13cf4872a41d75`, [CI 40223742183](https://github.com/shulda/lean_eppa_reducts/actions/runs/40223742183)):** `TwoGraphs/UnorderedTriplePermutation.lean` proves valuation triple parity is independent of the enumeration of the same three-element Finset, using adjacent-swap formulas and all six permutations. Build and allowed-axiom audit passed (207 declarations). It prepares the actual unordered triple predicate.
