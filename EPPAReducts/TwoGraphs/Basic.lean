@@ -17,6 +17,6 @@ abbrev TriplePredicate (α : Type*) := Finset α → Prop
 def IsTwoGraph {α : Type*} (T : TriplePredicate α) : Prop := by
   classical
   exact ∀ Q : Finset α, Q.card = 4 →
-    Even ((Q.powerset.filter (fun s => s.card = 3 ∧ T s)).card)
+    ((Q.powerset.filter (fun s => s.card = 3 ∧ T s)).card % 2 = 0)
 
 end EPPAReducts.TwoGraphs
