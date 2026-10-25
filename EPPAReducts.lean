@@ -1,6 +1,7 @@
 import AllThoseEPPA.EPPA
 import EPPAReducts.HumanTargets
 import EPPAReducts.TwoGraphs.Basic
+import EPPAReducts.TwoGraphs.RootedCocycle
 import EPPAReducts.BoundedEquivalence.Basic
 import EPPAReducts.BoundedEquivalence.LabelEquiv
 
