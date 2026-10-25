@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-25 (awaiting CI):** `BoundedEquivalence/ExtendLabels.lean` now contains `unique_extend_labels_from_core`, a unique extension theorem for auxiliary class names whenever every extension class meets the old core. The required finite cardinality/class-surjectivity lemma and the non-EPPA obstruction remain to be proved.
+- [ ] **2026-10-25 (awaiting CI):** added `all_extension_classes_meet_core` and `unique_extend_labels_of_bounded_classes` (Fin m), deriving the every-class-hits-core hypothesis by finite injective-surjective and recovering unique auxiliary class labels on the extension. Still no negative EPPA contradiction; final general theorem remains open.
+
+
+- [x] **2026-10-25 (certified at commit `019ee3b114c589770a8dc130c3f8aa50795c82a7`, [CI 40214294813](https://github.com/shulda/lean_eppa_reducts/actions/runs/40214294813)):** `BoundedEquivalence/ExtendLabels.lean` now contains `unique_extend_labels_from_core`, a unique extension theorem for auxiliary class names whenever every extension class meets the old core. Build and allowed-axiom audit passed (115 declarations). The finite cardinality/class-surjectivity lemma and the non-EPPA obstruction remained to be proved at that commit.
 
 
 - [x] **2026-10-25 (certified at commit `2da4dd6d8924df25bf03319e00083e0071842f8c`, [CI 40213966684 attempt 2](https://github.com/shulda/lean_eppa_reducts/actions/runs/40213966684)):** extended `LabelEquiv.lean` with `label_action_id` and `label_action_comp`, proving identity and composition laws for induced permutations of all realized auxiliary class names. Build and allowed-axiom audit passed (114 declarations). Algebraic helper proof only; the coset obstruction is still open. Initial attempt failed due to a transient GitHub DNS lookup during dependency download; unchanged-code rerun passed.

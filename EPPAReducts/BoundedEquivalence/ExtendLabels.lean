@@ -1,4 +1,4 @@
-import Mathlib.Logic.Equiv.Defs
+import Mathlib.Data.Fintype.Card
 
 /-!
 # Canonical extension of unlabelled equivalence-class names
@@ -45,5 +45,52 @@ theorem unique_extend_labels_from_core
     _ = fA a := hg.1 a
     _ = fB (ι a) := (hExt a).symm
     _ = fB b := ((hEq b (ι a)).mpr ha.symm).symm
+
+
+/-- Suppose the old carrier realizes all m classes, and an auxiliary
+Fin m-presentation of the extension induces exactly the same equivalence
+on old points. Then every class of the extension meets the old carrier.
+The key finite step is that an injective self-map of Fin m is surjective. -/
+theorem all_extension_classes_meet_core
+    (m : ℕ) (ι : α → β)
+    (fA : α → Fin m) (fB₀ : β → Fin m)
+    (hA : Function.Surjective fA)
+    (hKernel : ∀ a a' : α,
+      fA a = fA a' ↔ fB₀ (ι a) = fB₀ (ι a')) :
+    ∀ b : β, ∃ a : α, fB₀ (ι a) = fB₀ b := by
+  classical
+  let s : Fin m → α := fun c => Classical.choose (hA c)
+  have hs (c : Fin m) : fA (s c) = c :=
+    Classical.choose_spec (hA c)
+  let u : Fin m → Fin m := fun c => fB₀ (ι (s c))
+  have hu : Function.Injective u := by
+    intro c d hcd
+    have hEq : fA (s c) = fA (s d) :=
+      (hKernel (s c) (s d)).mpr hcd
+    calc
+      c = fA (s c) := (hs c).symm
+      _ = fA (s d) := hEq
+      _ = d := hs d
+  have hSurj : Function.Surjective u :=
+    Finite.surjective_of_injective hu
+  intro b
+  obtain ⟨c, hc⟩ := hSurj (fB₀ b)
+  exact ⟨s c, hc⟩
+
+/-- Canonical and unique recovery of the auxiliary labels on the whole
+finite-class extension from a fully realized old core. This is the
+class-naming interface used by the negative EPPA obstruction. -/
+theorem unique_extend_labels_of_bounded_classes
+    (m : ℕ) (ι : α → β)
+    (fA : α → Fin m) (fB₀ : β → Fin m)
+    (hA : Function.Surjective fA)
+    (hKernel : ∀ a a' : α,
+      fA a = fA a' ↔ fB₀ (ι a) = fB₀ (ι a')) :
+    ∃! fB : β → Fin m,
+      (∀ a, fB (ι a) = fA a) ∧
+      (∀ b c, fB b = fB c ↔ fB₀ b = fB₀ c) :=
+  unique_extend_labels_from_core ι fA fB₀
+    (all_extension_classes_meet_core m ι fA fB₀ hA hKernel)
+    hKernel
 
 end EPPAReducts.BoundedEquivalence
