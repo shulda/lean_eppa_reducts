@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-25 (CI pending):** `TwoGraphs/ValuationTernaryExtras.lean` proves zero parity for repeated vertices, its last-two variant, and the equivalent Boolean XOR four-point equation. These are needed for the exact `Finset`-based two-graph bridge.
+- [ ] **2026-10-25 (CI pending):** `TwoGraphs/FourSubsetEnumeration.lean` explicitly enumerates the four unordered three-element subsets of a four-element Finset, via powersetCard insert recursion. This will be used to convert the fourpoint XOR formula to the exact accepted `HumanTargets.TwoGraph.fourPointEven` condition.
+
+
+- [x] **2026-10-25 (certified at commit `1d696ca5e33d51141cecf6ecb0701bd5beeb784e`, [CI 40221574696](https://github.com/shulda/lean_eppa_reducts/actions/runs/40221574696)):** `TwoGraphs/ValuationTernaryExtras.lean` proves zero parity for repeated vertices, its last-two variant, and the equivalent Boolean XOR four-point equation. Build and allowed-axiom audit passed (176 declarations). These are needed for the exact `Finset`-based two-graph bridge.
 
 
 - [x] **2026-10-25 (certified at commit `7dfc552c5f2159910585e3ff45c8b791b6d12645`, [CI 40221320611](https://github.com/shulda/lean_eppa_reducts/actions/runs/40221320611)):** `TwoGraphs/ValuationVertex.lean` adds concrete `ValuationVertex X = X × ValuationClass X`, labelled triple parity, symmetry, unrestricted four-point F₂ cancellation, and finite-carrier instances. Build and allowed-axiom audit passed (171 declarations). **Not** yet the unordered Finset two-graph or the main theorem.
