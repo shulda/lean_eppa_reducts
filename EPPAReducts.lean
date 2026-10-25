@@ -5,6 +5,7 @@ import EPPAReducts.TwoGraphs.RootedCocycle
 import EPPAReducts.BoundedEquivalence.Basic
 import EPPAReducts.BoundedEquivalence.LabelEquiv
 import EPPAReducts.BoundedEquivalence.ExtendLabels
+import EPPAReducts.BoundedEquivalence.ClassShiftFixed
 
 /-!
 # EPPA for reducts
