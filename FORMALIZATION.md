@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-25 (second adversarial mathematical audit; private proof plan v2, provisional pre-Lean stability gate passed).
+**Updated:** 2026-10-25 (Lean targets approved; starting checked mathematical lemmas).
 
 ## Scope and acceptance targets
 
@@ -14,11 +14,14 @@ Only two load-bearing results are intended:
 
 **Important:** a graph modulo complementation is an unlabelled equivalence relation on unordered pairs with ≤2 classes, **not** a graph that happens to admit a complementing automorphism. A model with `m` named edge colours has the wrong automorphism group and is not the intended target.
 
-The human-readable English formulations were approved by the author on 2026-10-25. The self-contained **Lean** formulations in `EPPAReducts/HumanTargets.lean` are proposed and await the author's separate semantic review. The private paper draft may evolve in exposition or proof details; the mathematical targets should remain stable. The expanded **private** mathematical manuscript is now `eppa_reducts_formalization_v2.tex` (18-page PDF), superseding `v1` and `v0`. It is a provisional mathematical proof plan, **not** a Lean-verified theorem or an external referee certification. Do not silently weaken them by restricting carrier size, considering only a chosen graph representative, requiring exactly `m` classes, naming colours, or assuming coherence only for full automorphisms.
+The human-readable English formulations were approved by the author on 2026-10-25. The self-contained **Lean** formulations in `EPPAReducts/HumanTargets.lean` were reviewed and approved by the author on 2026-10-25. Their definitions are frozen acceptance targets. The private paper draft may evolve in exposition or proof details; the mathematical targets should remain stable. The expanded **private** mathematical manuscript is now `eppa_reducts_formalization_v2.tex` (18-page PDF), superseding `v1` and `v0`. It is a provisional mathematical proof plan, **not** a Lean-verified theorem or an external referee certification. Do not silently weaken them by restricting carrier size, considering only a chosen graph representative, requiring exactly `m` classes, naming colours, or assuming coherence only for full automorphisms.
 
 Explicitly out of scope: the six-vertex exposition as a separate theorem, the rooting transfer to complementary two-graphs, looped-graph EPPA, and the claimed wider hypergraph reduct classification. These may be optional regression tests or later projects, but they are not part of the requested certification.
 
 ## Current verified state
+
+- [ ] **2026-10-25 (awaiting HEAD CI):** first genuine Lean proof lemmas in `EPPAReducts/BoundedEquivalence/LabelEquiv.lean`: `unique_label_equiv` and `unique_label_action`, establishing that two surjective labelings of the same unlabelled equivalence differ by a unique label bijection, and that a kernel-preserving permutation induces a unique class permutation. These are preliminary auxiliary statements, **not** EPPA or non-EPPA. Validate at the eventual HEAD before marking verified.
+
 
 - [x] **2026-10-25:** created public Lean project, Lean and Mathlib `v4.34.1`; pinned `AllThoseEPPA` dependency (matching `lean_eppa_semigeneric`); no LaTeX source published.
 - [x] **2026-10-25:** installed GitHub Actions build, Mathlib/toolchain cache, placeholder check, tracked-LaTeX check, and `axiom-audit` with allowlist `propext, Classical.choice, Quot.sound`.
@@ -31,7 +34,7 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 - [x] **2026-10-25:** second adversarial read of both target proof chains completed in private revision `eppa_reducts_formalization_v2.tex` (18 pages, PDF companion; **not on public GitHub**). Checked quantifiers, quotient/matrix action and full-transversal uniqueness, block-group compatibility, abstract coherence, unlabelled class action, normalizer condition, finite orbit divisibility, exterior types, and ordered tuples. No substantive counterexample or missing mathematical hypothesis found; **provisional pre-Lean proof-plan stability gate passed**, subject to reconsideration if Lean exposes a gap. Added optional quantitative lift-fibre audit and a stronger class-action homomorphism contract. Independent finite tests checked 64 full transversals with 2304 composition laws, 64 block-group multiplication laws, several small parameter cases for the negative obstruction, and 264 normalizing cosets in Sym(4). These computations are not proofs, and the main targets remain unproved.
 - [x] English human-readable theorem statements approved by the author.
 - [x] Added self-contained Lean target propositions `HumanTargets.twoGraphsHaveCoherentEPPA` and `HumanTargets.graphsModuloComplementationFailEPPA` with induced-embedding, partial-isomorphism, extension and coherence definitions; **these are definitions of propositions, not proofs**.
-- [ ] Self-contained Lean target statement semantics approved by the author.
+- [x] Self-contained Lean target statement semantics reviewed and approved by the author (2026-10-25).
 - [ ] Final positive theorem proved and audited in Lean.
 - [ ] General negative theorem (unordered, ordered) proved and audited in Lean.
 - [ ] Certified bridges from technical encodings to the two human-readable targets.
@@ -89,7 +92,7 @@ On every fresh chat or after a crash:
 ## Next concrete actions
 
 1. **Private mathematical plan provisionally stable after second audit (v2).** Do not treat this as Lean verification or independent external refereeing. If Lean reveals a genuinely mathematical missing condition, repair the private proof manuscript and update this ledger before accepting the technical theorem.
-2. Await the author's semantic review of `EPPAReducts/HumanTargets.lean` when convenient. The approved English targets fix the intended mathematics. **Do not silently change** the standalone Lean target definitions; preliminary technical lemmas may be built against the stable paper-level proof plan while review is pending.
+2. The author approved the standalone Lean target definitions on 2026-10-25. Keep their exact semantics fixed; use separate technical definitions and prove equivalences at the end.
 3. When resuming Lean, start with separately provable and auditable elementary positive and negative lemmas in small CI-green commits (rooted graph representation / quotient parity; finite coset-orbit lemma / unlabelled class-action bridge), reusing the upstream `AllThoseEPPA` API. The optional lift-count formula is a regression lemma, **not** a dependency of the principal theorem.
 4. Keep both branches in **this one** public Lean repository. Never upload unpublished TeX, proof excerpts or the internal working manuscript without explicit permission.
 5. At the end, prove bridges to the two exact readable target declarations; require green CI and axiom audit at the final theorem HEAD.
