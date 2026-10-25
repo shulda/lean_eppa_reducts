@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-25 (verified exact valuation two-graph; beginning matrix automorphism algebra).
+**Updated:** 2026-10-25 (verified raw symmetric-matrix action; quotient row-translation action under construction).
 
 ## Scope and acceptance targets
 
@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-25 (CI pending):** `TwoGraphs/SymmetricRowShift.lean` introduces symmetric Boolean matrices, matrix-row translations of valuations and the main raw parity-preservation calculation. This is not yet the actual group action on quotient valuation classes or a coherent EPPA witness.
+- [ ] **2026-10-25 (CI pending):** `TwoGraphs/QuotientRowShift.lean` descends row shifts to `ValuationClass`, proves involutivity, constructs an actual `Equiv.Perm` of valuation vertices and establishes ternary relation preservation for symmetric matrices. No full matrix-permutation group, extension lemma or coherent EPPA yet.
+
+
+- [x] **2026-10-25 (certified at commit `b94335ae0af34cbba47b7d2913011c7658792e02`, [CI 40225195233](https://github.com/shulda/lean_eppa_reducts/actions/runs/40225195233)):** `TwoGraphs/SymmetricRowShift.lean` proves `rawTripleParity_symmetricRowShift` for every symmetric Boolean matrix and all triples, even repeated first coordinates. Build and allowed-axiom audit passed (231 declarations). Still missing quotient action and group law.
 
 
 - [x] **2026-10-25 (certified at commit `bc97bda4a162044af05cb322c130c6c7d091067e`, [CI 40224704175](https://github.com/shulda/lean_eppa_reducts/actions/runs/40224704175)):** `TwoGraphs/ValuationTwoGraph.lean` constructs an actual `HumanTargets.TwoGraph` on `X × ValuationClass X` with the **literal** four-point filtered-powerset parity theorem `unorderedTripleParity_fourPointEven`. Build and allowed-axiom audit passed (225 declarations). The output is constrained to `X : Type` to match the approved `HumanTargets.TwoGraph` universe. **No EPPA or coherence property follows yet.**
