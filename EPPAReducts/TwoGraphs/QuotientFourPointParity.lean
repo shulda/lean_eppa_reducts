@@ -35,7 +35,11 @@ theorem quotientFourPointParityModTwo
       | _ vc =>
         induction d using Quotient.inductionOn with
         | _ vd =>
-          simpa only [quotientTripleParity_mk] using
-            rawFourPointParityModTwo x y z w va vb vc vd
+          change
+            boolBit (rawTripleParity x y z va vb vc) +
+              boolBit (rawTripleParity x y w va vb vd) +
+              boolBit (rawTripleParity x z w va vc vd) +
+              boolBit (rawTripleParity y z w vb vc vd) = 0
+          exact rawFourPointParityModTwo x y z w va vb vc vd
 
 end EPPAReducts.TwoGraphs
