@@ -1,16 +1,19 @@
 # EPPA for reducts — Lean formalization
 
-Lean 4 formalization project associated with research on EPPA for reducts of the random graph and related hypergraphs.
+A public Lean 4 project for two selected results about reducts of the random graph.
 
-**Scope:** coherent EPPA for finite two-graphs, and non-EPPA for finite equivalence relations on (r)-element subsets (and injective ordered (r)-tuples) with at most (m) classes, for (r,m\ge 2).
+**Target statements (not yet proved in Lean):**
 
-**Status:** repository setup only. Neither main result is yet formalized or certified.
+- Coherent EPPA for finite two-graphs.
+- Failure of EPPA for equivalence relations on unordered `r`-subsets or on ordered injective `r`-tuples, with at most `m` equivalence classes, for all `r, m ≥ 2`.
 
-The manuscript and its LaTeX sources are **private**, not part of this repository. This repository contains only explicitly public Lean code, CI configuration, and project-level metadata.
+**Current status:** repository initialized; foundational definitions only. No claim of a completed formalization.
+
+The research manuscript and LaTeX sources remain **private**. This public repository is for Lean code, build infrastructure, and public project metadata only.
 
 ## Build
 
-Lean and Mathlib are pinned in `lean-toolchain` and `lakefile.toml`. After installing elan:
+Toolchain: Lean v4.34.1 and Mathlib v4.34.1; the common `AllThoseEPPA` language and EPPA vocabulary is pinned as a dependency.
 
 ```sh
 lake update
@@ -18,4 +21,4 @@ lake exe cache get
 lake build
 ```
 
-GitHub Actions runs builds and audits the logical axioms used by the project. Successful CI establishes compilation/audit of the code present at that commit, not completeness of the mathematical goals.
+The GitHub Actions workflow checks compilation, rejects `sorry`/`admit` and custom axioms, audits logical axioms, and rejects accidentally tracked LaTeX manuscript files. A green badge confirms only the declarations actually present in that commit.

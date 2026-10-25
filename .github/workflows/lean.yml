@@ -1,0 +1,70 @@
+name: Lean CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.head.ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Mirror the established Lean project cache policy.
+      - name: Cache Lean toolchain
+        uses: actions/cache@v5
+        with:
+          path: ~/.elan/toolchains
+          key: lean-toolchain-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain') }}
+
+      - name: Install elan
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      # Reuse the selective Mathlib cache strategy from the sibling projects.
+      # Expand this list when adding imports as the proofs develop.
+      - name: Download Mathlib cache
+        run: |
+          lake exe cache get \
+            Mathlib.Algebra.Group.Defs \
+            Mathlib.Logic.Equiv.PartialEquiv \
+            Mathlib.GroupTheory.Perm.Basic \
+            Mathlib.Tactic.Group \
+            Mathlib.Combinatorics.SimpleGraph.Basic \
+            Mathlib.Data.Finset.Card
+
+      - name: Prevent accidental manuscript publication
+        shell: bash
+        run: |
+          if git ls-files -- '*.tex' '*.bib' '*.sty' '*.cls' | grep -q .; then
+            echo 'Private manuscript files must never be committed to this public repository.'
+            exit 1
+          fi
+
+      - name: Reject unfinished proof placeholders
+        shell: bash
+        run: |
+          if grep -R -nE '(^|[[:space:]])(sorry|admit)([[:space:]]|$)|^[[:space:]]*axiom[[:space:]]' --include='*.lean' EPPAReducts EPPAReducts.lean; then
+            echo 'Unfinished proof or custom axiom found.'
+            exit 1
+          fi
+
+      - name: Build and audit Lean project
+        uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865 # v1.6.1
+        with:
+          auto-config: false
+          build: true
+          use-github-cache: false
+          use-mathlib-cache: false
+          axiom-audit: true
+          axiom-audit-root: EPPAReducts
+          axiom-audit-allow: propext,Classical.choice,Quot.sound

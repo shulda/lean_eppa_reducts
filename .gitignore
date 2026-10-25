@@ -1,0 +1,15 @@
+.lake/
+*.olean
+*.ilean
+*.trace
+.DS_Store
+
+# The source manuscript and any local private proof notes must not be
+# accidentally added to this public formalization repository.
+*.tex
+*.bib
+*.sty
+*.cls
+*.aux
+*.log
+*.synctex.gz
