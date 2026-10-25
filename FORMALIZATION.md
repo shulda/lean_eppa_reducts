@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-25 (awaiting CI):** extended `LabelEquiv.lean` with `label_action_id` and `label_action_comp`, proving identity and composition laws for induced permutations of all realized auxiliary class names. Algebraic helper proof only; the coset obstruction is still open.
+- [ ] **2026-10-25 (awaiting CI):** `BoundedEquivalence/ExtendLabels.lean` now contains `unique_extend_labels_from_core`, a unique extension theorem for auxiliary class names whenever every extension class meets the old core. The required finite cardinality/class-surjectivity lemma and the non-EPPA obstruction remain to be proved.
+
+
+- [x] **2026-10-25 (certified at commit `2da4dd6d8924df25bf03319e00083e0071842f8c`, [CI 40213966684 attempt 2](https://github.com/shulda/lean_eppa_reducts/actions/runs/40213966684)):** extended `LabelEquiv.lean` with `label_action_id` and `label_action_comp`, proving identity and composition laws for induced permutations of all realized auxiliary class names. Build and allowed-axiom audit passed (114 declarations). Algebraic helper proof only; the coset obstruction is still open. Initial attempt failed due to a transient GitHub DNS lookup during dependency download; unchanged-code rerun passed.
 
 
 - [x] **2026-10-25 (certified at commit `33e42b55ab1bb516a697bfb10dd773f11e9e8807`, [CI 40213691348](https://github.com/shulda/lean_eppa_reducts/actions/runs/40213691348)):** added `EPPAReducts/TwoGraphs/RootedCocycle.lean` with algebraic cocycle/boundary lemmas. This is the additive backbone of the rooted-graph representation; build and allowed-axiom audit passed (112 declarations). **Not** yet the bridge to the four-point parity definition of `HumanTargets.TwoGraph`.
