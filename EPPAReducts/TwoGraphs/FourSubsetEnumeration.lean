@@ -21,7 +21,7 @@ theorem powersetCard_one_of_pair
   calc
     ({c, d} : Finset V).powersetCard 1 =
         ({d} : Finset V).powersetCard 1 ∪
-          (({d} : Finset V).powersetCard 0).image (Finset.insert c) := by
+          (({d} : Finset V).powersetCard 0).image (insert c) := by
       apply Finset.powersetCard_succ_insert
       simpa using hcd
     _ = {{c}, {d}} := by simp [Finset.powersetCard_self]
@@ -35,7 +35,7 @@ theorem powersetCard_two_of_triple
   calc
     ({b, c, d} : Finset V).powersetCard 2 =
         ({c, d} : Finset V).powersetCard 2 ∪
-          (({c, d} : Finset V).powersetCard 1).image (Finset.insert b) := by
+          (({c, d} : Finset V).powersetCard 1).image (insert b) := by
       apply Finset.powersetCard_succ_insert
       simp [hbc, hbd]
     _ = {{b, c}, {b, d}, {c, d}} := by
@@ -53,7 +53,7 @@ theorem powersetCard_three_of_quadruple
   calc
     ({a, b, c, d} : Finset V).powersetCard 3 =
         ({b, c, d} : Finset V).powersetCard 3 ∪
-          (({b, c, d} : Finset V).powersetCard 2).image (Finset.insert a) := by
+          (({b, c, d} : Finset V).powersetCard 2).image (insert a) := by
       apply Finset.powersetCard_succ_insert
       simp [hab, hac, had]
     _ = {{a, b, c}, {a, b, d}, {a, c, d}, {b, c, d}} := by
