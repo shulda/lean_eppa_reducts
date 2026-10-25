@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-25 (setup, first proof audit, and readable Lean target specifications).
+**Updated:** 2026-10-25 (private pre-Lean proof-audit manuscript revised; formalization paused until proof plan is stable).
 
 ## Scope and acceptance targets
 
@@ -27,6 +27,7 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 - [x] **2026-10-25:** inspected source proof structure and compared the shared API in `AllThoseEPPA/EPPA.lean` / `PartialIso.lean`. The latter already implements explicit embeddings, partial automorphisms, EPPA, coherent extension, equivalent partial-map representations, and coherent triples.
 - [x] **2026-10-25:** first *desk audit* and private expanded formalization-oriented LaTeX manuscript prepared as chat artifact, not pushed. No definitive proof gap identified in either required human proof; several nontrivial omitted details expanded. Ran finite sanity checks for the six-vertex graph gadget and small `C_X` valuation structures/actions (`|X| ≤ 3`). These checks are not proofs.
 - [x] **2026-10-25:** independent Lean target module imported by the project root and verified by GitHub Actions at commit `408d9eac51b00189f1d10a71b187296f80596028`: [run 40208174582](https://github.com/shulda/lean_eppa_reducts/actions/runs/40208174582), successful build and allowed-axiom audit (103 declarations). **The targets are only propositions: no proof of either is claimed.**
+- [x] **2026-10-25:** prepared private working revision `eppa_reducts_formalization_v1.tex` (16-page compiled proof-audit manuscript), expanding proof-level contracts, edge cases and dependency checks for both target results. **It is private and is NOT in this public repository**; neither main theorem is Lean-proved. The previous `_v0.tex` remains superseded, not certified. Independent adversarial scrutiny remains desirable before freezing the proof plan.
 - [x] English human-readable theorem statements approved by the author.
 - [x] Added self-contained Lean target propositions `HumanTargets.twoGraphsHaveCoherentEPPA` and `HumanTargets.graphsModuloComplementationFailEPPA` with induced-embedding, partial-isomorphism, extension and coherence definitions; **these are definitions of propositions, not proofs**.
 - [ ] Self-contained Lean target statement semantics approved by the author.
@@ -86,8 +87,8 @@ On every fresh chat or after a crash:
 
 ## Next concrete actions
 
-1. Obtain user approval or corrections to the two short human-facing theorem formulations.
-2. Formalize the positive rooted-representative and finite valuation-quotient layer, in small CI-green commits.
-3. In parallel or next, formalize the independent finite coset-orbit lemma and the unlabelled-equivalence colour action.
-4. Maintain both branches in this one public repository; keep private proof-manuscript details out of it until permission is given.
-5. At the end, publish readable final target declaration names and prove bridges; require green CI and axiom audit on their exact HEAD.
+1. **Stabilize the private mathematical proof plan first.** Audit the load-bearing lemmas in both branches independently, focusing on exact hypotheses, finite-size edge cases, action/quotient compatibility, unlabelled class semantics and generic coherence; revise the private manuscript if a mathematical dependency changes. Do not begin substantive Lean theorem proofs until this is sufficiently stable.
+2. Await the author's semantic review of `EPPAReducts/HumanTargets.lean` when convenient; the approved *English* statements already fix the intended API, so this need not block private paper-level work.
+3. After the proof-plan gate, implement elementary positive and negative lemmas in small CI-green commits, reusing the upstream `AllThoseEPPA` vocabulary.
+4. Keep both branches in **this one** public Lean repository. Never upload unpublished TeX, proof excerpts or the internal working manuscript without explicit permission.
+5. At the end, prove bridges to the two exact readable target declarations; require green CI and axiom audit at the final theorem HEAD.
