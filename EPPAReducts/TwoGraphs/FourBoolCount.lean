@@ -26,7 +26,7 @@ theorem four_filter_even_iff_xor
   classical
   cases ha : f a <;> cases hb : f b <;>
     cases hc : f c <;> cases hd : f d <;>
-    simp only [Finset.filter_insert, Finset.filter_singleton]
+    simp only [Finset.filter_insert, Finset.filter_singleton] <;>
     simp [ha, hb, hc, hd, hab, hac, had, hbc, hbd, hcd]
 
 end EPPAReducts.TwoGraphs
