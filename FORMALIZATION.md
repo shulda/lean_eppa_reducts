@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-25 (expanding negative obstruction with fixed-vertex lemmas; CI pending).
+**Updated:** 2026-10-25 (audited raw and quotient four-point parity; verified fixed-vertex bound).
 
 ## Scope and acceptance targets
 
@@ -20,7 +20,7 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-25 (CI pending):** `TwoGraphs/QuotientFourPointParity.lean` proves four-point parity for four vertices with genuine quotient valuation components by quotient induction. This yields the algebraic two-graph identity independently of representatives; the final unordered-Finset relation and exact bridge to `HumanTargets.TwoGraph` are still pending.
+- [x] **2026-10-25 (certified at commit `3e0980ab0ebef84814ca7b3e8eb01ccb58b3bb23`, [CI 40219483658](https://github.com/shulda/lean_eppa_reducts/actions/runs/40219483658)):** `TwoGraphs/QuotientFourPointParity.lean` proves `quotientFourPointParityModTwo` for four genuine quotient-valuation vertices, including repeated first coordinates. Build and allowed-axiom audit passed (164 declarations). This **does not yet** construct the unordered `Finset`-based `HumanTargets.TwoGraph` nor prove full coherent EPPA.
 
 
 - [x] **2026-10-25 (certified at commit `71a8367b6b089003cd26b3b5f444bcc437084b56`, [CI 40219044633](https://github.com/shulda/lean_eppa_reducts/actions/runs/40219044633)):** `TwoGraphs/RawFourPointParity.lean` converts the Boolean XOR formula to ZMod 2 and proves the full four-point cancellation of the raw valuation triple parity without assumptions on first-coordinate distinctness. Build and axiom audit passed (163 declarations). This is algebraic fourpoint parity; descent to quotient triples and `HumanTargets.TwoGraph.fourPointEven` remained open at that commit.
@@ -94,7 +94,7 @@ On every fresh chat or after a crash:
 ### Positive: coherent EPPA for two-graphs
 
 - [ ] Rooted graph representative: the four-point parity axiom reconstructs a graph representative of any nonempty finite two-graph.
-- [ ] Quotient valuation space `Q_X = (X → ZMod 2) / constant-one`; well-defined triple predicate; four-point parity for all vertices, not just transversals.
+- [ ] Quotient valuation space `Q_X`: quotient by constant complement is defined using `Bool`; well-defined labelled triple parity, symmetry, and algebraic four-point cancellation are Lean-proved. Still prove the exact unordered-`Finset` two-graph structure, finiteness and HumanTargets bridge.
 - [ ] Symmetric matrix action on the valuation witness; quotient by a **single global constant matrix**, transformation composition, and honest automorphisms.
 - [ ] For transversal partial isomorphisms, prove the switching/cut identity and extend the projection injection to a permutation; construct a symmetric matrix extension.
 - [ ] Uniqueness of the action lift for a transversal covering **all** first coordinates. Carefully handle domains of size 0, 1, or 2.
@@ -130,7 +130,7 @@ On every fresh chat or after a crash:
 
 ## Next concrete actions
 
-**Post-initial-proof checkpoint:** Main branch has genuine audited auxiliary theorems, but neither principal EPPA theorem. The immediate next positive milestone is the exact bridge from the human-facing finite four-point parity to `TwoGraphs.IsTriangleCocycle`, followed by quotient valuations. The immediate next negative milestone is the independent coset fixed-point orbit bound, then its specialization to the unlabelled Fin m class action. Avoid spending further time on only relabelling infrastructure unless a bridge requires it.
+**Post-valuation checkpoint:** Main branch has genuine audited auxiliary results on BOTH tracks, but neither principal EPPA theorem. On the positive track, Boolean valuation quotient, representative independence, triple permutation symmetry, raw and quotient F₂ four-point identities are proved. The next indispensable step is to build the *actual finite two-graph* on `X × ValuationClass X`, prove the `Finset` four-point-even axiom and bridge its relation to `HumanTargets.TwoGraph`; then construct the matrix action, transversal lifts, subgroup sections and coherence. The earlier rooted-graph construction also still needs the precise original `HumanTargets.TwoGraph.fourPointEven` ⇒ rooted-representation bridge. On the negative track, all bounded-class core-labelling and fixed-vertex-bound lemmas are proved, but the independent **coset fixed-point orbit bound** is not, nor are the cyclic exterior-colouring obstruction and the general `(r,m)` theorem. These are the next load-bearing targets. Avoid spending further time on already established relabelling infrastructure except when it is needed for the final bridge.
 
 
 1. **Private mathematical plan provisionally stable after second audit (v2).** Do not treat this as Lean verification or independent external refereeing. If Lean reveals a genuinely mathematical missing condition, repair the private proof manuscript and update this ledger before accepting the technical theorem.
