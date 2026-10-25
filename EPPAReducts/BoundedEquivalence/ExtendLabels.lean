@@ -1,3 +1,4 @@
+import Mathlib.Data.Fintype.Fin
 import Mathlib.Data.Fintype.Card
 
 /-!
