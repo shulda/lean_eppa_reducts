@@ -38,7 +38,7 @@ theorem cocycle_eq_rooted_boundary (t : V → V → V → A)
   funext x y z
   apply sub_eq_zero.mp
   change t x y z - (t root y z - t root x z + t root x y) = 0
-  convert h root x y z using 1 <;> abel
+  convert h root x y z using 1; abel
 
 /-- On a nonempty complete simplex, being a cocycle is equivalent to
 being a triangle boundary. -/

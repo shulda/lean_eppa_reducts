@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-25 (awaiting CI):** added `EPPAReducts/TwoGraphs/RootedCocycle.lean` with algebraic cocycle/boundary lemmas. This is the additive backbone of the rooted-graph representation and is **not** yet the bridge to the finite four-point parity definition of `HumanTargets.TwoGraph`.
+- [ ] **2026-10-25 (awaiting CI):** extended `LabelEquiv.lean` with `label_action_id` and `label_action_comp`, proving identity and composition laws for induced permutations of all realized auxiliary class names. Algebraic helper proof only; the coset obstruction is still open.
+
+
+- [x] **2026-10-25 (certified at commit `33e42b55ab1bb516a697bfb10dd773f11e9e8807`, [CI 40213691348](https://github.com/shulda/lean_eppa_reducts/actions/runs/40213691348)):** added `EPPAReducts/TwoGraphs/RootedCocycle.lean` with algebraic cocycle/boundary lemmas. This is the additive backbone of the rooted-graph representation; build and allowed-axiom audit passed (112 declarations). **Not** yet the bridge to the four-point parity definition of `HumanTargets.TwoGraph`.
 
 
 - [x] **2026-10-25 (certified at commit `c5358ad95e69d1fee5b75aa17d517e6d2ed054ec`, [CI 40213454764](https://github.com/shulda/lean_eppa_reducts/actions/runs/40213454764)):** first genuine Lean proof lemmas in `EPPAReducts/BoundedEquivalence/LabelEquiv.lean`: `unique_label_equiv` and `unique_label_action`, establishing that two surjective labelings of the same unlabelled equivalence differ by a unique label bijection, and that a kernel-preserving permutation induces a unique class permutation. These are preliminary auxiliary statements, **not** EPPA or non-EPPA. Verified: build and axiom audit passed (105 declarations); this is not non-EPPA.

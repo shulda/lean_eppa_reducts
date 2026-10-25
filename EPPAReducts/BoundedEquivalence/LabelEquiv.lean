@@ -68,4 +68,36 @@ theorem unique_label_action
     simp only [g, p.apply_symm_apply]
   exact unique_label_equiv f g hf hg hkernel
 
+/-- Once every class name is realized, any permutation fixing the label
+of every vertex must fix every class name. -/
+theorem label_action_id
+    (f : α → β) (hf : Function.Surjective f)
+    (σ : Equiv.Perm β)
+    (hσ : ∀ x, σ (f x) = f x) :
+    σ = Equiv.refl β := by
+  apply Equiv.ext
+  intro b
+  obtain ⟨x, rfl⟩ := hf b
+  exact hσ x
+
+/-- Uniquely induced permutations of class names respect composition.
+Here `p.trans q` means apply p first, then q; in particular this
+statement applies to the induced action of the automorphism group. -/
+theorem label_action_comp
+    (f : α → β) (hf : Function.Surjective f)
+    (p q : α ≃ α)
+    (σp σq σpq : Equiv.Perm β)
+    (hp : ∀ x, σp (f x) = f (p x))
+    (hq : ∀ x, σq (f x) = f (q x))
+    (hpq : ∀ x, σpq (f x) = f (q (p x))) :
+    σpq = σp.trans σq := by
+  apply Equiv.ext
+  intro b
+  obtain ⟨x, rfl⟩ := hf b
+  calc
+    σpq (f x) = f (q (p x)) := hpq x
+    _ = σq (f (p x)) := (hq (p x)).symm
+    _ = σq (σp (f x)) := congrArg σq (hp x).symm
+    _ = (σp.trans σq) (f x) := rfl
+
 end EPPAReducts.BoundedEquivalence
