@@ -9,6 +9,7 @@ import EPPAReducts.TwoGraphs.QuotientTripleParity
 import EPPAReducts.TwoGraphs.RawFourPointParity
 import EPPAReducts.TwoGraphs.QuotientFourPointParity
 import EPPAReducts.TwoGraphs.ValuationVertex
+import EPPAReducts.TwoGraphs.ValuationTernaryExtras
 import EPPAReducts.BoundedEquivalence.Basic
 import EPPAReducts.BoundedEquivalence.LabelEquiv
 import EPPAReducts.BoundedEquivalence.ExtendLabels

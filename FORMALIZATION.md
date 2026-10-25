@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-25 (CI pending):** `TwoGraphs/ValuationVertex.lean` adds concrete `ValuationVertex X = X × ValuationClass X`, labelled triple parity, symmetry, unrestricted four-point F₂ cancellation, and finite-carrier instances. **Not** yet the unordered Finset two-graph or the main theorem.
+- [ ] **2026-10-25 (CI pending):** `TwoGraphs/ValuationTernaryExtras.lean` proves zero parity for repeated vertices, its last-two variant, and the equivalent Boolean XOR four-point equation. These are needed for the exact `Finset`-based two-graph bridge.
+
+
+- [x] **2026-10-25 (certified at commit `7dfc552c5f2159910585e3ff45c8b791b6d12645`, [CI 40221320611](https://github.com/shulda/lean_eppa_reducts/actions/runs/40221320611)):** `TwoGraphs/ValuationVertex.lean` adds concrete `ValuationVertex X = X × ValuationClass X`, labelled triple parity, symmetry, unrestricted four-point F₂ cancellation, and finite-carrier instances. Build and allowed-axiom audit passed (171 declarations). **Not** yet the unordered Finset two-graph or the main theorem.
 
 
 - [x] **2026-10-25 (certified at commit `3e0980ab0ebef84814ca7b3e8eb01ccb58b3bb23`, [CI 40219483658](https://github.com/shulda/lean_eppa_reducts/actions/runs/40219483658)):** `TwoGraphs/QuotientFourPointParity.lean` proves `quotientFourPointParityModTwo` for four genuine quotient-valuation vertices, including repeated first coordinates. Build and allowed-axiom audit passed (164 declarations). This **does not yet** construct the unordered `Finset`-based `HumanTargets.TwoGraph` nor prove full coherent EPPA.
