@@ -1,4 +1,5 @@
 import AllThoseEPPA.EPPA
+import EPPAReducts.HumanTargets
 import EPPAReducts.TwoGraphs.Basic
 import EPPAReducts.BoundedEquivalence.Basic
 
