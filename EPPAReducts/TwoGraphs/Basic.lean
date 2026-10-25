@@ -1,4 +1,4 @@
-import Mathlib.Data.Finset.Card
+import Mathlib.Data.Finset.Powerset
 
 /-!
 # Finite two-graphs

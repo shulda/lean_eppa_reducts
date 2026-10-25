@@ -40,7 +40,7 @@ jobs:
             Mathlib.GroupTheory.Perm.Basic \
             Mathlib.Tactic.Group \
             Mathlib.Combinatorics.SimpleGraph.Basic \
-            Mathlib.Data.Finset.Card
+            Mathlib.Data.Finset.Powerset
 
       - name: Prevent accidental manuscript publication
         shell: bash
