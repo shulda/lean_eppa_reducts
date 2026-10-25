@@ -24,7 +24,11 @@ theorem powersetCard_one_of_pair
           (({d} : Finset V).powersetCard 0).image (insert c) := by
       apply Finset.powersetCard_succ_insert
       simpa using hcd
-    _ = {{c}, {d}} := by simp [Finset.powersetCard_self]
+    _ = {{c}, {d}} := by
+      have hd : ({d} : Finset V).powersetCard 1 = {{d}} := by
+        simpa using Finset.powersetCard_self ({d} : Finset V)
+      rw [hd]
+      rfl
 
 /-- Exactly three two-element subsets of a three-element set. -/
 theorem powersetCard_two_of_triple
@@ -40,7 +44,9 @@ theorem powersetCard_two_of_triple
       simp [hbc, hbd]
     _ = {{b, c}, {b, d}, {c, d}} := by
       rw [← hc, Finset.powersetCard_self, powersetCard_one_of_pair c d hcd]
-      simp
+      ext s
+      simp only [Finset.mem_insert, Finset.mem_singleton]
+      tauto
 
 /-- Exactly four unordered triples occur on four distinct vertices. -/
 theorem powersetCard_three_of_quadruple
@@ -59,6 +65,8 @@ theorem powersetCard_three_of_quadruple
     _ = {{a, b, c}, {a, b, d}, {a, c, d}, {b, c, d}} := by
       rw [← hc, Finset.powersetCard_self,
         powersetCard_two_of_triple b c d hbc hbd hcd]
-      simp
+      ext s
+      simp only [Finset.mem_insert, Finset.mem_singleton]
+      tauto
 
 end EPPAReducts.TwoGraphs
