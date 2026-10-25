@@ -58,7 +58,7 @@ theorem no_fixed_rSubset_of_class_shift
 /-- Quantitative form: a class-shifting automorphism has fewer than
 \`r\` fixed vertices. No numerical class names belong to the structure. -/
 theorem fixedVertices_card_lt
-    [Fintype α]
+    [Fintype α] [DecidableEq α]
     (labels : RSubsets α r → κ)
     (g : Equiv.Perm α) (shift : Equiv.Perm κ)
     (hshift : ∀ c : κ, shift c ≠ c)
