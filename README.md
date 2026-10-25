@@ -22,3 +22,7 @@ lake build
 ```
 
 The GitHub Actions workflow checks compilation, rejects `sorry`/`admit` and custom axioms, audits logical axioms, and rejects accidentally tracked LaTeX manuscript files. A green badge confirms only the declarations actually present in that commit.
+
+## Progress and recovery
+
+See [FORMALIZATION.md](FORMALIZATION.md) for the authoritative public scope, exact CI checkpoints, proof milestones, project recovery instructions, and the next planned steps. The unpublished LaTeX source and private expanded proof manuscript are not stored here.
