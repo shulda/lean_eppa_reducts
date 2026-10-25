@@ -13,7 +13,7 @@ the actual HumanTargets.TwoGraph relation.
 namespace EPPAReducts.TwoGraphs
 
 universe u
-variable {X : Type u}
+variable {X : Type u} [DecidableEq (ValuationVertex X)]
 
 /-- The ternary parity agrees on any two distinct enumerations of
 the same unordered triple of valuation vertices. -/
