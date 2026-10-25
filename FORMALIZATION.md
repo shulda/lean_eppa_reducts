@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-25 (audited raw and quotient four-point parity; verified fixed-vertex bound).
+**Updated:** 2026-10-25 (advancing concrete valuation witness construction and finite-carrier API).
 
 ## Scope and acceptance targets
 
@@ -19,6 +19,9 @@ The human-readable English formulations were approved by the author on 2026-10-2
 Explicitly out of scope: the six-vertex exposition as a separate theorem, the rooting transfer to complementary two-graphs, looped-graph EPPA, and the claimed wider hypergraph reduct classification. These may be optional regression tests or later projects, but they are not part of the requested certification.
 
 ## Current verified state
+
+- [ ] **2026-10-25 (CI pending):** `TwoGraphs/ValuationVertex.lean` adds concrete `ValuationVertex X = X × ValuationClass X`, labelled triple parity, symmetry, unrestricted four-point F₂ cancellation, and finite-carrier instances. **Not** yet the unordered Finset two-graph or the main theorem.
+
 
 - [x] **2026-10-25 (certified at commit `3e0980ab0ebef84814ca7b3e8eb01ccb58b3bb23`, [CI 40219483658](https://github.com/shulda/lean_eppa_reducts/actions/runs/40219483658)):** `TwoGraphs/QuotientFourPointParity.lean` proves `quotientFourPointParityModTwo` for four genuine quotient-valuation vertices, including repeated first coordinates. Build and allowed-axiom audit passed (164 declarations). This **does not yet** construct the unordered `Finset`-based `HumanTargets.TwoGraph` nor prove full coherent EPPA.
 

@@ -45,7 +45,8 @@ jobs:
             Mathlib.Data.Fintype.Card \
             Mathlib.Data.Bool.Basic \
             Mathlib.Data.ZMod.Basic \
-            Mathlib.Tactic.Ring
+            Mathlib.Tactic.Ring \
+            Mathlib.Data.Fintype.Pi
 
       - name: Prevent accidental manuscript publication
         shell: bash
