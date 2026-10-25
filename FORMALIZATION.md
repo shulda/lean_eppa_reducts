@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-25 (CI pending):** `TwoGraphs/FourBoolCount.lean` proves the combinatorial equivalence between even cardinality of a filtered four-element set and the XOR of its four Boolean indicators. The complete `HumanTargets.TwoGraph` bridge still awaits the unordered-triple reconstruction.
+- [ ] **2026-10-25 (CI pending):** `TwoGraphs/UnorderedTriplePermutation.lean` proves valuation triple parity is independent of the enumeration of the same three-element Finset, using adjacent-swap formulas and all six permutations. It prepares the actual unordered triple predicate.
+
+
+- [x] **2026-10-25 (certified at commit `f33611d4d7cd3dd93cb03369cd250e14e6bc524b`, [CI 40223338045](https://github.com/shulda/lean_eppa_reducts/actions/runs/40223338045)):** `TwoGraphs/FourBoolCount.lean` proves the combinatorial equivalence between even cardinality of a filtered four-element set and the XOR of its four Boolean indicators. Build and allowed-axiom audit passed (189 declarations). The complete `HumanTargets.TwoGraph` bridge still awaits the unordered-triple reconstruction.
 
 
 - [x] **2026-10-25 (certified at commit `94911f08c10eeb529bbfa07f1acad867e4788d95`, [CI 40222685342](https://github.com/shulda/lean_eppa_reducts/actions/runs/40222685342)):** `TwoGraphs/FourSubsetEnumeration.lean` explicitly enumerates the four unordered three-element subsets of a four-element Finset, via powersetCard insert recursion. Build and allowed-axiom audit passed (188 declarations). This will be used to convert the fourpoint XOR formula to the exact accepted `HumanTargets.TwoGraph.fourPointEven` condition.
