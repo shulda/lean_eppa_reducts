@@ -69,4 +69,40 @@ def quotientTripleParity
           exact rawTripleParity_congr x y z va va' vb vb vc vc
             ha (Or.inl rfl) (Or.inl rfl))
 
+
+/-- The quotient parity is exactly the original raw formula on any
+three chosen valuation representatives. -/
+@[simp] theorem quotientTripleParity_mk
+    (x y z : X) (a b c : Valuation X) :
+    quotientTripleParity x y z
+      (valuationClass a) (valuationClass b) (valuationClass c) =
+        rawTripleParity x y z a b c := by
+  rfl
+
+/-- Symmetry of the quotient triple formula in its first two vertices. -/
+theorem quotientTripleParity_swap_first_two
+    (x y z : X) (a b c : ValuationClass X) :
+    quotientTripleParity x y z a b c =
+      quotientTripleParity y x z b a c := by
+  induction a using Quotient.inductionOn with
+  | _ va =>
+    induction b using Quotient.inductionOn with
+    | _ vb =>
+      induction c using Quotient.inductionOn with
+      | _ vc =>
+        exact rawTripleParity_swap_first_two x y z va vb vc
+
+/-- Symmetry of the quotient triple formula in its last two vertices. -/
+theorem quotientTripleParity_swap_last_two
+    (x y z : X) (a b c : ValuationClass X) :
+    quotientTripleParity x y z a b c =
+      quotientTripleParity x z y a c b := by
+  induction a using Quotient.inductionOn with
+  | _ va =>
+    induction b using Quotient.inductionOn with
+    | _ vb =>
+      induction c using Quotient.inductionOn with
+      | _ vc =>
+        exact rawTripleParity_swap_last_two x y z va vb vc
+
 end EPPAReducts.TwoGraphs

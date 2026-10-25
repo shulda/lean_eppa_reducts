@@ -54,4 +54,25 @@ theorem rawTripleParity_flip_third
     cases h₅ : b z <;> cases h₆ : c y <;>
     simp [rawTripleParity, flipValuation, h₁, h₂, h₃, h₄, h₅, h₆]
 
+
+/-- The raw triple formula is symmetric when the first two vertices are swapped. -/
+theorem rawTripleParity_swap_first_two
+    (x y z : X) (a b c : Valuation X) :
+    rawTripleParity x y z a b c =
+      rawTripleParity y x z b a c := by
+  cases h₁ : a y <;> cases h₂ : b x <;>
+    cases h₃ : a z <;> cases h₄ : c x <;>
+    cases h₅ : b z <;> cases h₆ : c y <;>
+    simp [rawTripleParity, h₁, h₂, h₃, h₄, h₅, h₆]
+
+/-- The raw triple formula is symmetric when the last two vertices are swapped. -/
+theorem rawTripleParity_swap_last_two
+    (x y z : X) (a b c : Valuation X) :
+    rawTripleParity x y z a b c =
+      rawTripleParity x z y a c b := by
+  cases h₁ : a y <;> cases h₂ : b x <;>
+    cases h₃ : a z <;> cases h₄ : c x <;>
+    cases h₅ : b z <;> cases h₆ : c y <;>
+    simp [rawTripleParity, h₁, h₂, h₃, h₄, h₅, h₆]
+
 end EPPAReducts.TwoGraphs

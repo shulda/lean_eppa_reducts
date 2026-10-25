@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-25 (CI pending):** `TwoGraphs/QuotientTripleParity.lean` includes raw representative congruence and a genuine `Quotient.liftOn₃` descent of the triple parity to three quotient valuations (including repeated projections). Permutation invariance, four-point parity and induced witness remain unfinished.
+- [ ] **2026-10-25 (CI pending):** two adjacent-swap invariances of raw and quotient triple-parity expressions, plus a simp bridge `quotientTripleParity_mk` back to arbitrary representatives. These symmetry lemmas are necessary for an unordered triple relation; four-point parity remains open.
+
+
+- [x] **2026-10-25 (certified at commit `31593e3d65f57f2005d791f59835d25e9f152b1c`, [CI 40218290510](https://github.com/shulda/lean_eppa_reducts/actions/runs/40218290510)):** `TwoGraphs/QuotientTripleParity.lean` includes raw representative congruence and a genuine descent by **three nested standard quotient lifts** to three quotient valuations (including repeated projections). Build and axiom audit passed (154 declarations). Permutation invariance, four-point parity and induced witness remain unfinished. The first unverified draft used an unavailable `liftOn₃`; replaced by nested lifts.
 
 
 - [x] **2026-10-25 (certified at commit `17dabf2cf3c2411188dbaa08ee961601face6920`, [CI 40217669482](https://github.com/shulda/lean_eppa_reducts/actions/runs/40217669482)):** `TwoGraphs/RawTripleParity.lean` encodes the six-entry parity formula and proves invariance when each of the three valuation representatives is independently complemented. This is the key raw well-definedness result; build and axiom audit passed (149 declarations). Actual descent to `ValuationClass` and 4-point parity of the quotient witness remained open at that commit.
