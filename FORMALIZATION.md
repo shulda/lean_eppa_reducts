@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-25 (CI pending):** added `TwoGraphs/RootedGraph.lean`: actual mathlib `SimpleGraph` constructed directly from the approved `HumanTargets.TwoGraph`, with proved symmetry, looplessness, root isolation, and exact adjacency/triple equivalence away from the root. The four-point parity ⇒ reconstruction of triples not containing the root remains outstanding.
+- [ ] **2026-10-25 (CI pending):** added `TwoGraphs/ValuationQuotient.lean`: Boolean valuations, pointwise complement involution, genuine setoid and quotient classes, and proved identification of a valuation with its complement. This is the *per-vertex valuation quotient*, not the global symmetric-matrix quotient. Quotient triple-parity independence and finiteness remain open.
+
+
+- [x] **2026-10-25 (certified at commit `fd48daa742d89daf3c4cc3f67fa872b158157190`, [CI 40217104843](https://github.com/shulda/lean_eppa_reducts/actions/runs/40217104843)):** added `TwoGraphs/RootedGraph.lean`: actual mathlib `SimpleGraph` constructed directly from the approved `HumanTargets.TwoGraph`, with proved symmetry, looplessness, root isolation, and exact adjacency/triple equivalence away from the root. Build and axiom audit passed (135 declarations). The four-point parity ⇒ reconstruction of triples not containing the root remains outstanding.
 
 
 - [x] **2026-10-25 (certified at commit `98a243de45ba6f2020493303577fc4c91927f3ba`, [CI 40216584518](https://github.com/shulda/lean_eppa_reducts/actions/runs/40216584518)):** added `fixedVertices_card_lt` to turn the no-fixed-r-subset statement into the exact numerical bound `|Fix(g)| < r`, used in the coset orbit theorem. Build and axiom audit passed (122 declarations). No coset proof yet.

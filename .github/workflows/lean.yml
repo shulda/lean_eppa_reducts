@@ -42,7 +42,8 @@ jobs:
             Mathlib.Combinatorics.SimpleGraph.Basic \
             Mathlib.Data.Finset.Powerset \
             Mathlib.Tactic.Abel \
-            Mathlib.Data.Fintype.Card
+            Mathlib.Data.Fintype.Card \
+            Mathlib.Data.Bool.Basic
 
       - name: Prevent accidental manuscript publication
         shell: bash
