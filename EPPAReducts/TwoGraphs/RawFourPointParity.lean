@@ -44,6 +44,8 @@ theorem rawFourPointParityModTwo
       boolBit (rawTripleParity x z w a c d) +
       boolBit (rawTripleParity y z w b c d) = 0 := by
   simp only [boolBit_rawTripleParity]
-  ring
+  ring_nf
+  have h₂ : (2 : ZMod 2) = 0 := by decide
+  simp [h₂]
 
 end EPPAReducts.TwoGraphs
