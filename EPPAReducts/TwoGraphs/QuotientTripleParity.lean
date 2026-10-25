@@ -44,8 +44,29 @@ theorem rawTripleParity_congr
 coordinates x,y,z (including repeated first coordinates). -/
 def quotientTripleParity
     (x y z : X) (a b c : ValuationClass X) : Bool :=
-  Quotient.liftOn₃ a b c (rawTripleParity x y z) (by
-    intro a a' b b' c c' ha hb hc
-    exact rawTripleParity_congr x y z a a' b b' c c' ha hb hc)
+  Quotient.liftOn a
+    (fun va =>
+      Quotient.liftOn b
+        (fun vb =>
+          Quotient.liftOn c
+            (fun vc => rawTripleParity x y z va vb vc)
+            (by
+              intro vc vc' hc
+              exact rawTripleParity_congr x y z va va vb vb vc vc'
+                (Or.inl rfl) (Or.inl rfl) hc))
+        (by
+          intro vb vb' hb
+          induction c using Quotient.inductionOn with
+          | _ vc =>
+            exact rawTripleParity_congr x y z va va vb vb' vc vc
+              (Or.inl rfl) hb (Or.inl rfl)))
+    (by
+      intro va va' ha
+      induction b using Quotient.inductionOn with
+      | _ vb =>
+        induction c using Quotient.inductionOn with
+        | _ vc =>
+          exact rawTripleParity_congr x y z va va' vb vb vc vc
+            ha (Or.inl rfl) (Or.inl rfl))
 
 end EPPAReducts.TwoGraphs
