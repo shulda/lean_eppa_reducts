@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-25 (advancing concrete valuation witness construction and finite-carrier API).
+**Updated:** 2026-10-25 (verified exact valuation two-graph; beginning matrix automorphism algebra).
 
 ## Scope and acceptance targets
 
@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-25 (CI pending):** `TwoGraphs/ValuationTwoGraph.lean` assembles the actual finite valuation two-graph in the EXACT approved `HumanTargets.TwoGraph` format, with the literal four-point filtered-powerset cardinality parity. This does NOT prove any EPPA property; matrix group actions and partial automorphism lifts remain open.
+- [ ] **2026-10-25 (CI pending):** `TwoGraphs/SymmetricRowShift.lean` introduces symmetric Boolean matrices, matrix-row translations of valuations and the main raw parity-preservation calculation. This is not yet the actual group action on quotient valuation classes or a coherent EPPA witness.
+
+
+- [x] **2026-10-25 (certified at commit `bc97bda4a162044af05cb322c130c6c7d091067e`, [CI 40224704175](https://github.com/shulda/lean_eppa_reducts/actions/runs/40224704175)):** `TwoGraphs/ValuationTwoGraph.lean` constructs an actual `HumanTargets.TwoGraph` on `X × ValuationClass X` with the **literal** four-point filtered-powerset parity theorem `unorderedTripleParity_fourPointEven`. Build and allowed-axiom audit passed (225 declarations). The output is constrained to `X : Type` to match the approved `HumanTargets.TwoGraph` universe. **No EPPA or coherence property follows yet.**
 
 
 - [x] **2026-10-25 (certified at commit `fbfb49f7f25c4e28b2784a28df0c26ed72557ae8`, [CI 40224271063](https://github.com/shulda/lean_eppa_reducts/actions/runs/40224271063)):** `TwoGraphs/FourTripleDistinct.lean` supplies the six explicit pairwise inequalities between the four three-element subsets of a four-element set, needed to apply the generic certified `four_filter_even_iff_xor` lemma. Build and allowed-axiom audit passed (217 declarations).
@@ -118,7 +121,7 @@ On every fresh chat or after a crash:
 ### Positive: coherent EPPA for two-graphs
 
 - [ ] Rooted graph representative: the four-point parity axiom reconstructs a graph representative of any nonempty finite two-graph.
-- [ ] Quotient valuation space `Q_X`: quotient by constant complement is defined using `Bool`; well-defined labelled triple parity, symmetry, and algebraic four-point cancellation are Lean-proved. Still prove the exact unordered-`Finset` two-graph structure, finiteness and HumanTargets bridge.
+- [ ] Quotient valuation space `Q_X`: quotient by constant complement is defined using `Bool`; well-defined labelled triple parity, symmetry, and algebraic four-point cancellation are Lean-proved. Exact unordered-`Finset` two-graph, finiteness, and the literal HumanTargets structure have now been verified (see `ValuationTwoGraph.lean`); matrix actions and EPPA still open.
 - [ ] Symmetric matrix action on the valuation witness; quotient by a **single global constant matrix**, transformation composition, and honest automorphisms.
 - [ ] For transversal partial isomorphisms, prove the switching/cut identity and extend the projection injection to a permutation; construct a symmetric matrix extension.
 - [ ] Uniqueness of the action lift for a transversal covering **all** first coordinates. Carefully handle domains of size 0, 1, or 2.
