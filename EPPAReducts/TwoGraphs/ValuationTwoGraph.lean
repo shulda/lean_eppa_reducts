@@ -62,7 +62,7 @@ theorem unorderedTripleParity_fourPointEven
 
 /-- The valuation construction is a two-graph in the EXACT
 independent, author-approved HumanTargets.TwoGraph specification. -/
-noncomputable def valuationTwoGraph (X : Type u) :
+noncomputable def valuationTwoGraph (X : Type) :
     HumanTargets.TwoGraph (ValuationVertex X) := by
   classical
   exact {
