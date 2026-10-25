@@ -7,7 +7,7 @@ A public Lean 4 project for two selected results about reducts of the random gra
 - Coherent EPPA for finite two-graphs.
 - Failure of EPPA for equivalence relations on unordered `r`-subsets or on ordered injective `r`-tuples, with at most `m` equivalence classes, for all `r, m ≥ 2`.
 
-**Current status:** repository initialized; foundational definitions only. No claim of a completed formalization.
+**Current status (25 October 2026):** preliminary Lean lemmas are proved and axiom-audited (rooted cocycle and canonical permutation/extension of unlabelled class names). Neither of the two principal EPPA results is proved.
 
 The research manuscript and LaTeX sources remain **private**. This public repository is for Lean code, build infrastructure, and public project metadata only.
 

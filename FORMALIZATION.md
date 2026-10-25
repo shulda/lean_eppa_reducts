@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-25 (Lean targets approved; starting checked mathematical lemmas).
+**Updated:** 2026-10-25 (both human-target Lean specifications approved; first fully audited Lean proof milestones in both branches).
 
 ## Scope and acceptance targets
 
@@ -20,7 +20,7 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-25 (awaiting CI):** added `all_extension_classes_meet_core` and `unique_extend_labels_of_bounded_classes` (Fin m), deriving the every-class-hits-core hypothesis by finite injective-surjective and recovering unique auxiliary class labels on the extension. Still no negative EPPA contradiction; final general theorem remains open.
+- [x] **2026-10-25 (certified at commit `727de4716599e8f8312852df0c1ac6733194ff9d`, [CI 40214730690](https://github.com/shulda/lean_eppa_reducts/actions/runs/40214730690)):** `all_extension_classes_meet_core` and `unique_extend_labels_of_bounded_classes` (Fin m) prove the finite at-most-m class-counting bridge and unique canonical extension of auxiliary class names to any candidate witness. Build and allowed-axiom audit passed (117 declarations). A missing `Finite (Fin m)` import caused a transient failed build on preceding commit `df9f672...`, then was corrected. **No** negative EPPA contradiction yet.
 
 
 - [x] **2026-10-25 (certified at commit `019ee3b114c589770a8dc130c3f8aa50795c82a7`, [CI 40214294813](https://github.com/shulda/lean_eppa_reducts/actions/runs/40214294813)):** `BoundedEquivalence/ExtendLabels.lean` now contains `unique_extend_labels_from_core`, a unique extension theorem for auxiliary class names whenever every extension class meets the old core. Build and allowed-axiom audit passed (115 declarations). The finite cardinality/class-surjectivity lemma and the non-EPPA obstruction remained to be proved at that commit.
@@ -102,6 +102,9 @@ On every fresh chat or after a crash:
 - Build success for `EPPAReducts.lean` certifies only the modules actually imported. Check that every target theorem is included in that build root and audited as a declaration.
 
 ## Next concrete actions
+
+**Post-initial-proof checkpoint:** Main branch has genuine audited auxiliary theorems, but neither principal EPPA theorem. The immediate next positive milestone is the exact bridge from the human-facing finite four-point parity to `TwoGraphs.IsTriangleCocycle`, followed by quotient valuations. The immediate next negative milestone is the independent coset fixed-point orbit bound, then its specialization to the unlabelled Fin m class action. Avoid spending further time on only relabelling infrastructure unless a bridge requires it.
+
 
 1. **Private mathematical plan provisionally stable after second audit (v2).** Do not treat this as Lean verification or independent external refereeing. If Lean reveals a genuinely mathematical missing condition, repair the private proof manuscript and update this ledger before accepting the technical theorem.
 2. The author approved the standalone Lean target definitions on 2026-10-25. Keep their exact semantics fixed; use separate technical definitions and prove equivalences at the end.
