@@ -43,7 +43,9 @@ jobs:
             Mathlib.Data.Finset.Powerset \
             Mathlib.Tactic.Abel \
             Mathlib.Data.Fintype.Card \
-            Mathlib.Data.Bool.Basic
+            Mathlib.Data.Bool.Basic \
+            Mathlib.Data.ZMod.Basic \
+            Mathlib.Tactic.Ring
 
       - name: Prevent accidental manuscript publication
         shell: bash

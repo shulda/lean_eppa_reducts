@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-25 (CI pending):** two adjacent-swap invariances of raw and quotient triple-parity expressions, plus a simp bridge `quotientTripleParity_mk` back to arbitrary representatives. These symmetry lemmas are necessary for an unordered triple relation; four-point parity remains open.
+- [ ] **2026-10-25 (CI pending):** `TwoGraphs/RawFourPointParity.lean` converts the Boolean XOR formula to ZMod 2 and proves the full four-point cancellation of the raw valuation triple parity without assumptions on first-coordinate distinctness. This is algebraic fourpoint parity; descent to quotient triples and `HumanTargets.TwoGraph.fourPointEven` is still open.
+
+
+- [x] **2026-10-25 (certified at commit `c984a164773939cdccd74f724158420f3e3e2379`, [CI 40218584301](https://github.com/shulda/lean_eppa_reducts/actions/runs/40218584301)):** two adjacent-swap invariances of raw and quotient triple-parity expressions, plus a simp bridge `quotientTripleParity_mk` back to arbitrary representatives. Build and axiom audit passed (159 declarations). These symmetry lemmas are necessary for an unordered triple relation; four-point parity remained open at that commit.
 
 
 - [x] **2026-10-25 (certified at commit `31593e3d65f57f2005d791f59835d25e9f152b1c`, [CI 40218290510](https://github.com/shulda/lean_eppa_reducts/actions/runs/40218290510)):** `TwoGraphs/QuotientTripleParity.lean` includes raw representative congruence and a genuine descent by **three nested standard quotient lifts** to three quotient valuations (including repeated projections). Build and axiom audit passed (154 declarations). Permutation invariance, four-point parity and induced witness remain unfinished. The first unverified draft used an unavailable `liftOn₃`; replaced by nested lifts.
