@@ -93,7 +93,7 @@ structure CoherentTwoGraphWitness {V : Type} (A : TwoGraph V) where
   extension : (p : PartialBijection V) →
     IsTwoGraphPartialAutomorphism A p → Equiv.Perm W
   isAutomorphism : ∀ p hp, IsTwoGraphAutomorphism B (extension p hp)
-  extends : ∀ p hp, Extends inclusion p (extension p hp)
+  extendsOld : ∀ p hp, Extends inclusion p (extension p hp)
   coherent : ∀ (p q r : PartialBijection V)
       (hp : IsTwoGraphPartialAutomorphism A p)
       (hq : IsTwoGraphPartialAutomorphism A q)
