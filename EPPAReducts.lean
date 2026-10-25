@@ -15,6 +15,7 @@ import EPPAReducts.TwoGraphs.FourBoolCount
 import EPPAReducts.TwoGraphs.UnorderedTriplePermutation
 import EPPAReducts.TwoGraphs.UnorderedTripleRelation
 import EPPAReducts.TwoGraphs.FourTripleDistinct
+import EPPAReducts.TwoGraphs.ValuationTwoGraph
 import EPPAReducts.BoundedEquivalence.Basic
 import EPPAReducts.BoundedEquivalence.LabelEquiv
 import EPPAReducts.BoundedEquivalence.ExtendLabels

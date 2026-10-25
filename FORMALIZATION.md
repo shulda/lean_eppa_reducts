@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-25 (CI pending):** `TwoGraphs/FourTripleDistinct.lean` supplies the six explicit pairwise inequalities between the four three-element subsets of a four-element set, needed to apply the generic certified `four_filter_even_iff_xor` lemma.
+- [ ] **2026-10-25 (CI pending):** `TwoGraphs/ValuationTwoGraph.lean` assembles the actual finite valuation two-graph in the EXACT approved `HumanTargets.TwoGraph` format, with the literal four-point filtered-powerset cardinality parity. This does NOT prove any EPPA property; matrix group actions and partial automorphism lifts remain open.
+
+
+- [x] **2026-10-25 (certified at commit `fbfb49f7f25c4e28b2784a28df0c26ed72557ae8`, [CI 40224271063](https://github.com/shulda/lean_eppa_reducts/actions/runs/40224271063)):** `TwoGraphs/FourTripleDistinct.lean` supplies the six explicit pairwise inequalities between the four three-element subsets of a four-element set, needed to apply the generic certified `four_filter_even_iff_xor` lemma. Build and allowed-axiom audit passed (217 declarations).
 
 
 - [x] **2026-10-25 (certified at commit `f815bfda62ad031bc291c6189feee7b806fddc73`, [CI 40224043914](https://github.com/shulda/lean_eppa_reducts/actions/runs/40224043914)):** `TwoGraphs/UnorderedTripleRelation.lean` defines Boolean parity on arbitrary finite subsets, false unless cardinality three, and proves agreement with ordered ternary parity for distinct vertices. Build and allowed-axiom audit passed (215 declarations). Four-point filter-cardinality parity and packaging as the approved `HumanTargets.TwoGraph` remain open.
