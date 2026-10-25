@@ -54,4 +54,26 @@ theorem no_fixed_rSubset_of_class_shift
     simpa only [heq] using hcompat s
   exact hshift (labels s) hc.symm
 
+
+/-- Quantitative form: a class-shifting automorphism has fewer than
+\`r\` fixed vertices. No numerical class names belong to the structure. -/
+theorem fixedVertices_card_lt
+    [Fintype α]
+    (labels : RSubsets α r → κ)
+    (g : Equiv.Perm α) (shift : Equiv.Perm κ)
+    (hshift : ∀ c : κ, shift c ≠ c)
+    (hcompat : ∀ s, labels (permuteRSubset g s) = shift (labels s)) :
+    (Finset.univ.filter (fun x : α => g x = x)).card < r := by
+  classical
+  by_contra hnot
+  have hle : r ≤ (Finset.univ.filter (fun x : α => g x = x)).card :=
+    Nat.le_of_not_gt hnot
+  obtain ⟨s, hsub, hcard⟩ :=
+    Finset.exists_subset_card_eq hle
+  let sr : RSubsets α r := ⟨s, hcard⟩
+  have hfix : ∀ x ∈ sr.val, g x = x := by
+    intro x hx
+    exact (Finset.mem_filter.mp (hsub hx)).2
+  exact no_fixed_rSubset_of_class_shift labels g shift hshift hcompat sr hfix
+
 end EPPAReducts.BoundedEquivalence

@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-25 (CI pending):** new `BoundedEquivalence/ClassShiftFixed.lean` defines permutation transport of unordered `r`-subsets and proves `no_fixed_rSubset_of_class_shift`, the load-bearing fact that an automorphism with fixed-point-free induced class permutation cannot fix any entire `r`-subset. Does **not** yet prove the coset-orbit bound or non-EPPA.
+- [ ] **2026-10-25 (CI pending):** add `fixedVertices_card_lt` to turn the no-fixed-r-subset statement into the exact numerical bound `|Fix(g)| < r`, used in the coset orbit theorem. No coset proof yet.
+
+
+- [x] **2026-10-25 (certified at commit `d61fb2af127cb963236d1a828ff2a4d2249e261c`, [CI 40216102399](https://github.com/shulda/lean_eppa_reducts/actions/runs/40216102399)):** new `BoundedEquivalence/ClassShiftFixed.lean` defines permutation transport of unordered `r`-subsets and proves `no_fixed_rSubset_of_class_shift`, the load-bearing fact that an automorphism with fixed-point-free induced class permutation cannot fix any entire `r`-subset. Build and axiom audit passed (121 declarations). Does **not** yet prove the coset-orbit bound or non-EPPA.
 
 
 - [x] **2026-10-25 (certified at commit `727de4716599e8f8312852df0c1ac6733194ff9d`, [CI 40214730690](https://github.com/shulda/lean_eppa_reducts/actions/runs/40214730690)):** `all_extension_classes_meet_core` and `unique_extend_labels_of_bounded_classes` (Fin m) prove the finite at-most-m class-counting bridge and unique canonical extension of auxiliary class names to any candidate witness. Build and allowed-axiom audit passed (117 declarations). A missing `Finite (Fin m)` import caused a transient failed build on preceding commit `df9f672...`, then was corrected. **No** negative EPPA contradiction yet.
