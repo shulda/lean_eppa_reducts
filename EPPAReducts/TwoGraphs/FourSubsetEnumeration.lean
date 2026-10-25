@@ -69,8 +69,9 @@ theorem powersetCard_three_of_quadruple
     _ = {{a, b, c}, {a, b, d}, {a, c, d}, {b, c, d}} := by
       rw [← hc, Finset.powersetCard_self,
         powersetCard_two_of_triple b c d hbc hbd hcd]
+      simp only [Finset.image_insert, Finset.image_singleton]
       ext s
-      simp only [Finset.mem_insert, Finset.mem_singleton]
+      simp only [Finset.mem_union, Finset.mem_insert, Finset.mem_singleton]
       tauto
 
 end EPPAReducts.TwoGraphs
