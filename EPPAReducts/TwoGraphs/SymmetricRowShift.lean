@@ -30,7 +30,7 @@ def shiftValuationByRow (F : X → X → Bool)
 /-- Converting a bit to ZMod 2 is an injective operation. -/
 theorem boolBit_injective : Function.Injective boolBit := by
   intro b c h
-  cases b <;> cases c <;> decide at h ⊢
+  cases b <;> cases c <;> simp [boolBit] at h ⊢
 
 /-- Simultaneous symmetric row translations preserve the six-bit parity,
 even when some of x,y,z coincide. -/
