@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-25 (CI pending):** add `fixedVertices_card_lt` to turn the no-fixed-r-subset statement into the exact numerical bound `|Fix(g)| < r`, used in the coset orbit theorem. No coset proof yet.
+- [ ] **2026-10-25 (CI pending):** added `TwoGraphs/RootedGraph.lean`: actual mathlib `SimpleGraph` constructed directly from the approved `HumanTargets.TwoGraph`, with proved symmetry, looplessness, root isolation, and exact adjacency/triple equivalence away from the root. The four-point parity ⇒ reconstruction of triples not containing the root remains outstanding.
+
+
+- [x] **2026-10-25 (certified at commit `98a243de45ba6f2020493303577fc4c91927f3ba`, [CI 40216584518](https://github.com/shulda/lean_eppa_reducts/actions/runs/40216584518)):** added `fixedVertices_card_lt` to turn the no-fixed-r-subset statement into the exact numerical bound `|Fix(g)| < r`, used in the coset orbit theorem. Build and axiom audit passed (122 declarations). No coset proof yet.
 
 
 - [x] **2026-10-25 (certified at commit `d61fb2af127cb963236d1a828ff2a4d2249e261c`, [CI 40216102399](https://github.com/shulda/lean_eppa_reducts/actions/runs/40216102399)):** new `BoundedEquivalence/ClassShiftFixed.lean` defines permutation transport of unordered `r`-subsets and proves `no_fixed_rSubset_of_class_shift`, the load-bearing fact that an automorphism with fixed-point-free induced class permutation cannot fix any entire `r`-subset. Build and axiom audit passed (121 declarations). Does **not** yet prove the coset-orbit bound or non-EPPA.
