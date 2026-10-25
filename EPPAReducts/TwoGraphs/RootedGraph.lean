@@ -43,12 +43,8 @@ any external graph or a switching-class representative. -/
 noncomputable def rootedGraph {V : Type}
     (A : TwoGraph V) (o : V) : SimpleGraph V where
   Adj := rootedAdj A o
-  symm := by
-    intro x y h
-    exact rootedAdj_symm A o x y h
-  loopless := by
-    intro x h
-    exact h.1 rfl
+  symm := ⟨fun x y h => rootedAdj_symm A o x y h⟩
+  loopless := ⟨fun x h => h.1 rfl⟩
 
 theorem rootedGraph_adj_iff {V : Type}
     (A : TwoGraph V) (o x y : V) :
