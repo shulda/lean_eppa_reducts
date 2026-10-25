@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-25 (CI pending):** `TwoGraphs/RawTripleParity.lean` encodes the six-entry parity formula and proves invariance when each of the three valuation representatives is independently complemented. This is the key raw well-definedness result; actual descent to `ValuationClass` and 4-point parity of the quotient witness remain open.
+- [ ] **2026-10-25 (CI pending):** `TwoGraphs/QuotientTripleParity.lean` includes raw representative congruence and a genuine `Quotient.liftOn₃` descent of the triple parity to three quotient valuations (including repeated projections). Permutation invariance, four-point parity and induced witness remain unfinished.
+
+
+- [x] **2026-10-25 (certified at commit `17dabf2cf3c2411188dbaa08ee961601face6920`, [CI 40217669482](https://github.com/shulda/lean_eppa_reducts/actions/runs/40217669482)):** `TwoGraphs/RawTripleParity.lean` encodes the six-entry parity formula and proves invariance when each of the three valuation representatives is independently complemented. This is the key raw well-definedness result; build and axiom audit passed (149 declarations). Actual descent to `ValuationClass` and 4-point parity of the quotient witness remained open at that commit.
 
 
 - [x] **2026-10-25 (certified at commit `8c6603ff62aef47945e1eb2f8f8bfa0b711d3bc5`, [CI 40217409587](https://github.com/shulda/lean_eppa_reducts/actions/runs/40217409587)):** added `TwoGraphs/ValuationQuotient.lean`: Boolean valuations, pointwise complement involution, genuine setoid and quotient classes, and proved identification of a valuation with its complement. This is the *per-vertex valuation quotient*, not the global symmetric-matrix quotient. Build and axiom audit passed (144 declarations). Quotient triple-parity independence and finiteness remain open.
