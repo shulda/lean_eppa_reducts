@@ -77,12 +77,24 @@ theorem orderedExteriorCorrection_insert
       exact ⟨slot, by simpa [h] using
         (orderedInsertExterior_at_slot core slot label)⟩
   by_cases h : label = slot
-  · have hh := hex.mpr h
-    simp [orderedExteriorCorrection, hh, h]
+  · have hh : ∃ j : Fin r,
+        (orderedInsertExterior core slot label).val j = Sum.inr j :=
+      hex.mpr h
+    change
+      (if ∃ j : Fin r,
+        (orderedInsertExterior core slot label).val j = Sum.inr j
+        then (1 : ZMod m) else 0) =
+      (if label = slot then (1 : ZMod m) else 0)
+    rw [if_pos hh, if_pos h]
   · have hh : ¬∃ j : Fin r,
         (orderedInsertExterior core slot label).val j = Sum.inr j :=
       fun hx => h (hex.mp hx)
-    simp [orderedExteriorCorrection, hh, h]
+    change
+      (if ∃ j : Fin r,
+        (orderedInsertExterior core slot label).val j = Sum.inr j
+        then (1 : ZMod m) else 0) =
+      (if label = slot then (1 : ZMod m) else 0)
+    rw [if_neg hh, if_neg h]
 
 /-- The base colour depends only on the core entries and the
 exterior *position*, never on its exterior label. -/
@@ -136,7 +148,13 @@ theorem orderedCoreExteriorColour_distinct_at_slot
         orderedExteriorCorrection m
           (orderedInsertExterior core slot label).val at h
   rw [hb, hc1, hc0, add_zero] at h
-  have hOne : (1 : ZMod m) = 0 := add_left_cancel h
+  have h' :
+      orderedCoreBase m N r hmN hr
+        (orderedInsertExterior core slot label).val + 1 =
+      orderedCoreBase m N r hmN hr
+        (orderedInsertExterior core slot label).val + (0 : ZMod m) := by
+    simpa only [add_zero] using h
+  have hOne : (1 : ZMod m) = 0 := add_left_cancel h'
   have hM : m = 1 := ZMod.one_eq_zero_iff.mp hOne
   exact (Nat.ne_of_gt (lt_of_lt_of_le (by decide : 1 < 2) hm)) hM
 
