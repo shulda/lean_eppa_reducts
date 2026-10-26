@@ -37,14 +37,17 @@ noncomputable def cosetOrbitIncidenceEquivGroup
       refine ⟨a, ?_⟩
       change a.val x = y.val at ha
       exact ha
-    obtain ⟨a, ha⟩ :=
+    have hfix : ∃ a : L, a.val (g y.val) = y.val :=
       coset_fixability_orbit_invariant L g hg x y.val hxy hx
+    let a : L := Classical.choose hfix
+    have ha : a.val (g y.val) = y.val := Classical.choose_spec hfix
     have ha' : a • (g y.val) = y.val := by
       change a.val (g y.val) = y.val
       exact ha
     have hyorbit : g y.val ∈ MulAction.orbit L y.val :=
       (exists_transporter_iff_mem_orbit y.val (g y.val)).mp ⟨a, ha'⟩
-    obtain ⟨u, hu⟩ := hyorbit
+    let u : L := Classical.choose hyorbit
+    have hu : u • y.val = g y.val := Classical.choose_spec hyorbit
     have eLocal :
         {l : L // l.val (g y.val) = y.val} ≃
           MulAction.stabilizer L y.val := by
