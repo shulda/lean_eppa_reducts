@@ -90,6 +90,7 @@ import EPPAReducts.BoundedEquivalence.UnlabelledZModPresentation
 import EPPAReducts.BoundedEquivalence.LabelEquiv
 import EPPAReducts.BoundedEquivalence.CoreLabelAction
 import EPPAReducts.BoundedEquivalence.ExtendLabels
+import EPPAReducts.BoundedEquivalence.FiniteCoreLabels
 import EPPAReducts.BoundedEquivalence.ClassShiftFixed
 import EPPAReducts.BoundedEquivalence.TwistedTransporter
 import EPPAReducts.BoundedEquivalence.CosetNormalizer
