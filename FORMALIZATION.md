@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/NormalizedPermutationComposition.lean` transports the certified groupoid composition identity into an equality of permutations of one chosen canonical representative, using explicit equality casts and proof irrelevance. Build/axiom audit pending; composition of ambient subgroup lifts and final coherent EPPA remain open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/SubsetSectionCast.lean` proves equality-cast conjugation preserves induced-subset automorphisms and commutes with the *same chosen* ambient subgroup section; this is required to combine sections for isomorphic domains. Build/axiom audit pending. Coherentisation remains open.
+
+- [x] **2026-10-26 (certified at commit `2aff2f2b7cf28d14a1bf6d81c0680b7b98ef027d`, [CI 40315504173](https://github.com/shulda/lean_eppa_reducts/actions/runs/40315504173)):** `TwoGraphs/NormalizedPermutationComposition.lean` proves the composition law for normalized automorphisms of one common canonical representative under the exact approved `IsComposition`, modulo only equality-induced subtype conjugations; build and allowed-axiom audit passed. The actual ambient subgroup-section coherence is not yet proved.
 
 - [x] **2026-10-26 (certified at commit `bb3ee42e099d696914424e9b3b2aec8bbcb244bb`, [CI 40314830060](https://github.com/shulda/lean_eppa_reducts/actions/runs/40314830060)):** `TwoGraphs/NormalizedPartialComposition.lean` proves `normalizedPartialEquiv_composition`, full functorial composition of heterogeneous normalized partial isomorphisms under the exact approved `IsComposition` predicate, including all source/middle/target canonical-subtype casts. Build and allowed-axiom audit passed. Coherent ambient extension remains open.
 

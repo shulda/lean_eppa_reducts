@@ -31,6 +31,7 @@ import EPPAReducts.TwoGraphs.NormalizedPartialEquiv
 import EPPAReducts.TwoGraphs.PartialCompositionEquiv
 import EPPAReducts.TwoGraphs.NormalizedPartialComposition
 import EPPAReducts.TwoGraphs.NormalizedPermutationComposition
+import EPPAReducts.TwoGraphs.SubsetSectionCast
 import EPPAReducts.TwoGraphs.ValuationQuotient
 import EPPAReducts.TwoGraphs.RawTripleParity
 import EPPAReducts.TwoGraphs.QuotientTripleParity
