@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/PartialCompositionEquiv.lean` upgrades the exact approved Option-valued IsComposition condition to equality of the corresponding subtype equivalences with explicit domain and range casts. Build/axiom audit pending; normalized groupoid composition and final coherentisation are still open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/NormalizedPartialComposition.lean` proves the full heterogeneous canonical-normalisation groupoid composition law under the exact approved `HumanTargets.IsComposition` predicate, including all representative equality casts. Build/axiom audit pending; translating to same-carrier subgroup sections and coherent ambient extensions remains.
+
+- [x] **2026-10-26 (certified at commit `34f1ef007e82e0be20489e64db76dbaa705b127d`, [CI 40314323730](https://github.com/shulda/lean_eppa_reducts/actions/runs/40314323730)):** `TwoGraphs/PartialCompositionEquiv.lean` proves `isComposition_subtypeEquiv`: the exact approved Option-valued partial-map composition predicate implies strict equality of the represented subtype equivalences after source/middle/target casts. Build and allowed-axiom audit passed.
 
 - [x] **2026-10-26 (certified at commit `592512a33a2da41c12b11fd8321f0516fc3b50f2`, [CI 40313851069](https://github.com/shulda/lean_eppa_reducts/actions/runs/40313851069)):** `TwoGraphs/NormalizedPartialEquiv.lean` defines heterogeneous normalization independently of any preservation proof, proves the existing normalized permutation is exactly its canonical-representative cast, and proves the source-to-target transporter square. Build and allowed-axiom audit passed.
 
