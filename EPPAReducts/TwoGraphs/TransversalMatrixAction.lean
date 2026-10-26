@@ -32,7 +32,7 @@ theorem valuationClass_xor_constant
       have heq :
           (fun y => Bool.xor (a y) true) = flipValuation a := by
         funext y
-        cases a y <;> rfl
+        cases h : a y <;> simp [flipValuation, h]
       rw [heq, valuationClass_flip]
 
 /-- From the prescribed row formula, the raw output valuation after
