@@ -26,6 +26,7 @@ import EPPAReducts.TwoGraphs.IndexMatrixConjugation
 import EPPAReducts.TwoGraphs.CombinedAutomorphism
 import EPPAReducts.TwoGraphs.CombinedGroupLaw
 import EPPAReducts.TwoGraphs.MatrixKernel
+import EPPAReducts.TwoGraphs.MatrixKernelConverse
 import EPPAReducts.BoundedEquivalence.Basic
 import EPPAReducts.BoundedEquivalence.LabelEquiv
 import EPPAReducts.BoundedEquivalence.ExtendLabels

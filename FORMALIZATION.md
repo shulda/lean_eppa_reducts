@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (awaiting CI):** `TwoGraphs/MatrixKernel.lean` shows equality of row-shift permutations of symmetric Boolean matrices forces their XOR to be a *single globally constant matrix* when X is nonempty. The converse/kernel quotient and coherent EPPA remain open.
+- [ ] **2026-10-26 (awaiting CI):** `TwoGraphs/MatrixKernelConverse.lean` proves a globally constant XOR acts trivially, and the exact iff characterization of equal symmetric-matrix actions on a nonempty index type. The quotient-by-constant-matrix group construction and coherent EPPA are not yet proved.
+
+
+- [x] **2026-10-26 (certified at commit `eaabbc78cc36b3d2568b4c69e4715c14a7cefa82`, [CI 40268362379](https://github.com/shulda/lean_eppa_reducts/actions/runs/40268362379)):** `TwoGraphs/MatrixKernel.lean` shows equality of row-shift permutations of symmetric Boolean matrices forces their XOR to be a *single globally constant matrix* when X is nonempty. Build and axiom audit passed (293 declarations). Converse and full kernel equivalence remained open at that commit.
 
 
 - [x] **2026-10-26 (certified at commit `0dd7b6f41869b2697dc1a2ae6352eedfd75c73a8`, [CI 40267808828](https://github.com/shulda/lean_eppa_reducts/actions/runs/40267808828)):** `TwoGraphs/CombinedGroupLaw.lean` proves exact semidirect composition of `matrixIndexPerm` (inverse-reindexed second matrix) and the reverse index/matrix commutation relation. Build and axiom audit passed (289 declarations). This is a group-action law, not EPPA.
