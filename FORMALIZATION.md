@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/IndexedRootedTransversal.lean` proves that for any finite nonempty input two-graph, finite X, specified injection V ↪ X, and `|V| ∣ |X|`, there are X-valuations making the given injection into an induced transversal embedding into C_X in the approved API. Build and axiom audit pending; ordinary EPPA transfer, global common-multiple witness and coherentisation remain open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/FiniteCommonIndex.lean` provides an explicit finite index embedding `V ↪ Fin (|V|!)` and shows every nonempty induced vertex subset has size dividing `|V|!`. This uses a nonoptimal but mathematically legitimate common multiple; the author-approved target asserts witness existence, not an optimal size bound. CI pending, and no coherent EPPA conclusion is claimed.
+
+- [x] **2026-10-26 (certified at commit `1d78c1c3c2c9e6a2f9dd3784cbb85468f6291717`, [CI 40294614407](https://github.com/shulda/lean_eppa_reducts/actions/runs/40294614407)):** `TwoGraphs/IndexedRootedTransversal.lean` proves `exists_indexed_rootedTransversal` for any nonempty finite input A, finite X, any prescribed injection `V ↪ X` with `|V| ∣ |X|`. It constructs X-valuations and an **induced** embedding of A into `valuationTwoGraph X` using the prior rooted representation and induced block inflation. Exact HumanTargets API; build and allowed-axiom audit passed. Ordinary EPPA transfer, global common multiple and final coherentisation remain open.
 
 - [x] **2026-10-26 (certified at commit `8ee2c507bc026434ecad60295a1c84e5e66a65d5`, [CI 40294152256](https://github.com/shulda/lean_eppa_reducts/actions/runs/40294152256)):** `TwoGraphs/FiniteRootedTransversal.lean` proves existence of the induced valuation-transversal embedding into C_V for any nonempty finite two-graph with no order supplied, using `finiteCarrierLinearOrder` transported from Fin(card V). Build and allowed-axiom audit passed. Empty input and larger divisible index sets remain open.
 
