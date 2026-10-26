@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/NormalizedPartialEquiv.lean` separates source-to-target normalization (an equivalence of possibly different canonical representative types) from casting it into a permutation; proves the original normalized automorphism agrees definitionally with that cast, and establishes the exact transporter square. Build/axiom audit pending; heterogeneous composition and final coherence remain open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/PartialCompositionEquiv.lean` upgrades the exact approved Option-valued IsComposition condition to equality of the corresponding subtype equivalences with explicit domain and range casts. Build/axiom audit pending; normalized groupoid composition and final coherentisation are still open.
+
+- [x] **2026-10-26 (certified at commit `592512a33a2da41c12b11fd8321f0516fc3b50f2`, [CI 40313851069](https://github.com/shulda/lean_eppa_reducts/actions/runs/40313851069)):** `TwoGraphs/NormalizedPartialEquiv.lean` defines heterogeneous normalization independently of any preservation proof, proves the existing normalized permutation is exactly its canonical-representative cast, and proves the source-to-target transporter square. Build and allowed-axiom audit passed.
 
 - [x] **2026-10-26 (certified at commit `bc84dd3e8b360272f477f06e171d2c5bcc4d28b1`, [CI 40313357314](https://github.com/shulda/lean_eppa_reducts/actions/runs/40313357314)):** `TwoGraphs/TransporterComposition.lean` proves generic cancellation of intermediate equivalences and composition of subtype casts, plus that equal induced subsets have the same selected direct and inverse transporters after casting. Build and allowed-axiom audit passed.
 

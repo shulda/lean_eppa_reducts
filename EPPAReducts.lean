@@ -28,6 +28,7 @@ import EPPAReducts.TwoGraphs.NormalizedPartialIdentity
 import EPPAReducts.TwoGraphs.NormalizedTransportCompatibility
 import EPPAReducts.TwoGraphs.TransporterComposition
 import EPPAReducts.TwoGraphs.NormalizedPartialEquiv
+import EPPAReducts.TwoGraphs.PartialCompositionEquiv
 import EPPAReducts.TwoGraphs.ValuationQuotient
 import EPPAReducts.TwoGraphs.RawTripleParity
 import EPPAReducts.TwoGraphs.QuotientTripleParity
