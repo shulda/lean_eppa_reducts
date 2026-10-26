@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-26 (combined automorphisms CI-green; exact semidirect group law in progress).
+**Updated:** 2026-10-26 (combined semidirect action verified; global symmetric-matrix kernel in development).
 
 ## Scope and acceptance targets
 
@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (awaiting CI):** `TwoGraphs/CombinedGroupLaw.lean` proves the exact semidirect composition law for `matrixIndexPerm`, using the inverse-reindexed second matrix; it also proves the reverse index/matrix commutation relation. No claims about faithfulness or coherent EPPA yet.
+- [ ] **2026-10-26 (awaiting CI):** `TwoGraphs/MatrixKernel.lean` shows equality of row-shift permutations of symmetric Boolean matrices forces their XOR to be a *single globally constant matrix* when X is nonempty. The converse/kernel quotient and coherent EPPA remain open.
+
+
+- [x] **2026-10-26 (certified at commit `0dd7b6f41869b2697dc1a2ae6352eedfd75c73a8`, [CI 40267808828](https://github.com/shulda/lean_eppa_reducts/actions/runs/40267808828)):** `TwoGraphs/CombinedGroupLaw.lean` proves exact semidirect composition of `matrixIndexPerm` (inverse-reindexed second matrix) and the reverse index/matrix commutation relation. Build and axiom audit passed (289 declarations). This is a group-action law, not EPPA.
 
 
 - [x] **2026-10-26 (certified at commit `8fe15f8d00d316fcab37eadda8115353bbeaf335`, [CI 40265970399](https://github.com/shulda/lean_eppa_reducts/actions/runs/40265970399)):** `TwoGraphs/CombinedAutomorphism.lean` introduces `matrixIndexPerm σ F`, proves closure of genuine automorphisms under composition and certifies it in the exact human-target API for symmetric F. Full semidirect multiplication, global-matrix kernel, EPPA and coherent sections remained open at this commit.
