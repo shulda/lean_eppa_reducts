@@ -37,7 +37,7 @@ theorem core_determines_label_action
   calc
     f (p x) = f (p (ι a)) := hkernel x (ι a) ha.symm
     _ = τ (f (ι a)) := hcoreAction a
-    _ = τ (f x) := by rw [ha]
+    _ = τ (f x) := congrArg τ ha
 
 /-- In particular, any kernel-preserving map fixing the entire core
 pointwise fixes every unlabelled equivalence class, not just the
