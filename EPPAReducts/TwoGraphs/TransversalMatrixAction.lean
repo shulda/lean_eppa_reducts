@@ -26,7 +26,7 @@ theorem valuationClass_xor_constant
   | false =>
       have heq : (fun y => Bool.xor (a y) false) = a := by
         funext y
-        cases a y <;> rfl
+        cases h : a y <;> simp [flipValuation, h]
       rw [heq]
   | true =>
       have heq :
