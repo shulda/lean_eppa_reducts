@@ -26,6 +26,7 @@ automorphisms of any nonempty finite two-graph in the exact
 human-approved partial-bijection API. -/
 theorem exists_factorialValuation_EPPA_nonempty
     {V : Type} [Fintype V] [Nonempty V]
+    [DecidableEq (ValuationVertex (Fin (Nat.factorial (Fintype.card V))))]
     (A : TwoGraph V) :
     ∃ χ : V → Valuation (Fin (Nat.factorial (Fintype.card V))),
       IsInducedTwoGraphEmbedding A
@@ -49,7 +50,9 @@ theorem exists_factorialValuation_EPPA_nonempty
 /-- Empty input handled without picking a nonexisting root; no
 extra cardinality assumptions appear in the EPPA statement. -/
 theorem exists_factorialValuation_EPPA
-    {V : Type} [Fintype V] (A : TwoGraph V) :
+    {V : Type} [Fintype V]
+    [DecidableEq (ValuationVertex (Fin (Nat.factorial (Fintype.card V))))]
+    (A : TwoGraph V) :
     ∃ χ : V → Valuation (Fin (Nat.factorial (Fintype.card V))),
       IsInducedTwoGraphEmbedding A
         (valuationTwoGraph (Fin (Nat.factorial (Fintype.card V))))
