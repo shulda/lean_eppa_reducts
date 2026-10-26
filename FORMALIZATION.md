@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-26 (exact induced block valuation embedding CI green; combined-action equivariance under verification).
+**Updated:** 2026-10-26 (combined-action block equivariance certified; quotient action inflation being verified).
 
 ## Scope and acceptance targets
 
@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/BlockEquivariance.lean` supplies raw and quotient reindexing and row-shift compatibility, then the exact `inflateValuationVertex_matrixIndexPerm` intertwining identity. Awaiting successful build and axiom audit; subgroup section/coherence are not claimed.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/CombinedBlockAction.lean` makes the faithful combined permutation/index matrix action quotient explicit and proves inflation is independent of action representatives. CI and axiom audit pending; no subgroup lift yet.
+
+- [x] **2026-10-26 (certified at commit `0abc0728f75719e347985e9e1e8a9225af0d8d1d`, [CI 40283977872](https://github.com/shulda/lean_eppa_reducts/actions/runs/40283977872)):** `TwoGraphs/BlockEquivariance.lean` proves `inflateValuationClass_reindex`, `inflateValuationClass_shiftValuationByRow`, and `BlockCoordinates.inflateValuationVertex_matrixIndexPerm`, the exact combined-action intertwining relation for an induced block embedding. Build and allowed-axiom audit passed. Subgroup lift/coherent EPPA remain open.
 
 - [x] **2026-10-26 (certified at commit `330839fe26bd44cc0d091f4b93bb49566d6e57b7`, [CI 40281652774](https://github.com/shulda/lean_eppa_reducts/actions/runs/40281652774)):** `TwoGraphs/ValuationBlockInflation.lean` proves quotient valuation inflation along the block retraction is injective, and the resulting map `C_D ↪ C_X` is an **induced two-graph embedding** in the exact approved `HumanTargets` API. Build and allowed-axiom audit passed; action equivariance was still open.
 

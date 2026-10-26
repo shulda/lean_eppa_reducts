@@ -44,6 +44,7 @@ import EPPAReducts.TwoGraphs.BlockCoordinates
 import EPPAReducts.TwoGraphs.BlockDivisibility
 import EPPAReducts.TwoGraphs.ValuationBlockInflation
 import EPPAReducts.TwoGraphs.BlockEquivariance
+import EPPAReducts.TwoGraphs.CombinedBlockAction
 import EPPAReducts.BoundedEquivalence.Basic
 import EPPAReducts.BoundedEquivalence.LabelEquiv
 import EPPAReducts.BoundedEquivalence.ExtendLabels
