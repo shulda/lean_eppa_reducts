@@ -44,14 +44,23 @@ theorem rootedGraph_adj_iff_triple
     exact (rootedGraph_adj_iff A o x y).mpr
       ⟨hxy, hxo, hyo, ht⟩
 
-/-- The Bool indicator of adjacency in the rooted SimpleGraph is
-literally the Bool indicator of the corresponding root triple. -/
-theorem rootedGraph_decide_adj
+/-- A fixed classical Boolean indicator of a graph edge.
+Using a noncomputable definition avoids an implicit decidability
+assumption on arbitrary SimpleGraph adjacency. -/
+noncomputable def graphEdgeBit {V : Type} (G : SimpleGraph V)
+    (x y : V) : Bool := by
+  classical
+  exact decide (G.Adj x y)
+
+/-- The indicator of adjacency in the rooted SimpleGraph equals
+the indicator of the corresponding root triple for distinct endpoints. -/
+theorem rootedGraph_edgeBit_eq_rootTriple
     {V : Type} (A : TwoGraph V) (o x y : V)
     (hxy : x ≠ y) :
-    decide ((rootedGraph A o).Adj x y) =
+    graphEdgeBit (rootedGraph A o) x y =
       A.isTriple (triple o x y) := by
   classical
+  unfold graphEdgeBit
   cases ht : A.isTriple (triple o x y) with
   | false =>
     have hn : ¬ (rootedGraph A o).Adj x y := by
@@ -67,11 +76,10 @@ theorem rootedGraph_decide_adj
 
 /-- The Boolean odd-edge predicate of a triangle in a SimpleGraph. -/
 noncomputable def graphOddTriple {V : Type} (G : SimpleGraph V)
-    (x y z : V) : Bool := by
-  classical
-  exact Bool.xor
-    (Bool.xor (decide (G.Adj x y)) (decide (G.Adj y z)))
-    (decide (G.Adj z x))
+    (x y z : V) : Bool :=
+  Bool.xor
+    (Bool.xor (graphEdgeBit G x y) (graphEdgeBit G y z))
+    (graphEdgeBit G z x)
 
 /-- The rooted graph G_o recovers the literal input two-graph on all
 three-element subsets: its triangle has an odd number of edges iff
@@ -83,10 +91,15 @@ theorem rootedGraph_represents_twoGraph
     A.isTriple (triple x y z) =
       graphOddTriple (rootedGraph A o) x y z := by
   classical
-  simp only [graphOddTriple,
-    rootedGraph_decide_adj A o x y hxy,
-    rootedGraph_decide_adj A o y z hyz,
-    rootedGraph_decide_adj A o z x hxz.symm]
+  change A.isTriple (triple x y z) =
+    Bool.xor
+      (Bool.xor
+        (graphEdgeBit (rootedGraph A o) x y)
+        (graphEdgeBit (rootedGraph A o) y z))
+      (graphEdgeBit (rootedGraph A o) z x)
+  rw [rootedGraph_edgeBit_eq_rootTriple A o x y hxy,
+    rootedGraph_edgeBit_eq_rootTriple A o y z hyz,
+    rootedGraph_edgeBit_eq_rootTriple A o z x hxz.symm]
   exact twoGraph_rootedParity_distinct A o x y z hxy hxz hyz
 
 end EPPAReducts.TwoGraphs
