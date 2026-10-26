@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/TransversalLiteralExtension.lean` bridges preservation of the literal `HumanTargets.TwoGraph.isTriple` on two prescribed transversals to equality of raw parity, then proves existence of an honest two-graph automorphism extending the map for nonempty s and a chosen index permutation σ. Still pending: arbitrary partial-index-injection extension, empty s, full-transversal uniqueness and coherence.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/TransversalCoordinateExtension.lean` uses Mathlib `Equiv.Perm.exists_extending_pair` to extend any injection from a finite source index subset to a permutation of X, then derives genuine automorphism extension for nonempty transversals with arbitrary injective target projections. Still open: empty s, lifting from the original arbitrary two-graph, full-transversal uniqueness, subgroup homomorphic sections, and coherent EPPA.
+
+
+- [x] **2026-10-26 (certified at commit `8ff3ed8ec95b83c8b77499d487796bf8c3cd5d3b`, [CI 40273211410](https://github.com/shulda/lean_eppa_reducts/actions/runs/40273211410)):** `TwoGraphs/TransversalLiteralExtension.lean` bridges literal `HumanTargets.TwoGraph.isTriple` preservation to raw parity and proves genuine automorphism extension of nonempty transversals for a given ambient index permutation σ. Build and allowed-axiom audit passed (355 declarations). Arbitrary injective target-coordinate maps and empty s remain open.
 
 
 - [x] **2026-10-26 (certified at commit `1a5948d17c7fd8a8235fe1135f6890b820399580`, [CI 40272857743](https://github.com/shulda/lean_eppa_reducts/actions/runs/40272857743)):** `TwoGraphs/TransversalMatrixAction.lean` proves matrix row prescriptions implement the exact target quotient valuation classes and yields symmetric matrix actions extending every nonempty raw parity-preserving transversal. Build and allowed-axiom audit passed (349 declarations). The literal two-graph interface, coordinate-injection extension, and empty case remained open.
