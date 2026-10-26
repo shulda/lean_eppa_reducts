@@ -101,6 +101,7 @@ import EPPAReducts.BoundedEquivalence.OrderedTupleTranslation
 import EPPAReducts.BoundedEquivalence.OrderedTupleFirstCoordinateColour
 import EPPAReducts.BoundedEquivalence.OrderedCyclicCore
 import EPPAReducts.BoundedEquivalence.OrderedCoreExteriorColour
+import EPPAReducts.BoundedEquivalence.OrderedCoreExteriorSupport
 
 /-!
 # EPPA for reducts
