@@ -53,13 +53,13 @@ are carried one to the other by an automorphism fixing the entire
 embedded core if that automorphism carries their exterior labels
 to one another. -/
 theorem orderedExteriorTuple_image
-    {S W : Type} {r : ℕ}
-    (ι : Sum S (Fin r) ↪ W)
+    {W : Type} {N r : ℕ}
+    (ι : Sum (ZMod N) (Fin r) ↪ W)
     (l : Equiv.Perm W)
-    (hcore : ∀ s : S, l (ι (Sum.inl s)) = ι (Sum.inl s))
+    (hcore : ∀ s : ZMod N, l (ι (Sum.inl s)) = ι (Sum.inl s))
     (i j : Fin r)
     (hij : l (ι (Sum.inr i)) = ι (Sum.inr j))
-    (core : InjectiveTuples S r) :
+    (core : InjectiveTuples (ZMod N) r) :
     permuteOrderedTuple l
       (mapInjectiveTuple ι (orderedInsertExterior core i i)) =
     mapInjectiveTuple ι (orderedInsertExterior core i j) := by
