@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/TransversalMatrixAssembly.lean` constructs a globally symmetric Boolean matrix from consistent prescribed rows over a Finset s, fills the complementary block with zero, and proves existence of such a matrix from raw triple parity preservation on nonempty transversals. Preservation of quotient valuation classes and the actual partial automorphism extension statement remain open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/TransversalMatrixAction.lean` proves the assembled row prescription implements the exact target valuation classes under the combined automorphism and derives existence of symmetric matrix actions extending nonempty raw parity-preserving transversals. Still pending: bridge to induced partial isomorphisms in `HumanTargets`, empty transversal case, extension of the coordinate injection and full-domain uniqueness.
+
+
+- [x] **2026-10-26 (certified at commit `037d4fe1138cefa4052143b4adbbeb2aee6c297a`, [CI 40272099343](https://github.com/shulda/lean_eppa_reducts/actions/runs/40272099343)):** `TwoGraphs/TransversalMatrixAssembly.lean` constructs a globally symmetric Boolean matrix with prescribed rows on a finite transversal, fills the complementary block with zero and derives the row conditions from raw triple-parity preservation. Build and allowed-axiom audit passed (345 declarations). Actual image-mapping on quotient valuation vertices remained open at that commit.
 
 
 - [x] **2026-10-26 (certified at commit `c1f6536ceb2d362b5cfd2b55bacc1c3fff1840d5`, [CI 40271743338](https://github.com/shulda/lean_eppa_reducts/actions/runs/40271743338)):** `TwoGraphs/TransversalRowPrescription.lean` proves the exact six-bit consistency of matrix row prescriptions from a cut potential, including the diagonal cases. Build and allowed-axiom audit passed (339 declarations); full symmetric extension still open at this commit.
