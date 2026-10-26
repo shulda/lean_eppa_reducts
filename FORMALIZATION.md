@@ -20,6 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/CutPotential.lean` proves that a complete Boolean triangle cocycle is equivalent to an explicit cut potential on any nonempty type. This is the algebraic pivot of the transversal cut lemma, but no actual partial two-graph isomorphism has yet been lifted.
+
+
 - [x] **2026-10-26 (certified at commit `26a2390b94a203eb35b6e9f394be78e4dc575846`, [CI 40269800789](https://github.com/shulda/lean_eppa_reducts/actions/runs/40269800789)):** `TwoGraphs/CombinedKernel.lean` proves `matrixIndexPerm_eq_iff`: for nonempty X, equality of the combined actions of two symmetric matrices implies and is implied by equality of their index permutations and global constant XOR of the matrices. Also proves index-coordinate uniqueness and cancellation. Build and allowed-axiom audit passed (325 declarations). Transversal EPPA, subgroup section and coherence are still open.
 
 
