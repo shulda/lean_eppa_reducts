@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/TwoGraphFourPointXor.lean` derives `twoGraph_fourPointXor` for an *arbitrary* `HumanTargets.TwoGraph` on four distinct vertices from the exact four-point `Finset` cardinality axiom. It is a prerequisite for the rooted graph representative. Build and axiom audit pending.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/RootedParityAway.lean` proves the rooted three-edge XOR reconstruction for a triple disjoint from its distinguished root. CI pending; root-containing and degenerate triples still need their separate bridge.
+
+- [x] **2026-10-26 (certified at commit `2ff9ff4ac996e5fe2e29ea8405c6575b8f6a5188`, [CI 40290595056](https://github.com/shulda/lean_eppa_reducts/actions/runs/40290595056)):** `TwoGraphs/TwoGraphFourPointXor.lean` proves `twoGraph_fourPointXor` for an arbitrary actual `HumanTargets.TwoGraph` on four distinct vertices, directly from the original four-point even `Finset`-cardinality axiom. Build and allowed-axiom audit passed. Rooted reconstruction and final coherent EPPA are not yet proved.
 
 - [x] **2026-10-26 (certified at commit `5a1b3843634d94b9b516569bb0d3ec696c181fac`, [CI 40288311026](https://github.com/shulda/lean_eppa_reducts/actions/runs/40288311026)):** `TwoGraphs/DivisibleTransversalSection.lean` proves `exists_divisibleTransversal_coherentLift`: for every finite nonempty `D ↪ X` with `|D| ∣ |X|` and every chosen valuation transversal, there exists a simultaneous choice of *actual* two-graph automorphisms extending all its induced automorphisms, preserving identity and composition. The block decomposition and conjugator are fixed independently of the group elements. Build and allowed-axiom audit passed. **This does not yet prove the author's full coherent EPPA theorem**: abstract coherentisation, arbitrary two-graph representation and final theorem bridges remain open.
 
