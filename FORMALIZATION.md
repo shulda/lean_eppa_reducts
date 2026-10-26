@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/RootedParityAll.lean` proves rooted parity reconstruction for every *distinct* triple including ones containing the root, plus false indicator on duplicate triples. CI pending; conversion to an actual graph representative and valuation embedding remain.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/RootedGraphRepresentative.lean` identifies rooted SimpleGraph adjacency with the original root triples for distinct endpoints, and proves the rooted graph's odd-triangle predicate equals the original two-graph relation on every genuine triple. CI pending; construction of induced valuation-transversal embedding still open.
+
+- [x] **2026-10-26 (certified at commit `9ed631e3d654364c5b1a81b06fc23d0afc5009df`, [CI 40291856070](https://github.com/shulda/lean_eppa_reducts/actions/runs/40291856070)):** `TwoGraphs/RootedParityAll.lean` proves `twoGraph_triple_false_of_repeat` and `twoGraph_rootedParity_distinct` for *any* original two-graph and every distinct triple, including root-containing cases. Build and allowed-axiom audit passed.
 
 - [x] **2026-10-26 (certified at commit `8af640dd7a0d590487439a1f61fd2e848dc7a606`, [CI 40291028390](https://github.com/shulda/lean_eppa_reducts/actions/runs/40291028390)):** `TwoGraphs/RootedParityAway.lean` proves `twoGraph_rootedParity_away`: the exact original two-graph relation of a triple disjoint from its root equals the XOR of its three rooted pair contributions. Built and allowed-axiom audited. Root-containing/degenerate triples were still open.
 
