@@ -1,6 +1,5 @@
 import EPPAReducts.BoundedEquivalence.CosetOrbitIncidenceInjection
 import Mathlib.Data.Fintype.Card
-import Mathlib.Tactic
 
 /-!
 # The quantitative normalizer-coset fixed-orbit bound
