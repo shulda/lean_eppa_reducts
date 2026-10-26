@@ -119,6 +119,7 @@ import EPPAReducts.BoundedEquivalence.OrderedColourTranslationFixed
 import EPPAReducts.BoundedEquivalence.OrderedCoreCosetCollision
 import EPPAReducts.BoundedEquivalence.OrderedExteriorLabels
 import EPPAReducts.BoundedEquivalence.OrderedOldCoreShift
+import EPPAReducts.BoundedEquivalence.OrderedNoSimultaneousExtensions
 
 /-!
 # EPPA for reducts

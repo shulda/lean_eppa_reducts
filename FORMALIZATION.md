@@ -20,6 +20,8 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
+- [ ] **2026-10-26 (proof branch CI pending):** `OrderedNoSimultaneousExtensions.lean` states and attempts the actual normalized-colour contradiction: no finite ambient tuple-kernel admits a family of r full automorphisms all shifting the cyclic core and respectively fixing the distinct exterior vertices. This structural lemma is not yet an ordered EPPA-failure theorem, and is not certified until this branch's build and axiom audit pass.
+
 - [ ] **2026-10-26 (integration check pending):** merge reviewed proof modules from earlier successful CI branches in PRs #15–#18. The imports cover finite normalized extension colours, exact ordered EPPA witness semantics, normalizing common-core cosets, all-colour shift on arbitrary ambient extensions, and the exterior-label orbit obstruction. Combined-branch build and axiom audit must pass before marking the integrated result certified; no ordered non-EPPA theorem is claimed.
 
 - [x] **2026-10-26 (certified at proof commit `13a004b1c93f2ce6ad0263b794db7f6a13a65336`, [CI 40371489139](https://github.com/shulda/lean_eppa_reducts/actions/runs/40371489139)):** `BoundedEquivalence/OrderedClassShiftFixed.lean` proves `orderedClassShift_fixedVertices_card_lt`: a vertex permutation inducing a fixed-point-free class permutation on all injective ordered r-tuples has fewer than r fixed vertices. This is the generic finite fixed-point bound for the coset argument. Full Lean build and allowed-axiom audit passed; no negative EPPA theorem yet.
