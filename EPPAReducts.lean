@@ -92,6 +92,7 @@ import EPPAReducts.BoundedEquivalence.CoreLabelAction
 import EPPAReducts.BoundedEquivalence.ExtendLabels
 import EPPAReducts.BoundedEquivalence.FiniteCoreLabels
 import EPPAReducts.BoundedEquivalence.OrderedInducedColours
+import EPPAReducts.BoundedEquivalence.OrderedWitnessAPI
 import EPPAReducts.BoundedEquivalence.ClassShiftFixed
 import EPPAReducts.BoundedEquivalence.TwistedTransporter
 import EPPAReducts.BoundedEquivalence.CosetNormalizer
