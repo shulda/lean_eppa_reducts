@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/MatrixXor.lean` gives closure of symmetric Boolean matrices under XOR and proves composition and identity of induced quotient-valuation permutations. This is the group-law backbone, not a full permutation-plus-matrix action or coherent EPPA.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/AnyTripleParity.lean` proves the unordered triple predicate equals its labelled ternary formula for all triples, including repeated vertices. Its intended next use is an exact automorphism theorem for `valuationTwoGraph` under symmetric row-shift permutations.
+
+
+- [x] **2026-10-26 (certified at commit `4875844ad2e471ceb6c057345bda8e78451a6393`, [CI 40263358263](https://github.com/shulda/lean_eppa_reducts/actions/runs/40263358263)):** `TwoGraphs/MatrixXor.lean` proves closure of symmetric Boolean matrices under XOR, composition of raw/quotient/vertex shifts, permutation composition, and identity. Build and allowed-axiom audit passed (252 declarations). This is the matrix subgroup law, not the full permutation-plus-matrix action or coherent EPPA.
 
 
 - [x] **2026-10-25 (certified at commit `3be6b8846c0d09ffdc2cef7f95043e8fa9c415ae`, [CI 40225502440](https://github.com/shulda/lean_eppa_reducts/actions/runs/40225502440)):** `TwoGraphs/QuotientRowShift.lean` descends row shifts to `ValuationClass`, proves involutivity, constructs an actual `Equiv.Perm` of valuation vertices and establishes ternary relation preservation for symmetric matrices. Build and allowed-axiom audit passed (241 declarations). No full matrix-permutation group, extension lemma or coherent EPPA yet.

@@ -19,6 +19,7 @@ import EPPAReducts.TwoGraphs.ValuationTwoGraph
 import EPPAReducts.TwoGraphs.SymmetricRowShift
 import EPPAReducts.TwoGraphs.QuotientRowShift
 import EPPAReducts.TwoGraphs.MatrixXor
+import EPPAReducts.TwoGraphs.AnyTripleParity
 import EPPAReducts.BoundedEquivalence.Basic
 import EPPAReducts.BoundedEquivalence.LabelEquiv
 import EPPAReducts.BoundedEquivalence.ExtendLabels
