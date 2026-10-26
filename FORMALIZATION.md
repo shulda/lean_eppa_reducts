@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/RootedGraphRepresentative.lean` identifies rooted SimpleGraph adjacency with the original root triples for distinct endpoints, and proves the rooted graph's odd-triangle predicate equals the original two-graph relation on every genuine triple. CI pending; construction of induced valuation-transversal embedding still open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/OrderedRootValuation.lean` orients the rooted graph edge bits using any linear order and reconstructs original triple parity from raw valuations of distinct vertices. Build/axiom audit pending; the induced embedding into the actual quotient valuation two-graph is still open.
+
+- [x] **2026-10-26 (certified at commit `5c392f5947eeff306e1e96a35ccbb312018bdee9`, [CI 40292640982](https://github.com/shulda/lean_eppa_reducts/actions/runs/40292640982)):** `TwoGraphs/RootedGraphRepresentative.lean` proves `rootedGraph_adj_iff_triple`, `rootedGraph_edgeBit_eq_rootTriple`, and `rootedGraph_represents_twoGraph`: for every input two-graph and every root, the constructed *actual* Mathlib SimpleGraph has odd-edge triangles exactly the original distinguished genuine triples. Build and allowed-axiom audit passed. No restriction on input cardinality.
 
 - [x] **2026-10-26 (certified at commit `9ed631e3d654364c5b1a81b06fc23d0afc5009df`, [CI 40291856070](https://github.com/shulda/lean_eppa_reducts/actions/runs/40291856070)):** `TwoGraphs/RootedParityAll.lean` proves `twoGraph_triple_false_of_repeat` and `twoGraph_rootedParity_distinct` for *any* original two-graph and every distinct triple, including root-containing cases. Build and allowed-axiom audit passed.
 
