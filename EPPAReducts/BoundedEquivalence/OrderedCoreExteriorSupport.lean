@@ -34,11 +34,11 @@ theorem orderedTuple_firstTwo_has_core_of_one_exterior
     (∃ x : ZMod N, t.val o = Sum.inl x)
   cases hz : t.val z with
   | inl x =>
-      exact Or.inl ⟨x, hz⟩
+      exact Or.inl ⟨x, rfl⟩
   | inr k =>
       cases ho : t.val o with
       | inl y =>
-          exact Or.inr ⟨y, ho⟩
+          exact Or.inr ⟨y, rfl⟩
       | inr l =>
           have hk : k = a := hsupp z k hz
           have hl : l = a := hsupp o l ho
