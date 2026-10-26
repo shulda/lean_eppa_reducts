@@ -100,6 +100,7 @@ import EPPAReducts.BoundedEquivalence.CosetOrbitCollision
 import EPPAReducts.BoundedEquivalence.OrderedTupleTranslation
 import EPPAReducts.BoundedEquivalence.OrderedTupleFirstCoordinateColour
 import EPPAReducts.BoundedEquivalence.OrderedCyclicCore
+import EPPAReducts.BoundedEquivalence.OrderedTupleKernelPartial
 
 /-!
 # EPPA for reducts
