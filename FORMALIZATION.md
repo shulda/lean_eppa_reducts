@@ -20,6 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
+- [ ] **2026-10-26 (CI pending):** revised the technical `valuationTwoGraph` constructor to accept an explicit `[DecidableEq (ValuationVertex X)]` parameter, so the relation in `MatrixAutomorphism.lean` shares the same Finset decision procedure. **The author-approved `HumanTargets` API was not modified.**
+
+
 - [ ] **2026-10-26 (CI pending):** `TwoGraphs/MatrixAutomorphism.lean` upgrades ternary preservation to a genuine `HumanTargets.IsTwoGraphAutomorphism` of `valuationTwoGraph X` and applies it to all symmetric matrix row shifts. Neither partial-automorphism extension nor coherent EPPA has been proved.
 
 

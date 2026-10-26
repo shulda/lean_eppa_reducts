@@ -62,13 +62,11 @@ theorem unorderedTripleParity_fourPointEven
 
 /-- The valuation construction is a two-graph in the EXACT
 independent, author-approved HumanTargets.TwoGraph specification. -/
-noncomputable def valuationTwoGraph (X : Type) :
-    HumanTargets.TwoGraph (ValuationVertex X) := by
-  classical
-  exact {
-    isTriple := unorderedTripleParity
-    onlyTriples := fun s h => unorderedTripleParity_onlyTriples s h
-    fourPointEven := fun q hq => unorderedTripleParity_fourPointEven q hq
-  }
+noncomputable def valuationTwoGraph (X : Type)
+    [DecidableEq (ValuationVertex X)] :
+    HumanTargets.TwoGraph (ValuationVertex X) where
+  isTriple := unorderedTripleParity
+  onlyTriples := fun s h => unorderedTripleParity_onlyTriples s h
+  fourPointEven := fun q hq => unorderedTripleParity_fourPointEven q hq
 
 end EPPAReducts.TwoGraphs

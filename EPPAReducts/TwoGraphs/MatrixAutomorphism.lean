@@ -35,12 +35,8 @@ theorem valuationTwoGraph_automorphism_of_ternary
         vertexTripleParity a b c) :
     HumanTargets.IsTwoGraphAutomorphism (valuationTwoGraph X) g := by
   intro a b c
-  classical
-  change
-    (@unorderedTripleParity X (Classical.decEq (ValuationVertex X)))
-      (HumanTargets.triple a b c) =
-      (@unorderedTripleParity X (Classical.decEq (ValuationVertex X)))
-        (HumanTargets.triple (g a) (g b) (g c))
+  change unorderedTripleParity (HumanTargets.triple a b c) =
+    unorderedTripleParity (HumanTargets.triple (g a) (g b) (g c))
   simpa only [humanTriple_eq, unorderedTripleParity_on_any_three] using
     (h a b c).symm
 
