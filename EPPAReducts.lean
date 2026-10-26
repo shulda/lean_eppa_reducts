@@ -108,6 +108,7 @@ import EPPAReducts.BoundedEquivalence.OrderedCoreColourClasses
 import EPPAReducts.BoundedEquivalence.OrderedFiniteObstruction
 import EPPAReducts.BoundedEquivalence.OrderedKernelAutGroup
 import EPPAReducts.BoundedEquivalence.OrderedCorePointwiseNormalizer
+import EPPAReducts.BoundedEquivalence.OrderedCoreTransport
 import EPPAReducts.BoundedEquivalence.OrderedClassShiftFixed
 import EPPAReducts.BoundedEquivalence.OrderedTupleKernelPartial
 
