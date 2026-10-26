@@ -1,5 +1,4 @@
 import EPPAReducts.BoundedEquivalence.CosetOrbitBound
-import Mathlib.Tactic.Omega
 
 /-!
 # The coset obstruction for one more fixed point than the bound
@@ -60,6 +59,7 @@ theorem coset_fixed_vertices_orbit_collision
   have hbound : R.card ≤ b :=
     coset_fixable_orbit_representatives_card_le
       L g hg b hcap R hsep hfixR
-  omega
+  have hbad : b + 1 ≤ b := by simpa only [hcard] using hbound
+  exact Nat.not_succ_le_self b hbad
 
 end EPPAReducts.BoundedEquivalence
