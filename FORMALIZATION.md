@@ -350,7 +350,7 @@ On every fresh chat or after a crash:
 - [ ] Translation on `S = ZMod (m*lcm(1,…,r))`: orbit lengths of `r`-subsets and `(r-1)`-subsets divisible by `m`; choose equivariant colourings on orbits.
 - [ ] Construct **r pairwise distinct**, translation-equivariant external types. `r=2` separate; for `r≥3` use translation-orbit invariants, e.g., number of cyclically consecutive pairs, with explicit examples.
 - [ ] Build finite obstruction with `r` added fixed points. Prove the partial maps are structure isomorphisms, their extensions lie in the same stabilizer coset, that coset permutes all `m` classes without fixed class, and apply the orbit lemma for the contradiction.
-- [ ] Ordered injective tuples: translation acts freely on ordered positive-length tuples; put a distinctive shift at each external-vertex position, then repeat the same coset argument.
+- [x] Ordered injective tuples: translation acts freely on ordered positive-length tuples; the cyclic-core/exterior colouring, complete coset contradiction and universal no-EPPA witness theorem `orderedBoundedEquivalencesFailEPPA` are certified by CI 40399305078.
 - [ ] Specialize at `r=m=2` to graph modulo complementation, handling equivalence relations on **unordered pairs** exactly. State the failure for *every* candidate finite extension/witness, not merely a fixed one.
 
 ## Interfaces to reuse rather than rebuilding
