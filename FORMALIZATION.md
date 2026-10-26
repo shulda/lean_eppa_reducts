@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/TransversalMatrixAction.lean` proves the assembled row prescription implements the exact target valuation classes under the combined automorphism and derives existence of symmetric matrix actions extending nonempty raw parity-preserving transversals. Still pending: bridge to induced partial isomorphisms in `HumanTargets`, empty transversal case, extension of the coordinate injection and full-domain uniqueness.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/TransversalLiteralExtension.lean` bridges preservation of the literal `HumanTargets.TwoGraph.isTriple` on two prescribed transversals to equality of raw parity, then proves existence of an honest two-graph automorphism extending the map for nonempty s and a chosen index permutation σ. Still pending: arbitrary partial-index-injection extension, empty s, full-transversal uniqueness and coherence.
+
+
+- [x] **2026-10-26 (certified at commit `1a5948d17c7fd8a8235fe1135f6890b820399580`, [CI 40272857743](https://github.com/shulda/lean_eppa_reducts/actions/runs/40272857743)):** `TwoGraphs/TransversalMatrixAction.lean` proves matrix row prescriptions implement the exact target quotient valuation classes and yields symmetric matrix actions extending every nonempty raw parity-preserving transversal. Build and allowed-axiom audit passed (349 declarations). The literal two-graph interface, coordinate-injection extension, and empty case remained open.
 
 
 - [x] **2026-10-26 (certified at commit `037d4fe1138cefa4052143b4adbbeb2aee6c297a`, [CI 40272099343](https://github.com/shulda/lean_eppa_reducts/actions/runs/40272099343)):** `TwoGraphs/TransversalMatrixAssembly.lean` constructs a globally symmetric Boolean matrix with prescribed rows on a finite transversal, fills the complementary block with zero and derives the row conditions from raw triple-parity preservation. Build and allowed-axiom audit passed (345 declarations). Actual image-mapping on quotient valuation vertices remained open at that commit.
