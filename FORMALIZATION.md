@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-26 (full combined action law, kernel and faithful symmetric matrix quotient certified; no EPPA theorem yet).
+**Updated:** 2026-10-26 (all finite transversal extensions certified; full-transversal uniqueness in progress).
 
 ## Scope and acceptance targets
 
@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TransversalCoordinateExtension.lean` adds `exists_twoGraphAutomorphism_extending_any_transversal_embedding`, handling empty source transversals with the identity automorphism; this completes the technical EPPA extension lemma for *all* finite transversals. Still needs certification and does not imply full coherent EPPA.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/FullTransversalUniqueness.lean` proves that one chosen quotient valuation in every fibre uniquely determines the whole combined index/matrix permutation from its images. It uses freedom of the row translation action on the quotient; no symmetry or finiteness hypothesis required. This is the uniqueness lemma needed before constructing a subgroup section for coherent EPPA.
+
+
+- [x] **2026-10-26 (certified at commit `f56cb8cb5d06535e7630f79344fe4bd6070c35b4`, [CI 40273840188](https://github.com/shulda/lean_eppa_reducts/actions/runs/40273840188)):** `TwoGraphs/TransversalCoordinateExtension.lean` proves `exists_twoGraphAutomorphism_extending_any_transversal_embedding`, the technical extension theorem for **all** finite valuation transversals, including arbitrary injective target-coordinate maps and empty source. Build and allowed-axiom audit passed (359 declarations). This is not full coherent EPPA.
 
 
 - [x] **2026-10-26 (certified at commit `00ef965f9b14df353f80503cec08667fb1b48727`, [CI 40273552991](https://github.com/shulda/lean_eppa_reducts/actions/runs/40273552991)):** `TwoGraphs/TransversalCoordinateExtension.lean` combines Mathlib `Equiv.Perm.exists_extending_pair` with the cut/matrix construction to prove that every induced isomorphism between nonempty valuation two-graph transversals extends to an automorphism, with arbitrary injective target projections. Build and allowed-axiom audit passed (358 declarations). Empty case, arbitrary input representation, full-transversal uniqueness, homomorphic sections and coherence remained open at that commit.

@@ -36,6 +36,7 @@ import EPPAReducts.TwoGraphs.TransversalMatrixAssembly
 import EPPAReducts.TwoGraphs.TransversalMatrixAction
 import EPPAReducts.TwoGraphs.TransversalLiteralExtension
 import EPPAReducts.TwoGraphs.TransversalCoordinateExtension
+import EPPAReducts.TwoGraphs.FullTransversalUniqueness
 import EPPAReducts.BoundedEquivalence.Basic
 import EPPAReducts.BoundedEquivalence.LabelEquiv
 import EPPAReducts.BoundedEquivalence.ExtendLabels
