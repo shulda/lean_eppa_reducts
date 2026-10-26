@@ -112,6 +112,9 @@ theorem BlockCoordinates.exists_conjugatingAutomorphism
         (χD (B.projection (B.markedEmbedding d))))) =
     (B.markedEmbedding d,
       valuationClass (χ (B.projection (B.markedEmbedding d)))) at hd
+  change γ (B.markedEmbedding d,
+      valuationClass (inflateValuation B.projection (χD d))) =
+    (B.markedEmbedding d, valuationClass (χ d))
   simpa only [B.projection_marked] using hd
 
 end EPPAReducts.TwoGraphs
