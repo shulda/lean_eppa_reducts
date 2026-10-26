@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-26 (canonical full-transversal lifts coherent; matrix block inflation certified, marked blocks in progress).
+**Updated:** 2026-10-26 (marked blocks from cardinal divisibility certified; quotient valuation inflation in development).
 
 ## Scope and acceptance targets
 
@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/BlockDivisibility.lean` constructs a marked equivariant block system from an arbitrary injection `ι : D ↪ X` of finite nonempty D with `|D| ∣ |X|`, using an arbitrary product bijection adjusted by a finite permutation extending the specified marked block. It exports an equivariant retraction and homomorphic index lifts. Valuation inflation and coherent EPPA remain open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/ValuationBlockInflation.lean` proves quotient valuation inflation along the block retraction is injective, and the resulting map `C_D ↪ C_X` is an **induced two-graph embedding** in the exact approved `HumanTargets` API. Equivariance under inflated matrix/index automorphisms remains open.
+
+
+- [x] **2026-10-26 (certified at commit `a4b137f059ef465b91bf7ee73393d6a38963cdb7`, [CI 40281026541](https://github.com/shulda/lean_eppa_reducts/actions/runs/40281026541)):** `TwoGraphs/BlockDivisibility.lean` proves existence of a marked product block system from an arbitrary finite injection `D ↪ X`, nonempty D and `|D| ∣ |X|`. It exports an equivariant retraction and homomorphic permutation lift. Build and allowed-axiom audit passed (418 declarations). Valuation inflation was still outstanding at that commit.
 
 
 - [x] **2026-10-26 (certified at commit `c5879b3be4907c4de9901b14134868597a273d74`, [CI 40280464187](https://github.com/shulda/lean_eppa_reducts/actions/runs/40280464187)):** `TwoGraphs/BlockCoordinates.lean` defines marked product blocks `D × I ≃ X`, gives the projection, marked embedding and blockwise permutation action, proves its identity/composition/equivariance and compatible matrix inflation. Build and allowed-axiom audit passed (415 declarations). Existence from cardinal divisibility was still open at that commit.
