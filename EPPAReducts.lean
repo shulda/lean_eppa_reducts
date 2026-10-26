@@ -106,6 +106,9 @@ import EPPAReducts.BoundedEquivalence.OrderedCoreOnePartialShift
 import EPPAReducts.BoundedEquivalence.OrderedExteriorColourDistinction
 import EPPAReducts.BoundedEquivalence.OrderedCoreColourClasses
 import EPPAReducts.BoundedEquivalence.OrderedFiniteObstruction
+import EPPAReducts.BoundedEquivalence.OrderedKernelAutGroup
+import EPPAReducts.BoundedEquivalence.OrderedCorePointwiseNormalizer
+import EPPAReducts.BoundedEquivalence.OrderedClassShiftFixed
 import EPPAReducts.BoundedEquivalence.OrderedTupleKernelPartial
 
 /-!

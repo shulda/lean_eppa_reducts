@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-26 (coherent two-graph EPPA certified; ordered finite cyclic obstruction carrier, full class realisation, r distinct exterior types and genuine partial shifts certified; full negative EPPA contradiction remains open).
+**Updated:** 2026-10-26 (coherent two-graph EPPA certified; finite ordered obstruction constructed; its unlabelled automorphism group, core normalizer and fixed-point bound verified; full negative EPPA remains open).
 
 ## Scope and acceptance targets
 
@@ -19,6 +19,12 @@ The human-readable English formulations were approved by the author on 2026-10-2
 Explicitly out of scope: the six-vertex exposition as a separate theorem, the rooting transfer to complementary two-graphs, looped-graph EPPA, and the claimed wider hypergraph reduct classification. These may be optional regression tests or later projects, but they are not part of the requested certification.
 
 ## Current verified state
+
+- [x] **2026-10-26 (certified at proof commit `13a004b1c93f2ce6ad0263b794db7f6a13a65336`, [CI 40371489139](https://github.com/shulda/lean_eppa_reducts/actions/runs/40371489139)):** `BoundedEquivalence/OrderedClassShiftFixed.lean` proves `orderedClassShift_fixedVertices_card_lt`: a vertex permutation inducing a fixed-point-free class permutation on all injective ordered r-tuples has fewer than r fixed vertices. This is the generic finite fixed-point bound for the coset argument. Full Lean build and allowed-axiom audit passed; no negative EPPA theorem yet.
+
+- [x] **2026-10-26 (certified at proof commit `cc19ac61574d1b9fc31907204ed772774e215c9c`, [CI 40371359565](https://github.com/shulda/lean_eppa_reducts/actions/runs/40371359565)):** `BoundedEquivalence/OrderedCorePointwiseNormalizer.lean` defines the subgroup `orderedKernelCorePointwiseFixer`, proves its membership criterion and the conjugation theorem `orderedKernelCorePointwiseFixer_conjugate_mem`. The theorem `orderedKernelCorePointwiseFixer_normalizer` shows that an automorphism preserving the old core in both directions normalizes its pointwise fixer. These are universal group-theoretic lemmas for an actual unlabelled tuple-kernel structure, not yet a finite EPPA contradiction. Full build and allowed-axiom audit passed.
+
+- [x] **2026-10-26 (certified at proof commit `f7611a28dbac9fe6cbe5839f900d5baafe6e3933`, [CI 40370006642](https://github.com/shulda/lean_eppa_reducts/actions/runs/40370006642)):** `BoundedEquivalence/OrderedKernelAutGroup.lean` defines `PreservesOrderedTupleKernel`, the induced permutation on injective ordered tuples, and the genuine vertex-automorphism subgroup `orderedTupleKernelAutSubgroup`. Composition, inverses and identity preserve the **unlabelled** kernel equivalence, without requiring fixed numerical colour names. Full build and allowed-axiom audit passed.
 
 - [x] **2026-10-26 (certified at proof commit `894cac8456a688ed4c681e3ff5acd288c93004fb`, [CI 40370151578](https://github.com/shulda/lean_eppa_reducts/actions/runs/40370151578)):** `BoundedEquivalence/OrderedFiniteObstruction.lean` introduces the exact unlabelled `OrderedBoundedEquivalence` API on injective r-tuples with `HasAtMostClasses`, constructs `orderedCyclicObstruction` on `Sum (ZMod (m*r)) (Fin r)`, proves its carrier is finite and `orderedCyclicObstruction_partialAut` for each of its r real literal cyclic-core shifts, and packages these into `orderedCyclicObstruction_hasPartials` for every r,m≥2. The SAME finite structure supports all r partial automorphisms; this is verified data, **not** the negative EPPA theorem. Full build, no-placeholder guard and allowed-axiom audit passed.
 
