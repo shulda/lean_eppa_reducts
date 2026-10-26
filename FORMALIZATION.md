@@ -20,7 +20,7 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (new CI pending):** `BoundedEquivalence/CosetOrbitBound.lean` attempts the quantitative finite normalizer-coset fixed-orbit bound `coset_fixable_orbit_representatives_card_le` via the certified orbitwise incidence equivalence and an injective tagging map. Provisional statement is for every finite permutation carrier and every pairwise orbit-separated family of coset-fixable points. This is not yet certified and does not prove failure of EPPA.
+- [x] **2026-10-26 (certified at proof commit `2c92aa193cc0220df1758dccfee98c065d6e2d09`, [CI 40346288788](https://github.com/shulda/lean_eppa_reducts/actions/runs/40346288788)):** `BoundedEquivalence/CosetOrbitIncidenceInjection.lean` proves `orbitTaggedIncidenceEmbedding`; `CosetOrbitBound.lean` proves `card_cosetFixedIncidence_le` and the **quantitative coset-orbit bound** `coset_fixable_orbit_representatives_card_le`. For every finite vertex set, subgroup `L`, normalizing `g`, and cap `b` on fixed vertices of every coset member, every pairwise orbit-separated finite family of coset-fixable points has size at most `b`. The theorem is universal and requires no special structure-specific assumptions. Full build, no-placeholder guard and allowed-axiom audit passed. **This is the group-theoretic obstruction lemma, not yet non-EPPA or the r external vertices pigeonhole corollary.**
 
 - [x] **2026-10-26 (certified at proof commit `5396bf809eb07ab39f718b1c7d65c332de1cd502`, [CI 40342553622](https://github.com/shulda/lean_eppa_reducts/actions/runs/40342553622)):** `BoundedEquivalence/OrderedCyclicCore.lean` proves `cyclicCoreInjectiveTuple_nonempty` for every tuple length `t ≤ r` on `ZMod (m*r)` when `m,r > 0`, `orderedCyclicCoreColour_surjective` (all `m` auxiliary classes realized), and `orderedCyclicExteriorTypes_injective` (an injectively indexed family of **r distinct** ordered exterior colour functions for every `r,m≥2`). Full Lean build and allowed-axiom audit passed. This is a constructive preparatory colouring result; no failure-of-EPPA theorem yet.
 
@@ -312,7 +312,7 @@ On every fresh chat or after a crash:
 
 ### Negative: equivalences with boundedly many classes
 
-- [ ] Finite group coset fixed-point lemma: for `L ≤ Sym(Ω)` and `g` normalizing `L`, if each member of `Lg` fixes at most `b` vertices, the union of these fixed points lies in at most `b` `L`-orbits. Can be proved by double-counting / twisted Burnside.
+- [x] Finite group coset fixed-point lemma: for `L ≤ Sym(Ω)` and `g` normalizing `L`, if each member of `Lg` fixes at most `b` vertices, the union of these fixed points lies in at most `b` `L`-orbits. Can be proved by double-counting / twisted Burnside.
 - [ ] Encode `r`-subset equivalence as an **unlabelled setoid** and separately choose auxiliary `Fin m` / `ZMod m` representatives. Verify equivalence of "at most `m` classes" and existence of such a presentation.
 - [ ] Translation on `S = ZMod (m*lcm(1,…,r))`: orbit lengths of `r`-subsets and `(r-1)`-subsets divisible by `m`; choose equivariant colourings on orbits.
 - [ ] Construct **r pairwise distinct**, translation-equivariant external types. `r=2` separate; for `r≥3` use translation-orbit invariants, e.g., number of cyclically consecutive pairs, with explicit examples.
