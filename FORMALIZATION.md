@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-26 (finite cardinal-divisibility subgroup lift certified; next is abstract coherentisation and arbitrary two-graph representation).
+**Updated:** 2026-10-26 (ordinary EPPA and canonical subset transport certified; fixed ambient transporters in development).
 
 ## Scope and acceptance targets
 
@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/CanonicalSubsetTransport.lean` proves each induced subset is isomorphic to its fixed quotient-class representative, chooses a literal partial isomorphism from that representative to the subset, and proves partial-isomorphism source and target have equal canonical representatives. Build/axiom audit pending; ambient transporter lifts and the general coherentisation lemma remain open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/CanonicalAmbientTransport.lean` chooses a single ambient extension for the fixed representative-to-subset isomorphism of every induced subset, proves it preserves the witness two-graph, and proves forward/inverse pointwise transport formulas. CI/axiom audit pending; transporters must still be assembled with the subgroup sections into a coherent choice.
+
+- [x] **2026-10-26 (certified at commit `6ec966220a0c5e80cb16abb0df5e952e72ef1a5a`, [CI 40304896219](https://github.com/shulda/lean_eppa_reducts/actions/runs/40304896219)):** `TwoGraphs/CanonicalSubsetTransport.lean` proves induced subset isomorphism to a chosen canonical representative and chooses actual literal `HumanTargets.PartialBijection` transporters preserving A. Source and target of a literal partial automorphism have the same canonical representative. Build and allowed-axiom audit passed.
 
 - [x] **2026-10-26 (certified at commit `eff1100b95bc0e536c19b6e338899f07344df550`, [CI 40304367669](https://github.com/shulda/lean_eppa_reducts/actions/runs/40304367669)):** `TwoGraphs/InducedSubsetIsomorphism.lean` proves the reflexive, symmetric and transitive equivalence of induced two-graph isomorphism on Finset subsets and constructs its quotient and equal chosen representatives for isomorphic subsets. Build and allowed-axiom audit passed. The quotient representative was not yet equipped with an actual chosen isomorphism.
 
