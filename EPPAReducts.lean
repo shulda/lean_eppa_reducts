@@ -35,6 +35,7 @@ import EPPAReducts.TwoGraphs.SubsetSectionCast
 import EPPAReducts.TwoGraphs.CanonicalMiddleLift
 import EPPAReducts.TwoGraphs.CanonicalMiddleLiftComposition
 import EPPAReducts.TwoGraphs.CanonicalCoherentLift
+import EPPAReducts.TwoGraphs.CanonicalCoherentLiftComposition
 import EPPAReducts.TwoGraphs.ValuationQuotient
 import EPPAReducts.TwoGraphs.RawTripleParity
 import EPPAReducts.TwoGraphs.QuotientTripleParity
