@@ -86,7 +86,9 @@ import EPPAReducts.TwoGraphs.TransversalConjugator
 import EPPAReducts.TwoGraphs.ConjugatedTransversalLift
 import EPPAReducts.TwoGraphs.DivisibleTransversalSection
 import EPPAReducts.BoundedEquivalence.Basic
+import EPPAReducts.BoundedEquivalence.UnlabelledZModPresentation
 import EPPAReducts.BoundedEquivalence.LabelEquiv
+import EPPAReducts.BoundedEquivalence.CoreLabelAction
 import EPPAReducts.BoundedEquivalence.ExtendLabels
 import EPPAReducts.BoundedEquivalence.ClassShiftFixed
 import EPPAReducts.BoundedEquivalence.TwistedTransporter
@@ -94,6 +96,7 @@ import EPPAReducts.BoundedEquivalence.CosetNormalizer
 import EPPAReducts.BoundedEquivalence.CosetOrbitIncidence
 import EPPAReducts.BoundedEquivalence.CosetOrbitIncidenceInjection
 import EPPAReducts.BoundedEquivalence.CosetOrbitBound
+import EPPAReducts.BoundedEquivalence.CosetOrbitCollision
 import EPPAReducts.BoundedEquivalence.OrderedTupleTranslation
 import EPPAReducts.BoundedEquivalence.OrderedTupleFirstCoordinateColour
 import EPPAReducts.BoundedEquivalence.OrderedCyclicCore
