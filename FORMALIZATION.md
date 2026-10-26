@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/NormalizedPartialAutomorphism.lean` constructs the total permutation of the source's chosen canonical representative associated to any literal partial automorphism, and proves that it preserves the original induced two-graph. Build/axiom audit pending; identity, composition and coherent ambient assembly are still open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/NormalizedPartialIdentity.lean` proves that normalizing the identity partial bijection on any induced subset yields the identity automorphism of its chosen canonical representative. Build and axiom audit pending; composition and coherent ambient assembly remain open.
+
+- [x] **2026-10-26 (certified at commit `e776c9e7580005d3a33b62c152083586bb7f75e3`, [CI 40309163318](https://github.com/shulda/lean_eppa_reducts/actions/runs/40309163318)):** `TwoGraphs/NormalizedPartialAutomorphism.lean` proves `normalizedPartialAutomorphism`, its exact pointwise transporter formula, and `normalizedPartialAutomorphism_preserves` for every literal partial two-graph automorphism, producing an actual automorphism of the canonical induced representative. Build and allowed-axiom audit passed. Composition and final coherentisation remain open.
 
 - [x] **2026-10-26 (certified at commit `d223a5e088f17d6c3315cbb02dd7456cb389e3c2`, [CI 40308672135](https://github.com/shulda/lean_eppa_reducts/actions/runs/40308672135)):** `TwoGraphs/PartialBijectionAlgebra.lean` proves the identity and inverse literal partial bijections preserve A, and `isComposition_bijection_apply` bridges the exact approved Option-valued IsComposition relation to pointwise composition of actual subtype equivalences. Build and allowed-axiom audit passed.
 
