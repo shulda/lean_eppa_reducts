@@ -14,8 +14,7 @@ lifts.  The full subgroup section and coherent EPPA are separate tasks.
 
 namespace EPPAReducts.TwoGraphs
 
-universe u v
-variable {D : Type u} {X : Type v}
+variable {D X : Type}
 
 /-- Valuation inflation intertwines reindexing whenever the retraction
 is equivariant for the two index permutations. -/
