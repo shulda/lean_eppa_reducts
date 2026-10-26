@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/BlockCoordinates.lean` defines an explicit marked product decomposition `D × I ≃ X`, obtains its projection/section and blockwise permutation action, proves identity/composition/equivariance and the resulting semidirect-compatible combined automorphism inflation. Existence of such a marked decomposition from finite divisibility remains open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/BlockDivisibility.lean` constructs a marked equivariant block system from an arbitrary injection `ι : D ↪ X` of finite nonempty D with `|D| ∣ |X|`, using an arbitrary product bijection adjusted by a finite permutation extending the specified marked block. It exports an equivariant retraction and homomorphic index lifts. Valuation inflation and coherent EPPA remain open.
+
+
+- [x] **2026-10-26 (certified at commit `c5879b3be4907c4de9901b14134868597a273d74`, [CI 40280464187](https://github.com/shulda/lean_eppa_reducts/actions/runs/40280464187)):** `TwoGraphs/BlockCoordinates.lean` defines marked product blocks `D × I ≃ X`, gives the projection, marked embedding and blockwise permutation action, proves its identity/composition/equivariance and compatible matrix inflation. Build and allowed-axiom audit passed (415 declarations). Existence from cardinal divisibility was still open at that commit.
 
 
 - [x] **2026-10-26 (certified at commit `a5fc8fdabce133a93a57a63658341e26a7bc339b`, [CI 40279715886](https://github.com/shulda/lean_eppa_reducts/actions/runs/40279715886)):** `TwoGraphs/MatrixBlockInflation.lean` proves pullback of symmetric matrices preserves symmetry, XOR and global-constant kernel, with the exact semidirect formula under an equivariant block projection. Build and allowed-axiom audit passed (385 declarations). The requisite finite block system remains to be constructed.

@@ -41,6 +41,7 @@ import EPPAReducts.TwoGraphs.FullTransversalLift
 import EPPAReducts.TwoGraphs.FullTransversalCoherentLift
 import EPPAReducts.TwoGraphs.MatrixBlockInflation
 import EPPAReducts.TwoGraphs.BlockCoordinates
+import EPPAReducts.TwoGraphs.BlockDivisibility
 import EPPAReducts.BoundedEquivalence.Basic
 import EPPAReducts.BoundedEquivalence.LabelEquiv
 import EPPAReducts.BoundedEquivalence.ExtendLabels
