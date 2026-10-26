@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-26 (ordinary EPPA, all subgroup sections, and literal partial-bijection composition certified; normalized representative automorphisms in development).
+**Updated:** 2026-10-26 (full coherent EPPA for all finite two-graphs certified on the work branch; negative EPPA theorem open).
 
 ## Scope and acceptance targets
 
@@ -20,7 +20,13 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/CanonicalMiddleLiftComposition.lean` combines normalized permutation composition, equality-cast invariance and the chosen subgroup homomorphism to prove the actual middle **ambient** lifts preserve arbitrary literal partial-map composition. Build and axiom audit pending; outer transport conjugation and the final target remain open.
+- [x] **2026-10-26 (certified at proof commit `171153ba3cb1dbeface07b099cf2fbed6273da69`, [CI 40331155882](https://github.com/shulda/lean_eppa_reducts/actions/runs/40331155882)):** `TwoGraphs/FiniteCoherentEPPA.lean` proves `valuationTwoGraph_coherentEPPAWitness`, `allFiniteTwoGraphsHaveCoherentEPPA`, and **the exact author-approved positive target** `humanTwoGraphsHaveCoherentEPPA : HumanTargets.twoGraphsHaveCoherentEPPA`, for *all* finite two-graphs including the empty structure. The proof gives a common finite induced witness and an actual coherent choice for every literal partial bijection; identity and exact composition are certified. The factorial carrier replaces the paper's LCM only in size, not in the theorem's semantics. Full build, forbidden-placeholder check, manuscript-publication guard and allowed-axiom audit passed. **The negative result remains open.**
+
+- [x] **2026-10-26 (certified at proof commit `171153ba3cb1dbeface07b099cf2fbed6273da69`, [CI 40331155882](https://github.com/shulda/lean_eppa_reducts/actions/runs/40331155882)):** `TwoGraphs/CanonicalCoherentLiftComposition.lean` proves `canonicalConjugatedLift_composition` for the exact `HumanTargets.IsComposition` and `canonicalConjugatedLift_identity` for every induced subset. A transient first attempt failed because Lean needed explicit unfolding of the identity partial map's endpoints; corrected in this certified proof commit.
+
+- [x] **2026-10-26 (certified at commit `37af994e208511b0a8acae8d4ec26b38d86d748a`, [CI 40329585202](https://github.com/shulda/lean_eppa_reducts/actions/runs/40329585202)):** `TwoGraphs/CanonicalCoherentLift.lean` defines the actual ambient extension `canonicalConjugatedLift` by conjugating the middle homomorphic section with fixed endpoint transports, and proves `canonicalConjugatedLift_isAutomorphism` and `canonicalConjugatedLift_extendsOld`. The section's preservation extends to the original literal partial maps.
+
+- [x] **2026-10-26 (certified at commit `71132d45f8ab9417ff52e587d90f0a7c23f82b9a`, [CI 40317589759](https://github.com/shulda/lean_eppa_reducts/actions/runs/40317589759)):** `TwoGraphs/CanonicalMiddleLiftComposition.lean` proves `canonicalMiddleLift_composition`, the literal partial-map composition law for the **same** chosen ambient middle subgroup section, after canonical-subset casts. Full build and allowed-axiom audit passed.
 
 - [x] **2026-10-26 (certified at commit `06369fdc58ae017a37bd70b0591c1355f370a3ce`, [CI 40317020415](https://github.com/shulda/lean_eppa_reducts/actions/runs/40317020415)):** `TwoGraphs/CanonicalMiddleLift.lean` defines the ambient middle lift of every normalized literal partial automorphism, proves it preserves the actual two-graph, extends the normalized action on its canonical representative, and sends the identity partial map to the identity witness permutation. Build and allowed-axiom audit passed. Composition is a separate pending obligation.
 
@@ -263,9 +269,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 - [x] English human-readable theorem statements approved by the author.
 - [x] Added self-contained Lean target propositions `HumanTargets.twoGraphsHaveCoherentEPPA` and `HumanTargets.graphsModuloComplementationFailEPPA` with induced-embedding, partial-isomorphism, extension and coherence definitions; **these are definitions of propositions, not proofs**.
 - [x] Self-contained Lean target statement semantics reviewed and approved by the author (2026-10-25).
-- [ ] Final positive theorem proved and audited in Lean.
+- [x] Final positive theorem and the exact `HumanTargets.twoGraphsHaveCoherentEPPA` proof certified at `171153ba` / CI 40331155882.
 - [ ] General negative theorem (unordered, ordered) proved and audited in Lean.
-- [ ] Certified bridges from technical encodings to the two human-readable targets.
+- [ ] Certified bridge and full theorem for the **negative** human-readable target; the positive HumanTargets bridge is certified.
 
 ### GitHub state recovery protocol
 
@@ -280,16 +286,13 @@ On every fresh chat or after a crash:
 
 ## Proof dependency graph (design, not certification)
 
-### Positive: coherent EPPA for two-graphs
+### Positive: coherent EPPA for two-graphs — certified
 
-- [x] Rooted graph representative: the exact four-point parity axiom reconstructs a Mathlib SimpleGraph on the same carrier and proves its odd-edge triple indicator equals the original two-graph on all genuine triples. Certified by `rootedGraph_represents_twoGraph` at `5c392f59`, including degenerate root choices; no finiteness requirement.
-- [ ] Quotient valuation space `Q_X`: quotient by constant complement is defined using `Bool`; well-defined labelled triple parity, symmetry, and algebraic four-point cancellation are Lean-proved. Exact unordered-`Finset` two-graph, finiteness, and the literal HumanTargets structure have now been verified (see `ValuationTwoGraph.lean`); matrix actions and EPPA still open.
-- [ ] Symmetric matrix action on the valuation witness; quotient by a **single global constant matrix**, transformation composition, and honest automorphisms.
-- [ ] For transversal partial isomorphisms, prove the switching/cut identity and extend the projection injection to a permutation; construct a symmetric matrix extension.
-- [ ] Uniqueness of the action lift for a transversal covering **all** first coordinates. Carefully handle domains of size 0, 1, or 2.
-- [x] Blockwise permutation/matrix inflation for nonempty finite `D` with `|D| ∣ |X|`, induced/equivariant valuation embedding, and simultaneous homomorphic lifts of the automorphism group of **every chosen valuation transversal** on the marked coordinates; certified through `exists_divisibleTransversal_coherentLift` at `5a1b3843`. General arbitrary two-graph applications still require an induced transversal representation.
-- [ ] Abstract coherentisation lemma (EPPA plus subgroup homomorphic lifts for every induced substructure) and explicit coherent choice.
-- [ ] Final witness: `|X| = lcm(1,…,|A|)`, induced transversal embedding, empty case, exact bridge to the shared `AllThoseEPPA.Structure.IsCoherentEPPAWitness` and to approved human statement.
+- [x] The rooted representative constructs the actual input two-graph and an induced valuation transversal, including the empty input; certified by the rooted/finite-valuation sequence.
+- [x] The quotient valuation two-graph and honest matrix/permutation actions are constructed with exact algebraic kernel, extension of all literal partial automorphisms, and finite witness carrier.
+- [x] All induced substructures have simultaneous homomorphic sections in one witness, by block inflation for nonempty subsets and the identity section for the empty subset.
+- [x] Canonical representatives, fixed ambient transports, normalized partial isomorphisms, and same-section composition assemble the coherent extension `canonicalConjugatedLift`, proved to be an automorphism and to extend the actual partial map.
+- [x] The exact full positive target `HumanTargets.twoGraphsHaveCoherentEPPA` is proved by `humanTwoGraphsHaveCoherentEPPA`, with `|X| = |V|!` instead of the manuscript's smaller LCM. The final statement has no size restriction and no weakened coherence hypothesis. CI and allowed-axiom audit passed at `171153ba`.
 
 ### Negative: equivalences with boundedly many classes
 
@@ -319,14 +322,10 @@ On every fresh chat or after a crash:
 
 ## Next concrete actions
 
-**Post-subgroup-section checkpoint (2026-10-26):** The entire technical valuation-transversal extension and simultaneous subgroup-lift chain is now certified: literal valuation two-graph and action, exact global-constant matrix kernel, arbitrary partial-transversal extension, unique coherent full-transversal lifts, marked block coordinates from cardinal divisibility, induced and equivariant block inflation, faithful action-class homomorphism, restriction of chosen transversals, one ambient conjugator, and the final `exists_divisibleTransversal_coherentLift` for every nonempty finite divisible index embedding. See the [x] CI-certified entries above, most recently `5a1b3843`. **Neither final coherent EPPA nor the negative non-EPPA theorem is formalized.**
+**Current certified milestone (2026-10-26):** the complete coherent EPPA theorem for finite two-graphs, including the exact `HumanTargets.twoGraphsHaveCoherentEPPA` proposition, is proved and audited on the work branch at `171153ba` (CI 40331155882). Merge the work branch and verify GitHub Actions on the **new main HEAD**, then do not reopen the positive chain unless an audit reveals a mismatch.
 
-**Next positive load-bearing work:** (1) finish the rooted graph representation theorem deriving any finite `HumanTargets.TwoGraph` from its four-point parity; (2) embed an arbitrary input two-graph as an induced valuation transversal in `C_X` with `|X|=lcm(1,…,|A|)`, including the empty case and all finite cardinal/divisibility details; (3) transfer already certified transversal ordinary EPPA and divisible subgroup sections to that chosen copy; (4) formalize the abstract coherentisation theorem assembling simultaneous extensions of partial isomorphisms; and (5) prove the exact bridges to the author-approved `HumanTargets.twoGraphsHaveCoherentEPPA` and, if desired, the shared `AllThoseEPPA` API. Do not conflate the existing technical subgroup section with the final statement.
+**Main outstanding mathematical target:** prove non-EPPA for unlabelled equivalence relations on unordered `r`-subsets with at most `m` classes for every `r,m≥2`; separately for ordered injective tuples; then specialize to the approved `HumanTargets.graphsModuloComplementationFailEPPA` target. The source relation is a setoid, not a named-colour structure.
 
-**Next negative load-bearing work:** prove the independent finite coset fixed-point/orbit bound (double-counting) and only then the cyclic-translation colouring obstruction for unlabelled equivalences on r-subsets and ordered injective r-tuples. The existing class-label recovery and fixed-vertex-bound lemmas are already audited; neither general negative EPPA nor its `r=m=2` human-facing corollary is proved.
+**Next negative proof obligations, in order:** (1) twisted fixed-point/coset orbit bound for a normalizing permutation of a finite subgroup; (2) `ZMod` translation orbit divisibility and equivariant auxiliary labelings of subsets; (3) construction of the requisite pairwise distinct external types; (4) the finite unlabelled-class obstruction and its contradiction; (5) ordered tuples and the final exact target bridge. The existing `BoundedEquivalence/LabelEquiv.lean`, `ExtendLabels.lean` and `ClassShiftFixed.lean` are certified preparatory results, **not** the negative theorem.
 
-1. **Private mathematical plan provisionally stable after second audit (v2).** Do not treat this as Lean verification or independent external refereeing. If Lean reveals a genuinely mathematical missing condition, repair the private proof manuscript and update this ledger before accepting the technical theorem.
-2. The author approved the standalone Lean target definitions on 2026-10-25. Keep their exact semantics fixed; use separate technical definitions and prove equivalences at the end.
-3. Resume with the first remaining unchecked dependency: positive rooted representative and abstract coherentisation/final bridges, or the independent negative coset fixed-point/orbit lemma and subsequent unlabelled class-action obstruction. Reuse upstream `AllThoseEPPA` APIs; maintain small green CI and axiom-audited proof milestones. The optional lift-count formula remains a regression lemma, not a principal dependency.
-4. Keep both branches in **this one** public Lean repository. Never upload unpublished TeX, proof excerpts or the internal working manuscript without explicit permission.
-5. At the end, prove bridges to the two exact readable target declarations; require green CI and axiom audit at the final theorem HEAD.
+Continue with small, isolated, audited Lean milestones. Do not publish either unpublished manuscript or internal notes in this public repository. Maintain this ledger and verify both build and allowed-axiom audit on the exact final theorem commit.
