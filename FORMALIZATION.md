@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/EmbeddedSubtypePreservation.lean` proves any permutation of an induced substructure of the original input preserving literal two-graph triples also satisfies the raw embedded-transversal preservation predicate for the same witness C_X. Build/axiom audit pending; the full subgroup section and abstract coherentisation bridges remain open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/InducedSubtypeSection.lean` combines literal induced-substructure automorphism preservation and the certified divisible-transversal section to construct simultaneous identity- and composition-preserving lifts for every nonempty induced sub-two-graph of A with divisible cardinality, over the same ambient C_X. Build and axiom audit pending; this is a subgroup section, not yet full coherent EPPA.
+
+- [x] **2026-10-26 (certified at commit `e411d75f440cfbca6cd4195ae207a36bfc04c6d3`, [CI 40296415368](https://github.com/shulda/lean_eppa_reducts/actions/runs/40296415368)):** `TwoGraphs/EmbeddedSubtypePreservation.lean` proves `preservesEmbeddedTransversal_of_inducedSubtype`, transferring the exact original `HumanTargets.TwoGraph` preservation of induced substructure automorphisms into the valuation-transversal preservation predicate. Build and allowed-axiom audit passed. No simultaneous lift is constructed in this lemma.
 
 - [x] **2026-10-26 (certified at commit `2f1c40ce2252aa13bf5071b85a9e8d8a50797e3c`, [CI 40295959770](https://github.com/shulda/lean_eppa_reducts/actions/runs/40295959770)):** `TwoGraphs/FactorialRootedWitness.lean` proves `exists_factorialRootedTransversal`: on X = Fin(|V|!) it packages one **induced** input-two-graph transversal and the divisibility of every nonempty induced subset cardinality by |X|. Build and allowed-axiom audit passed. This is a candidate witness carrier, not yet EPPA or coherent EPPA.
 
