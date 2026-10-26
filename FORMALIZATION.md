@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-26 (conjugated marked subgroup lifts certified; general cardinal-divisibility subgroup section under verification).
+**Updated:** 2026-10-26 (finite cardinal-divisibility subgroup lift certified; next is abstract coherentisation and arbitrary two-graph representation).
 
 ## Scope and acceptance targets
 
@@ -20,7 +20,7 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/DivisibleTransversalSection.lean` packages the subgroup section for every finite nonempty D↪X with `|D|∣|X|`, using raw induced-automorphism preservation of its arbitrarily chosen original transversal. Build/axiom audit pending; abstract coherentisation and arbitrary two-graph representation still open.
+- [x] **2026-10-26 (certified at commit `5a1b3843634d94b9b516569bb0d3ec696c181fac`, [CI 40288311026](https://github.com/shulda/lean_eppa_reducts/actions/runs/40288311026)):** `TwoGraphs/DivisibleTransversalSection.lean` proves `exists_divisibleTransversal_coherentLift`: for every finite nonempty `D ↪ X` with `|D| ∣ |X|` and every chosen valuation transversal, there exists a simultaneous choice of *actual* two-graph automorphisms extending all its induced automorphisms, preserving identity and composition. The block decomposition and conjugator are fixed independently of the group elements. Build and allowed-axiom audit passed. **This does not yet prove the author's full coherent EPPA theorem**: abstract coherentisation, arbitrary two-graph representation and final theorem bridges remain open.
 
 - [x] **2026-10-26 (certified at commit `9e38bee989a839f041c8b3a22658fe6a229eca92`, [CI 40287552542](https://github.com/shulda/lean_eppa_reducts/actions/runs/40287552542)):** `TwoGraphs/ConjugatedTransversalLift.lean` defines `conjugatedMarkedLift` with a single fixed ambient conjugator and proves the lifted permutations are genuine two-graph automorphisms, map every original marked transversal vertex as prescribed, send identity to identity and preserve composition. Build and allowed-axiom audit passed. The final coherent EPPA theorem remains open.
 
