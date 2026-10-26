@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-26 (full coherent EPPA for all finite two-graphs certified on the work branch; negative EPPA theorem open).
+**Updated:** 2026-10-26 (full coherent EPPA for all finite two-graphs certified on main; ordered-tuple free-translation and exact orbit cardinality certified; negative EPPA theorem open).
 
 ## Scope and acceptance targets
 
@@ -19,6 +19,10 @@ The human-readable English formulations were approved by the author on 2026-10-2
 Explicitly out of scope: the six-vertex exposition as a separate theorem, the rooting transfer to complementary two-graphs, looped-graph EPPA, and the claimed wider hypergraph reduct classification. These may be optional regression tests or later projects, but they are not part of the requested certification.
 
 ## Current verified state
+
+- [x] **2026-10-26 (certified at `ad80ee66e799681c9634a63e66a251a7ec846dba`, [CI 40334454586](https://github.com/shulda/lean_eppa_reducts/actions/runs/40334454586)):** `BoundedEquivalence/OrderedTupleTranslation.lean` proves `translateInjectiveTuple_fixed_iff`: any positive-length ordered injective tuple is fixed by translation iff the translation is zero, for **any additive group**. It also proves `translateInjectiveTuple_add`, inverse cancellation, injectivity of the translation-parameter map, and `translatedTupleOrbit_card`: every orbit of such a tuple under all translations has exactly the cardinality of a finite group. The user-required cyclic translation-orbit divisibility for ordered tuples follows after specialization, but the actual equivariant-colouring construction, negative EPPA obstruction and exact human target are **not** yet formalized. Build and allowed-axiom audit passed.
+
+- [x] **2026-10-26 (main merge `7dcdb9dc88659350b3de3c61d005c5357505810e`, [CI 40332451373](https://github.com/shulda/lean_eppa_reducts/actions/runs/40332451373)):** complete positive coherent EPPA PR #1 merged to `main`. The exact resulting HEAD passed the full Lean build, axiom audit, no-placeholder check and private-manuscript guard. This is the project-authorized positive target, not just the valuation-encoded technical theorem.
 
 - [x] **2026-10-26 (certified at proof commit `171153ba3cb1dbeface07b099cf2fbed6273da69`, [CI 40331155882](https://github.com/shulda/lean_eppa_reducts/actions/runs/40331155882)):** `TwoGraphs/FiniteCoherentEPPA.lean` proves `valuationTwoGraph_coherentEPPAWitness`, `allFiniteTwoGraphsHaveCoherentEPPA`, and **the exact author-approved positive target** `humanTwoGraphsHaveCoherentEPPA : HumanTargets.twoGraphsHaveCoherentEPPA`, for *all* finite two-graphs including the empty structure. The proof gives a common finite induced witness and an actual coherent choice for every literal partial bijection; identity and exact composition are certified. The factorial carrier replaces the paper's LCM only in size, not in the theorem's semantics. Full build, forbidden-placeholder check, manuscript-publication guard and allowed-axiom audit passed. **The negative result remains open.**
 
@@ -322,10 +326,10 @@ On every fresh chat or after a crash:
 
 ## Next concrete actions
 
-**Current certified milestone (2026-10-26):** the complete coherent EPPA theorem for finite two-graphs, including the exact `HumanTargets.twoGraphsHaveCoherentEPPA` proposition, is proved and audited on the work branch at `171153ba` (CI 40331155882). Merge the work branch and verify GitHub Actions on the **new main HEAD**, then do not reopen the positive chain unless an audit reveals a mismatch.
+**Current certified milestone (2026-10-26):** the complete coherent EPPA theorem for finite two-graphs, including the exact `HumanTargets.twoGraphsHaveCoherentEPPA` proposition, is proved and audited on `main` after merge `7dcdb9dc` (CI 40332451373). Do not reopen the positive chain unless an audit reveals a mismatch. The generic free-translation and full-orbit-cardinality lemmas for nonempty ordered injective tuples are additionally certified at `ad80ee66` (CI 40334454586).
 
 **Main outstanding mathematical target:** prove non-EPPA for unlabelled equivalence relations on unordered `r`-subsets with at most `m` classes for every `r,m≥2`; separately for ordered injective tuples; then specialize to the approved `HumanTargets.graphsModuloComplementationFailEPPA` target. The source relation is a setoid, not a named-colour structure.
 
-**Next negative proof obligations, in order:** (1) twisted fixed-point/coset orbit bound for a normalizing permutation of a finite subgroup; (2) `ZMod` translation orbit divisibility and equivariant auxiliary labelings of subsets; (3) construction of the requisite pairwise distinct external types; (4) the finite unlabelled-class obstruction and its contradiction; (5) ordered tuples and the final exact target bridge. The existing `BoundedEquivalence/LabelEquiv.lean`, `ExtendLabels.lean` and `ClassShiftFixed.lean` are certified preparatory results, **not** the negative theorem.
+**Next negative proof obligations, in order:** (1) twisted fixed-point/coset orbit bound for a normalizing permutation of a finite subgroup; (2) `ZMod` translation orbit divisibility and equivariant auxiliary labellings of unordered subsets; (3) construction of the requisite pairwise distinct external types; (4) the finite unlabelled-class obstruction and its contradiction; (5) ordered-tuple **equivariant colourings** using the already-certified full-orbit-count lemma, then the ordered obstruction and final human target bridge. The existing `BoundedEquivalence/LabelEquiv.lean`, `ExtendLabels.lean`, `ClassShiftFixed.lean` and `OrderedTupleTranslation.lean` are certified preparatory results, **not** the negative theorem.
 
 Continue with small, isolated, audited Lean milestones. Do not publish either unpublished manuscript or internal notes in this public repository. Maintain this ledger and verify both build and allowed-axiom audit on the exact final theorem commit.
