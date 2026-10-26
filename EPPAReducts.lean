@@ -32,6 +32,7 @@ import EPPAReducts.TwoGraphs.CombinedKernel
 import EPPAReducts.TwoGraphs.CutPotential
 import EPPAReducts.TwoGraphs.TransversalDiscrepancy
 import EPPAReducts.TwoGraphs.TransversalRowPrescription
+import EPPAReducts.TwoGraphs.TransversalMatrixAssembly
 import EPPAReducts.BoundedEquivalence.Basic
 import EPPAReducts.BoundedEquivalence.LabelEquiv
 import EPPAReducts.BoundedEquivalence.ExtendLabels

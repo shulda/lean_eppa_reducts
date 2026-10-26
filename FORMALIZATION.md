@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/TransversalRowPrescription.lean` gives the exact Boolean consistency equation for row prescriptions from a cut potential, and proves that the prescribed entries on a source transversal are symmetric. This supplies the main algebraic compatibility of the future full symmetric matrix lift.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/TransversalMatrixAssembly.lean` constructs a globally symmetric Boolean matrix from consistent prescribed rows over a Finset s, fills the complementary block with zero, and proves existence of such a matrix from raw triple parity preservation on nonempty transversals. Preservation of quotient valuation classes and the actual partial automorphism extension statement remain open.
+
+
+- [x] **2026-10-26 (certified at commit `c1f6536ceb2d362b5cfd2b55bacc1c3fff1840d5`, [CI 40271743338](https://github.com/shulda/lean_eppa_reducts/actions/runs/40271743338)):** `TwoGraphs/TransversalRowPrescription.lean` proves the exact six-bit consistency of matrix row prescriptions from a cut potential, including the diagonal cases. Build and allowed-axiom audit passed (339 declarations); full symmetric extension still open at this commit.
 
 
 - [x] **2026-10-26 (certified at commit `197b9afa0b187cc813d1eea5f3d5ba8135226631`, [CI 40271418117](https://github.com/shulda/lean_eppa_reducts/actions/runs/40271418117)):** `TwoGraphs/TransversalDiscrepancy.lean` proves that equality of source/target raw triple parity implies the pair-discrepancy triangle cocycle condition and a cut potential on nonempty domains. Build and allowed-axiom audit passed (335 declarations). Matrix extension and bridge to literal partial isomorphisms remain open.
