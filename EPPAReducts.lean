@@ -89,6 +89,7 @@ import EPPAReducts.BoundedEquivalence.Basic
 import EPPAReducts.BoundedEquivalence.LabelEquiv
 import EPPAReducts.BoundedEquivalence.ExtendLabels
 import EPPAReducts.BoundedEquivalence.ClassShiftFixed
+import EPPAReducts.BoundedEquivalence.OrderedTupleTranslation
 
 /-!
 # EPPA for reducts
