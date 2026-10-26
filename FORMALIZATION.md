@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/NormalizedPartialIdentity.lean` proves that normalizing the identity partial bijection on any induced subset yields the identity automorphism of its chosen canonical representative. Build and axiom audit pending; composition and coherent ambient assembly remain open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/NormalizedTransportCompatibility.lean` proves the exact pointwise equation transporting a normalized automorphism from the source canonical representative to the target representative, including the subtype cast. Build and axiom audit pending; the general normalized composition law and coherentisation remain open.
+
+- [x] **2026-10-26 (certified at commit `419adb2179ea72c9319e9479811f75355d4739ec`, [CI 40312200656](https://github.com/shulda/lean_eppa_reducts/actions/runs/40312200656)):** `TwoGraphs/NormalizedPartialIdentity.lean` proves `normalizedPartialAutomorphism_identity` (every induced subset, including empty) and exact cancellation of its chosen representative transport equivalence. Full project build and allowed-axiom audit passed.
 
 - [x] **2026-10-26 (certified at commit `e776c9e7580005d3a33b62c152083586bb7f75e3`, [CI 40309163318](https://github.com/shulda/lean_eppa_reducts/actions/runs/40309163318)):** `TwoGraphs/NormalizedPartialAutomorphism.lean` proves `normalizedPartialAutomorphism`, its exact pointwise transporter formula, and `normalizedPartialAutomorphism_preserves` for every literal partial two-graph automorphism, producing an actual automorphism of the canonical induced representative. Build and allowed-axiom audit passed. Composition and final coherentisation remain open.
 
