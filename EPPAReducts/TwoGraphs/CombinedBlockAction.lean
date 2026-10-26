@@ -1,4 +1,5 @@
 import EPPAReducts.TwoGraphs.BlockEquivariance
+import EPPAReducts.TwoGraphs.CombinedKernel
 
 /-!
 # Block inflation on faithful combined-action classes
