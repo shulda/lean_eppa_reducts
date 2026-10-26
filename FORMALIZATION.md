@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-26 (certified quotient row-translation involutions; matrix XOR law under development).
+**Updated:** 2026-10-26 (matrix subgroup proved; expanding to index permutations, full semidirect action next).
 
 ## Scope and acceptance targets
 
@@ -20,10 +20,13 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** revised the technical `valuationTwoGraph` constructor to accept an explicit `[DecidableEq (ValuationVertex X)]` parameter, so the relation in `MatrixAutomorphism.lean` shares the same Finset decision procedure. **The author-approved `HumanTargets` API was not modified.**
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/IndexPermutation.lean` formalizes pullback/reindexing by arbitrary permutations of the index set, descends it to quotient valuations, constructs bona fide vertex permutations and proves actual preservation of the two-graph. These must eventually be combined with symmetric matrix row shifts in the correct semidirect group law.
 
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/MatrixAutomorphism.lean` upgrades ternary preservation to a genuine `HumanTargets.IsTwoGraphAutomorphism` of `valuationTwoGraph X` and applies it to all symmetric matrix row shifts. Neither partial-automorphism extension nor coherent EPPA has been proved.
+- [x] **2026-10-26 (certified at commit `7057a602eb78ee8431d2e9bcb21818cc2e7aadaa`, [CI 40265098263](https://github.com/shulda/lean_eppa_reducts/actions/runs/40265098263)):** the technical `valuationTwoGraph` constructor accepts explicit `[DecidableEq (ValuationVertex X)]` so the Finset representation in automorphism proofs agrees definitionally. **The author-approved `HumanTargets` API was not modified.** Build and axiom audit passed (256 declarations).
+
+
+- [x] **2026-10-26 (certified at commit `7057a602eb78ee8431d2e9bcb21818cc2e7aadaa`, [CI 40265098263](https://github.com/shulda/lean_eppa_reducts/actions/runs/40265098263)):** `TwoGraphs/MatrixAutomorphism.lean` proves `valuationTwoGraph_automorphism_of_ternary` and `rowShiftPerm_isTwoGraphAutomorphism` in the exact approved `HumanTargets` interface. Still no EPPA or coherence. Build and axiom audit passed (256 declarations).
 
 
 - [x] **2026-10-26 (certified at commit `4f9b8eefb4ffdbf56f1d9a71d6e1968c256e3002`, [CI 40264126517](https://github.com/shulda/lean_eppa_reducts/actions/runs/40264126517)):** `TwoGraphs/AnyTripleParity.lean` proves the unordered triple predicate equals its labelled ternary formula for all triples, including repeated vertices. Build and allowed-axiom audit passed (255 declarations).

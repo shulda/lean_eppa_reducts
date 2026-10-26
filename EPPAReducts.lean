@@ -21,6 +21,7 @@ import EPPAReducts.TwoGraphs.QuotientRowShift
 import EPPAReducts.TwoGraphs.MatrixXor
 import EPPAReducts.TwoGraphs.AnyTripleParity
 import EPPAReducts.TwoGraphs.MatrixAutomorphism
+import EPPAReducts.TwoGraphs.IndexPermutation
 import EPPAReducts.BoundedEquivalence.Basic
 import EPPAReducts.BoundedEquivalence.LabelEquiv
 import EPPAReducts.BoundedEquivalence.ExtendLabels
