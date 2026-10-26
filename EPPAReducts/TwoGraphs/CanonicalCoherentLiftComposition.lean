@@ -86,7 +86,10 @@ theorem canonicalConjugatedLift_identity
   apply Equiv.ext
   intro w
   simp only [canonicalConjugatedLift, Equiv.trans_apply,
-    canonicalMiddleLift_identity, Equiv.refl_apply,
-    Equiv.apply_symm_apply]
+    canonicalMiddleLift_identity, Equiv.refl_apply]
+  change
+    (canonicalSubsetAmbientTransport A ι χ hind s)
+      ((canonicalSubsetAmbientTransport A ι χ hind s).symm w) = w
+  exact Equiv.apply_symm_apply _ w
 
 end EPPAReducts.TwoGraphs
