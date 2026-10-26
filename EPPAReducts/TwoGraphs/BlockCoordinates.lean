@@ -50,14 +50,18 @@ distinguished embedded D. -/
 theorem BlockCoordinates.projection_marked
     (B : BlockCoordinates D X) (d : D) :
     B.projection (B.markedEmbedding d) = d := by
-  simp [BlockCoordinates.projection, BlockCoordinates.markedEmbedding]
+  change (B.equiv.symm (B.equiv (d, B.distinguished))).1 = d
+  simp
 
 /-- Blockwise permutations act on the marked copy as prescribed. -/
 theorem BlockCoordinates.liftPerm_marked
     (B : BlockCoordinates D X) (p : Equiv.Perm D) (d : D) :
     B.liftPerm p (B.markedEmbedding d) =
       B.markedEmbedding (p d) := by
-  simp [BlockCoordinates.liftPerm, BlockCoordinates.markedEmbedding]
+  change B.equiv (Prod.map p id (B.equiv.symm
+      (B.equiv (d, B.distinguished)))) =
+    B.equiv (p d, B.distinguished)
+  simp
 
 /-- Every blockwise permutation covers p under the projection. -/
 theorem BlockCoordinates.projection_liftPerm
@@ -81,8 +85,11 @@ theorem BlockCoordinates.liftPerm_trans
       B.liftPerm (p.trans q) := by
   apply Equiv.ext
   intro x
-  simp [BlockCoordinates.liftPerm, Equiv.prodCongr,
-    Equiv.trans_apply]
+  simp only [BlockCoordinates.liftPerm, Equiv.trans_apply,
+    Equiv.prodCongr_apply, Equiv.refl_apply,
+    Equiv.apply_symm_apply, Equiv.symm_apply_apply]
+  cases h : B.equiv.symm x with
+  | mk d i => rfl
 
 /-- The matrix/index action inflated through this block system
 respects the *full semidirect* composition law. -/
