@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-26 (canonical full-transversal lifts are coherent; block-inflation algebra in development).
+**Updated:** 2026-10-26 (canonical full-transversal lifts coherent; matrix block inflation certified, marked blocks in progress).
 
 ## Scope and acceptance targets
 
@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/MatrixBlockInflation.lean` proves inflation of symmetric matrices along a block projection preserves symmetry, XOR, the global-constant-matrix kernel, and the correct semidirect action law under an equivariant index lift. This is conditional algebra: existence of a block system from `|D| ∣ |X|` remains open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/BlockCoordinates.lean` defines an explicit marked product decomposition `D × I ≃ X`, obtains its projection/section and blockwise permutation action, proves identity/composition/equivariance and the resulting semidirect-compatible combined automorphism inflation. Existence of such a marked decomposition from finite divisibility remains open.
+
+
+- [x] **2026-10-26 (certified at commit `a5fc8fdabce133a93a57a63658341e26a7bc339b`, [CI 40279715886](https://github.com/shulda/lean_eppa_reducts/actions/runs/40279715886)):** `TwoGraphs/MatrixBlockInflation.lean` proves pullback of symmetric matrices preserves symmetry, XOR and global-constant kernel, with the exact semidirect formula under an equivariant block projection. Build and allowed-axiom audit passed (385 declarations). The requisite finite block system remains to be constructed.
 
 
 - [x] **2026-10-26 (certified at commit `1f88ed4aaafef4ba119dd57539e5d7c8600b27b7`, [CI 40279161645](https://github.com/shulda/lean_eppa_reducts/actions/runs/40279161645)):** `TwoGraphs/FullTransversalCoherentLift.lean` proves the unique canonical full-transversal combined-action extension respects identity and composition, using the semidirect action law and full-transversal uniqueness. Build and allowed-axiom audit passed (379 declarations). This is a coherent **group section for the full transversal**, not the final coherent EPPA theorem.
