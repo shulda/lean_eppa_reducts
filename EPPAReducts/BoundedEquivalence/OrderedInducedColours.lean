@@ -70,7 +70,7 @@ theorem exists_unique_ordered_extension_colours
     apply huniq
     refine ⟨h'.1, ?_⟩
     intro t u
-    exact (hf₀ t u).symm.trans (h'.2 t u)
+    exact (h'.2 t u).symm.trans (hf₀ t u)
 
 /-- Existential form, convenient when choosing a normalized
 presentation of a hypothetical finite EPPA witness. -/
