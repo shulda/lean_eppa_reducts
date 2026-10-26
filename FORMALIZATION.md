@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-26 (unique full-transversal combined lifts certified; composition/coherence under development).
+**Updated:** 2026-10-26 (canonical full-transversal lifts are coherent; block-inflation algebra in development).
 
 ## Scope and acceptance targets
 
@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/FullTransversalCoherentLift.lean` formalizes the unique combined-action extension as a canonical selection, proves the identity and semidirect composition laws for these lifts, giving a genuine coherent extension of the automorphism group of the full transversal. This is not the final coherent EPPA theorem: block inflation and arbitrary-substructure coherence remain open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/MatrixBlockInflation.lean` proves inflation of symmetric matrices along a block projection preserves symmetry, XOR, the global-constant-matrix kernel, and the correct semidirect action law under an equivariant index lift. This is conditional algebra: existence of a block system from `|D| ∣ |X|` remains open.
+
+
+- [x] **2026-10-26 (certified at commit `1f88ed4aaafef4ba119dd57539e5d7c8600b27b7`, [CI 40279161645](https://github.com/shulda/lean_eppa_reducts/actions/runs/40279161645)):** `TwoGraphs/FullTransversalCoherentLift.lean` proves the unique canonical full-transversal combined-action extension respects identity and composition, using the semidirect action law and full-transversal uniqueness. Build and allowed-axiom audit passed (379 declarations). This is a coherent **group section for the full transversal**, not the final coherent EPPA theorem.
 
 
 - [x] **2026-10-26 (certified at commit `87b3b81441789dae99022b514c3528b0a3156605`, [CI 40278695493](https://github.com/shulda/lean_eppa_reducts/actions/runs/40278695493)):** `TwoGraphs/FullTransversalLift.lean` defines the full-transversal preservation predicate, proves closure under composition, and obtains an **exists-unique combined-action permutation lift** from technical EPPA plus full-transversal uniqueness. Build and allowed-axiom audit passed (369 declarations). The subgroup homomorphism and coherent EPPA remain open.
