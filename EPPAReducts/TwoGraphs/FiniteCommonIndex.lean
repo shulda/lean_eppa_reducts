@@ -22,7 +22,7 @@ namespace EPPAReducts.TwoGraphs
 of factorial size (through Fin(card V)). -/
 noncomputable def factorialIndexEmbedding
     {V : Type} [Fintype V] :
-    V ↪ Fin ((Fintype.card V)!) := by
+    V ↪ Fin (Nat.factorial (Fintype.card V)) := by
   classical
   let e : V ≃ Fin (Fintype.card V) := Fintype.equivFin V
   refine ⟨fun v => Fin.castLE (Nat.self_le_factorial _) (e v), ?_⟩
@@ -37,12 +37,12 @@ already-certified divisible-transversal subgroup section. -/
 theorem card_nonempty_subtype_dvd_factorial
     {V : Type} [Fintype V]
     (s : Finset V) (hs : s.Nonempty) :
-    Fintype.card {v : V // v ∈ s} ∣ (Fintype.card V)! := by
+    Fintype.card {v : V // v ∈ s} ∣ Nat.factorial (Fintype.card V) := by
   classical
   have hpos : 0 < s.card := Finset.card_pos.mpr hs
   have hle : s.card ≤ Fintype.card V := by
     simpa using Finset.card_le_card (Finset.subset_univ s)
-  have hdiv : s.card ∣ (Fintype.card V)! :=
+  have hdiv : s.card ∣ Nat.factorial (Fintype.card V) :=
     Nat.dvd_factorial hpos hle
   simpa only [Fintype.card_coe] using hdiv
 
@@ -52,7 +52,7 @@ theorem card_nonempty_subtype_dvd_index
     {V : Type} [Fintype V]
     (s : Finset V) (hs : s.Nonempty) :
     Fintype.card {v : V // v ∈ s} ∣
-      Fintype.card (Fin ((Fintype.card V)!)) := by
+      Fintype.card (Fin (Nat.factorial (Fintype.card V))) := by
   simpa using card_nonempty_subtype_dvd_factorial s hs
 
 end EPPAReducts.TwoGraphs
