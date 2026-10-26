@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/IndexMatrixConjugation.lean` proves the conjugation law of row shifts by index reindexing and the group-composition law of index permutations. These are genuine action laws, but they do not yet prove transversal extension or coherent EPPA.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/CombinedAutomorphism.lean` introduces the full indexed matrix action `matrixIndexPerm σ F` and certifies its automorphism property in the exact human-target API for symmetric F. The full semidirect multiplication, global-matrix kernel, EPPA, and coherent sections remain open.
+
+
+- [x] **2026-10-26 (certified at commit `cc2c0604657742f43f52c0867d61372c863ccdba`, [CI 40265687883](https://github.com/shulda/lean_eppa_reducts/actions/runs/40265687883)):** `TwoGraphs/IndexMatrixConjugation.lean` proves the conjugation law of row shifts by index reindexing and the index-permutation composition law. Build and allowed-axiom audit passed (283 declarations). Transversal extension and coherence remain open.
 
 
 - [x] **2026-10-26 (certified at commit `d0fcd12a3d7c7a98408aae0f7dde68edc7efb9e8`, [CI 40265415221](https://github.com/shulda/lean_eppa_reducts/actions/runs/40265415221)):** `TwoGraphs/IndexPermutation.lean` formalizes index reindexing on valuations/quotients, actual bijections of the witness carrier, and preservation of the exact `HumanTargets.TwoGraph`. Build and allowed-axiom audit passed (273 declarations). The semidirect matrix/index composition law is still to be formalized.
