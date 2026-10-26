@@ -42,8 +42,11 @@ theorem cut_isBooleanTriangleCocycle
     IsBooleanTriangleCocycle
       (fun x y => Bool.xor (c x) (c y)) := by
   intro x y z
+  change Bool.xor
+    (Bool.xor (Bool.xor (c x) (c y)) (Bool.xor (c x) (c z)))
+    (Bool.xor (c y) (c z)) = false
   cases hx : c x <;> cases hy : c y <;>
-    cases hz : c z <;> decide
+    cases hz : c z <;> simp [hx, hy, hz]
 
 /-- On nonempty domains, the triangle cocycle equation is exactly
 existence of a cut potential. -/
