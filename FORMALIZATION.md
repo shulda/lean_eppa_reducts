@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/PartialAutomorphismExtension.lean` proves ordinary extension of **every** literal `HumanTargets.PartialBijection` preserving A, from the given induced valuation copy A→C_X to a genuine automorphism of C_X, including the empty-domain case. The proof packages the source/target as indexed transversals. Build and axiom audit pending; abstract coherentisation and the positive terminal target remain open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/FiniteValuationEPPA.lean` packages the factorial valuation witness into the genuine **ordinary EPPA** statement for every finite two-graph (also V=∅), using `HumanTargets.PartialBijection` and a common finite induced extension. CI/axiom audit pending. Even if proved, ordinary EPPA does not establish coherent EPPA.
+
+- [x] **2026-10-26 (certified at commit `ce588a7cfe870b7019b92867ba2396cba00fda24`, [CI 40301998410](https://github.com/shulda/lean_eppa_reducts/actions/runs/40301998410)):** `TwoGraphs/PartialAutomorphismExtension.lean` proves `exists_valuationTwoGraph_extension_of_partial`, genuine ordinary extension of **every** literal `HumanTargets.PartialBijection` preserving any induced input A in C_X, including empty domain. Build and allowed-axiom audit passed. Coherent selection of extensions remains open.
 
 - [x] **2026-10-26 (certified at commit `a463d486031bf0ca4e2707bdc521a90e46d2018b`, [CI 40301547740](https://github.com/shulda/lean_eppa_reducts/actions/runs/40301547740)):** `TwoGraphs/IndexedTransversalExtension.lean` proves `imageSubtypeEquiv` and `exists_twoGraphAutomorphism_extending_indexedTransversalIso`: an induced isomorphism between any two finite injected D-indexed transversals in the actual valuation two-graph extends to an automorphism of the entire witness. Build and allowed-axiom audit passed. The ordinary EPPA bridge to arbitrary literal partial bijections remains a separate obligation.
 
