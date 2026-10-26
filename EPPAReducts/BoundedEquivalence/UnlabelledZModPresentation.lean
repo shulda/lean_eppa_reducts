@@ -22,8 +22,8 @@ def colourKernelSetoid {α : Type u} {κ : Type v} (f : α → κ) :
     Setoid α where
   r x y := f x = f y
   iseqv := ⟨fun _ => rfl,
-    fun _ _ h => h.symm,
-    fun _ _ _ hxy hyz => hxy.trans hyz⟩
+    fun h => h.symm,
+    fun hxy hyz => hxy.trans hyz⟩
 
 @[simp] theorem colourKernelSetoid_rel
     {α : Type u} {κ : Type v} (f : α → κ) (x y : α) :
