@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/SubsetSectionCast.lean` proves equality-cast conjugation preserves induced-subset automorphisms and commutes with the *same chosen* ambient subgroup section; this is required to combine sections for isomorphic domains. Build/axiom audit pending. Coherentisation remains open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/CanonicalMiddleLift.lean` defines the actual ambient lift of the normalized partial automorphism via the chosen subgroup section, proves genuine automorphism preservation and the prescribed action on the canonical representative, and verifies identity. Build/axiom audit pending; middle-factor composition and final coherentisation remain open.
+
+- [x] **2026-10-26 (certified at commit `4c9bd466ec8e708cb083c39bef99902c67e86ad2`, [CI 40316539767](https://github.com/shulda/lean_eppa_reducts/actions/runs/40316539767)):** `TwoGraphs/SubsetSectionCast.lean` proves that equality-conjugation of a permutation preserves the induced two-graph and, crucially, that it is sent by the **same chosen ambient subgroup section** to the same witness automorphism. Build and allowed-axiom audit passed. Ambient coherentisation remains open.
 
 - [x] **2026-10-26 (certified at commit `2aff2f2b7cf28d14a1bf6d81c0680b7b98ef027d`, [CI 40315504173](https://github.com/shulda/lean_eppa_reducts/actions/runs/40315504173)):** `TwoGraphs/NormalizedPermutationComposition.lean` proves the composition law for normalized automorphisms of one common canonical representative under the exact approved `IsComposition`, modulo only equality-induced subtype conjugations; build and allowed-axiom audit passed. The actual ambient subgroup-section coherence is not yet proved.
 
