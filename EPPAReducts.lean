@@ -111,6 +111,7 @@ import EPPAReducts.BoundedEquivalence.OrderedCorePointwiseNormalizer
 import EPPAReducts.BoundedEquivalence.OrderedClassShiftFixed
 import EPPAReducts.BoundedEquivalence.OrderedGlobalColourAction
 import EPPAReducts.BoundedEquivalence.OrderedColourTranslationFixed
+import EPPAReducts.BoundedEquivalence.OrderedOldCoreShift
 import EPPAReducts.BoundedEquivalence.OrderedTupleKernelPartial
 
 /-!
