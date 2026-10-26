@@ -82,4 +82,28 @@ theorem exists_twoGraphAutomorphism_extending_transversal_embedding
     (σ x.val, valuationClass (η x)) at hx
   simpa only [hσ x] using hx
 
+
+/-- The EPPA lifting statement holds also for an empty source
+transversal: in that case there are no prescribed vertex images,
+and the identity automorphism is a witness. -/
+theorem exists_twoGraphAutomorphism_extending_any_transversal_embedding
+    (s : Finset X)
+    (f : {x : X // x ∈ s} ↪ X)
+    (χ η : {x : X // x ∈ s} → Valuation X)
+    (h : PreservesTransversalEmbeddingTwoGraph s f χ η) :
+    ∃ g : Equiv.Perm (ValuationVertex X),
+      HumanTargets.IsTwoGraphAutomorphism (valuationTwoGraph X) g ∧
+      ∀ x : {w : X // w ∈ s},
+        g (sourceTransversalVertex s χ x) =
+          (f x, valuationClass (η x)) := by
+  classical
+  by_cases hs : s.Nonempty
+  · exact exists_twoGraphAutomorphism_extending_transversal_embedding
+      s hs f χ η h
+  · refine ⟨Equiv.refl (ValuationVertex X), ?_, ?_⟩
+    · intro a b c
+      rfl
+    · intro x
+      exact False.elim (hs ⟨x.val, x.property⟩)
+
 end EPPAReducts.TwoGraphs

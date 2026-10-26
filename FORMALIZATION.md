@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/TransversalCoordinateExtension.lean` uses Mathlib `Equiv.Perm.exists_extending_pair` to extend any injection from a finite source index subset to a permutation of X, then derives genuine automorphism extension for nonempty transversals with arbitrary injective target projections. Still open: empty s, lifting from the original arbitrary two-graph, full-transversal uniqueness, subgroup homomorphic sections, and coherent EPPA.
+- [ ] **2026-10-26 (CI pending):** `TransversalCoordinateExtension.lean` adds `exists_twoGraphAutomorphism_extending_any_transversal_embedding`, handling empty source transversals with the identity automorphism; this completes the technical EPPA extension lemma for *all* finite transversals. Still needs certification and does not imply full coherent EPPA.
+
+
+- [x] **2026-10-26 (certified at commit `00ef965f9b14df353f80503cec08667fb1b48727`, [CI 40273552991](https://github.com/shulda/lean_eppa_reducts/actions/runs/40273552991)):** `TwoGraphs/TransversalCoordinateExtension.lean` combines Mathlib `Equiv.Perm.exists_extending_pair` with the cut/matrix construction to prove that every induced isomorphism between nonempty valuation two-graph transversals extends to an automorphism, with arbitrary injective target projections. Build and allowed-axiom audit passed (358 declarations). Empty case, arbitrary input representation, full-transversal uniqueness, homomorphic sections and coherence remained open at that commit.
 
 
 - [x] **2026-10-26 (certified at commit `8ff3ed8ec95b83c8b77499d487796bf8c3cd5d3b`, [CI 40273211410](https://github.com/shulda/lean_eppa_reducts/actions/runs/40273211410)):** `TwoGraphs/TransversalLiteralExtension.lean` bridges literal `HumanTargets.TwoGraph.isTriple` preservation to raw parity and proves genuine automorphism extension of nonempty transversals for a given ambient index permutation σ. Build and allowed-axiom audit passed (355 declarations). Arbitrary injective target-coordinate maps and empty s remain open.
