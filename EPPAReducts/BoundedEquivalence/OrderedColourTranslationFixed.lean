@@ -14,6 +14,7 @@ theorem orderedColourTranslationPerm_no_fixed
     {κ : Type} [AddGroup κ] (δ : κ) (hδ : δ ≠ 0) :
     ∀ c : κ, orderedColourTranslationPerm δ c ≠ c := by
   intro c h
+  change c + δ = c at h
   have h' : c + δ = c + 0 := by simpa only [add_zero] using h
   exact hδ (add_left_cancel h')
 
