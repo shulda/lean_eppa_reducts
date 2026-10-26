@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/FiniteRootedTransversal.lean` removes the chosen-linear-order hypothesis for any finite nonempty input carrier by transporting order from `Fin (card V)`, and packages existence of an induced embedding into `C_V`. CI pending; block inflation to LCM, coherentisation and exact final theorem remain open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/IndexedRootedTransversal.lean` proves that for any finite nonempty input two-graph, finite X, specified injection V ↪ X, and `|V| ∣ |X|`, there are X-valuations making the given injection into an induced transversal embedding into C_X in the approved API. Build and axiom audit pending; ordinary EPPA transfer, global common-multiple witness and coherentisation remain open.
+
+- [x] **2026-10-26 (certified at commit `8ee2c507bc026434ecad60295a1c84e5e66a65d5`, [CI 40294152256](https://github.com/shulda/lean_eppa_reducts/actions/runs/40294152256)):** `TwoGraphs/FiniteRootedTransversal.lean` proves existence of the induced valuation-transversal embedding into C_V for any nonempty finite two-graph with no order supplied, using `finiteCarrierLinearOrder` transported from Fin(card V). Build and allowed-axiom audit passed. Empty input and larger divisible index sets remain open.
 
 - [x] **2026-10-26 (certified at commit `64b6278ee293ea9629e346e2faca98fcada7cc85`, [CI 40293773884](https://github.com/shulda/lean_eppa_reducts/actions/runs/40293773884)):** `TwoGraphs/RootedTransversalEmbedding.lean` proves `orderedRootTransversalEmbedding_induced` in the exact approved `HumanTargets.IsInducedTwoGraphEmbedding` API for *every* two-graph with a linear order and any root, including all repeated-vertex cases. Build and allowed-axiom audit passed. It is not yet a theorem for arbitrary finite types without an order choice.
 
@@ -234,7 +236,7 @@ On every fresh chat or after a crash:
 
 ### Positive: coherent EPPA for two-graphs
 
-- [ ] Rooted graph representative: the four-point parity axiom reconstructs a graph representative of any nonempty finite two-graph.
+- [x] Rooted graph representative: the exact four-point parity axiom reconstructs a Mathlib SimpleGraph on the same carrier and proves its odd-edge triple indicator equals the original two-graph on all genuine triples. Certified by `rootedGraph_represents_twoGraph` at `5c392f59`, including degenerate root choices; no finiteness requirement.
 - [ ] Quotient valuation space `Q_X`: quotient by constant complement is defined using `Bool`; well-defined labelled triple parity, symmetry, and algebraic four-point cancellation are Lean-proved. Exact unordered-`Finset` two-graph, finiteness, and the literal HumanTargets structure have now been verified (see `ValuationTwoGraph.lean`); matrix actions and EPPA still open.
 - [ ] Symmetric matrix action on the valuation witness; quotient by a **single global constant matrix**, transformation composition, and honest automorphisms.
 - [ ] For transversal partial isomorphisms, prove the switching/cut identity and extend the projection injection to a permutation; construct a symmetric matrix extension.
