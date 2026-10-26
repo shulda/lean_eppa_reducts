@@ -7,7 +7,7 @@ A public Lean 4 project for two selected results about reducts of the random gra
 - Coherent EPPA for finite two-graphs.
 - Failure of EPPA for equivalence relations on unordered `r`-subsets or on ordered injective `r`-tuples, with at most `m` equivalence classes, for all `r, m ≥ 2`.
 
-**Current status (25 October 2026):** audited proof lemmas in both branches. Positive: rooted graph and cocycle, Boolean valuation quotient, representative-independent symmetric triple parity, and its four-point F₂ identity on four quotient vertices. Negative: canonical unlabelled class actions/label recovery and the bound on fixed vertices under a class-shifting automorphism. Neither principal EPPA theorem is proved.
+**Current status (26 October 2026):** audited positive development includes a finite valuation two-graph in the exact approved target API, combined index/matrix automorphisms, their semidirect composition law and a faithful quotient by the single globally constant symmetric matrix. The negative branch includes class-label recovery and fixed-vertex bounds. Neither principal EPPA result has been proved; transversal extension, coherence and the negative coset obstruction remain open.
 
 The research manuscript and LaTeX sources remain **private**. This public repository is for Lean code, build infrastructure, and public project metadata only.
 

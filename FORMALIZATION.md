@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-26 (combined semidirect action verified; global symmetric-matrix kernel in development).
+**Updated:** 2026-10-26 (full combined action law, kernel and faithful symmetric matrix quotient certified; no EPPA theorem yet).
 
 ## Scope and acceptance targets
 
@@ -20,7 +20,7 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (awaiting CI):** `TwoGraphs/CombinedKernel.lean` identifies full combined actions `matrixIndexPerm σ F = matrixIndexPerm τ G` iff σ=τ and the symmetric matrices differ globally by 0 or 1. It also proves index-coordinate uniqueness and cancellation. Transversal lifts/coherence are still open.
+- [x] **2026-10-26 (certified at commit `26a2390b94a203eb35b6e9f394be78e4dc575846`, [CI 40269800789](https://github.com/shulda/lean_eppa_reducts/actions/runs/40269800789)):** `TwoGraphs/CombinedKernel.lean` proves `matrixIndexPerm_eq_iff`: for nonempty X, equality of the combined actions of two symmetric matrices implies and is implied by equality of their index permutations and global constant XOR of the matrices. Also proves index-coordinate uniqueness and cancellation. Build and allowed-axiom audit passed (325 declarations). Transversal EPPA, subgroup section and coherence are still open.
 
 
 - [x] **2026-10-26 (certified at commit `a0206e5f3441ecb9c015de51793fefc10a68e67d`, [CI 40269508547](https://github.com/shulda/lean_eppa_reducts/actions/runs/40269508547)):** `TwoGraphs/MatrixQuotient.lean` constructs the quotient of symmetric matrices by equality of induced permutations, proves the quotient action faithful, and proves that equality of classes means XOR by *one global constant matrix*, for nonempty X. Build and allowed-axiom audit passed (322 declarations). Group multiplication on quotient and coherent EPPA remain open.
@@ -196,8 +196,11 @@ On every fresh chat or after a crash:
 
 ## Next concrete actions
 
-**Post-valuation checkpoint:** Main branch has genuine audited auxiliary results on BOTH tracks, but neither principal EPPA theorem. On the positive track, Boolean valuation quotient, representative independence, triple permutation symmetry, raw and quotient F₂ four-point identities are proved. The next indispensable step is to build the *actual finite two-graph* on `X × ValuationClass X`, prove the `Finset` four-point-even axiom and bridge its relation to `HumanTargets.TwoGraph`; then construct the matrix action, transversal lifts, subgroup sections and coherence. The earlier rooted-graph construction also still needs the precise original `HumanTargets.TwoGraph.fourPointEven` ⇒ rooted-representation bridge. On the negative track, all bounded-class core-labelling and fixed-vertex-bound lemmas are proved, but the independent **coset fixed-point orbit bound** is not, nor are the cyclic exterior-colouring obstruction and the general `(r,m)` theorem. These are the next load-bearing targets. Avoid spending further time on already established relabelling infrastructure except when it is needed for the final bridge.
+**Post-action-kernel checkpoint (2026-10-26):** Positive track now includes an exact `HumanTargets.TwoGraph` built on finite valuation vertices; matrix-row shifts and index reindexing proved genuine automorphisms; matrix XOR laws, semidirect conjugation and the combined action multiplication proved; the symmetric-matrix action quotient proved faithful with kernel **exactly the one global constant matrix** (not independent row complements); and full combined-action kernel proved. All this is compiled and audited on the referenced commits. **No EPPA or coherent EPPA theorem has been proved.**
 
+**Next positive load-bearing work:** formalize the subgroup/group structure on the quotient action if required by the block homomorphism; derive the cut equation for isomorphisms between transversals; extend partial coordinate injections to permutations of finite X; construct the symmetric-matrix extension with all degenerate domain cases; prove uniqueness of full-transversal lifts; block-inflate homomorphically when `|D| ∣ |X|`; then abstract coherentisation and the final LCM/empty-input theorem, including the bridge to both the shared API and approved `HumanTargets.twoGraphsHaveCoherentEPPA`. The original arbitrary-two-graph rooted-representative bridge is still outstanding.
+
+**Next negative load-bearing work:** prove the independent finite coset fixed-point/orbit bound (double-counting) and only then the cyclic-translation colouring obstruction for unlabelled equivalences on r-subsets and ordered injective r-tuples. The existing class-label recovery and fixed-vertex-bound lemmas are already audited; neither general negative EPPA nor its `r=m=2` human-facing corollary is proved.
 
 1. **Private mathematical plan provisionally stable after second audit (v2).** Do not treat this as Lean verification or independent external refereeing. If Lean reveals a genuinely mathematical missing condition, repair the private proof manuscript and update this ledger before accepting the technical theorem.
 2. The author approved the standalone Lean target definitions on 2026-10-25. Keep their exact semantics fixed; use separate technical definitions and prove equivalences at the end.
