@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/IndexPermutation.lean` formalizes pullback/reindexing by arbitrary permutations of the index set, descends it to quotient valuations, constructs bona fide vertex permutations and proves actual preservation of the two-graph. These must eventually be combined with symmetric matrix row shifts in the correct semidirect group law.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/IndexMatrixConjugation.lean` proves the conjugation law of row shifts by index reindexing and the group-composition law of index permutations. These are genuine action laws, but they do not yet prove transversal extension or coherent EPPA.
+
+
+- [x] **2026-10-26 (certified at commit `d0fcd12a3d7c7a98408aae0f7dde68edc7efb9e8`, [CI 40265415221](https://github.com/shulda/lean_eppa_reducts/actions/runs/40265415221)):** `TwoGraphs/IndexPermutation.lean` formalizes index reindexing on valuations/quotients, actual bijections of the witness carrier, and preservation of the exact `HumanTargets.TwoGraph`. Build and allowed-axiom audit passed (273 declarations). The semidirect matrix/index composition law is still to be formalized.
 
 
 - [x] **2026-10-26 (certified at commit `7057a602eb78ee8431d2e9bcb21818cc2e7aadaa`, [CI 40265098263](https://github.com/shulda/lean_eppa_reducts/actions/runs/40265098263)):** the technical `valuationTwoGraph` constructor accepts explicit `[DecidableEq (ValuationVertex X)]` so the Finset representation in automorphism proofs agrees definitionally. **The author-approved `HumanTargets` API was not modified.** Build and axiom audit passed (256 declarations).
