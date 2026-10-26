@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/RootedTransversalEmbedding.lean` constructs the exact induced embedding of any two-graph on a linearly ordered carrier into `valuationTwoGraph V`, including repeated vertex cases, using the approved `HumanTargets` predicate. Build/axiom audit pending; order choice on arbitrary finite V and embedding into the larger LCM index set remain.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/FiniteRootedTransversal.lean` removes the chosen-linear-order hypothesis for any finite nonempty input carrier by transporting order from `Fin (card V)`, and packages existence of an induced embedding into `C_V`. CI pending; block inflation to LCM, coherentisation and exact final theorem remain open.
+
+- [x] **2026-10-26 (certified at commit `64b6278ee293ea9629e346e2faca98fcada7cc85`, [CI 40293773884](https://github.com/shulda/lean_eppa_reducts/actions/runs/40293773884)):** `TwoGraphs/RootedTransversalEmbedding.lean` proves `orderedRootTransversalEmbedding_induced` in the exact approved `HumanTargets.IsInducedTwoGraphEmbedding` API for *every* two-graph with a linear order and any root, including all repeated-vertex cases. Build and allowed-axiom audit passed. It is not yet a theorem for arbitrary finite types without an order choice.
 
 - [x] **2026-10-26 (certified at commit `2a2fbd185f73d1631ed95c1389db7df14809d4d6`, [CI 40293085365](https://github.com/shulda/lean_eppa_reducts/actions/runs/40293085365)):** `TwoGraphs/OrderedRootValuation.lean` proves pairwise XOR encodes every rooted graph edge and raw three-valuation parity equals each original triple on three distinct vertices (`orderedRootValuation_pairXor`, `orderedRootValuation_rawTripleParity`). Build and allowed-axiom audit passed. It still assumes a chosen linear order and has not yet established a literal induced embedding into the quotient witness.
 
