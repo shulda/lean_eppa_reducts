@@ -23,7 +23,7 @@ def mapRSubset {V W : Type} {r : ℕ}
     (ι : V ↪ W) (s : RSubsets V r) : RSubsets W r :=
   ⟨s.val.map ι, by simpa using s.property⟩
 
-/-- Vertex permutations on r-subsets use the existing certified
+/- Vertex permutations on r-subsets use the existing certified
 `permuteRSubset` action from `ClassShiftFixed.lean`. -/
 
 /-- An unlabelled equivalence relation on r-element subsets of V,
