@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/TransporterComposition.lean` proves the abstract cancellation of intermediate conjugating equivalences and compatibility of chosen induced transporters with subtype casts, preparing the dependent-type normalized-composition theorem. Build/axiom audit pending; actual partial-map coherence remains open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/NormalizedPartialEquiv.lean` separates source-to-target normalization (an equivalence of possibly different canonical representative types) from casting it into a permutation; proves the original normalized automorphism agrees definitionally with that cast, and establishes the exact transporter square. Build/axiom audit pending; heterogeneous composition and final coherence remain open.
+
+- [x] **2026-10-26 (certified at commit `bc84dd3e8b360272f477f06e171d2c5bcc4d28b1`, [CI 40313357314](https://github.com/shulda/lean_eppa_reducts/actions/runs/40313357314)):** `TwoGraphs/TransporterComposition.lean` proves generic cancellation of intermediate equivalences and composition of subtype casts, plus that equal induced subsets have the same selected direct and inverse transporters after casting. Build and allowed-axiom audit passed.
 
 - [x] **2026-10-26 (certified at commit `eb289a1d07dde6251d35c1498af97b0c4bc64765`, [CI 40312789510](https://github.com/shulda/lean_eppa_reducts/actions/runs/40312789510)):** `TwoGraphs/NormalizedTransportCompatibility.lean` proves `normalizedPartialAutomorphism_transport`, the exact chosen-source-to-target transporter compatibility identity for each normalized literal partial automorphism, including its subtype-cast equality. Full build and allowed-axiom audit passed. Coherentisation is not yet proved.
 
