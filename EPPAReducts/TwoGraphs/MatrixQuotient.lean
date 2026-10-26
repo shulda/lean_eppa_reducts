@@ -29,9 +29,15 @@ def symmetricMatrixActionSetoid (X : Type u) :
     Setoid (SymmetricBoolMatrix X) where
   r F G := rowShiftPerm F.entries = rowShiftPerm G.entries
   iseqv := {
-    refl := fun _ => rfl
-    symm := fun _ _ h => h.symm
-    trans := fun _ _ _ h₁ h₂ => h₁.trans h₂
+    refl := by
+      intro F
+      rfl
+    symm := by
+      intro F G h
+      exact h.symm
+    trans := by
+      intro F G H h₁ h₂
+      exact h₁.trans h₂
   }
 
 /-- The quotient of symmetric matrices by the action kernel. -/
