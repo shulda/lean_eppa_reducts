@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/FiniteValuationEPPA.lean` packages the factorial valuation witness into the genuine **ordinary EPPA** statement for every finite two-graph (also V=∅), using `HumanTargets.PartialBijection` and a common finite induced extension. CI/axiom audit pending. Even if proved, ordinary EPPA does not establish coherent EPPA.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/InducedSubsetIsomorphism.lean` defines the exact induced-two-graph-isomorphism setoid on vertex subsets, with reflexivity, symmetry and transitivity, and chooses the same canonical representative for isomorphic subsets. Build/axiom audit pending; canonical transporters and groupoid coherentisation remain open.
+
+- [x] **2026-10-26 (certified at commit `3dbe2fefc104b4d0b2be702358c23ad3f22802ea`, [CI 40302965978](https://github.com/shulda/lean_eppa_reducts/actions/runs/40302965978)):** `TwoGraphs/FiniteValuationEPPA.lean` proves `allFiniteTwoGraphsHaveOrdinaryEPPA`: **every** finite two-graph, including empty input, has a single finite induced valuation witness extending every literal HumanTargets partial automorphism. The exact theorem compiled and passed allowed-axiom audit. **Coherent EPPA is still open.**
 
 - [x] **2026-10-26 (certified at commit `ce588a7cfe870b7019b92867ba2396cba00fda24`, [CI 40301998410](https://github.com/shulda/lean_eppa_reducts/actions/runs/40301998410)):** `TwoGraphs/PartialAutomorphismExtension.lean` proves `exists_valuationTwoGraph_extension_of_partial`, genuine ordinary extension of **every** literal `HumanTargets.PartialBijection` preserving any induced input A in C_X, including empty domain. Build and allowed-axiom audit passed. Coherent selection of extensions remains open.
 
