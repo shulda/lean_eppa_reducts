@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-26 (all finite transversal extensions certified; full-transversal uniqueness in progress).
+**Updated:** 2026-10-26 (full-transversal uniqueness certified; unique combined lift under development).
 
 ## Scope and acceptance targets
 
@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/FullTransversalUniqueness.lean` proves that one chosen quotient valuation in every fibre uniquely determines the whole combined index/matrix permutation from its images. It uses freedom of the row translation action on the quotient; no symmetry or finiteness hypothesis required. This is the uniqueness lemma needed before constructing a subgroup section for coherent EPPA.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/FullTransversalLift.lean` formalizes the full-transversal automorphism preservation predicate, proves it closed under composition, and uses technical EPPA plus full-transversal uniqueness to obtain an **exists-unique combined-action permutation lift** for each such automorphism. Next: prove homomorphic choice of lifts and block inflation; main coherent EPPA remains open.
+
+
+- [x] **2026-10-26 (certified at commit `f1ba16bc3db7ab8f84730cde3f7a775b19547b1f`, [CI 40278168134](https://github.com/shulda/lean_eppa_reducts/actions/runs/40278168134)):** `TwoGraphs/FullTransversalUniqueness.lean` proves that equality of a combined action on one valuation-class point in every fibre determines the entire permutation, without finiteness or matrix symmetry. Build and allowed-axiom audit passed (364 declarations). This is uniqueness only in the combined-action image, not among arbitrary ambient automorphisms.
 
 
 - [x] **2026-10-26 (certified at commit `f56cb8cb5d06535e7630f79344fe4bd6070c35b4`, [CI 40273840188](https://github.com/shulda/lean_eppa_reducts/actions/runs/40273840188)):** `TwoGraphs/TransversalCoordinateExtension.lean` proves `exists_twoGraphAutomorphism_extending_any_transversal_embedding`, the technical extension theorem for **all** finite valuation transversals, including arbitrary injective target-coordinate maps and empty source. Build and allowed-axiom audit passed (359 declarations). This is not full coherent EPPA.
