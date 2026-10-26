@@ -93,6 +93,7 @@ import EPPAReducts.BoundedEquivalence.TwistedTransporter
 import EPPAReducts.BoundedEquivalence.CosetNormalizer
 import EPPAReducts.BoundedEquivalence.OrderedTupleTranslation
 import EPPAReducts.BoundedEquivalence.OrderedTupleFirstCoordinateColour
+import EPPAReducts.BoundedEquivalence.OrderedCyclicCore
 
 /-!
 # EPPA for reducts
