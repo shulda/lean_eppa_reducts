@@ -38,6 +38,7 @@ import EPPAReducts.TwoGraphs.TransversalLiteralExtension
 import EPPAReducts.TwoGraphs.TransversalCoordinateExtension
 import EPPAReducts.TwoGraphs.FullTransversalUniqueness
 import EPPAReducts.TwoGraphs.FullTransversalLift
+import EPPAReducts.TwoGraphs.FullTransversalCoherentLift
 import EPPAReducts.BoundedEquivalence.Basic
 import EPPAReducts.BoundedEquivalence.LabelEquiv
 import EPPAReducts.BoundedEquivalence.ExtendLabels

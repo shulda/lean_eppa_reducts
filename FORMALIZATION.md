@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-26 (full-transversal uniqueness certified; unique combined lift under development).
+**Updated:** 2026-10-26 (unique full-transversal combined lifts certified; composition/coherence under development).
 
 ## Scope and acceptance targets
 
@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/FullTransversalLift.lean` formalizes the full-transversal automorphism preservation predicate, proves it closed under composition, and uses technical EPPA plus full-transversal uniqueness to obtain an **exists-unique combined-action permutation lift** for each such automorphism. Next: prove homomorphic choice of lifts and block inflation; main coherent EPPA remains open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/FullTransversalCoherentLift.lean` formalizes the unique combined-action extension as a canonical selection, proves the identity and semidirect composition laws for these lifts, giving a genuine coherent extension of the automorphism group of the full transversal. This is not the final coherent EPPA theorem: block inflation and arbitrary-substructure coherence remain open.
+
+
+- [x] **2026-10-26 (certified at commit `87b3b81441789dae99022b514c3528b0a3156605`, [CI 40278695493](https://github.com/shulda/lean_eppa_reducts/actions/runs/40278695493)):** `TwoGraphs/FullTransversalLift.lean` defines the full-transversal preservation predicate, proves closure under composition, and obtains an **exists-unique combined-action permutation lift** from technical EPPA plus full-transversal uniqueness. Build and allowed-axiom audit passed (369 declarations). The subgroup homomorphism and coherent EPPA remain open.
 
 
 - [x] **2026-10-26 (certified at commit `f1ba16bc3db7ab8f84730cde3f7a775b19547b1f`, [CI 40278168134](https://github.com/shulda/lean_eppa_reducts/actions/runs/40278168134)):** `TwoGraphs/FullTransversalUniqueness.lean` proves that equality of a combined action on one valuation-class point in every fibre determines the entire permutation, without finiteness or matrix symmetry. Build and allowed-axiom audit passed (364 declarations). This is uniqueness only in the combined-action image, not among arbitrary ambient automorphisms.
