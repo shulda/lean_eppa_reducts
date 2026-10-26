@@ -56,7 +56,7 @@ theorem exists_transporter_iff_mem_orbit (x y : X) :
   · rintro ⟨u, hu⟩
     refine ⟨u⁻¹, ?_⟩
     calc
-      u⁻¹ • y = u⁻¹ • (u • x) := by rw [hu]
+      u⁻¹ • y = u⁻¹ • (u • x) := by rw [← hu]
       _ = x := inv_smul_smul u x
 
 end EPPAReducts.BoundedEquivalence
