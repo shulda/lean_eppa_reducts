@@ -59,8 +59,8 @@ def inducedSubsetIsoSetoid {V : Type}
   r := IsomorphicInducedSubsets A
   iseqv := {
     refl := fun s => isomorphicInducedSubsets_refl A s
-    symm := fun s t h => isomorphicInducedSubsets_symm A s t h
-    trans := fun s t u hst htu =>
+    symm := fun {s t} h => isomorphicInducedSubsets_symm A s t h
+    trans := fun {s t u} hst htu =>
       isomorphicInducedSubsets_trans A s t u hst htu
   }
 
