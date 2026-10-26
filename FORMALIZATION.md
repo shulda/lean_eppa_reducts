@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/CutPotential.lean` proves that a complete Boolean triangle cocycle is equivalent to an explicit cut potential on any nonempty type. This is the algebraic pivot of the transversal cut lemma, but no actual partial two-graph isomorphism has yet been lifted.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/TransversalDiscrepancy.lean` defines source/target pair parities and discrepancies for arbitrary labelled transversal maps, proves raw triple-parity preservation implies the discrepancy triangle equation, and obtains a cut potential for nonempty domains. Further bridge from induced two-graph partial isomorphisms and construction of the symmetric extension matrix remain open.
+
+
+- [x] **2026-10-26 (certified at commit `cb6c466af6d6ac8dee17b6ab1600d2d8fbe09c71`, [CI 40271131368](https://github.com/shulda/lean_eppa_reducts/actions/runs/40271131368)):** `TwoGraphs/CutPotential.lean` proves the Boolean triangle-cocycle/cut-potential equivalence on nonempty types, without finiteness. Build and allowed-axiom audit passed (329 declarations). Actual transversal extension still open.
 
 
 - [x] **2026-10-26 (certified at commit `26a2390b94a203eb35b6e9f394be78e4dc575846`, [CI 40269800789](https://github.com/shulda/lean_eppa_reducts/actions/runs/40269800789)):** `TwoGraphs/CombinedKernel.lean` proves `matrixIndexPerm_eq_iff`: for nonempty X, equality of the combined actions of two symmetric matrices implies and is implied by equality of their index permutations and global constant XOR of the matrices. Also proves index-coordinate uniqueness and cancellation. Build and allowed-axiom audit passed (325 declarations). Transversal EPPA, subgroup section and coherence are still open.
