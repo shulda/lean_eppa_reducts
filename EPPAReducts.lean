@@ -87,6 +87,7 @@ import EPPAReducts.TwoGraphs.ConjugatedTransversalLift
 import EPPAReducts.TwoGraphs.DivisibleTransversalSection
 import EPPAReducts.BoundedEquivalence.Basic
 import EPPAReducts.BoundedEquivalence.LabelEquiv
+import EPPAReducts.BoundedEquivalence.CoreLabelAction
 import EPPAReducts.BoundedEquivalence.ExtendLabels
 import EPPAReducts.BoundedEquivalence.ClassShiftFixed
 import EPPAReducts.BoundedEquivalence.TwistedTransporter
