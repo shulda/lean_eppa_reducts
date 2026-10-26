@@ -79,7 +79,13 @@ theorem orderedExteriorCorrection_shift
       (1 : ZMod m) else 0) =
     (if ∃ j : Fin r, t j = Sum.inr j then
       (1 : ZMod m) else 0)
-  rw [propext hh]
+  by_cases h : ∃ j : Fin r, t j = Sum.inr j
+  · have h' : ∃ j : Fin r, orderedCoreShift (t j) = Sum.inr j :=
+      hh.mpr h
+    simp only [if_pos h, if_pos h']
+  · have h' : ¬ ∃ j : Fin r, orderedCoreShift (t j) = Sum.inr j :=
+      fun hshift => h (hh.mp hshift)
+    simp only [if_neg h, if_neg h']
 
 /-- If one of the first two tuple positions belongs to the core,
 shifting every core coordinate increases the base colour by one. -/
@@ -97,7 +103,7 @@ theorem orderedCoreBase_shift
   have hmap (x : ZMod N) :
       (ZMod.castHom hmN (ZMod m)) (x + 1) =
         (ZMod.castHom hmN (ZMod m)) x + 1 := by
-    simp
+    simp only [ZMod.castHom_apply, ZMod.cast_add hmN, ZMod.cast_one hmN]
   rcases hcore with ⟨x, hx⟩ | ⟨x, hx⟩
   · simpa [orderedCoreBase, orderedCoreShift, hx] using hmap x
   · cases hzero :
