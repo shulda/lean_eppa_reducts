@@ -29,6 +29,9 @@ theorem orderedClassShift_fixedVertices_card_lt
       f (permuteOrderedTuple g t) = shift (f t)) :
     (Finset.univ.filter (fun x : V => g x = x)).card < r := by
   classical
+  letI : Fintype
+      {x : V // x ∈ Finset.univ.filter (fun x : V => g x = x)} :=
+    Fintype.ofFinite _
   by_contra hnot
   have hle : r ≤ (Finset.univ.filter (fun x : V => g x = x)).card :=
     Nat.le_of_not_gt hnot
