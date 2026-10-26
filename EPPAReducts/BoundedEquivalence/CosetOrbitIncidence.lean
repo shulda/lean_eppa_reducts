@@ -56,7 +56,7 @@ noncomputable def cosetOrbitIncidenceEquivGroup
       rw [← hu]
       exact twistedTransporterEquivStabilizer u y.val
     exact eLocal.trans
-      (MulAction.stabilizerEquivStabilizerOfOrbitRel y.property).symm.toEquiv
+      (MulAction.stabilizerEquivStabilizerOfOrbitRel y.property).toEquiv
   exact (Equiv.sigmaCongrRight eFiber).trans
     ((Equiv.sigmaEquivProd _ _).trans
       (MulAction.orbitProdStabilizerEquivGroup L x))
