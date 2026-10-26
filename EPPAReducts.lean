@@ -93,9 +93,10 @@ import EPPAReducts.BoundedEquivalence.ClassShiftFixed
 /-!
 # EPPA for reducts
 
-This is the build root. The main theorem statements and their proofs are not
-yet present. Building this module therefore certifies only the current
-definitions, *not* either target result.
+This is the build root. The coherent EPPA theorem for all finite
+two-graphs is proved in TwoGraphs.FiniteCoherentEPPA, including the
+exact approved HumanTargets statement. The general negative EPPA
+theorem for bounded equivalences remains open.
 -/
 
 namespace EPPAReducts
