@@ -73,4 +73,36 @@ theorem translateInjectiveTuple_fixed_iff
     subst a
     exact translateInjectiveTuple_zero t
 
+/-- Translating a fixed nonempty tuple gives different tuples for
+different group elements. -/
+theorem translateInjectiveTuple_injective_of_pos
+    (hr : 0 < r) (t : InjectiveTuples G r) :
+    Function.Injective (fun a : G => translateInjectiveTuple a t) := by
+  intro a b h
+  let i : Fin r := ⟨0, hr⟩
+  have hi := congrArg (fun u : InjectiveTuples G r => u.val i) h
+  change a + t.val i = b + t.val i at hi
+  exact add_right_cancel hi
+
+/-- The orbit of an ordered injective tuple under all translations
+of the finite group. -/
+noncomputable def translatedTupleOrbit [Fintype G]
+    (t : InjectiveTuples G r) : Finset (InjectiveTuples G r) := by
+  classical
+  exact (Finset.univ : Finset G).image
+    (fun a => translateInjectiveTuple a t)
+
+/-- Every positive-length ordered tuple has a translation orbit
+with exactly as many elements as the ambient finite group. This is
+the cardinality statement needed for cyclic-orbit colourings. -/
+theorem translatedTupleOrbit_card [Fintype G]
+    (hr : 0 < r) (t : InjectiveTuples G r) :
+    (translatedTupleOrbit t).card = Fintype.card G := by
+  classical
+  change ((Finset.univ : Finset G).image
+    (fun a => translateInjectiveTuple a t)).card = Fintype.card G
+  simpa only [Finset.card_univ] using
+    (Finset.card_image_of_injective (Finset.univ : Finset G)
+      (translateInjectiveTuple_injective_of_pos hr t))
+
 end EPPAReducts.BoundedEquivalence
