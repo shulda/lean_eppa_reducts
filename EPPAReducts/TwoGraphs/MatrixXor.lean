@@ -87,6 +87,7 @@ theorem rowShiftPerm_zero :
     change (x, valuationClass (shiftValuationByRow (zeroMatrix X) x a)) =
       (x, valuationClass a)
     congr 1
+    apply congrArg valuationClass
     funext y
     simp [shiftValuationByRow, zeroMatrix]
 
