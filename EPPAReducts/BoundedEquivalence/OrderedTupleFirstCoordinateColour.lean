@@ -116,8 +116,12 @@ theorem orderedExteriorPositionColour_distinct
     have hgt : 1 < m := lt_of_lt_of_le (by decide : 1 < 2) hm
     exact (Nat.ne_of_gt hgt) hm1
   intro heq
-  simp only [orderedExteriorPositionColour, if_pos rfl,
-    if_neg hij.symm, add_zero] at heq
-  exact hone (add_left_cancel heq)
+  simp only [orderedExteriorPositionColour, if_neg hij.symm,
+    ite_true, add_zero] at heq
+  have heq' :
+      orderedTupleFirstCoordinateColour hmN (Nat.sub_pos_of_lt hr) t + 1 =
+        orderedTupleFirstCoordinateColour hmN (Nat.sub_pos_of_lt hr) t + 0 := by
+    simpa only [add_zero] using heq
+  exact hone (add_left_cancel heq')
 
 end EPPAReducts.BoundedEquivalence
