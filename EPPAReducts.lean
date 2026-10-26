@@ -105,6 +105,7 @@ import EPPAReducts.BoundedEquivalence.OrderedCoreExteriorSupport
 import EPPAReducts.BoundedEquivalence.OrderedCoreOnePartialShift
 import EPPAReducts.BoundedEquivalence.OrderedExteriorColourDistinction
 import EPPAReducts.BoundedEquivalence.OrderedCoreColourClasses
+import EPPAReducts.BoundedEquivalence.OrderedFiniteObstruction
 import EPPAReducts.BoundedEquivalence.OrderedTupleKernelPartial
 
 /-!
