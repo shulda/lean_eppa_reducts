@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/FiniteCommonIndex.lean` provides an explicit finite index embedding `V ↪ Fin (|V|!)` and shows every nonempty induced vertex subset has size dividing `|V|!`. This uses a nonoptimal but mathematically legitimate common multiple; the author-approved target asserts witness existence, not an optimal size bound. CI pending, and no coherent EPPA conclusion is claimed.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/FactorialRootedWitness.lean` packages a single valuation two-graph C_X containing an induced copy of any nonempty finite A, together with the divisibility of every nonempty induced subset cardinality by |X|, for X = Fin(|V|!). Build and axiom audit pending; ordinary EPPA transfer, subgroup API bridge and coherentisation remain open.
+
+- [x] **2026-10-26 (certified at commit `48eb7d4627d5a981dd2a48cbe2639f6b2b97d2ca`, [CI 40295535515](https://github.com/shulda/lean_eppa_reducts/actions/runs/40295535515)):** `TwoGraphs/FiniteCommonIndex.lean` constructs `factorialIndexEmbedding : V ↪ Fin(|V|!)` for every finite V, and proves `card_nonempty_subtype_dvd_index` for every nonempty induced subset. Build and allowed-axiom audit passed. This is a larger common multiple than the manuscript's LCM, not a weakening of the approved existential EPPA target.
 
 - [x] **2026-10-26 (certified at commit `1d78c1c3c2c9e6a2f9dd3784cbb85468f6291717`, [CI 40294614407](https://github.com/shulda/lean_eppa_reducts/actions/runs/40294614407)):** `TwoGraphs/IndexedRootedTransversal.lean` proves `exists_indexed_rootedTransversal` for any nonempty finite input A, finite X, any prescribed injection `V ↪ X` with `|V| ∣ |X|`. It constructs X-valuations and an **induced** embedding of A into `valuationTwoGraph X` using the prior rooted representation and induced block inflation. Exact HumanTargets API; build and allowed-axiom audit passed. Ordinary EPPA transfer, global common multiple and final coherentisation remain open.
 
