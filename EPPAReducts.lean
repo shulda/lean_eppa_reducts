@@ -112,6 +112,7 @@ import EPPAReducts.BoundedEquivalence.OrderedClassShiftFixed
 import EPPAReducts.BoundedEquivalence.OrderedCoreTransport
 import EPPAReducts.BoundedEquivalence.OrderedGlobalColourAction
 import EPPAReducts.BoundedEquivalence.OrderedColourTranslationFixed
+import EPPAReducts.BoundedEquivalence.OrderedCoreCosetCollision
 import EPPAReducts.BoundedEquivalence.OrderedTupleKernelPartial
 
 /-!
