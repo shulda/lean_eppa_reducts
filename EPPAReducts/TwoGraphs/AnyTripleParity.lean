@@ -1,5 +1,4 @@
 import EPPAReducts.TwoGraphs.ValuationTwoGraph
-import Mathlib.Tactic.Omega
 
 /-!
 # Evaluating the unordered triple relation on any three vertices
@@ -27,7 +26,7 @@ theorem unorderedTripleParity_on_any_three
     have hle : ({a, a, c} : Finset (ValuationVertex X)).card ≤ 2 := by
       simpa using (Finset.card_le_two (a := a) (b := c))
     have hn : ({a, a, c} : Finset (ValuationVertex X)).card ≠ 3 := by
-      omega
+      exact Nat.ne_of_lt (lt_of_le_of_lt hle (by decide))
     have hleft :
         unorderedTripleParity ({a, a, c} : Finset (ValuationVertex X)) = false := by
       simp [unorderedTripleParity, hn]
@@ -42,7 +41,7 @@ theorem unorderedTripleParity_on_any_three
       rw [heq]
       exact Finset.card_le_two
     have hn : ({a, b, a} : Finset (ValuationVertex X)).card ≠ 3 := by
-      omega
+      exact Nat.ne_of_lt (lt_of_le_of_lt hle (by decide))
     have hleft :
         unorderedTripleParity ({a, b, a} : Finset (ValuationVertex X)) = false := by
       simp [unorderedTripleParity, hn]
@@ -56,7 +55,7 @@ theorem unorderedTripleParity_on_any_three
     have hle : ({a, b, b} : Finset (ValuationVertex X)).card ≤ 2 := by
       simpa using (Finset.card_le_two (a := a) (b := b))
     have hn : ({a, b, b} : Finset (ValuationVertex X)).card ≠ 3 := by
-      omega
+      exact Nat.ne_of_lt (lt_of_le_of_lt hle (by decide))
     have hleft :
         unorderedTripleParity ({a, b, b} : Finset (ValuationVertex X)) = false := by
       simp [unorderedTripleParity, hn]

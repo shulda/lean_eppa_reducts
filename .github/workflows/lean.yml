@@ -43,7 +43,6 @@ jobs:
             Mathlib.Data.Finset.Powerset \
             Mathlib.Tactic.Abel \
             Mathlib.Data.Fintype.Card \
-            Mathlib.Tactic.Omega \
             Mathlib.Data.Bool.Basic \
             Mathlib.Data.ZMod.Basic \
             Mathlib.Tactic.Ring \
