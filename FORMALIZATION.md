@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-26 (restricted-transversal induced comparison certified; common ambient conjugator under verification).
+**Updated:** 2026-10-26 (common ambient transversal conjugator certified; conjugated subgroup lifts under verification).
 
 ## Scope and acceptance targets
 
@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/TransversalConjugator.lean` constructs one ambient automorphism of `C_X` mapping the marked inflated restricted D-transversal to the original chosen transversal, using the certified transversal extension theorem. Build and axiom audit pending; conjugated subgroup section and coherent EPPA remain open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/ConjugatedTransversalLift.lean` defines conjugated homomorphic lifts on arbitrary chosen marked transversals, proves preservation of the actual two-graph, extension on the marked transversal, identity and composition. Build and axiom audit pending; general cardinal-divisibility packaging and coherentisation still open.
+
+- [x] **2026-10-26 (certified at commit `d6044410ac4fb8242b8599bbaba48208aba5006e`, [CI 40287066572](https://github.com/shulda/lean_eppa_reducts/actions/runs/40287066572)):** `TwoGraphs/TransversalConjugator.lean` proves `exists_conjugatingAutomorphism`: a single genuine ambient automorphism of `C_X` maps the inflated restricted marked D-transversal to its original chosen X-valuations. Build and allowed-axiom audit passed. No conjugated homomorphism was yet defined.
 
 - [x] **2026-10-26 (certified at commit `e18a08f7bd7430c38dc2403b2edf60407c1a01f7`, [CI 40286299025](https://github.com/shulda/lean_eppa_reducts/actions/runs/40286299025)):** `TwoGraphs/RestrictedTransversal.lean` proves `rawTripleParity_restrict`, `quotientTripleParity_restrict`, `restrictedTransversal_parity`, and `BlockCoordinates.restrictedTransversal_induced_iso`: induced two-graph structures coincide on the restricted full transversal and original transversal. Build and allowed-axiom audit passed.
 

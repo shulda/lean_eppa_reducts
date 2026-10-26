@@ -49,6 +49,7 @@ import EPPAReducts.TwoGraphs.CombinedBlockActionLaws
 import EPPAReducts.TwoGraphs.FullTransversalBlockLift
 import EPPAReducts.TwoGraphs.RestrictedTransversal
 import EPPAReducts.TwoGraphs.TransversalConjugator
+import EPPAReducts.TwoGraphs.ConjugatedTransversalLift
 import EPPAReducts.BoundedEquivalence.Basic
 import EPPAReducts.BoundedEquivalence.LabelEquiv
 import EPPAReducts.BoundedEquivalence.ExtendLabels
