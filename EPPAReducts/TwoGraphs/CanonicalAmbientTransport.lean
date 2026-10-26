@@ -83,6 +83,6 @@ theorem canonicalSubsetAmbientTransport_symm_on_subset
     A ι χ hind s ((chosenInducedTransport A s).symm v)
   apply (canonicalSubsetAmbientTransport A ι χ hind s).injective
   rw [Equiv.apply_symm_apply]
-  exact h.symm
+  simpa only [Equiv.apply_symm_apply] using h.symm
 
 end EPPAReducts.TwoGraphs
