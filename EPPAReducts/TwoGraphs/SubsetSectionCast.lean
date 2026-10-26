@@ -61,7 +61,18 @@ theorem chosenInducedSubsetGroupSection_cast
     apply Equiv.ext
     intro x
     rfl
-  rw [hperm]
-  rfl
+  let g₁ : {g : Equiv.Perm {v : V // v ∈ s} //
+      PreservesInducedSubset A s g} :=
+    ⟨(((finsetSubtypeCastEquiv (rfl : s = s)).trans p).trans
+      (finsetSubtypeCastEquiv (rfl : s = s)).symm),
+      preservesInducedSubset_cast A (rfl : s = s) p hp⟩
+  let g₂ : {g : Equiv.Perm {v : V // v ∈ s} //
+      PreservesInducedSubset A s g} := ⟨p, hp⟩
+  have heq : g₁ = g₂ := Subtype.ext hperm
+  exact congrArg
+    (fun g : {g : Equiv.Perm {v : V // v ∈ s} //
+        PreservesInducedSubset A s g} =>
+      (chosenInducedSubsetGroupSection A ι χ hind hdiv s).lift
+        g.val g.property) heq
 
 end EPPAReducts.TwoGraphs
