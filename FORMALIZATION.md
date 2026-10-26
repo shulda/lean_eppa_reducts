@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/CanonicalMiddleLift.lean` defines the actual ambient lift of the normalized partial automorphism via the chosen subgroup section, proves genuine automorphism preservation and the prescribed action on the canonical representative, and verifies identity. Build/axiom audit pending; middle-factor composition and final coherentisation remain open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/CanonicalMiddleLiftComposition.lean` combines normalized permutation composition, equality-cast invariance and the chosen subgroup homomorphism to prove the actual middle **ambient** lifts preserve arbitrary literal partial-map composition. Build and axiom audit pending; outer transport conjugation and the final target remain open.
+
+- [x] **2026-10-26 (certified at commit `06369fdc58ae017a37bd70b0591c1355f370a3ce`, [CI 40317020415](https://github.com/shulda/lean_eppa_reducts/actions/runs/40317020415)):** `TwoGraphs/CanonicalMiddleLift.lean` defines the ambient middle lift of every normalized literal partial automorphism, proves it preserves the actual two-graph, extends the normalized action on its canonical representative, and sends the identity partial map to the identity witness permutation. Build and allowed-axiom audit passed. Composition is a separate pending obligation.
 
 - [x] **2026-10-26 (certified at commit `4c9bd466ec8e708cb083c39bef99902c67e86ad2`, [CI 40316539767](https://github.com/shulda/lean_eppa_reducts/actions/runs/40316539767)):** `TwoGraphs/SubsetSectionCast.lean` proves that equality-conjugation of a permutation preserves the induced two-graph and, crucially, that it is sent by the **same chosen ambient subgroup section** to the same witness automorphism. Build and allowed-axiom audit passed. Ambient coherentisation remains open.
 
