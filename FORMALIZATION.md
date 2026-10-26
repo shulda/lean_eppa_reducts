@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-26 (full coherent EPPA for all finite two-graphs certified on main; ordered-tuple free-translation and exact orbit cardinality certified; negative EPPA theorem open).
+**Updated:** 2026-10-26 (coherent two-graph EPPA certified; ordered cyclic-core colours and exterior type separation certified; global negative EPPA still open).
 
 ## Scope and acceptance targets
 
@@ -19,6 +19,10 @@ The human-readable English formulations were approved by the author on 2026-10-2
 Explicitly out of scope: the six-vertex exposition as a separate theorem, the rooting transfer to complementary two-graphs, looped-graph EPPA, and the claimed wider hypergraph reduct classification. These may be optional regression tests or later projects, but they are not part of the requested certification.
 
 ## Current verified state
+
+- [x] **2026-10-26 (certified at proof commit `5396bf809eb07ab39f718b1c7d65c332de1cd502`, [CI 40342553622](https://github.com/shulda/lean_eppa_reducts/actions/runs/40342553622)):** `BoundedEquivalence/OrderedCyclicCore.lean` proves `cyclicCoreInjectiveTuple_nonempty` for every tuple length `t ≤ r` on `ZMod (m*r)` when `m,r > 0`, `orderedCyclicCoreColour_surjective` (all `m` auxiliary classes realized), and `orderedCyclicExteriorTypes_injective` (an injectively indexed family of **r distinct** ordered exterior colour functions for every `r,m≥2`). Full Lean build and allowed-axiom audit passed. This is a constructive preparatory colouring result; no failure-of-EPPA theorem yet.
+
+- [x] **2026-10-26 (certified at proof commit `7ecf8f83fb9db3403cbfab484f9a9668eb2cd4fd`, [CI 40341846235](https://github.com/shulda/lean_eppa_reducts/actions/runs/40341846235)):** `BoundedEquivalence/OrderedTupleFirstCoordinateColour.lean` gives the explicit auxiliary colour `orderedTupleFirstCoordinateColour` via the reduction homomorphism `ZMod N → ZMod m`, proves arbitrary-translation equivariance and shift-by-one, surjectivity when the tuple type is nonempty, and the position-sensitive exterior `orderedExteriorPositionColour_shift` and `orderedExteriorPositionColour_distinct`. This replaces noncanonical orbit-selector colouring **only in the ordered tuple case**; no auxiliary names are included in the target relational language.
 
 - [x] **2026-10-26 (certified at proof commit `bb834c0342177592925eacee448b8ccce0fda326`, [CI 40340714012](https://github.com/shulda/lean_eppa_reducts/actions/runs/40340714012)):** `BoundedEquivalence/CosetOrbitIncidence.lean` proves `cosetOrbitIncidenceEquivGroup`: whenever an element of the normalizer coset `Lg` fixes one point in an `L`-orbit, the full incidence type of pairs `(y, l)` in that orbit with `l(g(y))=y` is actually equivalent to `L`. This is the **exact orbitwise group-sized incidence identity**, with no cardinality assumptions on the definition. For finite groups it yields exactly `|L|` incidences per fixed orbit. **The finite global sum/inequality and full non-EPPA contradiction are still open.** Build and allowed-axiom audit passed.
 
@@ -331,6 +335,8 @@ On every fresh chat or after a crash:
 - Build success for `EPPAReducts.lean` certifies only the modules actually imported. Check that every target theorem is included in that build root and audited as a declaration.
 
 ## Next concrete actions
+
+**Ordered tuple colouring milestone:** All needed auxiliary cyclic-core and exterior colour functions are now certified and constructively explicit via the first coordinate modulo m. Next formalize the *unlabelled* equality-of-colours structure on core plus external vertices, its literal partial automorphisms, and the coset contradiction. This does not replace the separate unordered-subset orbit-divisibility/colouring task.
 
 **Current certified milestone (2026-10-26):** the complete coherent EPPA theorem for finite two-graphs, including the exact `HumanTargets.twoGraphsHaveCoherentEPPA` proposition, is proved and audited on `main` after merge `7dcdb9dc` (CI 40332451373). Do not reopen the positive chain unless an audit reveals a mismatch. The generic free-translation and full-orbit-cardinality lemmas for nonempty ordered injective tuples are additionally certified at `ad80ee66` (CI 40334454586).
 
