@@ -25,7 +25,7 @@ theorem orderedCoreExtension_inverse
     g⁻¹ (ι s) = ι (p⁻¹ s) := by
   calc
     g⁻¹ (ι s) = g⁻¹ (g (ι (p⁻¹ s))) := by
-      rw [hcore (p⁻¹ s), Equiv.Perm.inv_apply]
+      rw [hcore (p⁻¹ s)]
       simp
     _ = ι (p⁻¹ s) := by simp
 
@@ -61,10 +61,12 @@ theorem orderedCoreExtensions_difference_mem
   · exact (orderedTupleKernelAutSubgroup f).mul_mem hh
       ((orderedTupleKernelAutSubgroup f).inv_mem hg)
   · intro s
-    change (h * g⁻¹) (ι s) = ι s
-    simp only [Equiv.Perm.mul_apply,
-      orderedCoreExtension_inverse ι p g hgcore s,
-      hhcore (p⁻¹ s), Equiv.Perm.inv_apply, Equiv.apply_symm_apply]
+    calc
+      (h * g⁻¹) (ι s) = h (g⁻¹ (ι s)) := rfl
+      _ = h (ι (p⁻¹ s)) := by
+        rw [orderedCoreExtension_inverse ι p g hgcore s]
+      _ = ι (p (p⁻¹ s)) := hhcore (p⁻¹ s)
+      _ = ι s := by simp
 
 /-- Two full automorphisms extending the same old-core permutation
 are in the same left coset of the old-core pointwise stabilizer:
