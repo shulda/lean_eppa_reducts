@@ -1,5 +1,6 @@
 import EPPAReducts.BoundedEquivalence.Basic
 import Mathlib.Algebra.Group.Defs
+import Mathlib.Data.Fintype.Card
 
 /-!
 # Free translations of nonempty ordered injective tuples
