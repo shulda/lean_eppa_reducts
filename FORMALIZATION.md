@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-26 (coherent two-graph EPPA certified; finite ordered obstruction constructed; its unlabelled automorphism group, core normalizer and fixed-point bound verified; full negative EPPA remains open).
+**Updated:** 2026-10-26 (coherent EPPA for two-graphs and non-EPPA for all bounded-class equivalences on ordered injective r-tuples certified; unordered r-subset theorem and graph-modulo-complementation human target remain open).
 
 ## Scope and acceptance targets
 
@@ -20,11 +20,11 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (candidate on stacked proof branch, CI pending):** `OrderedNoEPPAWitness.lean` extracts actual automorphisms from an arbitrary common `IsOrderedBoundedEPPAWitness`, recovers uniquely normalized auxiliary labels, invokes the coset/exterior contradiction, and states `orderedBoundedEquivalencesFailEPPA` for all ordered injective r-tuples, r,m≥2. Do **not** label this as formalized until its exact theorem compiles and passes allowed-axiom audit.
+- [x] **2026-10-26 (certified at proof commit `1dc3d62651386d62310fceb5e7095d3084772c89`, [CI 40399305078](https://github.com/shulda/lean_eppa_reducts/actions/runs/40399305078)):** `BoundedEquivalence/OrderedNoEPPAWitness.lean` proves `orderedCyclicObstruction_noEPPAWitness_succ` and `orderedBoundedEquivalencesFailEPPA`: for **every r,m≥2** one finite unlabelled equivalence on ordered injective r-tuples with at most m classes admits no finite ordinary EPPA witness, quantifying over every finite ambient structure and every induced embedding. The proof chooses genuine extensions of the r literal partial automorphisms, recovers unique normalized auxiliary class labels and applies the verified coset contradiction. Full Lean build, manuscript guard, placeholder guard and allowed-axiom audit passed. **Unordered r-subset non-EPPA and the frozen graph-modulo-complementation target remain open.**
 
-- [ ] **2026-10-26 (proof branch CI pending):** `OrderedNoSimultaneousExtensions.lean` states and attempts the actual normalized-colour contradiction: no finite ambient tuple-kernel admits a family of r full automorphisms all shifting the cyclic core and respectively fixing the distinct exterior vertices. This structural lemma is not yet an ordered EPPA-failure theorem, and is not certified until this branch's build and axiom audit pass.
+- [x] **2026-10-26 (certified at proof commit `40e6cf241548ef750dfe41f203d59b98f9f186cb`, [CI 40398678948](https://github.com/shulda/lean_eppa_reducts/actions/runs/40398678948)):** `BoundedEquivalence/OrderedNoSimultaneousExtensions.lean` proves `orderedCyclicCore_exterior_extensions_impossible`: any finite ambient unlabelled ordered tuple-kernel extension with fully realized normalized old colours cannot have r full automorphisms simultaneously shifting the cyclic core and fixing one distinct exterior vertex each. Applies the normalizer coset collision and the certified exterior-colour obstruction. Full build and allowed-axiom audit passed. This is structural and does not alone quantify over EPPA witnesses.
 
-- [ ] **2026-10-26 (integration check pending):** merge reviewed proof modules from earlier successful CI branches in PRs #15–#18. The imports cover finite normalized extension colours, exact ordered EPPA witness semantics, normalizing common-core cosets, all-colour shift on arbitrary ambient extensions, and the exterior-label orbit obstruction. Combined-branch build and axiom audit must pass before marking the integrated result certified; no ordered non-EPPA theorem is claimed.
+- [x] **2026-10-26 (certified at proof commit `17d7464ccc7235daa1540b731f3c854bdb278fdd`, [CI 40395929937](https://github.com/shulda/lean_eppa_reducts/actions/runs/40395929937); merged on main at `2efeabaf83fee6894528f14195a18edfd2c28f17`):** integrated the nine verified ordered-group, normalized colour, partial/full automorphism and exterior-rigidity modules formerly staged in PRs #15–#18. Complete import graph built and passed the axiom audit; superseded PRs closed. Their combination is preparatory to the full non-EPPA proof.
 
 - [x] **2026-10-26 (certified at proof commit `13a004b1c93f2ce6ad0263b794db7f6a13a65336`, [CI 40371489139](https://github.com/shulda/lean_eppa_reducts/actions/runs/40371489139)):** `BoundedEquivalence/OrderedClassShiftFixed.lean` proves `orderedClassShift_fixedVertices_card_lt`: a vertex permutation inducing a fixed-point-free class permutation on all injective ordered r-tuples has fewer than r fixed vertices. This is the generic finite fixed-point bound for the coset argument. Full Lean build and allowed-axiom audit passed; no negative EPPA theorem yet.
 
@@ -318,7 +318,8 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 - [x] Added self-contained Lean target propositions `HumanTargets.twoGraphsHaveCoherentEPPA` and `HumanTargets.graphsModuloComplementationFailEPPA` with induced-embedding, partial-isomorphism, extension and coherence definitions; **these are definitions of propositions, not proofs**.
 - [x] Self-contained Lean target statement semantics reviewed and approved by the author (2026-10-25).
 - [x] Final positive theorem and the exact `HumanTargets.twoGraphsHaveCoherentEPPA` proof certified at `171153ba` / CI 40331155882.
-- [ ] General negative theorem (unordered, ordered) proved and audited in Lean.
+- [x] Ordered negative theorem for all `r,m≥2` proved and audited in Lean (`orderedBoundedEquivalencesFailEPPA`; CI 40399305078).
+- [ ] Unordered negative theorem for all `r,m≥2` proved and audited in Lean.
 - [ ] Certified bridge and full theorem for the **negative** human-readable target; the positive HumanTargets bridge is certified.
 
 ### GitHub state recovery protocol
@@ -372,9 +373,9 @@ On every fresh chat or after a crash:
 
 **Certified positive target:** all finite two-graphs have coherent EPPA; the exact frozen target is proved and audited on main.
 
-**Certified ordered negative construction:** over `Sum (ZMod (m*r)) (Fin r)` for all `r,m≥2`, the total auxiliary colouring induces an unlabelled equivalence with at most m classes, realizes **all** classes already on old-core tuples, and distinguishes the r exterior labels via their positional corrections. For each exterior label there is now a certified `HumanTargets.PartialBijection` shifting the cyclic core and fixing that exterior point, proved to be an automorphism between the associated induced substructures. All the above are Lean-certified independently; they do **not** yet say no finite EPPA extension exists.
+**Certified ordered negative theorem:** `orderedBoundedEquivalencesFailEPPA` proves that, for all `r,m≥2`, the exact class of finite structures with a genuinely unlabelled equivalence relation on ordered injective r-tuples and at most m classes fails ordinary EPPA. The witness is `orderedCyclicObstruction` with cyclic core and r exterior vertices; its actual partial automorphisms cannot simultaneously extend to automorphisms of any finite ambient induced extension. Proof commit `1dc3d626` passed full build, manuscript/placeholder guards and allowed-axiom audit at CI 40399305078.
 
-**Next ordered obligation:** the separate coset collision and exterior-label orbit separation lemmas are proved on CI-tested branches and staged together here. Connect the concrete finite `orderedCyclicObstruction`, its genuine partial maps and every hypothetical finite `IsOrderedBoundedEPPAWitness` via normalized extension colours to obtain the universal contradiction. Then certify the exact ordered failure-of-EPPA theorem with build and axiom audit.
+**Next ordered obligation:** none for the stated ordered injective-tuple theorem; future work, if desired, could bridge it into the shared relational `Structure` API. This is not needed for the approved unordered graph-modulo-complementation target.
 
 **Unordered negative obligation:** independent translation-orbit divisibility on r-subsets and (r-1)-subsets of ZMod(m*lcm(1,...,r)), equivariant colourings and r distinct external types, then the same coset contradiction. The r=m=2 specialization must match the frozen `HumanTargets.graphsModuloComplementationFailEPPA` definition exactly.
 
