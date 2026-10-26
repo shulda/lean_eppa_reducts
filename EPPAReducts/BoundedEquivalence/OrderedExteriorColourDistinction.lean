@@ -148,17 +148,17 @@ theorem orderedCyclicExteriorColour_distinct
     (slot label : Fin r) (hne : slot ≠ label) :
     ∃ core : InjectiveTuples (ZMod (m * r)) r,
       orderedCoreExteriorColour m (m * r) r
-        (dvd_mul_right m r) (lt_of_lt_of_le (by decide : 1 < 2) hr)
+        (show m ∣ m * r from ⟨r, rfl⟩) (lt_of_lt_of_le (by decide : 1 < 2) hr)
         (orderedInsertExterior core slot slot).val ≠
       orderedCoreExteriorColour m (m * r) r
-        (dvd_mul_right m r) (lt_of_lt_of_le (by decide : 1 < 2) hr)
+        (show m ∣ m * r from ⟨r, rfl⟩) (lt_of_lt_of_le (by decide : 1 < 2) hr)
         (orderedInsertExterior core slot label).val := by
   have hmpos : 0 < m := lt_of_lt_of_le (by decide : 0 < 2) hm
   have hrpos : 0 < r := lt_of_lt_of_le (by decide : 0 < 2) hr
   obtain ⟨core⟩ := cyclicCoreInjectiveTuple_nonempty
     m r r hmpos hrpos (le_refl r)
   exact ⟨core, orderedCoreExteriorColour_distinct_at_slot
-    m (m * r) r (dvd_mul_right m r) hm
+    m (m * r) r (show m ∣ m * r from ⟨r, rfl⟩) hm
     (lt_of_lt_of_le (by decide : 1 < 2) hr)
     core slot label hne⟩
 
