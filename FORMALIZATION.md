@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (awaiting CI):** `TwoGraphs/MatrixKernelConverse.lean` proves a globally constant XOR acts trivially, and the exact iff characterization of equal symmetric-matrix actions on a nonempty index type. The quotient-by-constant-matrix group construction and coherent EPPA are not yet proved.
+- [ ] **2026-10-26 (awaiting CI):** `TwoGraphs/MatrixQuotient.lean` constructs the quotient of symmetric matrices by equality of induced permutations, proves its faithful action, and shows via the verified kernel theorem that this quotient is exactly by *one global constant matrix*, for nonempty X. A group multiplication on the quotient, transversal extension and coherent EPPA remain open.
+
+
+- [x] **2026-10-26 (certified at commit `01539cc8fdd0787c509e27e310347f0a3cf31709`, [CI 40268927655](https://github.com/shulda/lean_eppa_reducts/actions/runs/40268927655)):** `TwoGraphs/MatrixKernelConverse.lean` proves a globally constant XOR acts trivially, and the exact iff characterization of equal symmetric-matrix actions on a nonempty index type. Build and axiom audit passed (297 declarations). Quotient group and coherent EPPA not yet proved.
 
 
 - [x] **2026-10-26 (certified at commit `eaabbc78cc36b3d2568b4c69e4715c14a7cefa82`, [CI 40268362379](https://github.com/shulda/lean_eppa_reducts/actions/runs/40268362379)):** `TwoGraphs/MatrixKernel.lean` shows equality of row-shift permutations of symmetric Boolean matrices forces their XOR to be a *single globally constant matrix* when X is nonempty. Build and axiom audit passed (293 declarations). Converse and full kernel equivalence remained open at that commit.
