@@ -58,9 +58,10 @@ def inducedSubsetIsoSetoid {V : Type}
     (A : TwoGraph V) : Setoid (Finset V) where
   r := IsomorphicInducedSubsets A
   iseqv := {
-    refl := isomorphicInducedSubsets_refl A
-    symm := isomorphicInducedSubsets_symm A
-    trans := isomorphicInducedSubsets_trans A
+    refl := fun s => isomorphicInducedSubsets_refl A s
+    symm := fun s t h => isomorphicInducedSubsets_symm A s t h
+    trans := fun s t u hst htu =>
+      isomorphicInducedSubsets_trans A s t u hst htu
   }
 
 /-- The quotient of finite induced substructures by their
