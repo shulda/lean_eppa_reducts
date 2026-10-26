@@ -23,19 +23,21 @@ noncomputable def twistedTransporterEquivStabilizer (u : G) (x : X) :
     simpa only [mul_smul] using h.property⟩
   invFun k := ⟨k.val * u⁻¹, by
     change (k.val * u⁻¹) • (u • x) = x
-    simpa only [mul_smul, inv_smul_smul] using k.property⟩
+    have hk : k.val • x = x :=
+      (MulAction.mem_stabilizer_iff).mp k.property
+    simpa only [mul_smul, inv_smul_smul] using hk⟩
   left_inv h := by
     apply Subtype.ext
     change (h.val * u) * u⁻¹ = h.val
-    simp only [mul_assoc, mul_inv_cancel_right]
+    simp [mul_assoc]
   right_inv k := by
     apply Subtype.ext
     change (k.val * u⁻¹) * u = k.val
-    simp only [mul_assoc, inv_mul_cancel_right]
+    simp [mul_assoc]
 
 /-- In particular, for a finite group the transporter fiber has
 exactly the cardinality of the stabilizer. -/
-theorem card_twistedTransporters [Fintype G] (u : G) (x : X) :
+theorem card_twistedTransporters [Fintype G] [DecidableEq X] (u : G) (x : X) :
     Fintype.card {h : G // h • (u • x) = x} =
       Fintype.card (MulAction.stabilizer G x) := by
   classical
@@ -48,9 +50,13 @@ theorem exists_transporter_iff_mem_orbit (x y : X) :
   constructor
   · rintro ⟨h, hh⟩
     refine ⟨h⁻¹, ?_⟩
-    rw [← hh, inv_smul_smul]
+    calc
+      h⁻¹ • x = h⁻¹ • (h • y) := by rw [hh]
+      _ = y := inv_smul_smul h y
   · rintro ⟨u, hu⟩
     refine ⟨u⁻¹, ?_⟩
-    rw [← hu, inv_smul_smul]
+    calc
+      u⁻¹ • y = u⁻¹ • (u • x) := by rw [hu]
+      _ = x := inv_smul_smul u x
 
 end EPPAReducts.BoundedEquivalence
