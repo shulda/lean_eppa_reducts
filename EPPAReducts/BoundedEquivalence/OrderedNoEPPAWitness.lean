@@ -73,16 +73,31 @@ theorem orderedCyclicObstruction_noEPPAWitness_succ
       (hgAut i)
   have hgcore (i : Fin (b + 1)) (s : ZMod (m * (b + 1))) :
       g i (ι (Sum.inl s)) = ι (Sum.inl (s + 1)) := by
-    have h := hgExt i (Sum.inl s) (mem_orderedCoreOne_inl i s)
-    simpa [orderedCoreOnePartialShift_apply, orderedCoreShift] using h
+    let v : {v : Sum (ZMod (m * (b + 1))) (Fin (b + 1)) //
+        v ∈ orderedCoreOne i} :=
+      ⟨Sum.inl s, mem_orderedCoreOne_inl i s⟩
+    calc
+      g i (ι (Sum.inl s)) =
+          ι (((orderedCoreOnePartialShift i).bijection v).val) :=
+        hgExt i (Sum.inl s) (mem_orderedCoreOne_inl i s)
+      _ = ι (orderedCoreShift (Sum.inl s)) :=
+        congrArg ι (orderedCoreOnePartialShift_apply i v)
+      _ = ι (Sum.inl (s + 1)) := rfl
   have hfix (i : Fin (b + 1)) :
       g i (ι (Sum.inr i)) = ι (Sum.inr i) := by
     have hmem :
         (Sum.inr i : Sum (ZMod (m * (b + 1))) (Fin (b + 1))) ∈
           (orderedCoreOnePartialShift i).source :=
       (mem_orderedCoreOne_inr i i).mpr rfl
-    have h := hgExt i (Sum.inr i) hmem
-    simpa [orderedCoreOnePartialShift_apply, orderedCoreShift] using h
+    let v : {v : Sum (ZMod (m * (b + 1))) (Fin (b + 1)) //
+        v ∈ orderedCoreOne i} := ⟨Sum.inr i, hmem⟩
+    calc
+      g i (ι (Sum.inr i)) =
+          ι (((orderedCoreOnePartialShift i).bijection v).val) :=
+        hgExt i (Sum.inr i) hmem
+      _ = ι (orderedCoreShift (Sum.inr i)) :=
+        congrArg ι (orderedCoreOnePartialShift_apply i v)
+      _ = ι (Sum.inr i) := rfl
   have hext (t : InjectiveTuples
         (Sum (ZMod (m * (b + 1))) (Fin (b + 1))) (b + 1)) :
       fB (mapInjectiveTuple ι t) =
