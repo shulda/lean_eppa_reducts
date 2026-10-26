@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-26 (homomorphic full-transversal block lifts certified; conjugation to an arbitrary transversal is next).
+**Updated:** 2026-10-26 (homomorphic full-transversal block lifts certified; restriction bridge towards arbitrary transversals under verification).
 
 ## Scope and acceptance targets
 
@@ -19,6 +19,8 @@ The human-readable English formulations were approved by the author on 2026-10-2
 Explicitly out of scope: the six-vertex exposition as a separate theorem, the rooting transfer to complementary two-graphs, looped-graph EPPA, and the claimed wider hypergraph reduct classification. These may be optional regression tests or later projects, but they are not part of the requested certification.
 
 ## Current verified state
+
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/RestrictedTransversal.lean` restricts X-valuations to the marked copy of D, proves literal parity preservation, and compares the original transversal to the block-inflated restricted full transversal as induced two-graphs. Build and axiom audit pending; ambient conjugating automorphism and coherentisation remain open.
 
 - [x] **2026-10-26 (certified at commit `8e7ddef1d83802a6ec2b1ad09d37ade508da0e23`, [CI 40285640129](https://github.com/shulda/lean_eppa_reducts/actions/runs/40285640129)):** `TwoGraphs/FullTransversalBlockLift.lean` constructs faithful-class canonical lifts and `BlockCoordinates.inflatedCanonicalFullTransversalLift`, proves the lifted permutations are genuine `HumanTargets` two-graph automorphisms, map the identity to the identity, respect composition and act as prescribed on the distinguished inflated full transversal. Build and allowed-axiom audit passed. This is a homomorphic lift **only for the marked inflated transversal**. Conjugation to arbitrary embedded transversals and final coherent EPPA remain open.
 
