@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-26 (coherent two-graph EPPA certified; quantitative coset bound and fixed-vertex collision certified; exact unlabelled class presentation and realized-core action certified; full negative EPPA theorem still open).
+**Updated:** 2026-10-26 (coherent two-graph EPPA certified; ordered finite cyclic obstruction carrier, full class realisation, r distinct exterior types and genuine partial shifts certified; full negative EPPA contradiction remains open).
 
 ## Scope and acceptance targets
 
@@ -19,6 +19,12 @@ The human-readable English formulations were approved by the author on 2026-10-2
 Explicitly out of scope: the six-vertex exposition as a separate theorem, the rooting transfer to complementary two-graphs, looped-graph EPPA, and the claimed wider hypergraph reduct classification. These may be optional regression tests or later projects, but they are not part of the requested certification.
 
 ## Current verified state
+
+- [x] **2026-10-26 (certified at proof commit `5c8d5001337d81dd82182336d028ce88119d3054`, [CI 40368145744](https://github.com/shulda/lean_eppa_reducts/actions/runs/40368145744)):** `BoundedEquivalence/OrderedCoreColourClasses.lean` proves `orderedCoreExteriorColour_on_core` (the total colouring restricts exactly to the first-coordinate cyclic colouring), defines the actual unlabelled kernel `orderedCoreExteriorKernel`, proves `orderedCoreExteriorKernel_hasAtMostClasses`, and shows `orderedCyclicCoreExteriorColour_surjective`: all m equivalence classes are realized already on ordered r-tuples of the cyclic core S = ZMod(m*r). Full build and allowed-axiom audit passed. The full EPPA failure remains open.
+
+- [x] **2026-10-26 (certified at proof commit `6770ba232542292f90e141318192cbbe83c0b03c`, [CI 40367597495](https://github.com/shulda/lean_eppa_reducts/actions/runs/40367597495)):** `BoundedEquivalence/OrderedExteriorColourDistinction.lean` constructs `orderedInsertExterior` as an injective tuple with an exterior vertex in a selected position and all remaining old core coordinates fixed. It proves `orderedExteriorCorrection_insert`, `orderedCoreBase_insert_independent_label`, `orderedCoreExteriorColour_distinct_at_slot`, and `orderedCyclicExteriorColour_distinct`: for every r,m≥2 any two external labels can be distinguished using the same old core coordinates and insertion slot, also at r=2. Full build and allowed-axiom audit passed.
+
+- [x] **2026-10-26 (certified at proof commit `00a0c97543cfc7a8c35167f785fe0953b2949584`, [CI 40367082714](https://github.com/shulda/lean_eppa_reducts/actions/runs/40367082714)):** `BoundedEquivalence/OrderedCoreOnePartialShift.lean` defines a real finite source/target subset consisting of the cyclic core and one specified exterior vertex, an invertible restriction of cyclic translation and the literal `HumanTargets.PartialBijection` `orderedCoreOnePartialShift`. It proves the colour-shift law for every injective tuple in the partial domain and the **actual unlabelled partial-automorphism statement** `orderedCoreOnePartialShift_isPartialAutomorphism`. The underlying class labels are auxiliary; the preservation is of the kernel equivalence. Full build and allowed-axiom audit passed. No full non-EPPA conclusion yet.
 
 - [x] **2026-10-26 (certified at CI HEAD `b875b106581ba48373674d9f1ddb10e0033090d0`, [run 40362351644](https://github.com/shulda/lean_eppa_reducts/actions/runs/40362351644)):** `BoundedEquivalence/OrderedCoreExteriorSupport.lean` proves `orderedTuple_firstTwo_has_core_of_one_exterior` and `orderedCoreExteriorColour_shift_of_one_external` for every injective ordered tuple supported on the cyclic core plus one fixed exterior vertex. Full Lean build and allowed-axiom audit passed. The actual finite EPPA counterexample remains open.
 
@@ -350,12 +356,12 @@ On every fresh chat or after a crash:
 
 ## Next concrete actions
 
-**Certified positive target:** `EPPAReducts.TwoGraphs.humanTwoGraphsHaveCoherentEPPA` is proved on main; do not reopen this dependency without evidence of a mismatch.
+**Certified positive target:** all finite two-graphs have coherent EPPA; the exact frozen target is proved and audited on main.
 
-**Certified negative prerequisites:** class-label recovery from a fully realized core, the full quantitative normalizer-coset orbit bound, the `b+1` fixed-vertex collision corollary, conversion between arbitrary `ZMod m` kernel presentations and the actual `Fin m` at-most-m-class setoid, global class action determined by the core, and ordered cyclic-core colourings with `r` separated exterior types. All were compiled and axiom-audited at their respective commits above. They are not the final negative theorem.
+**Certified ordered negative construction:** over `Sum (ZMod (m*r)) (Fin r)` for all `r,m≥2`, the total auxiliary colouring induces an unlabelled equivalence with at most m classes, realizes **all** classes already on old-core tuples, and distinguishes the r exterior labels via their positional corrections. For each exterior label there is now a certified `HumanTargets.PartialBijection` shifting the cyclic core and fixing that exterior point, proved to be an automorphism between the associated induced substructures. All the above are Lean-certified independently; they do **not** yet say no finite EPPA extension exists.
 
-**Next ordered-tuple work:** construct the actual finite unlabelled equivalence on injective `r`-tuples of `ZMod (m*r) ⊕ Fin r`, prove the literal partial shifts fixing each exterior vertex preserve equality of colours, show every extension acts on classes by the same nontrivial shift, derive the fixed-point bound from `ClassShiftFixed.lean`, and apply `coset_fixed_vertices_orbit_collision`. Transfer to a precise ordinary-EPPA negative theorem for every `r,m≥2`, not a model of named colours.
+**Next ordered obligation:** package the constructor as one finite ordered bounded-equivalence structure, then prove that in an arbitrary finite induced extension preserving at most m unlabelled classes, the common extensions `g_i` of these partial shifts lie in the same coset of the core pointwise stabilizer `L`. Prove normalizer membership and that the class action of every element of that coset is the fixed-point-free shift, using the existing core-label action and fixed-vertex lemmas. Apply the certified `coset_fixed_vertices_orbit_collision` at b=r-1 and contradict the certified exterior colour distinction. This is the main remaining structural gap for ordered non-EPPA.
 
-**Next unordered-subset work:** establish the translation-orbit divisibility and an equivariant colouring on `r`- and `(r-1)`-subsets of `ZMod (m*lcm(1,...,r))`; construct `r` different exterior types (separate `r=2`); then perform the same unlabelled obstruction argument. Finally specialize at `r=m=2` to prove `HumanTargets.graphsModuloComplementationFailEPPA` with the exact frozen semantics.
+**Unordered negative obligation:** independent translation-orbit divisibility on r-subsets and (r-1)-subsets of ZMod(m*lcm(1,...,r)), equivariant colourings and r distinct external types, then the same coset contradiction. The r=m=2 specialization must match the frozen `HumanTargets.graphsModuloComplementationFailEPPA` definition exactly.
 
-Maintain small CI- and axiom-audited milestones; do not introduce `sorry`, `admit`, or new axioms; keep both manuscript files and internal proof notes private and out of public Git.
+Do not push unpublished TeX or internal proof notes. A meaningful milestone is certified only by successful build, placeholder guard and allowed-axiom audit on the exact imported theorem commit.
