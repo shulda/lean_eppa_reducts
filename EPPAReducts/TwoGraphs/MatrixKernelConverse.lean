@@ -55,9 +55,9 @@ theorem rowShiftPerm_eq_of_global_constant
           have heq : shiftValuationByRow F x a =
               flipValuation (shiftValuationByRow G x a) := by
             funext y
-            rw [show F x y = !(G x y) from hrow y]
-            cases ha : a y <;> cases hg : G x y <;>
-              simp [shiftValuationByRow, flipValuation, ha, hg]
+            change Bool.xor (a y) (F x y) = !(Bool.xor (a y) (G x y))
+            rw [hrow y]
+            cases a y <;> cases G x y <;> decide
           calc
             valuationClass (shiftValuationByRow F x a) =
                 valuationClass (flipValuation (shiftValuationByRow G x a)) :=
