@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/RootedParityAway.lean` proves the rooted three-edge XOR reconstruction for a triple disjoint from its distinguished root. CI pending; root-containing and degenerate triples still need their separate bridge.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/RootedParityAll.lean` proves rooted parity reconstruction for every *distinct* triple including ones containing the root, plus false indicator on duplicate triples. CI pending; conversion to an actual graph representative and valuation embedding remain.
+
+- [x] **2026-10-26 (certified at commit `8af640dd7a0d590487439a1f61fd2e848dc7a606`, [CI 40291028390](https://github.com/shulda/lean_eppa_reducts/actions/runs/40291028390)):** `TwoGraphs/RootedParityAway.lean` proves `twoGraph_rootedParity_away`: the exact original two-graph relation of a triple disjoint from its root equals the XOR of its three rooted pair contributions. Built and allowed-axiom audited. Root-containing/degenerate triples were still open.
 
 - [x] **2026-10-26 (certified at commit `2ff9ff4ac996e5fe2e29ea8405c6575b8f6a5188`, [CI 40290595056](https://github.com/shulda/lean_eppa_reducts/actions/runs/40290595056)):** `TwoGraphs/TwoGraphFourPointXor.lean` proves `twoGraph_fourPointXor` for an arbitrary actual `HumanTargets.TwoGraph` on four distinct vertices, directly from the original four-point even `Finset`-cardinality axiom. Build and allowed-axiom audit passed. Rooted reconstruction and final coherent EPPA are not yet proved.
 

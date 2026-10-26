@@ -5,6 +5,7 @@ import EPPAReducts.TwoGraphs.RootedCocycle
 import EPPAReducts.TwoGraphs.RootedGraph
 import EPPAReducts.TwoGraphs.TwoGraphFourPointXor
 import EPPAReducts.TwoGraphs.RootedParityAway
+import EPPAReducts.TwoGraphs.RootedParityAll
 import EPPAReducts.TwoGraphs.ValuationQuotient
 import EPPAReducts.TwoGraphs.RawTripleParity
 import EPPAReducts.TwoGraphs.QuotientTripleParity
