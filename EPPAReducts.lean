@@ -92,6 +92,7 @@ import EPPAReducts.BoundedEquivalence.ClassShiftFixed
 import EPPAReducts.BoundedEquivalence.TwistedTransporter
 import EPPAReducts.BoundedEquivalence.CosetNormalizer
 import EPPAReducts.BoundedEquivalence.CosetOrbitIncidence
+import EPPAReducts.BoundedEquivalence.CosetOrbitIncidenceInjection
 import EPPAReducts.BoundedEquivalence.OrderedTupleTranslation
 
 /-!
