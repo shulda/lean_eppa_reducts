@@ -90,6 +90,7 @@ import EPPAReducts.BoundedEquivalence.LabelEquiv
 import EPPAReducts.BoundedEquivalence.ExtendLabels
 import EPPAReducts.BoundedEquivalence.ClassShiftFixed
 import EPPAReducts.BoundedEquivalence.TwistedTransporter
+import EPPAReducts.BoundedEquivalence.CosetNormalizer
 
 /-!
 # EPPA for reducts
