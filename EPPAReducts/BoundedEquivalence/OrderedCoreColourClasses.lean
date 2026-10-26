@@ -62,6 +62,9 @@ theorem orderedCyclicCoreExteriorColour_surjective
   intro c
   obtain ⟨t, ht⟩ := hs c
   refine ⟨t, ?_⟩
+  change orderedCoreExteriorColour m (m * r) r
+      (show m ∣ m * r from ⟨r, rfl⟩) hr
+      (fun j => Sum.inl (t.val j)) = c
   rw [orderedCoreExteriorColour_on_core]
   exact ht
 
