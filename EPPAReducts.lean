@@ -120,6 +120,7 @@ import EPPAReducts.BoundedEquivalence.OrderedCoreCosetCollision
 import EPPAReducts.BoundedEquivalence.OrderedExteriorLabels
 import EPPAReducts.BoundedEquivalence.OrderedOldCoreShift
 import EPPAReducts.BoundedEquivalence.OrderedNoSimultaneousExtensions
+import EPPAReducts.BoundedEquivalence.OrderedNoEPPAWitness
 
 /-!
 # EPPA for reducts
