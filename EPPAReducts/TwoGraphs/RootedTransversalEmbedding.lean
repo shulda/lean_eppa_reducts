@@ -10,7 +10,7 @@ the first coordinate is x.
 
 The previously certified raw parity formula covers triples of distinct
 vertices.  Repeated vertices are handled by the independent onlyTriples
-axiom and the actual valuation relation's duplicate-vertex lemmas.
+condition and the actual valuation relation's duplicate-vertex lemmas.
 
 The conclusion is the EXACT human-facing induced-embedding predicate,
 not a raw or merely one-way ternary preservation condition.
