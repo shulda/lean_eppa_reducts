@@ -116,6 +116,7 @@ theorem BlockCoordinates.inflateValuationVertex_tripleParity
 two-graphs in the exact approved HumanTargets API. -/
 theorem BlockCoordinates.inflateValuationVertex_induced
     (B : BlockCoordinates D X)
+    [DecidableEq D] [DecidableEq X]
     [DecidableEq (ValuationVertex D)]
     [DecidableEq (ValuationVertex X)] :
     HumanTargets.IsInducedTwoGraphEmbedding
