@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (awaiting CI):** `TwoGraphs/MatrixQuotient.lean` constructs the quotient of symmetric matrices by equality of induced permutations, proves its faithful action, and shows via the verified kernel theorem that this quotient is exactly by *one global constant matrix*, for nonempty X. A group multiplication on the quotient, transversal extension and coherent EPPA remain open.
+- [ ] **2026-10-26 (awaiting CI):** `TwoGraphs/CombinedKernel.lean` identifies full combined actions `matrixIndexPerm σ F = matrixIndexPerm τ G` iff σ=τ and the symmetric matrices differ globally by 0 or 1. It also proves index-coordinate uniqueness and cancellation. Transversal lifts/coherence are still open.
+
+
+- [x] **2026-10-26 (certified at commit `a0206e5f3441ecb9c015de51793fefc10a68e67d`, [CI 40269508547](https://github.com/shulda/lean_eppa_reducts/actions/runs/40269508547)):** `TwoGraphs/MatrixQuotient.lean` constructs the quotient of symmetric matrices by equality of induced permutations, proves the quotient action faithful, and proves that equality of classes means XOR by *one global constant matrix*, for nonempty X. Build and allowed-axiom audit passed (322 declarations). Group multiplication on quotient and coherent EPPA remain open.
 
 
 - [x] **2026-10-26 (certified at commit `01539cc8fdd0787c509e27e310347f0a3cf31709`, [CI 40268927655](https://github.com/shulda/lean_eppa_reducts/actions/runs/40268927655)):** `TwoGraphs/MatrixKernelConverse.lean` proves a globally constant XOR acts trivially, and the exact iff characterization of equal symmetric-matrix actions on a nonempty index type. Build and axiom audit passed (297 declarations). Quotient group and coherent EPPA not yet proved.

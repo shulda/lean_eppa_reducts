@@ -28,6 +28,7 @@ import EPPAReducts.TwoGraphs.CombinedGroupLaw
 import EPPAReducts.TwoGraphs.MatrixKernel
 import EPPAReducts.TwoGraphs.MatrixKernelConverse
 import EPPAReducts.TwoGraphs.MatrixQuotient
+import EPPAReducts.TwoGraphs.CombinedKernel
 import EPPAReducts.BoundedEquivalence.Basic
 import EPPAReducts.BoundedEquivalence.LabelEquiv
 import EPPAReducts.BoundedEquivalence.ExtendLabels
