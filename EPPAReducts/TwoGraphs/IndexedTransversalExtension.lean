@@ -68,11 +68,10 @@ theorem exists_twoGraphAutomorphism_extending_indexedTransversalIso
   classical
   let s : Finset X := Finset.univ.image ι
   let e : D ≃ {x : X // x ∈ s} := imageSubtypeEquiv ι
-  let f : {x : X // x ∈ s} ↪ X where
-    toFun := fun x => τ (e.symm x)
-    inj' := by
+  let f : {x : X // x ∈ s} ↪ X :=
+    ⟨fun x => τ (e.symm x), by
       intro x y hxy
-      exact e.symm.injective (τ.injective hxy)
+      exact e.symm.injective (τ.injective hxy)⟩
   let χs : {x : X // x ∈ s} → Valuation X :=
     fun x => χ (e.symm x)
   let ηs : {x : X // x ∈ s} → Valuation X :=
