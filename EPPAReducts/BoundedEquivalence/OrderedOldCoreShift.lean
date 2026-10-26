@@ -46,8 +46,12 @@ theorem orderedCoreExteriorColour_on_core_shift
     orderedCoreExteriorColour m N r hmN hr
         (fun j => Sum.inl (p (t.val j))) =
       orderedTupleFirstCoordinateColour hmN (Nat.zero_lt_of_lt hr)
-        (permuteOrderedTuple p t) :=
-      orderedCoreExteriorColour_on_core m N r hmN hr _
+        (permuteOrderedTuple p t) := by
+      change orderedCoreExteriorColour m N r hmN hr
+        (fun j => Sum.inl ((permuteOrderedTuple p t).val j)) =
+        orderedTupleFirstCoordinateColour hmN (Nat.zero_lt_of_lt hr)
+          (permuteOrderedTuple p t)
+      exact orderedCoreExteriorColour_on_core m N r hmN hr _
     _ = orderedTupleFirstCoordinateColour hmN (Nat.zero_lt_of_lt hr)
         (translateInjectiveTuple 1 t) := by rw [hp]
     _ = orderedTupleFirstCoordinateColour hmN (Nat.zero_lt_of_lt hr) t + 1 :=
