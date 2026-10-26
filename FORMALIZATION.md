@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/NormalizedPartialComposition.lean` proves the full heterogeneous canonical-normalisation groupoid composition law under the exact approved `HumanTargets.IsComposition` predicate, including all representative equality casts. Build/axiom audit pending; translating to same-carrier subgroup sections and coherent ambient extensions remains.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/NormalizedPermutationComposition.lean` transports the certified groupoid composition identity into an equality of permutations of one chosen canonical representative, using explicit equality casts and proof irrelevance. Build/axiom audit pending; composition of ambient subgroup lifts and final coherent EPPA remain open.
+
+- [x] **2026-10-26 (certified at commit `bb3ee42e099d696914424e9b3b2aec8bbcb244bb`, [CI 40314830060](https://github.com/shulda/lean_eppa_reducts/actions/runs/40314830060)):** `TwoGraphs/NormalizedPartialComposition.lean` proves `normalizedPartialEquiv_composition`, full functorial composition of heterogeneous normalized partial isomorphisms under the exact approved `IsComposition` predicate, including all source/middle/target canonical-subtype casts. Build and allowed-axiom audit passed. Coherent ambient extension remains open.
 
 - [x] **2026-10-26 (certified at commit `34f1ef007e82e0be20489e64db76dbaa705b127d`, [CI 40314323730](https://github.com/shulda/lean_eppa_reducts/actions/runs/40314323730)):** `TwoGraphs/PartialCompositionEquiv.lean` proves `isComposition_subtypeEquiv`: the exact approved Option-valued partial-map composition predicate implies strict equality of the represented subtype equivalences after source/middle/target casts. Build and allowed-axiom audit passed.
 
