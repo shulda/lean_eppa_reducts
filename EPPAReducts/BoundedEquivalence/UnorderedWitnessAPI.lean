@@ -1,4 +1,4 @@
-import EPPAReducts.BoundedEquivalence.Basic
+import EPPAReducts.BoundedEquivalence.ClassShiftFixed
 import EPPAReducts.HumanTargets
 
 /-!
@@ -23,10 +23,8 @@ def mapRSubset {V W : Type} {r : ℕ}
     (ι : V ↪ W) (s : RSubsets V r) : RSubsets W r :=
   ⟨s.val.map ι, by simpa using s.property⟩
 
-/-- The action of a vertex permutation on unordered r-subsets. -/
-def permuteRSubset {V : Type} {r : ℕ}
-    (g : Equiv.Perm V) (s : RSubsets V r) : RSubsets V r :=
-  mapRSubset (embeddingOfEquiv g) s
+/-- Vertex permutations on r-subsets use the existing certified
+`permuteRSubset` action from `ClassShiftFixed.lean`. -/
 
 /-- An unlabelled equivalence relation on r-element subsets of V,
 with at most m classes. -/
