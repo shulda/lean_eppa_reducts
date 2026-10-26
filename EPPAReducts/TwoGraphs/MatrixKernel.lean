@@ -69,7 +69,8 @@ theorem rowShiftPerm_eq_implies_row_constant
     cases G x y <;> decide
   · refine ⟨true, ?_⟩
     intro y
-    have heq := congrFun hr y
+    have heq : F x y = !(G x y) := by
+      simpa only [flipValuation] using congrFun hr y
     change Bool.xor (F x y) (G x y) = true
     rw [heq]
     cases G x y <;> decide
