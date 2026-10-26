@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-26 (block-action identity/composition certified; homomorphic full-transversal lift under verification).
+**Updated:** 2026-10-26 (homomorphic full-transversal block lifts certified; conjugation to an arbitrary transversal is next).
 
 ## Scope and acceptance targets
 
@@ -20,7 +20,7 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/FullTransversalBlockLift.lean` packages canonical full-transversal lifts as combined-action classes and inflates them into actual automorphisms of `C_X` preserving identity, composition, and the prescribed action on the marked full transversal. Build and axiom audit pending; extension to an arbitrary chosen transversal via conjugation and coherentisation still open.
+- [x] **2026-10-26 (certified at commit `8e7ddef1d83802a6ec2b1ad09d37ade508da0e23`, [CI 40285640129](https://github.com/shulda/lean_eppa_reducts/actions/runs/40285640129)):** `TwoGraphs/FullTransversalBlockLift.lean` constructs faithful-class canonical lifts and `BlockCoordinates.inflatedCanonicalFullTransversalLift`, proves the lifted permutations are genuine `HumanTargets` two-graph automorphisms, map the identity to the identity, respect composition and act as prescribed on the distinguished inflated full transversal. Build and allowed-axiom audit passed. This is a homomorphic lift **only for the marked inflated transversal**. Conjugation to arbitrary embedded transversals and final coherent EPPA remain open.
 
 - [x] **2026-10-26 (certified at commit `e4acfe289fff73d60705d6435b8f16fbdefe5964`, [CI 40285183039](https://github.com/shulda/lean_eppa_reducts/actions/runs/40285183039)):** `TwoGraphs/CombinedBlockActionLaws.lean` proves `inflateCombinedActionClass_identity` and `inflateCombinedActionClass_trans`, the faithful quotient-action identity and composition laws for block inflation. Build and allowed-axiom audit passed. This is the algebraic homomorphism property, not the final subgroup section.
 
