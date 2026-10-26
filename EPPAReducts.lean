@@ -19,6 +19,7 @@ import EPPAReducts.TwoGraphs.IndexedTransversalExtension
 import EPPAReducts.TwoGraphs.PartialAutomorphismExtension
 import EPPAReducts.TwoGraphs.FiniteValuationEPPA
 import EPPAReducts.TwoGraphs.InducedSubsetIsomorphism
+import EPPAReducts.TwoGraphs.CanonicalSubsetTransport
 import EPPAReducts.TwoGraphs.ValuationQuotient
 import EPPAReducts.TwoGraphs.RawTripleParity
 import EPPAReducts.TwoGraphs.QuotientTripleParity
