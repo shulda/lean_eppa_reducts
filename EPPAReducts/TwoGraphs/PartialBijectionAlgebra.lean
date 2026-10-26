@@ -49,7 +49,13 @@ theorem inversePartialBijection_isTwoGraphPartialAutomorphism
   intro x y z
   have h := hp (p.bijection.symm x)
     (p.bijection.symm y) (p.bijection.symm z)
-  simpa only [Equiv.apply_symm_apply] using h.symm
+  have hx : p.bijection (p.bijection.symm x) = x :=
+    p.bijection.apply_symm_apply x
+  have hy : p.bijection (p.bijection.symm y) = y :=
+    p.bijection.apply_symm_apply y
+  have hz : p.bijection (p.bijection.symm z) = z :=
+    p.bijection.apply_symm_apply z
+  simpa [inversePartialBijection, hx, hy, hz] using h.symm
 
 /-- Extensional composition of literal partial bijections implies
 that the designated composite sends each source vertex to the result
