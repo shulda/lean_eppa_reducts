@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/AnyTripleParity.lean` proves the unordered triple predicate equals its labelled ternary formula for all triples, including repeated vertices. Its intended next use is an exact automorphism theorem for `valuationTwoGraph` under symmetric row-shift permutations.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/MatrixAutomorphism.lean` upgrades ternary preservation to a genuine `HumanTargets.IsTwoGraphAutomorphism` of `valuationTwoGraph X` and applies it to all symmetric matrix row shifts. Neither partial-automorphism extension nor coherent EPPA has been proved.
+
+
+- [x] **2026-10-26 (certified at commit `4f9b8eefb4ffdbf56f1d9a71d6e1968c256e3002`, [CI 40264126517](https://github.com/shulda/lean_eppa_reducts/actions/runs/40264126517)):** `TwoGraphs/AnyTripleParity.lean` proves the unordered triple predicate equals its labelled ternary formula for all triples, including repeated vertices. Build and allowed-axiom audit passed (255 declarations).
 
 
 - [x] **2026-10-26 (certified at commit `4875844ad2e471ceb6c057345bda8e78451a6393`, [CI 40263358263](https://github.com/shulda/lean_eppa_reducts/actions/runs/40263358263)):** `TwoGraphs/MatrixXor.lean` proves closure of symmetric Boolean matrices under XOR, composition of raw/quotient/vertex shifts, permutation composition, and identity. Build and allowed-axiom audit passed (252 declarations). This is the matrix subgroup law, not the full permutation-plus-matrix action or coherent EPPA.
