@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-26 (matrix subgroup proved; expanding to index permutations, full semidirect action next).
+**Updated:** 2026-10-26 (combined automorphisms CI-green; exact semidirect group law in progress).
 
 ## Scope and acceptance targets
 
@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/CombinedAutomorphism.lean` introduces the full indexed matrix action `matrixIndexPerm σ F` and certifies its automorphism property in the exact human-target API for symmetric F. The full semidirect multiplication, global-matrix kernel, EPPA, and coherent sections remain open.
+- [ ] **2026-10-26 (awaiting CI):** `TwoGraphs/CombinedGroupLaw.lean` proves the exact semidirect composition law for `matrixIndexPerm`, using the inverse-reindexed second matrix; it also proves the reverse index/matrix commutation relation. No claims about faithfulness or coherent EPPA yet.
+
+
+- [x] **2026-10-26 (certified at commit `8fe15f8d00d316fcab37eadda8115353bbeaf335`, [CI 40265970399](https://github.com/shulda/lean_eppa_reducts/actions/runs/40265970399)):** `TwoGraphs/CombinedAutomorphism.lean` introduces `matrixIndexPerm σ F`, proves closure of genuine automorphisms under composition and certifies it in the exact human-target API for symmetric F. Full semidirect multiplication, global-matrix kernel, EPPA and coherent sections remained open at this commit.
 
 
 - [x] **2026-10-26 (certified at commit `cc2c0604657742f43f52c0867d61372c863ccdba`, [CI 40265687883](https://github.com/shulda/lean_eppa_reducts/actions/runs/40265687883)):** `TwoGraphs/IndexMatrixConjugation.lean` proves the conjugation law of row shifts by index reindexing and the index-permutation composition law. Build and allowed-axiom audit passed (283 declarations). Transversal extension and coherence remain open.
