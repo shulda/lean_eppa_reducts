@@ -51,6 +51,7 @@ composition.  This is the paper's subgroup-section lemma in the
 internal valuation-transversal formulation. -/
 theorem exists_divisibleTransversal_coherentLift
     [Fintype D] [Fintype X] [Nonempty D]
+    [DecidableEq (ValuationVertex X)]
     (ι : D ↪ X)
     (hdiv : Fintype.card D ∣ Fintype.card X)
     (χ : D → Valuation X) :
