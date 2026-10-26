@@ -70,7 +70,8 @@ theorem orderedCyclicObstruction_carrierFinite
 fixing a_i is a partial automorphism of the *unlabelled* tuple
 equivalence relation. -/
 theorem orderedCyclicObstruction_partialAut
-    (m r : ℕ) (hm : 2 ≤ m) (hr : 2 ≤ r) (i : Fin r) :
+    (m r : ℕ) [Fintype (ZMod (m * r))]
+    (hm : 2 ≤ m) (hr : 2 ≤ r) (i : Fin r) :
     IsOrderedBoundedPartialAutomorphism
       (orderedCyclicObstruction m r hm hr)
       (orderedCoreOnePartialShift i) := by
@@ -97,6 +98,10 @@ theorem orderedCyclicObstruction_hasPartials
       ∃ (A : OrderedBoundedEquivalence V r m)
         (p : Fin r → PartialBijection V),
         ∀ i : Fin r, IsOrderedBoundedPartialAutomorphism A (p i) := by
+  have hpos : 0 < m * r :=
+    Nat.mul_pos (lt_of_lt_of_le (by decide : 0 < 2) hm)
+      (lt_of_lt_of_le (by decide : 0 < 2) hr)
+  letI : NeZero (m * r) := ⟨Nat.ne_of_gt hpos⟩
   exact ⟨Sum (ZMod (m * r)) (Fin r),
     orderedCyclicObstruction_carrierFinite m r hm hr,
     orderedCyclicObstruction m r hm hr,
