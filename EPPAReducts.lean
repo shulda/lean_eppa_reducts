@@ -22,6 +22,7 @@ import EPPAReducts.TwoGraphs.InducedSubsetIsomorphism
 import EPPAReducts.TwoGraphs.CanonicalSubsetTransport
 import EPPAReducts.TwoGraphs.CanonicalAmbientTransport
 import EPPAReducts.TwoGraphs.InducedSubsetGroupSections
+import EPPAReducts.TwoGraphs.PartialBijectionAlgebra
 import EPPAReducts.TwoGraphs.ValuationQuotient
 import EPPAReducts.TwoGraphs.RawTripleParity
 import EPPAReducts.TwoGraphs.QuotientTripleParity

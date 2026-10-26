@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-26 (ordinary EPPA and ambient transporter choice certified; family of subgroup sections in development).
+**Updated:** 2026-10-26 (ordinary EPPA, ambient transporters, and all subset-group sections certified; exact partial-bijection composition bridge in development).
 
 ## Scope and acceptance targets
 
@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/InducedSubsetGroupSections.lean` introduces the literal `InducedSubsetGroupSection` interface (actual automorphisms, extension, identity, composition) and proves existence of a chosen section for each induced subset, including the empty subset, under the already certified divisibility hypotheses. CI and axiom audit pending; coherentisation of arbitrary partial bijections remains open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/PartialBijectionAlgebra.lean` constructs identity and inverse literal partial bijections and proves that the exact approved Option-valued `IsComposition` condition implies the expected pointwise composition of subtype equivalences. CI/axiom audit pending; abstract coherentisation still open.
+
+- [x] **2026-10-26 (certified at commit `2d4e0faf23b157dfa8b029ba719fed5622963fa3`, [CI 40307172086](https://github.com/shulda/lean_eppa_reducts/actions/runs/40307172086)):** `TwoGraphs/InducedSubsetGroupSections.lean` packages the literal `InducedSubsetGroupSection` API, and proves simultaneous existence of homomorphic automorphism-group lifts for **every** induced subset in one C_X, including the empty subset with the identity action. Build and allowed-axiom audit passed. Generic coherentisation still outstanding.
 
 - [x] **2026-10-26 (certified at commit `1cb9645390e4d7d89fd53f4764e24ec9b82f3c28`, [CI 40306685748](https://github.com/shulda/lean_eppa_reducts/actions/runs/40306685748)):** `TwoGraphs/CanonicalAmbientTransport.lean` constructs one ambient automorphism extending the selected representative-to-subset isomorphism for each induced subset, and proves its forward and inverse actions on embedded old vertices. Build and allowed-axiom audit passed. Coherentisation itself remains open.
 
