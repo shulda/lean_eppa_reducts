@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-25 (verified raw symmetric-matrix action; quotient row-translation action under construction).
+**Updated:** 2026-10-26 (certified quotient row-translation involutions; matrix XOR law under development).
 
 ## Scope and acceptance targets
 
@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-25 (CI pending):** `TwoGraphs/QuotientRowShift.lean` descends row shifts to `ValuationClass`, proves involutivity, constructs an actual `Equiv.Perm` of valuation vertices and establishes ternary relation preservation for symmetric matrices. No full matrix-permutation group, extension lemma or coherent EPPA yet.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/MatrixXor.lean` gives closure of symmetric Boolean matrices under XOR and proves composition and identity of induced quotient-valuation permutations. This is the group-law backbone, not a full permutation-plus-matrix action or coherent EPPA.
+
+
+- [x] **2026-10-25 (certified at commit `3be6b8846c0d09ffdc2cef7f95043e8fa9c415ae`, [CI 40225502440](https://github.com/shulda/lean_eppa_reducts/actions/runs/40225502440)):** `TwoGraphs/QuotientRowShift.lean` descends row shifts to `ValuationClass`, proves involutivity, constructs an actual `Equiv.Perm` of valuation vertices and establishes ternary relation preservation for symmetric matrices. Build and allowed-axiom audit passed (241 declarations). No full matrix-permutation group, extension lemma or coherent EPPA yet.
 
 
 - [x] **2026-10-25 (certified at commit `b94335ae0af34cbba47b7d2913011c7658792e02`, [CI 40225195233](https://github.com/shulda/lean_eppa_reducts/actions/runs/40225195233)):** `TwoGraphs/SymmetricRowShift.lean` proves `rawTripleParity_symmetricRowShift` for every symmetric Boolean matrix and all triples, even repeated first coordinates. Build and allowed-axiom audit passed (231 declarations). Still missing quotient action and group law.
