@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/OrderedRootValuation.lean` orients the rooted graph edge bits using any linear order and reconstructs original triple parity from raw valuations of distinct vertices. Build/axiom audit pending; the induced embedding into the actual quotient valuation two-graph is still open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/RootedTransversalEmbedding.lean` constructs the exact induced embedding of any two-graph on a linearly ordered carrier into `valuationTwoGraph V`, including repeated vertex cases, using the approved `HumanTargets` predicate. Build/axiom audit pending; order choice on arbitrary finite V and embedding into the larger LCM index set remain.
+
+- [x] **2026-10-26 (certified at commit `2a2fbd185f73d1631ed95c1389db7df14809d4d6`, [CI 40293085365](https://github.com/shulda/lean_eppa_reducts/actions/runs/40293085365)):** `TwoGraphs/OrderedRootValuation.lean` proves pairwise XOR encodes every rooted graph edge and raw three-valuation parity equals each original triple on three distinct vertices (`orderedRootValuation_pairXor`, `orderedRootValuation_rawTripleParity`). Build and allowed-axiom audit passed. It still assumes a chosen linear order and has not yet established a literal induced embedding into the quotient witness.
 
 - [x] **2026-10-26 (certified at commit `5c392f5947eeff306e1e96a35ccbb312018bdee9`, [CI 40292640982](https://github.com/shulda/lean_eppa_reducts/actions/runs/40292640982)):** `TwoGraphs/RootedGraphRepresentative.lean` proves `rootedGraph_adj_iff_triple`, `rootedGraph_edgeBit_eq_rootTriple`, and `rootedGraph_represents_twoGraph`: for every input two-graph and every root, the constructed *actual* Mathlib SimpleGraph has odd-edge triangles exactly the original distinguished genuine triples. Build and allowed-axiom audit passed. No restriction on input cardinality.
 
