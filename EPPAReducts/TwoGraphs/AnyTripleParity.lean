@@ -29,7 +29,7 @@ theorem unorderedTripleParity_on_any_three
       exact Nat.ne_of_lt (lt_of_le_of_lt hle (by decide))
     have hleft :
         unorderedTripleParity ({a, a, c} : Finset (ValuationVertex X)) = false := by
-      simp [unorderedTripleParity, hn]
+      simp only [unorderedTripleParity, dif_neg hn]
     exact hleft.trans (vertexTripleParity_duplicate_first a c).symm
   by_cases hac : a = c
   · subst c
@@ -44,7 +44,7 @@ theorem unorderedTripleParity_on_any_three
       exact Nat.ne_of_lt (lt_of_le_of_lt hle (by decide))
     have hleft :
         unorderedTripleParity ({a, b, a} : Finset (ValuationVertex X)) = false := by
-      simp [unorderedTripleParity, hn]
+      simp only [unorderedTripleParity, dif_neg hn]
     calc
       unorderedTripleParity ({a, b, a} : Finset (ValuationVertex X)) = false := hleft
       _ = vertexTripleParity a a b := (vertexTripleParity_duplicate_first a b).symm
@@ -58,7 +58,7 @@ theorem unorderedTripleParity_on_any_three
       exact Nat.ne_of_lt (lt_of_le_of_lt hle (by decide))
     have hleft :
         unorderedTripleParity ({a, b, b} : Finset (ValuationVertex X)) = false := by
-      simp [unorderedTripleParity, hn]
+      simp only [unorderedTripleParity, dif_neg hn]
     exact hleft.trans (vertexTripleParity_duplicate_last a b).symm
   exact unorderedTripleParity_on_three a b c hab hac hbc
 
