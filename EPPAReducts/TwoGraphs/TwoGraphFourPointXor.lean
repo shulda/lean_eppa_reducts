@@ -21,7 +21,7 @@ open EPPAReducts.HumanTargets
 on any four distinct vertices of any two-graph, not just the constructed
 valuation witness. -/
 theorem twoGraph_fourPointXor
-    {V : Type} [DecidableEq V] (A : TwoGraph V)
+    {V : Type} (A : TwoGraph V)
     (a b c d : V)
     (hab : a ≠ b) (hac : a ≠ c) (had : a ≠ d)
     (hbc : b ≠ c) (hbd : b ≠ d) (hcd : c ≠ d) :
