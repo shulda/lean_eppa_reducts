@@ -82,6 +82,6 @@ theorem canonicalSubsetAmbientTransport_symm_on_subset
   have h := canonicalSubsetAmbientTransport_on_representative
     A ι χ hind s ((chosenInducedTransport A s).symm v)
   simpa only [Equiv.apply_symm_apply] using
-    congrArg (canonicalSubsetAmbientTransport A ι χ hind s).symm h
+    (congrArg (canonicalSubsetAmbientTransport A ι χ hind s).symm h).symm
 
 end EPPAReducts.TwoGraphs
