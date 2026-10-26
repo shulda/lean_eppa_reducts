@@ -110,6 +110,15 @@ import EPPAReducts.BoundedEquivalence.OrderedKernelAutGroup
 import EPPAReducts.BoundedEquivalence.OrderedCorePointwiseNormalizer
 import EPPAReducts.BoundedEquivalence.OrderedClassShiftFixed
 import EPPAReducts.BoundedEquivalence.OrderedTupleKernelPartial
+import EPPAReducts.BoundedEquivalence.FiniteCoreLabels
+import EPPAReducts.BoundedEquivalence.OrderedInducedColours
+import EPPAReducts.BoundedEquivalence.OrderedWitnessAPI
+import EPPAReducts.BoundedEquivalence.OrderedCoreTransport
+import EPPAReducts.BoundedEquivalence.OrderedGlobalColourAction
+import EPPAReducts.BoundedEquivalence.OrderedColourTranslationFixed
+import EPPAReducts.BoundedEquivalence.OrderedCoreCosetCollision
+import EPPAReducts.BoundedEquivalence.OrderedExteriorLabels
+import EPPAReducts.BoundedEquivalence.OrderedOldCoreShift
 
 /-!
 # EPPA for reducts
