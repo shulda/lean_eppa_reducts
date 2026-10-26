@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/FactorialRootedWitness.lean` packages a single valuation two-graph C_X containing an induced copy of any nonempty finite A, together with the divisibility of every nonempty induced subset cardinality by |X|, for X = Fin(|V|!). Build and axiom audit pending; ordinary EPPA transfer, subgroup API bridge and coherentisation remain open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/EmbeddedSubtypePreservation.lean` proves any permutation of an induced substructure of the original input preserving literal two-graph triples also satisfies the raw embedded-transversal preservation predicate for the same witness C_X. Build/axiom audit pending; the full subgroup section and abstract coherentisation bridges remain open.
+
+- [x] **2026-10-26 (certified at commit `2f1c40ce2252aa13bf5071b85a9e8d8a50797e3c`, [CI 40295959770](https://github.com/shulda/lean_eppa_reducts/actions/runs/40295959770)):** `TwoGraphs/FactorialRootedWitness.lean` proves `exists_factorialRootedTransversal`: on X = Fin(|V|!) it packages one **induced** input-two-graph transversal and the divisibility of every nonempty induced subset cardinality by |X|. Build and allowed-axiom audit passed. This is a candidate witness carrier, not yet EPPA or coherent EPPA.
 
 - [x] **2026-10-26 (certified at commit `48eb7d4627d5a981dd2a48cbe2639f6b2b97d2ca`, [CI 40295535515](https://github.com/shulda/lean_eppa_reducts/actions/runs/40295535515)):** `TwoGraphs/FiniteCommonIndex.lean` constructs `factorialIndexEmbedding : V ↪ Fin(|V|!)` for every finite V, and proves `card_nonempty_subtype_dvd_index` for every nonempty induced subset. Build and allowed-axiom audit passed. This is a larger common multiple than the manuscript's LCM, not a weakening of the approved existential EPPA target.
 

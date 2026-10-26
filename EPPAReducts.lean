@@ -13,6 +13,7 @@ import EPPAReducts.TwoGraphs.FiniteRootedTransversal
 import EPPAReducts.TwoGraphs.IndexedRootedTransversal
 import EPPAReducts.TwoGraphs.FiniteCommonIndex
 import EPPAReducts.TwoGraphs.FactorialRootedWitness
+import EPPAReducts.TwoGraphs.EmbeddedSubtypePreservation
 import EPPAReducts.TwoGraphs.ValuationQuotient
 import EPPAReducts.TwoGraphs.RawTripleParity
 import EPPAReducts.TwoGraphs.QuotientTripleParity
