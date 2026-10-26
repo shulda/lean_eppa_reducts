@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-26 (ordinary EPPA, ambient transporters, and all subset-group sections certified; exact partial-bijection composition bridge in development).
+**Updated:** 2026-10-26 (ordinary EPPA, all subgroup sections, and literal partial-bijection composition certified; normalized representative automorphisms in development).
 
 ## Scope and acceptance targets
 
@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/PartialBijectionAlgebra.lean` constructs identity and inverse literal partial bijections and proves that the exact approved Option-valued `IsComposition` condition implies the expected pointwise composition of subtype equivalences. CI/axiom audit pending; abstract coherentisation still open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/NormalizedPartialAutomorphism.lean` constructs the total permutation of the source's chosen canonical representative associated to any literal partial automorphism, and proves that it preserves the original induced two-graph. Build/axiom audit pending; identity, composition and coherent ambient assembly are still open.
+
+- [x] **2026-10-26 (certified at commit `d223a5e088f17d6c3315cbb02dd7456cb389e3c2`, [CI 40308672135](https://github.com/shulda/lean_eppa_reducts/actions/runs/40308672135)):** `TwoGraphs/PartialBijectionAlgebra.lean` proves the identity and inverse literal partial bijections preserve A, and `isComposition_bijection_apply` bridges the exact approved Option-valued IsComposition relation to pointwise composition of actual subtype equivalences. Build and allowed-axiom audit passed.
 
 - [x] **2026-10-26 (certified at commit `2d4e0faf23b157dfa8b029ba719fed5622963fa3`, [CI 40307172086](https://github.com/shulda/lean_eppa_reducts/actions/runs/40307172086)):** `TwoGraphs/InducedSubsetGroupSections.lean` packages the literal `InducedSubsetGroupSection` API, and proves simultaneous existence of homomorphic automorphism-group lifts for **every** induced subset in one C_X, including the empty subset with the identity action. Build and allowed-axiom audit passed. Generic coherentisation still outstanding.
 
