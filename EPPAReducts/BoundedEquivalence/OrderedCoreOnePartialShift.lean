@@ -62,7 +62,7 @@ theorem orderedCoreShift_mem_coreOne_iff {N r : ℕ} [Fintype (ZMod N)]
     (a : Fin r) (v : Sum (ZMod N) (Fin r)) :
     orderedCoreShift v ∈ orderedCoreOne a ↔ v ∈ orderedCoreOne a := by
   cases v with
-  | inl x => simp
+  | inl x => simp [orderedCoreShift]
   | inr j => simp [orderedCoreShift]
 
 theorem orderedCoreUnshift_mem_coreOne_iff {N r : ℕ} [Fintype (ZMod N)]
