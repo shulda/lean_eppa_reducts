@@ -35,9 +35,13 @@ theorem twoGraph_triple_false_of_repeat
     · subst b
       by_cases hac : a = c <;> simp [triple, hac]
     · subst c
-      by_cases hab : a = b <;> simp [triple, hab]
+      by_cases hab : a = b
+      · simp [triple, hab]
+      · simp [triple, hab, Ne.symm hab]
     · subst c
-      by_cases hab : a = b <;> simp [triple, hab]
+      by_cases hab : a = b
+      · simp [triple, hab]
+      · simp [triple, hab, Ne.symm hab]
   cases hv : A.isTriple (triple a b c) with
   | false => rfl
   | true => exact False.elim (hcard (A.onlyTriples _ hv))
