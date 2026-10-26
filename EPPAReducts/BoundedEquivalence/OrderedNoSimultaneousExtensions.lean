@@ -96,8 +96,8 @@ theorem orderedCyclicCore_exterior_extensions_impossible
   have hcore (i : Fin (b + 1)) (s : ZMod (m * (b + 1))) :
       g i ((orderedEmbeddedCore ι) s) =
         (orderedEmbeddedCore ι) ((orderedUnitCorePerm (m * (b + 1))) s) := by
-    simpa [orderedEmbeddedCore, orderedUnitCorePerm,
-      orderedColourTranslationPerm] using hgcore i s
+    change g i (ι (Sum.inl s)) = ι (Sum.inl (s + 1))
+    exact hgcore i s
   let a : Fin (b + 1) ↪ W :=
     ⟨fun i => ι (Sum.inr i), by
       intro i j h
