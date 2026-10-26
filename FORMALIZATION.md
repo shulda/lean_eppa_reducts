@@ -3,7 +3,7 @@
 **Repository:** `shulda/lean_eppa_reducts` (**not** any other EPPA project).
 **Source of mathematical claims:** private Project source `eppa_reducts8.tex`; not tracked by Git.
 **Confidentiality rule:** never push LaTeX, bibliography, manuscript extracts, or an internal detailed proof manuscript to this public repository before explicit author approval.
-**Updated:** 2026-10-26 (common ambient transversal conjugator certified; conjugated subgroup lifts under verification).
+**Updated:** 2026-10-26 (conjugated marked subgroup lifts certified; general cardinal-divisibility subgroup section under verification).
 
 ## Scope and acceptance targets
 
@@ -20,7 +20,9 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/ConjugatedTransversalLift.lean` defines conjugated homomorphic lifts on arbitrary chosen marked transversals, proves preservation of the actual two-graph, extension on the marked transversal, identity and composition. Build and axiom audit pending; general cardinal-divisibility packaging and coherentisation still open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/DivisibleTransversalSection.lean` packages the subgroup section for every finite nonempty D↪X with `|D|∣|X|`, using raw induced-automorphism preservation of its arbitrarily chosen original transversal. Build/axiom audit pending; abstract coherentisation and arbitrary two-graph representation still open.
+
+- [x] **2026-10-26 (certified at commit `9e38bee989a839f041c8b3a22658fe6a229eca92`, [CI 40287552542](https://github.com/shulda/lean_eppa_reducts/actions/runs/40287552542)):** `TwoGraphs/ConjugatedTransversalLift.lean` defines `conjugatedMarkedLift` with a single fixed ambient conjugator and proves the lifted permutations are genuine two-graph automorphisms, map every original marked transversal vertex as prescribed, send identity to identity and preserve composition. Build and allowed-axiom audit passed. The final coherent EPPA theorem remains open.
 
 - [x] **2026-10-26 (certified at commit `d6044410ac4fb8242b8599bbaba48208aba5006e`, [CI 40287066572](https://github.com/shulda/lean_eppa_reducts/actions/runs/40287066572)):** `TwoGraphs/TransversalConjugator.lean` proves `exists_conjugatingAutomorphism`: a single genuine ambient automorphism of `C_X` maps the inflated restricted marked D-transversal to its original chosen X-valuations. Build and allowed-axiom audit passed. No conjugated homomorphism was yet defined.
 
