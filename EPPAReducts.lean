@@ -102,6 +102,7 @@ import EPPAReducts.BoundedEquivalence.OrderedTupleFirstCoordinateColour
 import EPPAReducts.BoundedEquivalence.OrderedCyclicCore
 import EPPAReducts.BoundedEquivalence.OrderedCoreExteriorColour
 import EPPAReducts.BoundedEquivalence.OrderedCoreExteriorSupport
+import EPPAReducts.BoundedEquivalence.OrderedCoreOnePartialShift
 import EPPAReducts.BoundedEquivalence.OrderedTupleKernelPartial
 
 /-!
