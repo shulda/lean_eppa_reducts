@@ -15,7 +15,7 @@ labelling from a hypothetical ordinary EPPA witness.
 namespace EPPAReducts.BoundedEquivalence
 
 /-- A normalized auxiliary colouring on any finite extension of the
-explicit ordered cyclic obstruction cannot admit r automorphisms
+explicit ordered cyclic obstruction cannot support r automorphisms
 which all shift the old core by one and individually fix the r
 distinct exterior vertices. Neither the structure nor its
 automorphisms have named colour relations. -/
