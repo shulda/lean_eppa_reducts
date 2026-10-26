@@ -107,6 +107,7 @@ import EPPAReducts.BoundedEquivalence.OrderedExteriorColourDistinction
 import EPPAReducts.BoundedEquivalence.OrderedCoreColourClasses
 import EPPAReducts.BoundedEquivalence.OrderedTupleKernelPartial
 import EPPAReducts.BoundedEquivalence.OrderedKernelAutGroup
+import EPPAReducts.BoundedEquivalence.OrderedClassShiftFixed
 
 /-!
 # EPPA for reducts
