@@ -86,6 +86,7 @@ import EPPAReducts.TwoGraphs.TransversalConjugator
 import EPPAReducts.TwoGraphs.ConjugatedTransversalLift
 import EPPAReducts.TwoGraphs.DivisibleTransversalSection
 import EPPAReducts.BoundedEquivalence.Basic
+import EPPAReducts.BoundedEquivalence.UnorderedWitnessAPI
 import EPPAReducts.BoundedEquivalence.UnlabelledZModPresentation
 import EPPAReducts.BoundedEquivalence.LabelEquiv
 import EPPAReducts.BoundedEquivalence.CoreLabelAction
