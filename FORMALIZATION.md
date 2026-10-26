@@ -20,7 +20,10 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
-- [ ] **2026-10-26 (CI pending):** `TwoGraphs/TransversalDiscrepancy.lean` defines source/target pair parities and discrepancies for arbitrary labelled transversal maps, proves raw triple-parity preservation implies the discrepancy triangle equation, and obtains a cut potential for nonempty domains. Further bridge from induced two-graph partial isomorphisms and construction of the symmetric extension matrix remain open.
+- [ ] **2026-10-26 (CI pending):** `TwoGraphs/TransversalRowPrescription.lean` gives the exact Boolean consistency equation for row prescriptions from a cut potential, and proves that the prescribed entries on a source transversal are symmetric. This supplies the main algebraic compatibility of the future full symmetric matrix lift.
+
+
+- [x] **2026-10-26 (certified at commit `197b9afa0b187cc813d1eea5f3d5ba8135226631`, [CI 40271418117](https://github.com/shulda/lean_eppa_reducts/actions/runs/40271418117)):** `TwoGraphs/TransversalDiscrepancy.lean` proves that equality of source/target raw triple parity implies the pair-discrepancy triangle cocycle condition and a cut potential on nonempty domains. Build and allowed-axiom audit passed (335 declarations). Matrix extension and bridge to literal partial isomorphisms remain open.
 
 
 - [x] **2026-10-26 (certified at commit `cb6c466af6d6ac8dee17b6ab1600d2d8fbe09c71`, [CI 40271131368](https://github.com/shulda/lean_eppa_reducts/actions/runs/40271131368)):** `TwoGraphs/CutPotential.lean` proves the Boolean triangle-cocycle/cut-potential equivalence on nonempty types, without finiteness. Build and allowed-axiom audit passed (329 declarations). Actual transversal extension still open.
