@@ -42,6 +42,6 @@ The existing finite graph-modulo-complementation obstruction rules this out. Thi
 
 ## Certification and limits
 
-[Full main build and allowed-axiom audit #40517057037](https://github.com/shulda/lean_eppa_reducts/actions/runs/40517057037) passed on [commit 3f35830e3493](https://github.com/shulda/lean_eppa_reducts/commit/3f35830e34938d91fd082c5f9c9ef47b8e371c98) with **1,290 declarations**, using only Lean's standard logical axioms \`propext\`, \`Classical.choice\` and \`Quot.sound\`. The final rooting and no-EPPA conclusions have **no unproved hypothesis**.
+[Full main build and allowed-axiom audit #40517057037](https://github.com/shulda/lean_eppa_reducts/actions/runs/40517057037) passed on [commit 3f35830e3493](https://github.com/shulda/lean_eppa_reducts/commit/3f35830e34938d91fd082c5f9c9ef47b8e371c98) with **1,290 declarations**, using only Lean's standard logical axioms `propext`, `Classical.choice` and `Quot.sound`. The final rooting and no-EPPA conclusions have **no unproved hypothesis**.
 
 The private paper's six-vertex *illustration* of the graph obstruction has not been checked as a separate theorem: the general formally verified obstruction is more than sufficient. The classical external assertion that these five classes are *all* first-order reducts of the countable random graph is a different theorem and is **not** proved here.
