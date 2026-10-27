@@ -2,6 +2,7 @@ import AllThoseEPPA.EPPA
 import EPPAReducts.HumanTargets
 import EPPAReducts.TwoGraphs.Basic
 import EPPAReducts.TwoGraphs.RootedCocycle
+import EPPAReducts.TwoGraphs.RootingParity
 import EPPAReducts.TwoGraphs.RootedGraph
 import EPPAReducts.TwoGraphs.TwoGraphFourPointXor
 import EPPAReducts.TwoGraphs.RootedParityAway
@@ -149,8 +150,10 @@ import EPPAReducts.BoundedEquivalence.OrderedNoEPPAWitness
 
 This is the build root. The coherent EPPA theorem for all finite
 two-graphs is proved in TwoGraphs.FiniteCoherentEPPA, including the
-exact approved HumanTargets statement. The general negative EPPA
-theorem for bounded equivalences remains open.
+exact approved HumanTargets statement. The ordered and unordered bounded-equivalence non-EPPA theorems,
+including the pair-class human target, are also fully proved.
+The additional rooting reduction and five-reduct classification
+are being formalized separately.
 -/
 
 namespace EPPAReducts
