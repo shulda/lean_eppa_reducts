@@ -19,16 +19,44 @@ abbrev RootLiftDomain {V : Type} (p : PartialBijection V) :=
   {u : Option V // u ∈ rootedSupport p.source}
 
 /-- The original vertex map on the domain containing the root. -/
-def rootLiftSource {V : Type} (p : PartialBijection V) :
+noncomputable def rootLiftSource {V : Type} (p : PartialBijection V) :
     RootLiftDomain p ↪ Option V :=
   subtypeEmbedding (rootedSupport p.source)
 
 /-- The lifted partial map, evaluated as an injective map into the
 same root-adjoined carrier. -/
-def rootLiftTarget {V : Type} (p : PartialBijection V) :
+noncomputable def rootLiftTarget {V : Type} (p : PartialBijection V) :
     RootLiftDomain p ↪ Option V :=
   equivThenEmbedding (liftRootPartial p).bijection
     (subtypeEmbedding (rootedSupport p.target))
+
+/-- Direct evaluation of the two rooted embeddings. Keeping the maps opaque
+when rewriting avoids instance-sensitive semireducible subtype casts. -/
+@[simp] theorem rootLiftSource_none {V : Type}
+    (p : PartialBijection V) (h : none ∈ rootedSupport p.source) :
+    rootLiftSource p ⟨none, h⟩ = none := rfl
+
+@[simp] theorem rootLiftSource_some {V : Type}
+    (p : PartialBijection V) (x : V)
+    (h : some x ∈ rootedSupport p.source) :
+    rootLiftSource p ⟨some x, h⟩ = some x := rfl
+
+@[simp] theorem rootLiftTarget_none {V : Type}
+    (p : PartialBijection V) (h : none ∈ rootedSupport p.source) :
+    rootLiftTarget p ⟨none, h⟩ = none := by
+  change ((liftRootPartial p).bijection ⟨none, h⟩).val = none
+  simpa using liftRootPartial_root p
+
+@[simp] theorem rootLiftTarget_some {V : Type}
+    (p : PartialBijection V) (x : V)
+    (h : some x ∈ rootedSupport p.source) :
+    rootLiftTarget p ⟨some x, h⟩ =
+      some ((p.bijection ⟨x, (mem_rootedSupport_some p.source x).mp h⟩).val) := by
+  change ((liftRootPartial p).bijection ⟨some x, h⟩).val =
+    some ((p.bijection
+      ⟨x, (mem_rootedSupport_some p.source x).mp h⟩).val)
+  simpa using liftRootPartial_old p x
+    ((mem_rootedSupport_some p.source x).mp h)
 
 /-- The root-supported gauge term is δ at the new root, zero elsewhere. -/
 def rootGauge {V : Type} (p : PartialBijection V)
@@ -61,14 +89,6 @@ theorem rootLift_pairGauge
         {rootLiftSource p u, rootLiftSource p v}) +
           boolBit δ + rootGauge p δ u + rootGauge p δ v := by
   classical
-  change
-    boolBit (rootedPairBit c
-      {((liftRootPartial p).bijection u).val,
-        ((liftRootPartial p).bijection v).val}) =
-    boolBit (rootedPairBit c {u.val, v.val}) +
-      boolBit δ +
-      (if u.val = none then boolBit δ else 0) +
-      (if v.val = none then boolBit δ else 0)
   rcases u with ⟨u, hu⟩
   rcases v with ⟨v, hv⟩
   cases u with
@@ -79,30 +99,22 @@ theorem rootLift_pairGauge
       | some y =>
           have hy : y ∈ p.source :=
             (mem_rootedSupport_some p.source y).mp hv
-          have hr :
-              ((liftRootPartial p).bijection ⟨none, hu⟩).val = none := by
-            simpa using liftRootPartial_root p
-          have hy' :
-              ((liftRootPartial p).bijection ⟨some y, hv⟩).val =
-                some ((p.bijection ⟨y, hy⟩).val) := by
-            simpa using liftRootPartial_old p y hy
-          rw [hr, hy']
+          rw [rootLiftTarget_none p hu,
+            rootLiftTarget_some p y hv,
+            rootLiftSource_none p hu,
+            rootLiftSource_some p y hv]
           simp only [if_true, Option.some_ne_none, ↓reduceIte,
             rootedPairBit_root]
           simp [twice_zmod2]
   | some x =>
       have hx : x ∈ p.source :=
         (mem_rootedSupport_some p.source x).mp hu
-      have hx' :
-          ((liftRootPartial p).bijection ⟨some x, hu⟩).val =
-            some ((p.bijection ⟨x, hx⟩).val) := by
-        simpa using liftRootPartial_old p x hx
       cases v with
       | none =>
-          have hr :
-              ((liftRootPartial p).bijection ⟨none, hv⟩).val = none := by
-            simpa using liftRootPartial_root p
-          rw [hr, hx']
+          rw [rootLiftTarget_some p x hu,
+            rootLiftTarget_none p hv,
+            rootLiftSource_some p x hu,
+            rootLiftSource_none p hv]
           have swap (y : V) :
               ({some y, none} : Finset (Option V)) =
                 ({none, some y} : Finset (Option V)) := by
@@ -118,10 +130,6 @@ theorem rootLift_pairGauge
             intro h
             subst y
             exact huv (by rfl)
-          have hy' :
-              ((liftRootPartial p).bijection ⟨some y, hv⟩).val =
-                some ((p.bijection ⟨y, hy⟩).val) := by
-            simpa using liftRootPartial_old p y hy
           let px : V := (p.bijection ⟨x, hx⟩).val
           let py : V := (p.bijection ⟨y, hy⟩).val
           have hpxy : px ≠ py := by
@@ -153,7 +161,10 @@ theorem rootLift_pairGauge
           rw [hsrc, hdst] at hcol
           have hb := congrArg boolBit hcol
           rw [boolBit_xor] at hb
-          rw [hx', hy']
+          rw [rootLiftTarget_some p x hu,
+            rootLiftTarget_some p y hv,
+            rootLiftSource_some p x hu,
+            rootLiftSource_some p y hv]
           rw [rootedPairBit_old c px py hpxy,
               rootedPairBit_old c x y hxy]
           simpa [px, py] using hb
