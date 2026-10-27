@@ -119,4 +119,82 @@ theorem zmod_colour_surjective_of_shift
   rw [ZMod.natCast_zmod_val]
   abel
 
+
+/-- Every t ≤ N with N positive has a genuine unordered t-subset
+of the cyclic carrier, including the empty subset for t=0. -/
+theorem zmod_rSubsets_nonempty
+    (N t : ℕ) (hN : 0 < N) (ht : t ≤ N) :
+    Nonempty (RSubsets (ZMod N) t) := by
+  classical
+  letI : NeZero N := ⟨Nat.ne_of_gt hN⟩
+  have hcard : t ≤ (Finset.univ : Finset (ZMod N)).card := by
+    simpa only [Finset.card_univ, ZMod.card] using ht
+  obtain ⟨s, _, hs⟩ := Finset.exists_subset_card_eq hcard
+  exact ⟨⟨s, hs⟩⟩
+
+/-- Whenever the cyclic core is big enough for a t-subset, the
+explicit cyclic-sum colouring realizes ALL m auxiliary classes. -/
+theorem unorderedCyclicSumColour_surjective
+    (N m t : ℕ) (hN : 0 < N) (hm : 2 ≤ m)
+    (ht : 0 < t) (htN : t ≤ N) (hdiv : m * t ∣ N) :
+    Function.Surjective (unorderedCyclicSumColour hdiv) := by
+  letI : NeZero N := ⟨Nat.ne_of_gt hN⟩
+  obtain ⟨u⟩ := zmod_rSubsets_nonempty N t hN htN
+  exact zmod_colour_surjective_of_shift m (by omega)
+    u (fun s => permuteRSubset
+      (orderedColourTranslationPerm (1 : ZMod N)) s)
+    (unorderedCyclicSumColour hdiv)
+    (unorderedCyclicSumColour_translate_one N m t hm ht hdiv)
+
+/-- A common cyclic core large enough for the two subset sizes
+r and r-1 and divisible by m times BOTH of those lengths. -/
+def unorderedCommonCoreSize (m r : ℕ) : ℕ :=
+  m * r * (r - 1)
+
+theorem unorderedCommonCoreSize_pos
+    (m r : ℕ) (hm : 2 ≤ m) (hr : 2 ≤ r) :
+    0 < unorderedCommonCoreSize m r := by
+  unfold unorderedCommonCoreSize
+  exact Nat.mul_pos (Nat.mul_pos (by omega) (by omega)) (by omega)
+
+theorem unorderedCommonCoreSize_ge
+    (m r : ℕ) (hm : 2 ≤ m) (hr : 2 ≤ r) :
+    r ≤ unorderedCommonCoreSize m r := by
+  have h1 : 1 ≤ m := by omega
+  have h2 : 1 ≤ r - 1 := by omega
+  calc
+    r = 1 * r * 1 := by omega
+    _ ≤ m * r * (r - 1) :=
+      Nat.mul_le_mul (Nat.mul_le_mul_right r h1) h2
+
+theorem unorderedCommonCoreSize_dvd_r
+    (m r : ℕ) :
+    m * r ∣ unorderedCommonCoreSize m r :=
+  ⟨r - 1, rfl⟩
+
+theorem unorderedCommonCoreSize_dvd_pred
+    (m r : ℕ) :
+    m * (r - 1) ∣ unorderedCommonCoreSize m r := by
+  refine ⟨r, ?_⟩
+  simp [unorderedCommonCoreSize, mul_comm, mul_left_comm, mul_assoc]
+
+/-- The same cyclic core supports surjective +1-equivariant
+unordered subset colourings at BOTH arities needed for the
+finite non-EPPA obstruction. -/
+theorem unorderedCommonCore_two_surjective_colours
+    (m r : ℕ) (hm : 2 ≤ m) (hr : 2 ≤ r) :
+    Function.Surjective
+      (unorderedCyclicSumColour (unorderedCommonCoreSize_dvd_r m r)) ∧
+    Function.Surjective
+      (unorderedCyclicSumColour (unorderedCommonCoreSize_dvd_pred m r)) := by
+  have hN := unorderedCommonCoreSize_pos m r hm hr
+  have hrN := unorderedCommonCoreSize_ge m r hm hr
+  constructor
+  · exact unorderedCyclicSumColour_surjective
+      (unorderedCommonCoreSize m r) m r
+      hN hm (by omega) hrN (unorderedCommonCoreSize_dvd_r m r)
+  · exact unorderedCyclicSumColour_surjective
+      (unorderedCommonCoreSize m r) m (r - 1)
+      hN hm (by omega) (by omega) (unorderedCommonCoreSize_dvd_pred m r)
+
 end EPPAReducts.BoundedEquivalence
