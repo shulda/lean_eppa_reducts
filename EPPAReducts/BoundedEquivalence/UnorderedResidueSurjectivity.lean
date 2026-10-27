@@ -59,7 +59,7 @@ def unorderedResidueWitness
   have hnot : last ∉ F :=
     unorderedResidue_last_not_mem N t hbound i
   refine ⟨insert last F, ?_⟩
-  rw [Finset.card_insert_of_not_mem hnot]
+  rw [Finset.card_insert_of_notMem hnot]
   have hc : F.card = t - 1 := by
     change ((Finset.univ : Finset (Fin (t - 1))).map
       (unorderedResidueSmallEmbedding N t hbound)).card = t - 1
@@ -85,8 +85,8 @@ theorem unorderedResidueWitness_value
     ((t - 1 + i.val : ℕ) : ZMod t) +
       (ZMod.cast
         ((unorderedResidueFirstSet N t hbound).sum id) : ZMod t)
-  rw [Finset.sum_insert hnot, ZMod.cast_add hdiv,
-    ZMod.cast_natCast hdiv]
+  rw [Finset.sum_insert hnot, ZMod.cast_add hdiv]
+  simp only [id_eq, ZMod.cast_natCast hdiv]
 
 /-- All t residues occur, so the indicator functions in the
 previous module can be used unconditionally on a sufficiently
@@ -100,7 +100,7 @@ theorem unorderedSubsetResidue_surjective
     (ZMod.castHom hdiv (ZMod t))
       ((unorderedResidueFirstSet N t hbound).sum id)
   intro c
-  let i : Fin t := ⟨(c - C - (t - 1 : ZMod t)).val,
+  let i : Fin t := ⟨(c - C - (((t - 1 : ℕ) : ZMod t))).val,
     ZMod.val_lt _⟩
   refine ⟨unorderedResidueWitness N t hbound i, ?_⟩
   calc
@@ -112,7 +112,7 @@ theorem unorderedSubsetResidue_surjective
       abel
     _ = c := by
       change ((t - 1 : ℕ) : ZMod t) +
-        (((c - C - (t - 1 : ZMod t)).val : ℕ) : ZMod t) + C = c
+        (((c - C - (((t - 1 : ℕ) : ZMod t))).val : ℕ) : ZMod t) + C = c
       rw [ZMod.natCast_zmod_val]
       abel
 
