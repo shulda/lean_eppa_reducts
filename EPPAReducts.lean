@@ -88,6 +88,7 @@ import EPPAReducts.TwoGraphs.DivisibleTransversalSection
 import EPPAReducts.BoundedEquivalence.Basic
 import EPPAReducts.BoundedEquivalence.UnorderedWitnessAPI
 import EPPAReducts.BoundedEquivalence.UnorderedCyclicSumColour
+import EPPAReducts.BoundedEquivalence.UnorderedResidueExteriorTypes
 import EPPAReducts.BoundedEquivalence.UnorderedGraphTargetBridge
 import EPPAReducts.BoundedEquivalence.UnlabelledZModPresentation
 import EPPAReducts.BoundedEquivalence.LabelEquiv
