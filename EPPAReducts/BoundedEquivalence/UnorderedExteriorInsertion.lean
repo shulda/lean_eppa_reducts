@@ -34,7 +34,8 @@ noncomputable def unorderedInsertExterior
 /-- The carrier of the inserted subset is the literal insertion,
 not merely an abstract isomorphic copy. -/
 theorem unorderedInsertExterior_val
-    {S E : Type} {t : ℕ} (core : RSubsets S t) (i : E) :
+    {S E : Type} [DecidableEq S] [DecidableEq E]
+    {t : ℕ} (core : RSubsets S t) (i : E) :
     (unorderedInsertExterior core i).val =
       insert (Sum.inr i)
         (core.val.map (unorderedCoreInclusion (S := S) (E := E))) := by
