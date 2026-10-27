@@ -17,7 +17,7 @@ def unorderedCoreInclusion {S E : Type} : S ↪ Sum S E :=
   ⟨Sum.inl, Sum.inl_injective⟩
 
 /-- Insert one exterior vertex into a core t-subset. -/
-def unorderedInsertExterior
+noncomputable def unorderedInsertExterior
     {S E : Type} {t : ℕ}
     (core : RSubsets S t) (i : E) :
     RSubsets (Sum S E) (t + 1) := by
@@ -37,7 +37,9 @@ theorem unorderedInsertExterior_val
     {S E : Type} {t : ℕ} (core : RSubsets S t) (i : E) :
     (unorderedInsertExterior core i).val =
       insert (Sum.inr i)
-        (core.val.map (unorderedCoreInclusion (S := S) (E := E))) := rfl
+        (core.val.map (unorderedCoreInclusion (S := S) (E := E))) := by
+  classical
+  rfl
 
 /-- A pointwise core-fixing ambient permutation transporting one
 exterior vertex transports every corresponding core-plus-exterior
