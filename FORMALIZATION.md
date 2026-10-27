@@ -20,6 +20,8 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
+- [ ] **2026-10-27 (CI pending):** `UnorderedResidueSurjectivity.lean` attempts an explicit family of t-subsets of `ZMod N` with every possible subset-sum residue modulo t, whenever t>0 and N≥2t, proving `unorderedSubsetResidue_surjective`. If certified this discharges the hypothesis of `unorderedResidueExteriorTypes_injective` for the common core. Still not a finite EPPA obstruction.
+
 - [ ] **2026-10-27 (stacked proof candidate, CI pending):** `UnorderedResidueExteriorTypes.lean` defines the sum of a t-subset reduced modulo t, proves its invariance under cyclic translation, and shows that perturbing the already certified equivariant sum-colouring on different residue fibres gives injectively many distinct equivariant exterior types, **conditional on surjectivity of the residue map**. Proving that last hypothesis on the common core and adding the unperturbed base colour remain open. This is not EPPA.
 
 - [ ] **2026-10-27 (extended proof candidate, CI pending):** `UnorderedCyclicSumColour.lean` additionally constructs the common cyclic core of order `m*r*(r-1)` and proposes surjectivity of both explicit r- and (r-1)-subset colourings. **Previously certified at commit `a126a40e5ed3979badafa89b7ff89acba39571f9`, [CI 40457137607](https://github.com/shulda/lean_eppa_reducts/actions/runs/40457137607):** `zmod_quotient_colour_shift`, `unorderedSubsetSum_translate_one`, `unorderedCyclicSumColour_translate_one`, `zmod_colour_surjective_of_shift`. The expanded common-core theorem is not yet certified. No unordered non-EPPA theorem is claimed.
