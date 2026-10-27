@@ -130,14 +130,14 @@ theorem unorderedCoreShiftPerm_on_exterior
 on all subsets supported in the old core plus one exterior i. -/
 theorem unorderedTotalColour_shift_on_coreOne
     {S E κ : Type} [AddGroup κ] {t : ℕ}
-    (base : RSubsets S (t + δ) → κ)
+    (base : RSubsets S (t + 1) → κ)
     (exterior : E → RSubsets S t → κ)
     (p : Equiv.Perm S) (i : E) (δ : κ)
-    (hbase : ∀ y : RSubsets S (t + δ),
+    (hbase : ∀ y : RSubsets S (t + 1),
       base (permuteRSubset p y) = base y + δ)
     (hext : ∀ y : RSubsets S t,
       exterior i (permuteRSubset p y) = exterior i y + δ)
-    (q : RSubsets (Sum S E) (t + δ))
+    (q : RSubsets (Sum S E) (t + 1))
     (hsupp : ∀ j ∈ q.val.toRight, j = i) :
     unorderedTotalColour base exterior
         (permuteRSubset (unorderedCoreShiftPerm p) q) =
