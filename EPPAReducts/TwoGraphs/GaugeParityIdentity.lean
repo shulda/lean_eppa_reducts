@@ -35,6 +35,6 @@ theorem pairTriangleSum_gaugeShift
   have htwo : (2 : ZMod 2) = 0 := by decide
   ring_nf
   have hthree : (3 : ZMod 2) = 1 := by decide
-  simpa [hthree]
+  simp [htwo, hthree]
 
 end EPPAReducts.TwoGraphs
