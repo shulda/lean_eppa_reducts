@@ -65,6 +65,9 @@ def unorderedResidueWitness
       (unorderedResidueSmallEmbedding N t hbound)).card = t - 1
     simp
   rw [hc]
+  have ht : 0 < t := by
+    have hi := i.isLt
+    omega
   omega
 
 /-- Its subset-sum residue consists of one fixed contribution plus
@@ -79,14 +82,12 @@ theorem unorderedResidueWitness_value
           ((unorderedResidueFirstSet N t hbound).sum id) := by
   classical
   have hnot := unorderedResidue_last_not_mem N t hbound i
-  change (ZMod.cast
-      ((insert ((t - 1 + i.val : ℕ) : ZMod N)
-        (unorderedResidueFirstSet N t hbound)).sum id) : ZMod t) =
-    ((t - 1 + i.val : ℕ) : ZMod t) +
-      (ZMod.cast
-        ((unorderedResidueFirstSet N t hbound).sum id) : ZMod t)
-  rw [Finset.sum_insert hnot, ZMod.cast_add hdiv]
-  simp only [id_eq, ZMod.cast_natCast hdiv]
+  have hset : (unorderedResidueWitness N t hbound i).val =
+      insert ((t - 1 + i.val : ℕ) : ZMod N)
+        (unorderedResidueFirstSet N t hbound) := rfl
+  unfold unorderedSubsetResidue unorderedSubsetSum
+  rw [hset, Finset.sum_insert hnot]
+  simp only [id_eq, map_add, map_natCast]
 
 /-- All t residues occur, so the indicator functions in the
 previous module can be used unconditionally on a sufficiently
