@@ -20,6 +20,8 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 
 ## Current verified state
 
+- [ ] **2026-10-27 (CI pending):** `UnorderedAllExteriorTypes.lean` and `UnorderedCommonCoreExteriorTypes.lean` package r distinct +1-equivariant exterior types on the one cyclic core `ZMod (m*r*(r-1))` for every r,m≥2. These are the exact combinatorial ingredients from the certified sum-colouring and residue-surjectivity lemmas; no full unordered EPPA contradiction is claimed.
+
 - [ ] **2026-10-27 (CI pending):** `UnorderedResidueSurjectivity.lean` attempts an explicit family of t-subsets of `ZMod N` with every possible subset-sum residue modulo t, whenever t>0 and N≥2t, proving `unorderedSubsetResidue_surjective`. If certified this discharges the hypothesis of `unorderedResidueExteriorTypes_injective` for the common core. Still not a finite EPPA obstruction.
 
 - [ ] **2026-10-27 (stacked proof candidate, CI pending):** `UnorderedResidueExteriorTypes.lean` defines the sum of a t-subset reduced modulo t, proves its invariance under cyclic translation, and shows that perturbing the already certified equivariant sum-colouring on different residue fibres gives injectively many distinct equivariant exterior types, **conditional on surjectivity of the residue map**. Proving that last hypothesis on the common core and adding the unperturbed base colour remain open. This is not EPPA.
