@@ -15,12 +15,13 @@ namespace EPPAReducts.TwoGraphs
 
 open EPPAReducts.HumanTargets
 
-variable {V : Type}
+variable {V : Type} [DecidableEq V]
 
 /-- A Boolean indicator of whether an element of F₂ is one. -/
 private theorem boolBit_decide_one (z : ZMod 2) :
     boolBit (decide (z = 1)) = z := by
-  fin_cases z <;> decide
+  classical
+  fin_cases z <;> norm_num [boolBit]
 
 /-- Form the triple parity of a completely arbitrary pair-bit function.
 Non-triples are false, as required by the exact two-graph API. -/
@@ -80,14 +81,14 @@ theorem pairParityTriple_fourPointXor
         boolBit (pairParityTriple c (triple a b e)) +
         boolBit (pairParityTriple c (triple a d e)) +
         boolBit (pairParityTriple c (triple b d e)) = 0 := by
-    simp only [triple,
+    simpa only [triple,
       boolBit_pairParityTriple_three c a b d hab had hbd,
       boolBit_pairParityTriple_three c a b e hab hae hbe,
       boolBit_pairParityTriple_three c a d e had hae hde,
-      boolBit_pairParityTriple_three c b d e hbd hbe hde]
-    have htwo : (2 : ZMod 2) = 0 := by decide
-    ring_nf
-    simp [htwo]
+      boolBit_pairParityTriple_three c b d e hbd hbe hde,
+      triangleOfPairs] using
+        (triangleOfPairs_fourPoint
+          (fun x y : V => boolBit (c {x, y})) a b d e)
   have hxor :
       boolBit (Bool.xor
         (Bool.xor
@@ -97,13 +98,14 @@ theorem pairParityTriple_fourPointXor
         (pairParityTriple c (triple b d e))) = 0 := by
     simp only [boolBit_xor]
     exact hsum
-  cases ht : (Bool.xor
-      (Bool.xor
-        (Bool.xor (pairParityTriple c (triple a b d))
-          (pairParityTriple c (triple a b e)))
-        (pairParityTriple c (triple a d e)))
-      (pairParityTriple c (triple b d e))) <;>
-    simp_all [boolBit]
+  have hbool : ∀ t : Bool, boolBit t = 0 → t = false := by
+    intro t ht
+    cases t with
+    | false => rfl
+    | true =>
+        have hne : (1 : ZMod 2) ≠ 0 := by decide
+        exact False.elim (hne (by simpa [boolBit] using ht))
+  exact hbool _ hxor
 
 /-- Genuine four-set cardinality parity; not just an ordered cocycle law. -/
 theorem pairParityTriple_fourPointEven
