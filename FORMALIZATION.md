@@ -401,6 +401,10 @@ On every fresh chat or after a crash:
 - For the positive theorem, it is not enough to extend individual partial maps; the subgroup lift must be a genuine homomorphism for every induced substructure.
 - Build success for `EPPAReducts.lean` certifies only the modules actually imported. Check that every target theorem is included in that build root and audited as a declaration.
 
+## Ordinary consequences for final five-reduct EPPA table — certified
+
+- [x] **2026-10-27:** `Classification/OrdinaryPositiveCorollaries.lean` proves `finiteSetsHaveEPPA : FiniteSetsHaveEPPA` and `finiteTwoGraphsHaveEPPA : FiniteTwoGraphsHaveEPPA`. These are genuine common-witness propositions obtained by projection of the already-certified coherent extension choices, not hardcoded truth-value declarations. [CI #40522030924](https://github.com/shulda/lean_eppa_reducts/actions/runs/40522030924) passed full Lean build (1370 jobs), manuscript and placeholder guards, and allowed-axiom audit (1294 declarations; only `propext`, `Classical.choice`, `Quot.sound`). This prepares both ordinary positive entries needed for the actual five-reduct theorem.
+
 ## Scope extension requested 2026-10-27 — pending verification
 
 - [x] **2026-10-27 certified positive baselines:** `Classification/PositiveBaselines.lean` proves actual finite-set coherent extension (`Classification.finiteSetsHaveCoherentEPPA`) and finite-graph ordinary EPPA (`Classification.finiteGraphsHaveOrdinaryEPPA`) by invoking checked theorems in the pinned `AllThoseEPPA` dependency, with exact nontrivial witness data. Source commit `fb8163be18b587bae3d68a8674a31eba6a65ef2e` passed [CI #40506402028](https://github.com/shulda/lean_eppa_reducts/actions/runs/40506402028), including the full imported build and allowed-axiom audit. This does **not** yet certify coherent EPPA for graphs or the complete five-reduct classification.
