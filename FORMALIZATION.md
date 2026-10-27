@@ -7,7 +7,7 @@
 
 ## Scope and acceptance targets
 
-Only two load-bearing results are intended:
+The **originally approved baseline** had two load-bearing result families. The author subsequently explicitly extended the scope to the rooting reduction and the complete five-reduct EPPA/coherent-EPPA table:
 
 1. Every finite two-graph has **coherent EPPA**. The user-facing formulation quantifies over all isomorphisms between induced substructures and a compositional choice of extensions.
 2. For every `r,m ≥ 2`, finite equivalence relations on **unordered r-element subsets** with **at most m equivalence classes** fail EPPA; likewise for **ordered injective r-tuples**. The human-facing final corollary specializes `r=m=2` to graphs **modulo global complementation**.
@@ -16,7 +16,7 @@ Only two load-bearing results are intended:
 
 The human-readable English formulations were approved by the author on 2026-10-25. The self-contained **Lean** formulations in `EPPAReducts/HumanTargets.lean` were reviewed and approved by the author on 2026-10-25. Their definitions are frozen acceptance targets. The private paper draft may evolve in exposition or proof details; the mathematical targets should remain stable. The expanded **private** mathematical manuscript is now `eppa_reducts_formalization_v2.tex` (18-page PDF), superseding `v1` and `v0`. It is a provisional mathematical proof plan, **not** a Lean-verified theorem or an external referee certification. Do not silently weaken them by restricting carrier size, considering only a chosen graph representative, requiring exactly `m` classes, naming colours, or assuming coherence only for full automorphisms.
 
-Explicitly out of scope: the six-vertex exposition as a separate theorem, the rooting transfer to complementary two-graphs, looped-graph EPPA, and the claimed wider hypergraph reduct classification. These may be optional regression tests or later projects, but they are not part of the requested certification.
+**Historical baseline scope note:** the six-vertex exposition as a separate theorem, rooting reduction, looped-graph EPPA and the wider hypergraph-reduct classification were initially excluded. The rooting reduction and complete five-reduct EPPA/coherent-EPPA classification were subsequently requested and are now certified. The particular six-vertex example, looped-graph section and wider hypergraph classification remain outside the formalized scope.
 
 ## Final five-reduct classification certification
 
