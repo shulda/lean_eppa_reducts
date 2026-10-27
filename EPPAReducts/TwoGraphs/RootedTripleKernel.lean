@@ -37,8 +37,22 @@ theorem rootedTripleOfPair_colour
   rcases e with ⟨s, hs⟩
   obtain ⟨x, y, hxy, hset⟩ := Finset.card_eq_two.mp hs
   subst s
-  have h := rootedTwoGraph_on_root c x y hxy
-  simpa [rootedTripleOfPair, oldEmbedding, triple] using h
+  have h : (rootedTwoGraph c).isTriple
+      (triple none (some x) (some y)) =
+      c ⟨{x, y}, by simp [hxy]⟩ :=
+    rootedTwoGraph_on_root c x y hxy
+  have hsRoot :
+      (rootedTripleOfPair
+        (⟨{x, y}, hs⟩ : UnorderedPairs V)).val =
+        triple none (some x) (some y) := by
+    apply Finset.ext
+    intro v
+    simp [rootedTripleOfPair, oldEmbedding, triple]
+  rw [hsRoot]
+  convert h using 1
+  congr 1
+  apply Subtype.ext
+  rfl
 
 /-- The class equivalence on triples induced by the rooted two-graph.
 A representative exists but is not named in the relational language. -/
