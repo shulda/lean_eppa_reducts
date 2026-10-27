@@ -16,15 +16,13 @@ namespace EPPAReducts.TwoGraphs
 
 open EPPAReducts.HumanTargets
 
-variable {V : Type} [DecidableEq V]
+variable {V : Type}
 
 /-- A Boolean indicator of whether an element of F₂ is one. -/
 private theorem boolBit_decide_one (z : ZMod 2) :
     boolBit (decide (z = 1)) = z := by
   classical
-  fin_cases z
-  · simp [boolBit, show (0 : ZMod 2) ≠ 1 by decide]
-  · simp [boolBit]
+  fin_cases z <;> norm_num [boolBit]
 
 /-- Form the triple parity of a completely arbitrary pair-bit function.
 Non-triples are false, as required by the exact two-graph API. -/
@@ -85,14 +83,17 @@ theorem pairParityTriple_fourPointXor
         boolBit (pairParityTriple c (triple a b e)) +
         boolBit (pairParityTriple c (triple a d e)) +
         boolBit (pairParityTriple c (triple b d e)) = 0 := by
-    simpa only [triple,
-      boolBit_pairParityTriple_three c a b d hab had hbd,
+    change
+      boolBit (pairParityTriple c {a, b, d}) +
+        boolBit (pairParityTriple c {a, b, e}) +
+        boolBit (pairParityTriple c {a, d, e}) +
+        boolBit (pairParityTriple c {b, d, e}) = 0
+    rw [boolBit_pairParityTriple_three c a b d hab had hbd,
       boolBit_pairParityTriple_three c a b e hab hae hbe,
       boolBit_pairParityTriple_three c a d e had hae hde,
-      boolBit_pairParityTriple_three c b d e hbd hbe hde,
-      triangleOfPairs] using
-        (triangleOfPairs_fourPoint
-          (fun x y : V => boolBit (c {x, y})) a b d e)
+      boolBit_pairParityTriple_three c b d e hbd hbe hde]
+    exact triangleOfPairs_fourPoint
+      (fun x y : V => boolBit (c {x, y})) a b d e
   have hxor :
       boolBit (Bool.xor
         (Bool.xor
