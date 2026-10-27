@@ -1,6 +1,7 @@
 import EPPAReducts.BoundedEquivalence.UnorderedWitnessAPI
 import EPPAReducts.BoundedEquivalence.OrderedColourTranslationFixed
 import Mathlib.Data.ZMod.Basic
+import Mathlib.Tactic.Abel
 
 /-!
 # A constructive alternative to choosing cyclic-subset orbit representatives
@@ -82,7 +83,9 @@ theorem unorderedCyclicSumColour_translate_one
         (unorderedSubsetSum s + (t : ZMod N)) =
       (ZMod.castHom hdiv (ZMod (m * t)))
         (unorderedSubsetSum s) + (t : ZMod (m * t)) := by
-    simp
+    change (ZMod.cast (unorderedSubsetSum s + (t : ZMod N)) : ZMod (m * t)) =
+      (ZMod.cast (unorderedSubsetSum s) : ZMod (m * t)) + (t : ZMod (m * t))
+    rw [ZMod.cast_add hdiv, ZMod.cast_natCast hdiv]
   rw [hcast]
   exact zmod_quotient_colour_shift m t hm ht _
 
