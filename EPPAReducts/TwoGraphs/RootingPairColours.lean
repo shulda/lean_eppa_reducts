@@ -22,7 +22,8 @@ noncomputable def dropRoot (s : Finset (Option V)) : Finset V := by
   classical
   exact s.biUnion (fun o => match o with | none => ∅ | some x => {x})
 
-@[simp] theorem dropRoot_two_old (x y : V) :
+@[simp] theorem dropRoot_two_old
+    [DecidableEq V] (x y : V) :
     dropRoot ({some x, some y} : Finset (Option V)) =
       ({x, y} : Finset V) := by
   classical
@@ -39,13 +40,13 @@ noncomputable def rootedPairBit
   else false
 
 @[simp] theorem rootedPairBit_root
-    (c : UnorderedPairs V → Bool) (x : V) :
+    [DecidableEq V] (c : UnorderedPairs V → Bool) (x : V) :
     rootedPairBit c ({none, some x} : Finset (Option V)) = false := by
   classical
   simp [rootedPairBit]
 
 @[simp] theorem rootedPairBit_old
-    (c : UnorderedPairs V → Bool) (x y : V) (hxy : x ≠ y) :
+    [DecidableEq V] (c : UnorderedPairs V → Bool) (x y : V) (hxy : x ≠ y) :
     rootedPairBit c ({some x, some y} : Finset (Option V)) =
       c ⟨{x, y}, by simp [hxy]⟩ := by
   classical
@@ -72,7 +73,7 @@ private theorem boolBit_injective : Function.Injective boolBit := by
 
 /-- The triples containing the root encode exactly the old graph. -/
 theorem rootedTwoGraph_on_root
-    (c : UnorderedPairs V → Bool) (x y : V) (hxy : x ≠ y) :
+    [DecidableEq V] (c : UnorderedPairs V → Bool) (x y : V) (hxy : x ≠ y) :
     (rootedTwoGraph c).isTriple (triple none (some x) (some y)) =
       c ⟨{x, y}, by simp [hxy]⟩ := by
   classical
@@ -86,7 +87,7 @@ theorem rootedTwoGraph_on_root
 
 /-- The non-root triples are the XOR of their three old edges. -/
 theorem rootedTwoGraph_on_old
-    (c : UnorderedPairs V → Bool) (x y z : V)
+    [DecidableEq V] (c : UnorderedPairs V → Bool) (x y z : V)
     (hxy : x ≠ y) (hxz : x ≠ z) (hyz : y ≠ z) :
     boolBit ((rootedTwoGraph c).isTriple
       (triple (some x) (some y) (some z))) =
