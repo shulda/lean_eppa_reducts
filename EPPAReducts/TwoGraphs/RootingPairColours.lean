@@ -27,6 +27,8 @@ noncomputable def dropRoot (s : Finset (Option V)) : Finset V := by
     dropRoot ({some x, some y} : Finset (Option V)) =
       ({x, y} : Finset V) := by
   classical
+  apply Finset.ext
+  intro v
   simp [dropRoot]
 
 /-- Pair bits on the rooted carrier: every edge through the root is
