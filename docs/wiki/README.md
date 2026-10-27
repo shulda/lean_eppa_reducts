@@ -7,9 +7,9 @@ This is the public mathematical guide to the Lean development in [`shulda/lean_e
 ## Proven results
 
 1. **Coherent EPPA for all finite two-graphs**, including the empty input, with one finite induced extension and a simultaneous choice of extensions respecting composition.
-2. **Failure of EPPA for unlabelled equivalences on unordered (r)-element subsets**, for every (r,m\ge 2), when there are at most (m) equivalence classes.
-3. **Failure of EPPA for unlabelled equivalences on ordered injective (r)-tuples**, for every (r,m\ge 2), under the same class bound.
-4. **Failure of EPPA for finite graphs modulo global complementation**, as the (r=m=2) case of item 2.
+2. **Failure of EPPA for unlabelled equivalences on unordered $r$-element subsets**, for every $r,m\ge 2$, when there are at most $m$ equivalence classes.
+3. **Failure of EPPA for unlabelled equivalences on ordered injective $r$-tuples**, for every $r,m\ge 2$, under the same class bound.
+4. **Failure of EPPA for finite graphs modulo global complementation**, as the $r=m=2$ case of item 2.
 
 The underlying exact Lean theorem types, with source links, are in [Main theorems](Main-theorems.md).
 
