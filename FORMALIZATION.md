@@ -403,6 +403,9 @@ On every fresh chat or after a crash:
 
 ## Scope extension requested 2026-10-27 — pending verification
 
+- [x] **2026-10-27 certified positive baselines:** `Classification/PositiveBaselines.lean` proves actual finite-set coherent extension (`Classification.finiteSetsHaveCoherentEPPA`) and finite-graph ordinary EPPA (`Classification.finiteGraphsHaveOrdinaryEPPA`) by invoking checked theorems in the pinned `AllThoseEPPA` dependency, with exact nontrivial witness data. Source commit `fb8163be18b587bae3d68a8674a31eba6a65ef2e` passed [CI #40506402028](https://github.com/shulda/lean_eppa_reducts/actions/runs/40506402028), including the full imported build and allowed-axiom audit. This does **not** yet certify coherent EPPA for graphs or the complete five-reduct classification.
+
+
 - [x] **Certified 2026-10-27, proof commit `335d2529caa6e6dabab8956258adc699040c1634`, [CI #40504583228](https://github.com/shulda/lean_eppa_reducts/actions/runs/40504583228):** `TwoGraphs/GaugeParityIdentity.lean` proves `pairTriangleSum_gaugeShift`. For any pair colouring over `ZMod 2`, a uniform edge shift by δ plus vertex gauge terms (f(x)+f(y)) changes the three-edge parity of every genuine triangle by exactly δ. The complete imported project built and the axiom audit checked 1123 declarations with only `propext`, `Classical.choice`, `Quot.sound`. This is **algebraic preparation**, NOT the actual unlabelled rooting transfer or new EPPA result.
 
 - [ ] Exact rooting reduction: EPPA for finite two-graphs modulo global complementation implies EPPA for finite graphs modulo global complementation. Must include a genuine unlabelled triple equivalence and exact root-deletion witness transfer.
