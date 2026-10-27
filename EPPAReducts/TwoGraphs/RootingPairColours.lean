@@ -92,7 +92,9 @@ theorem rootedTwoGraph_on_root
   rw [htr]
   rw [boolBit_pairParityTriple_three (rootedPairBit c)
       none (some x) (some y) (by simp) (by simp) (by simpa using hxy)]
-  simp [rootedPairBit_root, rootedPairBit_old, boolBit]
+  rw [rootedPairBit_root c x, rootedPairBit_root c y,
+    rootedPairBit_old c x y hxy]
+  simp [boolBit]
 
 /-- The non-root triples are the XOR of their three old edges. -/
 theorem rootedTwoGraph_on_old
