@@ -60,7 +60,11 @@ noncomputable def symmetrizedGraphEmbedding
             G.Adj x y := by
         have h := ψ.map_rel_iff Graph.RelSymbol.edge
           (![x, y] : Fin 2 → V)
-        rw [hψ, Language.Action.onRel_one] at h
+        have hs : Graph.action.onRel ψ.lang Graph.RelSymbol.edge =
+            Graph.RelSymbol.edge := by
+          simp [hψ, Graph.action, Language.Action.trivial,
+            Language.Action.onRel]
+        rw [hs] at h
         have he :
             (ψ.toFun ∘ (![x, y] : Fin 2 → V)) =
               (![ψ x, ψ y] : Fin 2 → W) := by
