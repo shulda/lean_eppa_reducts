@@ -1,4 +1,5 @@
 import EPPAReducts.TwoGraphs.ValuationTwoGraph
+import EPPAReducts.TwoGraphs.RootingParity
 import EPPAReducts.TwoGraphs.RawFourPointParity
 import Mathlib.Tactic.FinCases
 
@@ -21,7 +22,9 @@ variable {V : Type} [DecidableEq V]
 private theorem boolBit_decide_one (z : ZMod 2) :
     boolBit (decide (z = 1)) = z := by
   classical
-  fin_cases z <;> norm_num [boolBit]
+  fin_cases z
+  · simp [boolBit, show (0 : ZMod 2) ≠ 1 by decide]
+  · simp [boolBit]
 
 /-- Form the triple parity of a completely arbitrary pair-bit function.
 Non-triples are false, as required by the exact two-graph API. -/
@@ -59,8 +62,9 @@ theorem boolBit_pairParityTriple_three
     intro heq
     have hmem : a ∈ ({b, d} : Finset V) := by rw [← heq]; simp
     simpa [hab, had] using hmem
-  simp only [pairParityTriple, dif_pos hcard]
-  rw [boolBit_decide_one, powersetCard_two_of_triple a b d hab had hbd]
+  simp only [pairParityTriple]
+  rw [if_pos hcard, boolBit_decide_one,
+    powersetCard_two_of_triple a b d hab had hbd]
   simp [h1, h2, h3, add_assoc]
 
 /-- Boolean four-point evenness of triangle parities. -/
@@ -135,7 +139,8 @@ theorem pairParityTriple_fourPointEven
     ({a, b, d} : Finset V) ({a, b, e} : Finset V)
     ({a, d, e} : Finset V) ({b, d, e} : Finset V)
     h12 h13 h14 h23 h24 h34).2
-  exact pairParityTriple_fourPointXor c a b d e hab had hae hbd hbe hde
+  simpa only [triple] using
+    (pairParityTriple_fourPointXor c a b d e hab had hae hbd hbe hde)
 
 /-- Every pair-bit colouring yields an actual two-graph. -/
 noncomputable def twoGraphOfPairBits (c : Finset V → Bool) : TwoGraph V where
