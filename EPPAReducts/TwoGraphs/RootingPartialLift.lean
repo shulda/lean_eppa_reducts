@@ -75,10 +75,7 @@ noncomputable def rootedSupportEquiv (D : Finset V) :
   · intro u
     cases u with
     | none => rfl
-    | some v =>
-        congr 1
-        apply Subtype.ext
-        rfl
+    | some v => congr 1
 
 /-- Lift an ordinary equiv to the corresponding equiv on Option. -/
 def optionCongrEquiv {X Y : Type} (e : X ≃ Y) :
@@ -103,7 +100,16 @@ noncomputable def liftRootPartial (p : PartialBijection V) :
     ((liftRootPartial p).bijection
       ⟨none, mem_rootedSupport_none p.source⟩).val = none := by
   classical
-  simp [liftRootPartial, rootedSupportEquiv, optionCongrEquiv]
+  change ((rootedSupportEquiv p.target).symm
+      (optionCongrEquiv p.bijection
+        (rootedSupportEquiv p.source
+          ⟨none, mem_rootedSupport_none p.source⟩))).val = none
+  have hs : rootedSupportEquiv p.source
+      ⟨none, mem_rootedSupport_none p.source⟩ = none := by
+    rfl
+  rw [hs]
+  change ((rootedSupportEquiv p.target).symm none).val = none
+  rfl
 
 /-- It acts on each old domain vertex exactly as p does. -/
 @[simp] theorem liftRootPartial_old
@@ -112,6 +118,19 @@ noncomputable def liftRootPartial (p : PartialBijection V) :
       ⟨some x, (mem_rootedSupport_some p.source x).mpr hx⟩).val =
       some ((p.bijection ⟨x, hx⟩).val) := by
   classical
-  simp [liftRootPartial, rootedSupportEquiv, optionCongrEquiv]
+  change ((rootedSupportEquiv p.target).symm
+      (optionCongrEquiv p.bijection
+        (rootedSupportEquiv p.source
+          ⟨some x, (mem_rootedSupport_some p.source x).mpr hx⟩))).val =
+      some ((p.bijection ⟨x, hx⟩).val)
+  have hs : rootedSupportEquiv p.source
+      ⟨some x, (mem_rootedSupport_some p.source x).mpr hx⟩ =
+      some ⟨x, hx⟩ := by
+    rfl
+  rw [hs]
+  change ((rootedSupportEquiv p.target).symm
+    (some (p.bijection ⟨x, hx⟩))).val =
+      some ((p.bijection ⟨x, hx⟩).val)
+  rfl
 
 end EPPAReducts.TwoGraphs
