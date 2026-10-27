@@ -22,11 +22,16 @@ variable {V : Type}
 private theorem boolBit_decide_one (z : ZMod 2) :
     boolBit (decide (z = 1)) = z := by
   classical
-  by_cases hz : z = 1
-  · simp [hz, boolBit]
-  · have hz0 : z = 0 := by
-      fin_cases z <;> simp_all
-    simp [hz, hz0, boolBit]
+  have h : z = 0 ∨ z = 1 := by
+    fin_cases z
+    · exact Or.inl rfl
+    · exact Or.inr rfl
+  rcases h with hzero | hone
+  · subst z
+    have hn : (0 : ZMod 2) ≠ 1 := by decide
+    simp [boolBit, hn]
+  · subst z
+    simp [boolBit]
 
 /-- Form the triple parity of a completely arbitrary pair-bit function.
 Non-triples are false, as required by the exact two-graph API. -/
@@ -45,11 +50,10 @@ private theorem pairParityTriple_onlyTriples
 
 /-- Evaluation of the unordered triple: exactly the three pair bits. -/
 theorem boolBit_pairParityTriple_three
-    (c : Finset V → Bool) (a b d : V)
+    [DecidableEq V] (c : Finset V → Bool) (a b d : V)
     (hab : a ≠ b) (had : a ≠ d) (hbd : b ≠ d) :
     boolBit (pairParityTriple c ({a, b, d} : Finset V)) =
       boolBit (c {a, b}) + boolBit (c {a, d}) + boolBit (c {b, d}) := by
-  classical
   have hcard : ({a, b, d} : Finset V).card = 3 := by
     simp [hab, had, hbd]
   have h1 : ({a, b} : Finset V) ≠ {a, d} := by
