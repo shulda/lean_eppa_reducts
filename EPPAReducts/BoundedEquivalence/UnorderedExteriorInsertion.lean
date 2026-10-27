@@ -40,7 +40,8 @@ theorem unorderedInsertExterior_val
       insert (Sum.inr i)
         (core.val.map (unorderedCoreInclusion (S := S) (E := E))) := by
   classical
-  rfl
+  ext x
+  simp [unorderedInsertExterior]
 
 /-- A pointwise core-fixing ambient permutation transporting one
 exterior vertex transports every corresponding core-plus-exterior
@@ -64,6 +65,11 @@ theorem unorderedInsertExterior_transport
   rw [unorderedInsertExterior_val core i,
       unorderedInsertExterior_val core j]
   simp only [Finset.map_insert]
+  change insert (g (ι (Sum.inr i)))
+      ((core.val.map (unorderedCoreInclusion (S := S) (E := E))).map ι |>.map
+        (⟨g, g.injective⟩ : W ↪ W)) =
+    insert (ι (Sum.inr j))
+      ((core.val.map (unorderedCoreInclusion (S := S) (E := E))).map ι)
   rw [hij]
   congr 1
   simp only [Finset.map_map]
