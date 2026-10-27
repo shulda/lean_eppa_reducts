@@ -87,6 +87,7 @@ import EPPAReducts.TwoGraphs.ConjugatedTransversalLift
 import EPPAReducts.TwoGraphs.DivisibleTransversalSection
 import EPPAReducts.BoundedEquivalence.Basic
 import EPPAReducts.BoundedEquivalence.UnorderedWitnessAPI
+import EPPAReducts.BoundedEquivalence.UnorderedExteriorInsertion
 import EPPAReducts.BoundedEquivalence.UnorderedCyclicSumColour
 import EPPAReducts.BoundedEquivalence.UnorderedResidueExteriorTypes
 import EPPAReducts.BoundedEquivalence.UnorderedResidueSurjectivity
