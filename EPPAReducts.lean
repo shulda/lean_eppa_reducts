@@ -88,6 +88,7 @@ import EPPAReducts.TwoGraphs.DivisibleTransversalSection
 import EPPAReducts.BoundedEquivalence.Basic
 import EPPAReducts.BoundedEquivalence.UnorderedWitnessAPI
 import EPPAReducts.BoundedEquivalence.UnorderedExteriorInsertion
+import EPPAReducts.BoundedEquivalence.UnorderedTotalColour
 import EPPAReducts.BoundedEquivalence.UnorderedKernelAutGroup
 import EPPAReducts.BoundedEquivalence.UnorderedCorePointwiseNormalizer
 import EPPAReducts.BoundedEquivalence.UnorderedCoreTransport
