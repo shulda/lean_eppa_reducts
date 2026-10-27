@@ -2,6 +2,7 @@ import AllThoseEPPA.EPPA
 import EPPAReducts.HumanTargets
 import EPPAReducts.TwoGraphs.Basic
 import EPPAReducts.TwoGraphs.RootedCocycle
+import EPPAReducts.TwoGraphs.GaugeParityIdentity
 import EPPAReducts.TwoGraphs.RootedGraph
 import EPPAReducts.TwoGraphs.TwoGraphFourPointXor
 import EPPAReducts.TwoGraphs.RootedParityAway
