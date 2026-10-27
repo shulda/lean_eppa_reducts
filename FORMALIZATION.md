@@ -401,6 +401,13 @@ On every fresh chat or after a crash:
 - For the positive theorem, it is not enough to extend individual partial maps; the subgroup lift must be a genuine homomorphism for every induced substructure.
 - Build success for `EPPAReducts.lean` certifies only the modules actually imported. Check that every target theorem is included in that build root and audited as a declaration.
 
+## Rooting reduction expansion — certified conditional transfer on 2026-10-27
+
+- [x] **Proof commit `5c998807e744c04f61b006e7222d13dccdd4c648`, [full CI 40505904382](https://github.com/shulda/lean_eppa_reducts/actions/runs/40505904382):** The imported graph builds completely (1354 jobs), manuscript/placeholder guards pass, and the standard axiom audit certifies **1263 declarations** with only `propext`, `Classical.choice`, and `Quot.sound`. The modules `RootingParity`, `ModuloComplementation`, `PairTriangleTwoGraph`, `RootingPairColours`, `RootedTripleKernel`, `RootingPartialLift`, `RootingColourShift`, `RootingShadow`, `RootShadowInduced`, `RootShadowAutomorphism`, and `RootingTransfer` compile as genuine imported proof objects.
+- [x] The explicit `shadowEPPAWitness_of_rooting` proves the complete **conditional** reduction of any finite induced EPPA witness for the rooted unlabelled triple-class object to one for the original unlabelled pair-class object. `twoGraphsModuloFailEPPA_of_rooting (hLift)` proves conditional ordinary non-EPPA for two-graphs modulo complementation from the fully certified graph-modulo-complementation obstruction. These are real Lean theorems **WITH** the displayed hypothesis `RootedPartialLiftProperty`.
+- [ ] Prove `RootedPartialLiftProperty` unconditionally: every genuine unlabelled pair-class partial automorphism lifts, root fixed, to an unlabelled triple-class partial automorphism. The separate audited F₂ gauge identity `pairTriangleSum_gaugeShift` (proof CI 40504583228; merged separately via PR #46, main CI 40505942232) provides the algebra. The remaining work is the literal Finset/subtype triple-and-pair transport and colour-kernel equality. Until this premise is discharged, **do not claim the rooting proposition or fifth-reduct EPPA failure formalized**.
+- [ ] Certify the full no-EPPA theorem without parameters, prove the actual five-reduct classification, and update the Wiki only after exact successful full CI on integrated main.
+
 ## Next concrete actions
 
 **Certified positive target:** all finite two-graphs have coherent EPPA; the exact frozen target is proved and audited on main.
