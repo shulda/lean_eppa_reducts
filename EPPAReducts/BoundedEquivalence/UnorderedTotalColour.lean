@@ -53,8 +53,11 @@ theorem unorderedCoreImage_parts
     change core.val.map (unorderedCoreInclusion (S := S) (E := E)) =
       core.val.disjSum (∅ : Finset E)
     exact (Finset.disjSum_empty core.val).symm
-  rw [heq]
-  simp
+  constructor
+  · rw [heq]
+    simp only [Finset.toLeft_disjSum]
+  · rw [heq]
+    simp only [Finset.toRight_disjSum]
 
 /-- The exterior insertion contains exactly that exterior vertex;
 its left part is literally the originally prescribed core subset. -/
@@ -67,7 +70,7 @@ theorem unorderedInsertExterior_parts
       core.val.disjSum ({i} : Finset E) := by
     rw [unorderedInsertExterior_val]
     ext x
-    cases x <;> simp [Finset.mem_disjSum, unorderedCoreInclusion]
+    cases x <;> simp [Finset.mem_disjSum, unorderedCoreInclusion, eq_comm]
   rw [heq]
   simp
 
@@ -109,9 +112,11 @@ theorem unorderedTotalColour_on_exterior
   unfold unorderedTotalColour
   simp only [dif_neg hne, dif_pos hsingle]
   have hchosen : Classical.choose hsingle = i := by
-    have hc := Classical.choose_spec hsingle
-    rw [hp.2] at hc
-    simpa using (Finset.singleton_injective.mp hc).symm
+    have hmem : i ∈ (unorderedInsertExterior core i).val.toRight := by
+      rw [hp.2]
+      simp
+    rw [Classical.choose_spec hsingle] at hmem
+    exact (Finset.mem_singleton.mp hmem).symm
   rw [hchosen]
   congr 1
   exact Subtype.ext hp.1
