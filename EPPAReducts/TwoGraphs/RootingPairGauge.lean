@@ -103,7 +103,8 @@ theorem rootLift_pairGauge
             rootLiftTarget_some p y hv,
             rootLiftSource_none p hu,
             rootLiftSource_some p y hv]
-          simp [rootGauge, rootedPairBit_root, twice_zmod2]
+          simpa [rootGauge, rootedPairBit_root] using
+            (twice_zmod2 (boolBit δ)).symm
   | some x =>
       have hx : x ∈ p.source :=
         (mem_rootedSupport_some p.source x).mp hu
@@ -119,7 +120,8 @@ theorem rootLift_pairGauge
             ext z
             simp [or_comm]
           rw [swap x, swap ((p.bijection ⟨x, hx⟩).val)]
-          simp [rootGauge, rootedPairBit_root, twice_zmod2]
+          simpa [rootGauge, rootedPairBit_root] using
+            (twice_zmod2 (boolBit δ)).symm
       | some y =>
           have hy : y ∈ p.source :=
             (mem_rootedSupport_some p.source y).mp hv
