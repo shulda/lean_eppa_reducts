@@ -32,7 +32,7 @@ theorem unorderedKernel_core_extension_orbit_collision
       (fun t : RSubsets S (b + 1) =>
         f (mapRSubset ι t)))
     (hshiftCore : ∀ t : RSubsets S (b + 1),
-      f (mapRSubset ι (permuteOrderedTuple p t)) =
+      f (mapRSubset ι (permuteRSubset p t)) =
         f (mapRSubset ι t) + δ)
     (a : Fin (b + 1) ↪ W)
     (g : Fin (b + 1) → Equiv.Perm W)
