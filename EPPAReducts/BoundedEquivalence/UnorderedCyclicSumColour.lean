@@ -57,4 +57,63 @@ theorem unorderedSubsetSum_translate_one
     orderedColourTranslationPerm, Finset.sum_map,
     Finset.sum_add_distrib, s.property]
 
+
+/-- If m*t divides N, cyclic subset sums give an explicit ZMod m
+colouring. The projection to ZMod (m*t) is a ring homomorphism;
+no orbit representatives or quotient choices are used. -/
+def unorderedCyclicSumColour
+    {N m t : ℕ} (hdiv : m * t ∣ N)
+    (s : RSubsets (ZMod N) t) : ZMod m :=
+  (((ZMod.castHom hdiv (ZMod (m * t))) (unorderedSubsetSum s)).val / t :
+    ZMod m)
+
+/-- Every unit translation of a t-subset adds one to the cyclic
+sum colouring, whenever m*t divides the ambient cyclic order. -/
+theorem unorderedCyclicSumColour_translate_one
+    (N m t : ℕ) (hm : 2 ≤ m) (ht : 0 < t)
+    (hdiv : m * t ∣ N) (s : RSubsets (ZMod N) t) :
+    unorderedCyclicSumColour hdiv
+        (permuteRSubset (orderedColourTranslationPerm (1 : ZMod N)) s) =
+      unorderedCyclicSumColour hdiv s + 1 := by
+  unfold unorderedCyclicSumColour
+  rw [unorderedSubsetSum_translate_one]
+  have hcast :
+      (ZMod.castHom hdiv (ZMod (m * t)))
+        (unorderedSubsetSum s + (t : ZMod N)) =
+      (ZMod.castHom hdiv (ZMod (m * t)))
+        (unorderedSubsetSum s) + (t : ZMod (m * t)) := by
+    simp
+  rw [hcast]
+  exact zmod_quotient_colour_shift m t hm ht _
+
+/-- A map to a cyclic group that shifts by +1 under an endomap of a
+nonempty carrier necessarily takes all m cyclic colour values.
+It does not require the carrier endomap to have been factored into
+translation orbits. -/
+theorem zmod_colour_surjective_of_shift
+    {U : Type} (m : ℕ) (hm : 0 < m)
+    (u : U) (P : U → U) (f : U → ZMod m)
+    (hshift : ∀ x : U, f (P x) = f x + 1) :
+    Function.Surjective f := by
+  letI : NeZero m := ⟨Nat.ne_of_gt hm⟩
+  let seq : ℕ → U := Nat.rec u (fun _ x => P x)
+  have hseq (n : ℕ) : f (seq n) = f u + (n : ZMod m) := by
+    induction n with
+    | zero => simp [seq]
+    | succ n ih =>
+        calc
+          f (seq (n + 1)) = f (P (seq n)) := rfl
+          _ = f (seq n) + 1 := hshift _
+          _ = (f u + (n : ZMod m)) + 1 := by rw [ih]
+          _ = f u + ((n + 1 : ℕ) : ZMod m) := by
+            push_cast
+            abel
+  intro c
+  let n : ℕ := (c - f u).val
+  refine ⟨seq n, ?_⟩
+  rw [hseq n]
+  change f u + (((c - f u).val : ℕ) : ZMod m) = c
+  rw [ZMod.natCast_zmod_val]
+  abel
+
 end EPPAReducts.BoundedEquivalence
