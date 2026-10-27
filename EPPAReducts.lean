@@ -87,6 +87,7 @@ import EPPAReducts.TwoGraphs.ConjugatedTransversalLift
 import EPPAReducts.TwoGraphs.DivisibleTransversalSection
 import EPPAReducts.BoundedEquivalence.Basic
 import EPPAReducts.BoundedEquivalence.UnorderedWitnessAPI
+import EPPAReducts.BoundedEquivalence.UnorderedColourNormalization
 import EPPAReducts.BoundedEquivalence.UnorderedGraphTargetBridge
 import EPPAReducts.BoundedEquivalence.UnlabelledZModPresentation
 import EPPAReducts.BoundedEquivalence.LabelEquiv
