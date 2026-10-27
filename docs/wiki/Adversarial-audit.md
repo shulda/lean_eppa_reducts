@@ -8,14 +8,14 @@ The following checks compare the formal declaration signatures and proof depende
 | Coherence on full automorphisms only | The target ranges over *all* partial bijections preserving induced triples, including distinct source and target subsets. |
 | Empty two-graph silently excluded | The final theorem quantifies over all finite vertex types; the proof has an empty-case construction. |
 | A fixed choice of graph representative masquerading as a graph modulo complementation | The negative human target uses **equality of pair classes**. Automorphisms may interchange classes. |
-| Exactly (m) classes replacing at most (m) | The general class has at most (m) classes. Only the constructed obstruction realizes all (m). |
+| Exactly $m$ classes replacing at most $m$ | The general class has at most $m$ classes. Only the constructed obstruction realizes all $m$. |
 | Ordered tuples confused with unordered subsets | Separate definitions, partial-automorphism notions, obstruction constructions and terminal theorems are used. |
 | One inconvenient extension mistaken for non-EPPA | The non-EPPA conclusions quantify over **every** finite ambient structure and every induced embedding. |
 | Private manuscript accidentally included | The CI rejects tracked `.tex`, `.bib`, `.sty` and `.cls` files; the public repository contains only separately written Lean and documentation. |
 
 ## Intentional discrepancy in the proof, not in the theorem
 
-The coherent two-graph proof takes an ambient index of size (n!), while the manuscript construction describes a smaller least-common-multiple index. Since (n!) is divisible by every (1,\ldots,n), this gives a different (possibly larger) finite witness with **exactly the same claimed property**. There is no size bound in the main theorem that would be affected.
+The coherent two-graph proof takes an ambient index of size $n!$, while the manuscript construction describes a smaller least-common-multiple index. Since $n!$ is divisible by every $1,\ldots,n$, this gives a different (possibly larger) finite witness with **exactly the same claimed property**. There is no size bound in the main theorem that would be affected.
 
 ## Items that a green baseline CI does *not* certify
 
