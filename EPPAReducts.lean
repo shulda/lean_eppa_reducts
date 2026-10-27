@@ -3,6 +3,7 @@ import EPPAReducts.HumanTargets
 import EPPAReducts.TwoGraphs.Basic
 import EPPAReducts.TwoGraphs.RootedCocycle
 import EPPAReducts.TwoGraphs.RootingParity
+import EPPAReducts.TwoGraphs.PairParityMapTransport
 import EPPAReducts.TwoGraphs.ModuloComplementation
 import EPPAReducts.TwoGraphs.PairTriangleTwoGraph
 import EPPAReducts.TwoGraphs.RootingPairColours
