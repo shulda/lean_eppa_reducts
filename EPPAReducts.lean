@@ -149,8 +149,10 @@ import EPPAReducts.BoundedEquivalence.OrderedNoEPPAWitness
 
 This is the build root. The coherent EPPA theorem for all finite
 two-graphs is proved in TwoGraphs.FiniteCoherentEPPA, including the
-exact approved HumanTargets statement. The general negative EPPA
-theorem for bounded equivalences remains open.
+exact approved HumanTargets statement. The ordered and unordered bounded-equivalence non-EPPA theorems,
+including the exact graph-modulo-complementation target, are proved.
+The rooting reduction and five-reduct classification remain a
+new, separately audited workstream.
 -/
 
 namespace EPPAReducts
