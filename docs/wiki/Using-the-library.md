@@ -20,7 +20,7 @@ The declarations above are actual proved theorems, not statements imported as ax
 ## Definitions reusable for further reductions
 
 - [`HumanTargets.TwoGraph` and `CoherentTwoGraphWitness`](https://github.com/shulda/lean_eppa_reducts/blob/main/EPPAReducts/HumanTargets.lean) define actual two-graph parity and coherent extension.
-- [`UnorderedBoundedEquivalence`](https://github.com/shulda/lean_eppa_reducts/blob/main/EPPAReducts/BoundedEquivalence/UnorderedWitnessAPI.lean) defines equivalences on unordered (r)-sets with unlabelled classes.
+- [`UnorderedBoundedEquivalence`](https://github.com/shulda/lean_eppa_reducts/blob/main/EPPAReducts/BoundedEquivalence/UnorderedWitnessAPI.lean) defines equivalences on unordered $r$-sets with unlabelled classes.
 - [`OrderedBoundedEquivalence`](https://github.com/shulda/lean_eppa_reducts/blob/main/EPPAReducts/BoundedEquivalence/OrderedFiniteObstruction.lean) is the separate ordered injective-tuple version.
 - [`CosetOrbitBound.lean`](https://github.com/shulda/lean_eppa_reducts/blob/main/EPPAReducts/BoundedEquivalence/CosetOrbitBound.lean) provides the finite group-counting principle.
 - The [`AllThoseEPPA`](https://github.com/shulda/lean_all_those_eppa_classes) package is reused for foundational typed-structure notions; the standalone human targets here are phrased explicitly to avoid hiding a subtle semantic mismatch.
