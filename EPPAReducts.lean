@@ -174,8 +174,11 @@ This is the build root. The coherent EPPA theorem for all finite
 two-graphs is proved in TwoGraphs.FiniteCoherentEPPA, including the
 exact approved HumanTargets statement. The ordered and unordered bounded-equivalence non-EPPA theorems,
 including the exact graph-modulo-complementation target, are proved.
-The rooting reduction and five-reduct classification remain a
-new, separately audited workstream.
+The exact class-level rooting reduction, non-EPPA for
+two-graphs modulo global complementation, and the complete
+five-reduct EPPA/coherent-EPPA table are also proved and audited.
+The historical theorem of Thomas enumerating all first-order
+reducts is used externally, not formalized in this project.
 -/
 
 namespace EPPAReducts
