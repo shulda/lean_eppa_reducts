@@ -12,6 +12,7 @@ import EPPAReducts.TwoGraphs.RootingColourShift
 import EPPAReducts.TwoGraphs.RootingShadow
 import EPPAReducts.TwoGraphs.RootShadowInduced
 import EPPAReducts.TwoGraphs.RootShadowAutomorphism
+import EPPAReducts.TwoGraphs.RootingTransfer
 import EPPAReducts.TwoGraphs.RootedGraph
 import EPPAReducts.TwoGraphs.TwoGraphFourPointXor
 import EPPAReducts.TwoGraphs.RootedParityAway
