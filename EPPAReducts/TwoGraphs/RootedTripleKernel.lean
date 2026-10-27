@@ -48,11 +48,11 @@ theorem rootedTripleOfPair_colour
     apply Finset.ext
     intro v
     simp [rootedTripleOfPair, oldEmbedding, triple]
+    change (v = none ∨ v = some x ∨ v = some y) ↔
+      (v = none ∨ v = some x ∨ v = some y)
+    rfl
   rw [hsRoot]
-  convert h using 1
-  congr 1
-  apply Subtype.ext
-  rfl
+  exact h
 
 /-- The class equivalence on triples induced by the rooted two-graph.
 A representative exists but is not named in the relational language. -/
