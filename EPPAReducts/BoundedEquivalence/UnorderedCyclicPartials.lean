@@ -78,8 +78,9 @@ theorem unorderedCoreOnePartialShift_subset_action
   intro v
   change ((orderedCoreOnePartialShift i).bijection v).val =
     (unorderedCoreShiftPerm (E := Fin r) (orderedUnitCorePerm N)) v.val
-  rw [orderedCoreOnePartialShift_apply]
-  rfl
+  change orderedCoreShift v.val =
+    (unorderedCoreShiftPerm (E := Fin r) (orderedUnitCorePerm N)) v.val
+  cases v.val <;> rfl
 
 /-- The concrete partial cyclic-core shift increases the colour
 of every unordered r-subset of its induced domain by one. -/
