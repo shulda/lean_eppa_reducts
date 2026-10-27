@@ -28,7 +28,7 @@ The Lean proof constructs a valid four-point-even two-graph from an arbitrary fi
 
 [Full integrated CI #40517057037](https://github.com/shulda/lean_eppa_reducts/actions/runs/40517057037) certifies the imported modules and all conclusions at main SHA `3f35830e3493`.
 
-The complete five-reduct table remains a separate Lean theorem to assemble; in particular the original-graph coherent-EPPA case still requires an exact original-language witness bridge.
+The complete five-reduct table and its original-language coherent simple-graph witness have subsequently been proved and audited; the next section records their final exact Lean declarations.
 
 ## Completing the five-reduct table
 
