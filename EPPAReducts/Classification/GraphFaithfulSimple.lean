@@ -32,8 +32,13 @@ private theorem graphEmbedding_rel_iff
       G.Adj a b := by
   have h := ι.map_rel_iff Graph.RelSymbol.edge (![a, b] : Fin 2 → V)
   have hlang : ι.lang = 1 := Subsingleton.elim _ _
-  simpa [hlang, Graph.toStructure, Language.Action.onRel_one,
-    Function.comp_apply] using h
+  have htuple :
+      (ι.toFun ∘ (![a, b] : Fin 2 → V)) =
+        (![ι a, ι b] : Fin 2 → W) := by
+    funext i
+    fin_cases i <;> rfl
+  simpa only [hlang, Language.Action.onRel_one, htuple,
+    Graph.toStructure_edge] using h
 
 private theorem graphAutomorphism_rel_iff
     {W : Type} (B : Structure Graph.language W)
@@ -53,8 +58,13 @@ private theorem graphAutomorphism_rel_iff
   have h := g.toPartialIsomorphism.map_rel_iff
       Graph.RelSymbol.edge (![a, b] : Fin 2 → W) hsrc
   have hlang : g.toPartialIsomorphism.lang = 1 := Subsingleton.elim _ _
-  simpa [hlang, Language.Action.onRel_one,
-    Function.comp_apply] using h
+  have htuple :
+      (g.toPartialIsomorphism.toPartialEquiv ∘
+        (![a, b] : Fin 2 → W)) =
+        (![g a, g b] : Fin 2 → W) := by
+    funext i
+    fin_cases i <;> rfl
+  simpa only [hlang, Language.Action.onRel_one, htuple] using h
 
 /-- An irreducible-structure faithful binary witness for a simple
 graph must have a symmetric binary edge relation. -/
@@ -70,7 +80,10 @@ theorem faithfulGraphRelation_symmetric
   intro hxy
   let xs : Fin 2 → W := ![x, y]
   have hrel : B.rel Graph.RelSymbol.edge xs := hxy
-  have hclosed := B.isClosed_closureSet (Set.range xs)
+  have hclosed :
+      B.IsClosed (B.closureSet (Set.range xs)) := by
+    intro n F ys hys
+    exact Empty.elim F
   have hirr : (B.induce (B.closureSet (Set.range xs)) hclosed).IsIrreducible :=
     B.relationTupleClosure_isIrreducible Graph.RelSymbol.edge xs hrel
   obtain ⟨g, hg⟩ := hfaithful (B.closureSet (Set.range xs)) hclosed hirr
@@ -104,7 +117,10 @@ theorem faithfulGraphRelation_loopless
   intro hxx
   let xs : Fin 2 → W := ![x, x]
   have hrel : B.rel Graph.RelSymbol.edge xs := hxx
-  have hclosed := B.isClosed_closureSet (Set.range xs)
+  have hclosed :
+      B.IsClosed (B.closureSet (Set.range xs)) := by
+    intro n F ys hys
+    exact Empty.elim F
   have hirr : (B.induce (B.closureSet (Set.range xs)) hclosed).IsIrreducible :=
     B.relationTupleClosure_isIrreducible Graph.RelSymbol.edge xs hrel
   obtain ⟨g, hg⟩ := hfaithful (B.closureSet (Set.range xs)) hclosed hirr
