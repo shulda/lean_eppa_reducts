@@ -1,5 +1,6 @@
 import AllThoseEPPA.EPPA
 import EPPAReducts.Classification.PositiveBaselines
+import EPPAReducts.Classification.OrdinaryPositiveCorollaries
 import EPPAReducts.HumanTargets
 import EPPAReducts.TwoGraphs.Basic
 import EPPAReducts.TwoGraphs.RootedCocycle
