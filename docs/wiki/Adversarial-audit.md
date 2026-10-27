@@ -23,7 +23,7 @@ The following checks compare the formal declaration signatures and proof depende
 
 The coherent two-graph proof takes an ambient index of size $n!$, while the manuscript construction describes a smaller least-common-multiple index. Since $n!$ is divisible by every $1,\ldots,n$, this gives a different (possibly larger) finite witness with **exactly the same claimed property**. There is no size bound in the main theorem that would be affected.
 
-## Items that a green baseline CI does *not* certify
+## Original baseline scope versus extended certification
 
 - The particular six-vertex graph modulo complementation obstruction as a standalone minimal/example theorem. The general negative theorem uses another finite obstruction and is strictly sufficient for non-EPPA.
 - The rooting reduction **is now formally proved**; see [its adversarial source and quantifier audit](Rooting-reduction.md) and [integrated CI #40517057037](https://github.com/shulda/lean_eppa_reducts/actions/runs/40517057037).
