@@ -1,6 +1,11 @@
 import AllThoseEPPA.EPPA
 import EPPAReducts.Classification.PositiveBaselines
 import EPPAReducts.Classification.OrdinaryPositiveCorollaries
+import EPPAReducts.Classification.FiveReductEPPA
+import EPPAReducts.Classification.GraphRelationalCoherent
+import EPPAReducts.Classification.GraphSymmetrization
+import EPPAReducts.Classification.GraphSymmetrizationAutomorphism
+import EPPAReducts.Classification.GraphSymmetrizationCoherence
 import EPPAReducts.HumanTargets
 import EPPAReducts.TwoGraphs.Basic
 import EPPAReducts.TwoGraphs.RootedCocycle
