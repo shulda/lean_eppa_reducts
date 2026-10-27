@@ -103,9 +103,7 @@ theorem rootLift_pairGauge
             rootLiftTarget_some p y hv,
             rootLiftSource_none p hu,
             rootLiftSource_some p y hv]
-          simp only [if_true, Option.some_ne_none, ↓reduceIte,
-            rootedPairBit_root]
-          simp [twice_zmod2]
+          simp [rootGauge, rootedPairBit_root, twice_zmod2]
   | some x =>
       have hx : x ∈ p.source :=
         (mem_rootedSupport_some p.source x).mp hu
@@ -121,8 +119,7 @@ theorem rootLift_pairGauge
             ext z
             simp [or_comm]
           rw [swap x, swap ((p.bijection ⟨x, hx⟩).val)]
-          simp only [rootedPairBit_root]
-          simp [twice_zmod2]
+          simp [rootGauge, rootedPairBit_root, twice_zmod2]
       | some y =>
           have hy : y ∈ p.source :=
             (mem_rootedSupport_some p.source y).mp hv
@@ -167,6 +164,6 @@ theorem rootLift_pairGauge
             rootLiftSource_some p y hv]
           rw [rootedPairBit_old c px py hpxy,
               rootedPairBit_old c x y hxy]
-          simpa [px, py] using hb
+          simpa [rootGauge, px, py] using hb
 
 end EPPAReducts.TwoGraphs
