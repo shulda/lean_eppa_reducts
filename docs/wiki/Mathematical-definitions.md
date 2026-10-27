@@ -4,7 +4,7 @@
 
 An **ordinary EPPA-witness** for a finite relational structure $A$ is a finite $B$ with an *induced* embedding $\iota:A\hookrightarrow B$ such that **all** partial automorphisms $p$ of $A$ extend to automorphisms $g_p$ of **the same** $B$. In the negative results, non-EPPA means that one finite $A$ defeats every possible finite $B$ and induced embedding.
 
-**Coherent EPPA** additionally requires a simultaneous choice (p\mapsto\Phi$p$) such that $\Phi$q\circ p$=\Phi$q$\circ\Phi$p$$ for composable partial maps. In the checked standalone specification, the source of $p$ equals the target of $q$, and composition is literal on the full partial domain. The empty partial bijection and the empty input structure are included.
+**Coherent EPPA** additionally requires a simultaneous choice $p\mapsto\Phi(p)$ such that $\Phi(q\circ p)=\Phi(q)\circ\Phi(p)$ for composable partial maps. In the checked standalone specification, the source of $p$ equals the target of $q$, and composition is literal on the full partial domain. The empty partial bijection and the empty input structure are included.
 
 ## The exact two-graph API
 
@@ -25,7 +25,7 @@ In the proofs, auxiliary `Fin m` or `ZMod m` colours *present* an unlabelled equ
 - **Graphs modulo complementation** use an equivalence relation on unordered pairs, with at most two classes.
 - **Two-graphs modulo complementation** use an equivalence relation on unordered triples whose classes admit a two-graph representative, also with at most two classes.
 
-They are *not* the ordinary graph/two-graph classes, and their automorphism groups differ. The fourth result above is already checked; formalization of the second complementation reduct is additional work.
+They are *not* the ordinary graph/two-graph classes, and their automorphism groups differ. Both complementation classes have now been formalized as genuine unlabelled class-equivalence structures; each has a separately checked ordinary non-EPPA theorem. The three-uniform class carries the additional assertion that its class relation admits a four-point-even two-graph representative.
 
 ## Paper correspondence
 

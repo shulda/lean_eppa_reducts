@@ -1,6 +1,14 @@
 # Verification and reproducibility
 
-## Audited baseline
+## Latest integrated certification — rooting reduction
+
+- **Main commit:** [`3f35830e34938d91fd082c5f9c9ef47b8e371c98`](https://github.com/shulda/lean_eppa_reducts/commit/3f35830e34938d91fd082c5f9c9ef47b8e371c98).
+- **Exact full build/axiom audit:** [CI #40517057037](https://github.com/shulda/lean_eppa_reducts/actions/runs/40517057037) — success on that SHA, 27 October 2026.
+- **1,290 audited declarations** under `EPPAReducts`; only `propext`, `Classical.choice`, `Quot.sound`.
+- **New terminal proofs:** `graphsModuloHaveEPPA_of_twoGraphsModulo`, `twoGraphsModuloNotHaveEPPA`, `twoGraphsModuloFailEPPA`. The missing rooting partial-lift proposition is proved, not an assumption.
+- **Proof scope:** positive graph coherent EPPA and the combined five-reduct classification table are not certified by this particular CI run.
+
+## Original audited baseline
 
 - **Repository:** [`shulda/lean_eppa_reducts`](https://github.com/shulda/lean_eppa_reducts).
 - **Complete source commit:** [`d12d133a37d909837c6fbf4c7409f699f2918264`](https://github.com/shulda/lean_eppa_reducts/commit/d12d133a37d909837c6fbf4c7409f699f2918264).
@@ -15,7 +23,7 @@ The workflow rejects `sorry`, `admit` and custom `axiom` declarations in project
 ```sh
 git clone https://github.com/shulda/lean_eppa_reducts.git
 cd lean_eppa_reducts
-git checkout d12d133a37d909837c6fbf4c7409f699f2918264
+git checkout 3f35830e34938d91fd082c5f9c9ef47b8e371c98
 lake exe cache get
 lake build
 ```

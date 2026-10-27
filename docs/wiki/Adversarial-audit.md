@@ -11,6 +11,9 @@ The following checks compare the formal declaration signatures and proof depende
 | Exactly $m$ classes replacing at most $m$ | The general class has at most $m$ classes. Only the constructed obstruction realizes all $m$. |
 | Ordered tuples confused with unordered subsets | Separate definitions, partial-automorphism notions, obstruction constructions and terminal theorems are used. |
 | One inconvenient extension mistaken for non-EPPA | The non-EPPA conclusions quantify over **every** finite ambient structure and every induced embedding. |
+| The fifth reduct misrepresented as an arbitrary ternary equivalence | The actual interface requires a representative satisfying the literal four-point even-parity law; automorphisms preserve **equality of unnamed triple classes**. |
+| Root-fixed extensions misused without proof | The lifted partial map fixes the new root by construction, and the full ambient automorphism extends that exact map, hence fixes the image of the root. |
+| A conditional statement mistaken for fifth-reduct non-EPPA | The final `twoGraphsModuloFailEPPA` does not take `RootedPartialLiftProperty` as a hypothesis: `allRootedPartialLifts` supplies a checked proof. |
 | Private manuscript accidentally included | The CI rejects tracked `.tex`, `.bib`, `.sty` and `.cls` files; the public repository contains only separately written Lean and documentation. |
 
 ## Intentional discrepancy in the proof, not in the theorem
@@ -20,11 +23,11 @@ The coherent two-graph proof takes an ambient index of size $n!$, while the manu
 ## Items that a green baseline CI does *not* certify
 
 - The particular six-vertex graph modulo complementation obstruction as a standalone minimal/example theorem. The general negative theorem uses another finite obstruction and is strictly sufficient for non-EPPA.
-- The rooting reduction from two-graphs modulo complementation to pair-equivalence graphs.
+- The rooting reduction **is now formally proved**; see [its adversarial source and quantifier audit](Rooting-reduction.md) and [integrated CI #40517057037](https://github.com/shulda/lean_eppa_reducts/actions/runs/40517057037).
 - The full classification table of the five reducts as one standalone Lean theorem.
 - Independent formal proofs of the classical five-reduct *model-theoretic list* (Thomas) or of every historical free-amalgamation EPPA theorem, which are external ingredients in the paper's classification.
 
-These must not be labelled `proved` merely because corresponding informal implications are standard. The new rooting/classification work should eventually add precise Lean declarations and then update this page with CI references.
+These must not be labelled `proved` merely because corresponding informal implications are standard. The rooting work has added and audited precise Lean declarations. The remaining classification work must be audited separately before upgrading that status.
 
 ## Audit boundary
 
