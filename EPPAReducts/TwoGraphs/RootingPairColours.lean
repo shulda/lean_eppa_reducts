@@ -79,8 +79,15 @@ theorem rootedTwoGraph_on_root
   classical
   apply boolBit_injective
   change boolBit (pairParityTriple (rootedPairBit c)
-    ({none, some x, some y} : Finset (Option V))) =
+    (triple none (some x) (some y))) =
       boolBit (c ⟨{x, y}, by simp [hxy]⟩)
+  have htr :
+      triple none (some x) (some y) =
+        ({none, some x, some y} : Finset (Option V)) := by
+    apply Finset.ext
+    intro v
+    simp [triple]
+  rw [htr]
   rw [boolBit_pairParityTriple_three (rootedPairBit c)
       none (some x) (some y) (by simp) (by simp) (by simpa using hxy)]
   simp [rootedPairBit_root, rootedPairBit_old, boolBit]
@@ -96,7 +103,14 @@ theorem rootedTwoGraph_on_old
       boolBit (c ⟨{y, z}, by simp [hyz]⟩) := by
   classical
   change boolBit (pairParityTriple (rootedPairBit c)
-    ({some x, some y, some z} : Finset (Option V))) = _
+    (triple (some x) (some y) (some z))) = _
+  have htr :
+      triple (some x) (some y) (some z) =
+        ({some x, some y, some z} : Finset (Option V)) := by
+    apply Finset.ext
+    intro v
+    simp [triple]
+  rw [htr]
   rw [boolBit_pairParityTriple_three (rootedPairBit c)
     (some x) (some y) (some z)
     (by simpa using hxy) (by simpa using hxz) (by simpa using hyz)]
