@@ -1,6 +1,7 @@
 import AllThoseEPPA.EPPA
 import EPPAReducts.Classification.PositiveBaselines
 import EPPAReducts.Classification.GraphRelationalCoherent
+import EPPAReducts.Classification.GraphFaithfulSimple
 import EPPAReducts.HumanTargets
 import EPPAReducts.TwoGraphs.Basic
 import EPPAReducts.TwoGraphs.RootedCocycle
