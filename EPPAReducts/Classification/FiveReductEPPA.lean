@@ -25,20 +25,20 @@ def GraphsHaveCoherentEPPA : Prop :=
   ∀ (V : Type), Finite V → ∀ (G : SimpleGraph V),
     ∃ (W : Type), Finite W ∧
       ∃ (H : SimpleGraph W)
-        (ψ : Structure.Embedding AllThoseEPPA.Graph.action
+        (ψ : Structure.Embedding AllThoseEPPA.Graph.action.{0}
           (AllThoseEPPA.Graph.toStructure G)
           (AllThoseEPPA.Graph.toStructure H)),
-        Structure.IsCoherentEPPAWitness AllThoseEPPA.Graph.action ψ
+        Structure.IsCoherentEPPAWitness AllThoseEPPA.Graph.action.{0} ψ
 
 /-- The corresponding ordinary EPPA class assertion for actual simple graphs. -/
 def GraphsHaveEPPA : Prop :=
   ∀ (V : Type), Finite V → ∀ (G : SimpleGraph V),
     ∃ (W : Type), Finite W ∧
       ∃ (H : SimpleGraph W)
-        (ψ : Structure.Embedding AllThoseEPPA.Graph.action
+        (ψ : Structure.Embedding AllThoseEPPA.Graph.action.{0}
           (AllThoseEPPA.Graph.toStructure G)
           (AllThoseEPPA.Graph.toStructure H)),
-        Structure.IsEPPAWitness AllThoseEPPA.Graph.action ψ
+        Structure.IsEPPAWitness AllThoseEPPA.Graph.action.{0} ψ
 
 theorem graphsHaveCoherentEPPA : GraphsHaveCoherentEPPA := by
   intro V hV G
