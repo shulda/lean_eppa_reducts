@@ -3,6 +3,7 @@ import EPPAReducts.HumanTargets
 import EPPAReducts.TwoGraphs.Basic
 import EPPAReducts.TwoGraphs.RootedCocycle
 import EPPAReducts.TwoGraphs.RootingParity
+import EPPAReducts.TwoGraphs.ModuloComplementation
 import EPPAReducts.TwoGraphs.RootedGraph
 import EPPAReducts.TwoGraphs.TwoGraphFourPointXor
 import EPPAReducts.TwoGraphs.RootedParityAway
