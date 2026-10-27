@@ -6,6 +6,7 @@ import EPPAReducts.TwoGraphs.RootingParity
 import EPPAReducts.TwoGraphs.ModuloComplementation
 import EPPAReducts.TwoGraphs.PairTriangleTwoGraph
 import EPPAReducts.TwoGraphs.RootingPairColours
+import EPPAReducts.TwoGraphs.RootedTripleKernel
 import EPPAReducts.TwoGraphs.RootedGraph
 import EPPAReducts.TwoGraphs.TwoGraphFourPointXor
 import EPPAReducts.TwoGraphs.RootedParityAway
