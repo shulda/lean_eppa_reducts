@@ -81,6 +81,6 @@ theorem unorderedCommonCoreExteriorTypes_fin_r_injective
   intro i j h
   have hh := unorderedCommonCoreExteriorTypes_injective m r hm hr h
   apply Fin.ext
-  exact congrArg Fin.val hh
+  exact congrArg (fun x : Fin ((r - 1) + 1) => x.val) hh
 
 end EPPAReducts.BoundedEquivalence
