@@ -1,6 +1,7 @@
 import EPPAReducts.BoundedEquivalence.UnorderedFiniteObstructionData
 import EPPAReducts.BoundedEquivalence.UnorderedTotalColourShift
 import EPPAReducts.BoundedEquivalence.OrderedCoreOnePartialShift
+import EPPAReducts.BoundedEquivalence.OrderedOldCoreShift
 
 /-!
 # The genuine partial automorphisms of the finite unordered obstruction
