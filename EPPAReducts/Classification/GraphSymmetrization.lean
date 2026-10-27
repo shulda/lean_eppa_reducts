@@ -63,7 +63,7 @@ noncomputable def symmetrizedGraphEmbedding
         have hs : Graph.action.onRel ψ.lang Graph.RelSymbol.edge =
             Graph.RelSymbol.edge := by
           simp [hψ, Graph.action, Language.Action.trivial,
-            Language.Action.onRel]
+            Language.Action.onRel] <;> rfl
         rw [hs] at h
         have he :
             (ψ.toFun ∘ (![x, y] : Fin 2 → V)) =
@@ -71,7 +71,7 @@ noncomputable def symmetrizedGraphEmbedding
           funext i
           fin_cases i <;> rfl
         rw [he] at h
-        simpa only [Graph.toStructure_edge] using h
+        simpa [Graph.toStructure] using h
       change (ψ (xs 0) ≠ ψ (xs 1) ∧
         B.rel Graph.RelSymbol.edge (![ψ (xs 0), ψ (xs 1)] : Fin 2 → W) ∧
         B.rel Graph.RelSymbol.edge (![ψ (xs 1), ψ (xs 0)] : Fin 2 → W)) ↔
