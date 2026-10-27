@@ -9,6 +9,10 @@ The build-root import exposes the checked end theorems:
 ```lean
 import EPPAReducts
 
+#check EPPAReducts.Classification.fiveReductEPPAClassification
+#check EPPAReducts.Classification.finiteSimpleGraphsHaveCoherentEPPA
+#check EPPAReducts.TwoGraphs.graphsModuloHaveEPPA_of_twoGraphsModulo
+#check EPPAReducts.TwoGraphs.twoGraphsModuloNotHaveEPPA
 #check EPPAReducts.TwoGraphs.humanTwoGraphsHaveCoherentEPPA
 #check EPPAReducts.BoundedEquivalence.allUnorderedBoundedEquivalencesFailEPPA
 #check EPPAReducts.BoundedEquivalence.orderedBoundedEquivalencesFailEPPA

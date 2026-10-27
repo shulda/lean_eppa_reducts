@@ -6,6 +6,8 @@ This is the public mathematical guide to the Lean development in [`shulda/lean_e
 
 **Extended certified main (27 October 2026):** [commit `3f35830e3493`](https://github.com/shulda/lean_eppa_reducts/commit/3f35830e34938d91fd082c5f9c9ef47b8e371c98), [full Lean build and axiom audit #40517057037](https://github.com/shulda/lean_eppa_reducts/actions/runs/40517057037). **1,290 declarations** checked; the only logical axioms are `propext`, `Classical.choice`, `Quot.sound`.
 
+**Complete classification audited on main:** [commit `9178c621d64c`](https://github.com/shulda/lean_eppa_reducts/commit/9178c621d64cea2e73e65b725bacbd3fc9648ada), [Lean CI #40529501919](https://github.com/shulda/lean_eppa_reducts/actions/runs/40529501919). **1,666 build jobs and 1,338 axiom-audited declarations**; only `propext`, `Classical.choice` and `Quot.sound`.
+
 ## Proven results
 
 1. **Coherent EPPA for all finite two-graphs**, including the empty input, with one finite induced extension and a simultaneous choice of extensions respecting composition.
@@ -16,10 +18,11 @@ This is the public mathematical guide to the Lean development in [`shulda/lean_e
 
 The underlying exact Lean theorem types, with source links, are in [Main theorems](Main-theorems.md).
 
-**Scope boundary:** the standalone full five-reduct *EPPA/coherent-EPPA table* has not yet been certified as one Lean theorem. The general model-theoretic fact that Thomas's five classes exhaust all reducts is also not a formalized theorem here; that historical classification is an external ingredient. See [Rooting reduction](Rooting-reduction.md) and [Main theorems](Main-theorems.md) for exactly what is checked.
+**The complete EPPA/coherent-EPPA table is certified:** [`fiveReductEPPAClassification`](Five-reduct-classification.md) proves both columns for all five specified finite classes, with genuine positive witnesses and negative no-witness theorems. Thomas's theorem that these five are *all* first-order reducts remains an **external** mathematical result, not something proved in this Lean project.
 
 ## Guide
 
+- [Five-reduct classification](Five-reduct-classification.md): complete status table, exact code links and semantic audit.
 - [Rooting reduction](Rooting-reduction.md): full class-level reduction and fifth-reduct non-EPPA, with precise witness transfer.
 - [Main theorems](Main-theorems.md): precise statements in mathematical language and exact checked declarations.
 - [Mathematical definitions](Mathematical-definitions.md): two-graphs, unlabelled class relations, induced embeddings, partial automorphisms, coherence.

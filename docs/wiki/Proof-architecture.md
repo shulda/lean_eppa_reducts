@@ -28,4 +28,10 @@ The Lean proof constructs a valid four-point-even two-graph from an arbitrary fi
 
 [Full integrated CI #40517057037](https://github.com/shulda/lean_eppa_reducts/actions/runs/40517057037) certifies the imported modules and all conclusions at main SHA `3f35830e3493`.
 
-The complete five-reduct table remains a separate Lean theorem to assemble; in particular the original-graph coherent-EPPA case still requires an exact original-language witness bridge.
+The complete five-reduct table and its original-language coherent simple-graph witness have subsequently been proved and audited; the next section records their final exact Lean declarations.
+
+## Completing the five-reduct table
+
+The [exact final conjunction](https://github.com/shulda/lean_eppa_reducts/blob/9178c621d64cea2e73e65b725bacbd3fc9648ada/EPPAReducts/Classification/FiveReductEPPA.lean) reuses all audited positive and negative theorems. Finite sets have a simultaneous extension of partial permutations. For **true finite simple graphs**, the pinned `AllThoseEPPA` coherent binary-relational witness is normalized by retaining only mutual off-diagonal edges; the [induced embedding](https://github.com/shulda/lean_eppa_reducts/blob/9178c621d64cea2e73e65b725bacbd3fc9648ada/EPPAReducts/Classification/GraphSymmetrization.lean), [automorphism transport](https://github.com/shulda/lean_eppa_reducts/blob/9178c621d64cea2e73e65b725bacbd3fc9648ada/EPPAReducts/Classification/GraphSymmetrizationAutomorphism.lean) and [coherent transport](https://github.com/shulda/lean_eppa_reducts/blob/9178c621d64cea2e73e65b725bacbd3fc9648ada/EPPAReducts/Classification/GraphSymmetrizationCoherence.lean) are formally checked. Finite two-graphs use the previously checked coherent valuation witness. In the two negative rows, formally defined coherent common-witness predicates imply ordinary EPPA, contradicting the proved finite obstructions.
+
+This proves both EPPA statuses of these *five named finite classes*. Thomas's external model-theoretic enumeration is not asserted as a Lean result.

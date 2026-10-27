@@ -1,5 +1,14 @@
 # Verification and reproducibility
 
+## Full five-reduct EPPA/coherent-EPPA classification (main)
+
+- **Exact source commit:** [`9178c621d64cea2e73e65b725bacbd3fc9648ada`](https://github.com/shulda/lean_eppa_reducts/commit/9178c621d64cea2e73e65b725bacbd3fc9648ada).
+- **Full GitHub Actions build and axiom audit:** [CI #40529501919](https://github.com/shulda/lean_eppa_reducts/actions/runs/40529501919) — **success**, 27 October 2026.
+- **Imported declarations audited:** **1,338**; trusted logical axioms only `propext`, `Classical.choice`, `Quot.sound`.
+- **Terminal theorem:** [`EPPAReducts.Classification.fiveReductEPPAClassification`](https://github.com/shulda/lean_eppa_reducts/blob/9178c621d64cea2e73e65b725bacbd3fc9648ada/EPPAReducts/Classification/FiveReductEPPA.lean) : `FiveReductEPPAClassification`.
+- **Coverage:** genuine induced/coherent finite witnesses for graphs, sets and two-graphs; ordinary and coherent non-EPPA for graph/two-graph global-complementation reducts.
+- **Boundary:** Thomas's exhaustive theorem that these are all first-order reducts, and the manuscript's particular six-vertex illustrative obstruction, are not formally proved as such.
+
 ## Latest integrated certification — rooting reduction
 
 - **Main commit:** [`3f35830e34938d91fd082c5f9c9ef47b8e371c98`](https://github.com/shulda/lean_eppa_reducts/commit/3f35830e34938d91fd082c5f9c9ef47b8e371c98).
@@ -23,7 +32,7 @@ The workflow rejects `sorry`, `admit` and custom `axiom` declarations in project
 ```sh
 git clone https://github.com/shulda/lean_eppa_reducts.git
 cd lean_eppa_reducts
-git checkout 3f35830e34938d91fd082c5f9c9ef47b8e371c98
+git checkout 9178c621d64cea2e73e65b725bacbd3fc9648ada
 lake exe cache get
 lake build
 ```

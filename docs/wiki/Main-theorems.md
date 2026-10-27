@@ -55,6 +55,6 @@ A two-graph modulo global complementation is represented by an equivalence relat
 
 The relevant [full mathematical and source-facing audit](Rooting-reduction.md) includes empty-domain handling, the parity argument, root fixation, arbitrary ambient witnesses and the unlabelled two-class semantics.
 
-## Distinguish formalized results from the remaining article-level corollaries
+## Complete EPPA/coherent-EPPA classification
 
-All five requested *individual* positive/negative directions except the original-language graph coherent-EPPA positive bridge are certified in the imported development. The complete **five-reduct classification as one standalone Lean theorem** remains an additional integration target. The classical classification of *all first-order reducts* as exactly five classes, due to Thomas, is a separate external mathematical result not asserted here as Lean-checked.
+The terminal theorem [`fiveReductEPPAClassification`](https://github.com/shulda/lean_eppa_reducts/blob/9178c621d64cea2e73e65b725bacbd3fc9648ada/EPPAReducts/Classification/FiveReductEPPA.lean) is the checked conjunction of **ten actual class-level assertions** for ordinary/coherent EPPA across the five finite reduct classes. Its [dedicated audit](Five-reduct-classification.md) gives the exact mathematical formulations and proof crosswalk. Coherent EPPA for real finite simple graphs is separately proved by [`finiteSimpleGraphsHaveCoherentEPPA`](https://github.com/shulda/lean_eppa_reducts/blob/9178c621d64cea2e73e65b725bacbd3fc9648ada/EPPAReducts/Classification/GraphSymmetrizationCoherence.lean). The classical model-theoretic enumeration due to Thomas remains an external input.

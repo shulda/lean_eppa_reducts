@@ -5,9 +5,25 @@
 The [source-controlled research wiki](docs/wiki/README.md) documents the mathematical results in reader-facing language, links each certified theorem to exact Lean declarations, and gives the proof architecture, semantic audit and reproducibility instructions. Its [publishing workflow](.github/workflows/publish-wiki.yml) can synchronize the [GitHub Wiki](https://github.com/shulda/lean_eppa_reducts/wiki) once the independent Wiki remote is initialized. The unpublished manuscript remains private.
 
 
-A public formalization of selected EPPA results for finite relational structures. The research manuscripts and their LaTeX sources remain **private** and are not stored in this repository.
+A public Lean 4 formalization of the five-class EPPA/coherent-EPPA status table for the reducts of the random graph, including the rooting reduction and a general negative theorem for bounded equivalences. The research manuscripts and their LaTeX sources remain **private** and are not stored in this repository.
 
-## Certified mathematical results
+## Complete five-reduct EPPA-status classification
+
+The actual Lean theorem [`Classification.fiveReductEPPAClassification`](EPPAReducts/Classification/FiveReductEPPA.lean) proves this table as a conjunction of **ten quantified EPPA and coherent EPPA propositions**, not an array of assumed truth values:
+
+| Finite structures | EPPA | Coherent EPPA |
+| --- | :---: | :---: |
+| Simple graphs | Yes | Yes |
+| Finite sets | Yes | Yes |
+| Two-graphs | Yes | Yes |
+| Graphs modulo global complementation | No | No |
+| Two-graphs modulo global complementation | No | No |
+
+The positive graph result has a genuine finite `SimpleGraph` witness. Both complementation classes have **unnamed** equivalence classes and may swap their classes under automorphisms. The [rooting reduction](EPPAReducts/TwoGraphs/RootingGlobalTransfer.lean) is proved as a universal class-level implication. [The Wiki classification](docs/wiki/Five-reduct-classification.md) documents the exact sources and quantifiers. The classical theorem of Thomas enumerating *all* first-order reducts is an external model-theoretic result, **not** formalized here.
+
+**Exact integrated-main certification:** commit [`9178c621d64c`](https://github.com/shulda/lean_eppa_reducts/commit/9178c621d64cea2e73e65b725bacbd3fc9648ada), [full Lean CI #40529501919](https://github.com/shulda/lean_eppa_reducts/actions/runs/40529501919), **1,666 build jobs and 1,338 axiom-audited declarations**; only `propext`, `Classical.choice`, and `Quot.sound`.
+
+## Additional independently certified results
 
 All statements below have been compiled as actual Lean theorems and checked by an allowed-axiom audit in the imported `EPPAReducts` project.
 

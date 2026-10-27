@@ -30,3 +30,7 @@ They are *not* the ordinary graph/two-graph classes, and their automorphism grou
 ## Paper correspondence
 
 The source-facing independent specifications are in [`HumanTargets.lean`](https://github.com/shulda/lean_eppa_reducts/blob/main/EPPAReducts/HumanTargets.lean). The mathematical equivalence between the frozen graph-modulo-complementation target and the general arity-two subset-equivalence API is **proved in Lean**, not merely described in prose.
+
+## The five named classes
+
+The [verified classification](Five-reduct-classification.md) uses precisely finite simple graphs ($\mathcal G$), pure finite sets ($\mathcal S$), finite two-graphs ($\mathcal T$), unlabelled pair-class equivalences ($\mathcal G^\pm$) and unlabelled triple-class equivalences admitting a two-graph representative ($\mathcal T^\pm$). These are five different mathematical input classes with independently meaningful EPPA specifications. The table is a proved conjunction; Thomas's theorem enumerating all first-order reducts is external.
