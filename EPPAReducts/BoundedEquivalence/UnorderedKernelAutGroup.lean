@@ -1,5 +1,6 @@
 import EPPAReducts.BoundedEquivalence.UnorderedWitnessAPI
 import Mathlib.GroupTheory.Perm.Basic
+import Mathlib.GroupTheory.GroupAction.Basic
 
 /-!
 # The automorphism subgroup of an unlabelled unordered-subset kernel
@@ -28,8 +29,11 @@ of vertex permutations. -/
     permuteRSubset (g * h) s =
       permuteRSubset g (permuteRSubset h s) := by
   apply Subtype.ext
-  ext x
-  simp [permuteRSubset, Equiv.Perm.mul_apply]
+  change s.val.map (⟨g * h, (g * h).injective⟩ : V ↪ V) =
+    (s.val.map (⟨h, h.injective⟩ : V ↪ V)).map
+      (⟨g, g.injective⟩ : V ↪ V)
+  rw [Finset.map_map]
+  congr 1
 
 @[simp] theorem permuteRSubset_inv_left
     {V : Type} {r : ℕ} (g : Equiv.Perm V)
