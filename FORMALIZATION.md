@@ -351,8 +351,8 @@ Explicitly out of scope: the six-vertex exposition as a separate theorem, the ro
 - [x] Self-contained Lean target statement semantics reviewed and approved by the author (2026-10-25).
 - [x] Final positive theorem and the exact `HumanTargets.twoGraphsHaveCoherentEPPA` proof certified at `171153ba` / CI 40331155882.
 - [x] Ordered negative theorem for all `r,m≥2` proved and audited in Lean (`orderedBoundedEquivalencesFailEPPA`; CI 40399305078).
-- [ ] Unordered negative theorem for all `r,m≥2` proved and audited in Lean.
-- [ ] Certified bridge and full theorem for the **negative** human-readable target; the positive HumanTargets bridge is certified.
+- [x] Unordered negative theorem for all `r,m≥2` proved and audited in Lean (`allUnorderedBoundedEquivalencesFailEPPA`; CI 40471101713).
+- [x] Certified bridge and full theorem for the **negative** human-readable target (`humanGraphsModuloComplementationFailEPPA`; CI 40471101713); the positive target is also certified.
 
 ### GitHub state recovery protocol
 
@@ -400,6 +400,14 @@ On every fresh chat or after a crash:
 - The negative theorem is for **at most** `m` classes; the specifically chosen counterexample will use exactly `m` on a core.
 - For the positive theorem, it is not enough to extend individual partial maps; the subgroup lift must be a genuine homomorphism for every induced substructure.
 - Build success for `EPPAReducts.lean` certifies only the modules actually imported. Check that every target theorem is included in that build root and audited as a declaration.
+
+## Scope extension requested 2026-10-27 — pending verification
+
+- [ ] Exact rooting reduction: EPPA for finite two-graphs modulo global complementation implies EPPA for finite graphs modulo global complementation. Must include a genuine unlabelled triple equivalence and exact root-deletion witness transfer.
+- [ ] Ordinary non-EPPA for two-graphs modulo global complementation, deduced with the proved graph obstruction.
+- [ ] The five-reduct EPPA/coherent-EPPA classification as an exact Lean theorem, clearly distinguishing classical external results from project-proved results.
+- [ ] Independent final comparison to the unpublished near-submission manuscript and successful complete Lean build plus allowed-axiom audit of the exact new declarations.
+- [x] Source-controlled mathematics Wiki pages and separate Wiki publishing workflow prepared; Wiki synchronization is only established after the Wiki remote exists and its publication job actually succeeds.
 
 ## Next concrete actions
 
