@@ -22,7 +22,11 @@ variable {V : Type}
 private theorem boolBit_decide_one (z : ZMod 2) :
     boolBit (decide (z = 1)) = z := by
   classical
-  fin_cases z <;> norm_num [boolBit]
+  by_cases hz : z = 1
+  · simp [hz, boolBit]
+  · have hz0 : z = 0 := by
+      fin_cases z <;> simp_all
+    simp [hz, hz0, boolBit]
 
 /-- Form the triple parity of a completely arbitrary pair-bit function.
 Non-triples are false, as required by the exact two-graph API. -/
@@ -140,8 +144,15 @@ theorem pairParityTriple_fourPointEven
     ({a, b, d} : Finset V) ({a, b, e} : Finset V)
     ({a, d, e} : Finset V) ({b, d, e} : Finset V)
     h12 h13 h14 h23 h24 h34).2
-  simpa only [triple] using
-    (pairParityTriple_fourPointXor c a b d e hab had hae hbd hbe hde)
+  have heq (x y z : V) :
+      triple x y z = ({x, y, z} : Finset V) := by
+    classical
+    ext w
+    simp [triple]
+  have hx := pairParityTriple_fourPointXor c a b d e
+    hab had hae hbd hbe hde
+  rw [heq a b d, heq a b e, heq a d e, heq b d e] at hx
+  exact hx
 
 /-- Every pair-bit colouring yields an actual two-graph. -/
 noncomputable def twoGraphOfPairBits (c : Finset V → Bool) : TwoGraph V where
