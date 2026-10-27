@@ -30,7 +30,7 @@ The coherent two-graph proof takes an ambient index of size $n!$, while the manu
 - The full five-reduct EPPA/coherent-EPPA table **is now proved** as [`fiveReductEPPAClassification`](Five-reduct-classification.md).
 - Independent formal proofs of the classical five-reduct *model-theoretic list* (Thomas) or of every historical free-amalgamation EPPA theorem, which are external ingredients in the paper's classification.
 
-These must not be labelled `proved` merely because corresponding informal implications are standard. The rooting work has added and audited precise Lean declarations. The final five-reduct EPPA/coherent-EPPA table passed [main CI #40529501919](https://github.com/shulda/lean_eppa_reducts/actions/runs/40529501919) at `9178c621d64c`. Thomas's reduct exhaustion theorem is not among the audited declarations.
+Of these four items, the **rooting reduction and five-reduct EPPA table are now proved**, with exact Lean declarations and a successful [main CI #40529501919](https://github.com/shulda/lean_eppa_reducts/actions/runs/40529501919) at `9178c621d64c`. The specific six-vertex example and Thomas's separate model-theoretic enumeration **are not** formalized. Claims about the latter must not be inferred from the checked EPPA-status table.
 
 ## Audit boundary
 
