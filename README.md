@@ -1,5 +1,10 @@
 # EPPA for reducts — Lean 4 formalization
 
+## Research wiki and semantic audit
+
+The [source-controlled research wiki](docs/wiki/README.md) documents the mathematical results in reader-facing language, links each certified theorem to exact Lean declarations, and gives the proof architecture, semantic audit and reproducibility instructions. Its [publishing workflow](.github/workflows/publish-wiki.yml) can synchronize the [GitHub Wiki](https://github.com/shulda/lean_eppa_reducts/wiki) once the independent Wiki remote is initialized. The unpublished manuscript remains private.
+
+
 A public formalization of selected EPPA results for finite relational structures. The research manuscripts and their LaTeX sources remain **private** and are not stored in this repository.
 
 ## Certified mathematical results
