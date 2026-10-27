@@ -15,7 +15,7 @@ namespace EPPAReducts.TwoGraphs
 /-- The parity of an image of three vertices is the triangle sum of
 the corresponding three edge colours. -/
 theorem pairParityTriple_map_three
-    {X Y : Type}
+    {X Y : Type} [DecidableEq X] [DecidableEq Y]
     (c : Finset Y → Bool) (ι : X ↪ Y)
     (x y z : X) (hxy : x ≠ y) (hxz : x ≠ z) (hyz : y ≠ z) :
     boolBit (pairParityTriple c
@@ -39,7 +39,7 @@ theorem pairParityTriple_map_three
 by a constant plus two vertex-gauge terms, then the parity of every
 three-element subset differs by exactly that same constant. -/
 theorem pairParityTriple_map_gauge
-    {X Y : Type}
+    {X Y : Type} [DecidableEq X] [DecidableEq Y]
     (c : Finset Y → Bool) (src dst : X ↪ Y)
     (δ : ZMod 2) (f : X → ZMod 2)
     (hpair : ∀ x y : X, x ≠ y →
