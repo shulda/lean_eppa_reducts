@@ -7,6 +7,7 @@ import EPPAReducts.TwoGraphs.RootingParity
 import EPPAReducts.TwoGraphs.PairParityMapTransport
 import EPPAReducts.TwoGraphs.RootingPairGauge
 import EPPAReducts.TwoGraphs.RootingPartialAutomorphism
+import EPPAReducts.TwoGraphs.RootingGlobalTransfer
 import EPPAReducts.TwoGraphs.ModuloComplementation
 import EPPAReducts.TwoGraphs.PairTriangleTwoGraph
 import EPPAReducts.TwoGraphs.RootingPairColours
