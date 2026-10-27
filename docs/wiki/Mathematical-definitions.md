@@ -2,9 +2,9 @@
 
 ## EPPA and coherent EPPA
 
-An **ordinary EPPA-witness** for a finite relational structure (A) is a finite (B) with an *induced* embedding (\iota:A\hookrightarrow B) such that **all** partial automorphisms (p) of (A) extend to automorphisms (g_p) of **the same** (B). In the negative results, non-EPPA means that one finite (A) defeats every possible finite (B) and induced embedding.
+An **ordinary EPPA-witness** for a finite relational structure $A$ is a finite $B$ with an *induced* embedding $\iota:A\hookrightarrow B$ such that **all** partial automorphisms $p$ of $A$ extend to automorphisms $g_p$ of **the same** $B$. In the negative results, non-EPPA means that one finite $A$ defeats every possible finite $B$ and induced embedding.
 
-**Coherent EPPA** additionally requires a simultaneous choice (p\mapsto\Phi(p)) such that (\Phi(q\circ p)=\Phi(q)\circ\Phi(p)) for composable partial maps. In the checked standalone specification, the source of (p) equals the target of (q), and composition is literal on the full partial domain. The empty partial bijection and the empty input structure are included.
+**Coherent EPPA** additionally requires a simultaneous choice (p\mapsto\Phi$p$) such that $\Phi$q\circ p$=\Phi$q$\circ\Phi$p$$ for composable partial maps. In the checked standalone specification, the source of $p$ equals the target of $q$, and composition is literal on the full partial domain. The empty partial bijection and the empty input structure are included.
 
 ## The exact two-graph API
 
@@ -12,11 +12,11 @@ An **ordinary EPPA-witness** for a finite relational structure (A) is a finite (
 
 The checked coherent-EPPA witness has a finite carrier, an actual new two-graph, an induced vertex embedding, and a coherent extension assignment.
 
-## At most (m) unlabelled equivalence classes
+## At most $m$ unlabelled equivalence classes
 
-For each (r,m\ge 2), the unordered version places an equivalence on `RSubsets V r`, the subtype of vertex sets of cardinality exactly (r). The ordered version places it on **injective** (r)-tuples.
+For each $r,m\ge 2$, the unordered version places an equivalence on `RSubsets V r`, the subtype of vertex sets of cardinality exactly $r$. The ordered version places it on **injective** $r$-tuples.
 
-The notation (\le m) is deliberate: a structure need not use all (m) classes. An explicit obstruction **does** realize all (m) labels on a core, but this is a fact about the chosen obstruction, not an extra assumption imposed on arbitrary ambient structures.
+The notation $\le m$ is deliberate: a structure need not use all $m$ classes. An explicit obstruction **does** realize all $m$ labels on a core, but this is a fact about the chosen obstruction, not an extra assumption imposed on arbitrary ambient structures.
 
 In the proofs, auxiliary `Fin m` or `ZMod m` colours *present* an unlabelled equivalence by equality of colours. They are not relation symbols and are not fixed by automorphisms.
 
