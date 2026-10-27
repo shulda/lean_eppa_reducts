@@ -49,6 +49,10 @@ theorem tripleAboveRoot_shadowEmbedding
   apply Subtype.ext
   simp [tripleAboveRoot, shadowEmbedding, mapPair,
     rootedTripleOfPair, mapRSubset, hxy]
+  change
+    ({ι none, ι (some x), ι (some y)} : Finset W) =
+      ({ι none, ι (some x), ι (some y)} : Finset W)
+  rfl
 
 /-- Any induced extension of the rooted triple-class object induces
 a genuine induced extension of the original pair-class structure
