@@ -39,7 +39,11 @@ theorem binaryRelAut_edge_iff
       (![g x, g y] : Fin 2 → W) := by
     funext i
     fin_cases i <;> rfl
-  rw [hlang, Language.Action.onRel_one, htuple] at h
+  have hs : Graph.action.onRel g.toPartialIsomorphism.lang
+      Graph.RelSymbol.edge = Graph.RelSymbol.edge := by
+    simp [hlang, Graph.action, Language.Action.trivial,
+      Language.Action.onRel] <;> rfl
+  rw [hs, htuple] at h
   exact h
 
 /-- An automorphism is injective on its full carrier, not only on
@@ -51,9 +55,11 @@ theorem binaryRelAut_injective
     Function.Injective (fun x : W => g x) := by
   intro x y h
   apply g.toPartialIsomorphism.toPartialEquiv.injOn
-  · rw [g.source_eq_univ]
+  · change x ∈ g.toPartialIsomorphism.source
+    rw [g.source_eq_univ]
     exact Set.mem_univ _
-  · rw [g.source_eq_univ]
+  · change y ∈ g.toPartialIsomorphism.source
+    rw [g.source_eq_univ]
     exact Set.mem_univ _
   · exact h
 
@@ -88,7 +94,17 @@ noncomputable def symmetrizedGraphAutomorphism
             exact hneq (binaryRelAut_injective B g heq)
         have hlang : g.toPartialIsomorphism.lang = 1 :=
           Subsingleton.elim _ _
-        rw [hlang, Language.Action.onRel_one]
+        have hs : Graph.action.onRel g.toPartialIsomorphism.lang
+            Graph.RelSymbol.edge = Graph.RelSymbol.edge := by
+          simp [hlang, Graph.action, Language.Action.trivial,
+            Language.Action.onRel] <;> rfl
+        rw [hs]
+        have ht :
+            (g.toPartialIsomorphism.toPartialEquiv ∘ xs) =
+              (![g (xs 0), g (xs 1)] : Fin 2 → W) := by
+          funext i
+          fin_cases i <;> rfl
+        rw [ht]
         change (g (xs 0) ≠ g (xs 1) ∧
           B.rel Graph.RelSymbol.edge
             (![g (xs 0), g (xs 1)] : Fin 2 → W) ∧
