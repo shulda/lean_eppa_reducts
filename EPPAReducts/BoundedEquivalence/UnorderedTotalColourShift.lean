@@ -97,9 +97,6 @@ theorem unorderedCoreShiftPerm_on_core
       (unorderedCoreInclusion (S := S) (E := E))
   rw [Finset.map_map, Finset.map_map]
   congr 1
-  apply Function.Embedding.ext
-  intro x
-  rfl
 
 /-- The core action transports a single exterior subset, while
 fixing its exterior vertex. -/
@@ -128,26 +125,23 @@ theorem unorderedCoreShiftPerm_on_exterior
   congr 1
   rw [Finset.map_map, Finset.map_map]
   congr 1
-  apply Function.Embedding.ext
-  intro x
-  rfl
 
 /-- The finite obstruction's total colouring is shifted by one
 on all subsets supported in the old core plus one exterior i. -/
 theorem unorderedTotalColour_shift_on_coreOne
     {S E κ : Type} [AddGroup κ] {t : ℕ}
-    (base : RSubsets S (t + 1) → κ)
+    (base : RSubsets S (t + δ) → κ)
     (exterior : E → RSubsets S t → κ)
-    (p : Equiv.Perm S) (i : E)
-    (hbase : ∀ y : RSubsets S (t + 1),
-      base (permuteRSubset p y) = base y + 1)
+    (p : Equiv.Perm S) (i : E) (δ : κ)
+    (hbase : ∀ y : RSubsets S (t + δ),
+      base (permuteRSubset p y) = base y + δ)
     (hext : ∀ y : RSubsets S t,
-      exterior i (permuteRSubset p y) = exterior i y + 1)
-    (q : RSubsets (Sum S E) (t + 1))
+      exterior i (permuteRSubset p y) = exterior i y + δ)
+    (q : RSubsets (Sum S E) (t + δ))
     (hsupp : ∀ j ∈ q.val.toRight, j = i) :
     unorderedTotalColour base exterior
         (permuteRSubset (unorderedCoreShiftPerm p) q) =
-      unorderedTotalColour base exterior q + 1 := by
+      unorderedTotalColour base exterior q + δ := by
   rcases unorderedCoreOne_decomposition i q hsupp with
     ⟨y, rfl⟩ | ⟨y, rfl⟩
   · calc
@@ -159,9 +153,9 @@ theorem unorderedTotalColour_shift_on_coreOne
           rw [unorderedCoreShiftPerm_on_core]
       _ = base (permuteRSubset p y) :=
         unorderedTotalColour_on_core base exterior _
-      _ = base y + 1 := hbase y
+      _ = base y + δ := hbase y
       _ = unorderedTotalColour base exterior
-          (mapRSubset unorderedCoreInclusion y) + 1 := by
+          (mapRSubset unorderedCoreInclusion y) + δ := by
           rw [unorderedTotalColour_on_core]
   · calc
       unorderedTotalColour base exterior
@@ -172,9 +166,9 @@ theorem unorderedTotalColour_shift_on_coreOne
           rw [unorderedCoreShiftPerm_on_exterior]
       _ = exterior i (permuteRSubset p y) :=
         unorderedTotalColour_on_exterior base exterior _ i
-      _ = exterior i y + 1 := hext y
+      _ = exterior i y + δ := hext y
       _ = unorderedTotalColour base exterior
-          (unorderedInsertExterior y i) + 1 := by
+          (unorderedInsertExterior y i) + δ := by
           rw [unorderedTotalColour_on_exterior]
 
 end EPPAReducts.BoundedEquivalence
