@@ -31,7 +31,16 @@ noncomputable def rootedSupport (D : Finset V) : Finset (Option V) := by
 @[simp] theorem mem_rootedSupport_some (D : Finset V) (v : V) :
     some v ∈ rootedSupport D ↔ v ∈ D := by
   classical
-  simp [rootedSupport, someEmbedding]
+  simp only [rootedSupport, Finset.mem_insert, Finset.mem_map,
+    Option.some_ne_none, false_or]
+  constructor
+  · rintro ⟨a, ha, hav⟩
+    have heq : a = v := by
+      change some a = some v at hav
+      exact Option.some.inj hav
+    exact heq ▸ ha
+  · intro hv
+    exact ⟨v, hv, rfl⟩
 
 /-- An actual equivalence of the subtype of the rooted domain
 with an option of the old subtype. -/
@@ -46,10 +55,11 @@ noncomputable def rootedSupportEquiv (D : Finset V) :
     right_inv := ?_
   }
   · intro u
+    rcases u with ⟨u, hu⟩
     cases u with
-    | mk none h => exact none
-    | mk (some v) h =>
-        exact some ⟨v, (mem_rootedSupport_some D v).mp h⟩
+    | none => exact none
+    | some v =>
+        exact some ⟨v, (mem_rootedSupport_some D v).mp hu⟩
   · intro u
     cases u with
     | none =>
@@ -92,7 +102,8 @@ noncomputable def liftRootPartial (p : PartialBijection V) :
 @[simp] theorem liftRootPartial_root (p : PartialBijection V) :
     ((liftRootPartial p).bijection
       ⟨none, mem_rootedSupport_none p.source⟩).val = none := by
-  rfl
+  classical
+  simp [liftRootPartial, rootedSupportEquiv, optionCongrEquiv]
 
 /-- It acts on each old domain vertex exactly as p does. -/
 @[simp] theorem liftRootPartial_old
@@ -100,6 +111,7 @@ noncomputable def liftRootPartial (p : PartialBijection V) :
     ((liftRootPartial p).bijection
       ⟨some x, (mem_rootedSupport_some p.source x).mpr hx⟩).val =
       some ((p.bijection ⟨x, hx⟩).val) := by
-  rfl
+  classical
+  simp [liftRootPartial, rootedSupportEquiv, optionCongrEquiv]
 
 end EPPAReducts.TwoGraphs
